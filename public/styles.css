@@ -1,0 +1,577 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.header-content {
+  background-color: #2a6496;
+  display: flex;
+  align-items: center;
+
+  margin-top: auto;
+}
+
+.logo-container {
+  margin-right: 300px;
+}
+
+.logo {
+  height: 76px; /* Adjust height as needed */
+  width: auto;
+}
+
+
+header {
+
+  background-color: #2a6496;
+  color: white;
+padding: 2px 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #2a6496;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: #2a6496;
+}
+
+/* Main Layout */
+.app-container {
+  display: flex;
+  height: calc(100vh - 65px); /* Adjust for header */
+  width: 100%;
+  overflow: hidden;
+}
+
+.left-column {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ddd;
+  background-color: white;
+  overflow-y: auto; /* Add scroll to left column */
+}
+
+.right-column {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Collapsible filters styles */
+.filters-container {
+  background-color: #f9f99;
+  border-radius: 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.filters-header {
+  background-color: #7ca2c4;
+  color: white;
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.filters-title h2 {
+  color: white;
+  margin: 0;
+  font-size: 16px;
+}
+
+.filters-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 0;
+}
+
+.filters-toggle.collapsed {
+  transform: rotate(180deg);
+}
+
+.filters-content {
+  padding: 15px;
+  max-height: 300px;
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.filters-container.collapsed .filters-content {
+  padding: 0 15px;
+  max-height: 0;
+  overflow: hidden;
+}
+
+/* Filter controls styling */
+.filter-group {
+  margin-bottom: 15px;
+}
+
+.filter-group:last-child {
+  margin-bottom: 0;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+/* Reset Filters Button */
+#resetFilters {
+  padding: 8px 16px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#resetFilters:hover {
+  background-color: #5a6268;
+}
+
+/* Courses container */
+.courses-container {
+  padding: 15px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+
+/* Course List Section */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.course-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.course-level {
+  background-color: #e9ecef;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.provider-badge {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+}
+
+/* Provider color coding */
+.provider-derby-college {
+  background-color: #ff9800;
+}
+
+.provider-loughborough-college {
+  background-color: #4caf50;
+}
+
+.provider-university-derby {
+  background-color: #2196f3;
+}
+
+.provider-loughborough-university {
+  background-color: #9c27b0;
+}
+
+.course-name {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  min-height: 40px; /* Ensure consistent height */
+}
+
+.subject-area {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+
+
+.view-pathways-btn {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: #4CAF50; /* Green background */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: white; /* White text */
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.view-pathways-btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+
+/* View Toggle Section */
+.view-toggle-container {
+  display: flex;
+  padding: 10px 15px;
+  background-color: #f1f5f9;
+  border-bottom: 1px solid #ddd;
+}
+
+.view-toggle-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.view-toggle-btn:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.view-toggle-btn:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.view-toggle-btn.active {
+  background-color: #2a6496;
+  color: white;
+  border-color: #2a6496;
+}
+
+/* Visualization Section */
+.visualization-container {
+  height: 60%;
+  border-bottom: 1px solid #ddd;
+  background-color: white;
+}
+
+#visualization {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Details Section Improvements */
+.details-container {
+  height: 40%;
+  /*padding: 15px;*/
+  overflow-y: auto; /* Single scroll for the entire container */
+  background-color: white;
+  position: relative; /* For positioning the expand control later */
+  transition: height 0.3s ease-in-out;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  /*margin-bottom: 15px;*/
+  position: sticky; /* Keep header visible when scrolling */
+  top: 0;
+  background-color: white;
+  z-index: 10;
+  /*padding-bottom: 10px;*/
+  border-bottom: 1px solid #eee;
+}
+<!-- Add this CSS for the header controls layout -->
+<style>
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+</style>
+
+.close-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.details-body {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 20px;
+}
+
+.course-info {
+  flex: 1;
+  min-width: 250px; /* Ensure minimum width before wrapping */
+  max-width: 100%; /* Allow expansion on larger screens */
+}
+
+.progression-container {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap; /* Allow sections to wrap */
+  gap: 20px;
+  min-width: 300px; /* Ensure minimum width before wrapping */
+}
+
+.progression-section {
+  flex: 1;
+  min-width: 200px; /* Minimum width before wrapping */
+}
+
+.progression-list {
+  list-style-type: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-height: none; /* Remove fixed height that was causing scroll */
+  overflow-y: visible; /* Remove individual scrollbars */
+}
+
+.progression-list li {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.progression-list li:hover {
+  background-color: #f1f5f9;
+}
+
+.progression-list li:last-child {
+  border-bottom: none;
+}
+
+/* Future expand/collapse control placeholder */
+.details-resize {
+  position: absolute;
+  top: 15px;
+  right: 50px; /* Position between the title and close button */
+  cursor: pointer;
+  color: #2a6496;
+  font-size: 18px;
+  display: none; /* Hide for now - will enable later */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .progression-container {
+    flex-direction: column;
+  }
+  
+  .details-body {
+    flex-direction: column;
+  }
+}
+
+
+
+/* Details Section old
+.details-container {
+  height: 40%;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: white;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.close-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.details-body {
+  display: flex;
+  gap: 30px;
+}
+
+.course-info {
+  flex: 1;
+}
+
+.course-link-container {
+  margin: 15px 0;
+}
+
+.course-link-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.course-link-button:hover {
+  background-color: #45a049;
+}
+
+.progression-container {
+  flex: 2;
+  display: flex;
+  gap: 20px;
+}
+
+.progression-section {
+  flex: 1;
+}
+
+.progression-list {
+  list-style-type: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.progression-list li {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.progression-list li:hover {
+  background-color: #f1f5f9;
+}
+
+.progression-list li:last-child {
+  border-bottom: none;
+}
+
+.instructions {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Level color coding for nodes */
+.level-3-node {
+  background-color: #FF9999;
+}
+
+.level-4-node {
+  background-color: #FFCC99;
+}
+
+.level-5-node {
+  background-color: #FFFF99;
+}
+
+.level-6-node {
+  background-color: #99FF99;
+}
+
+.level-7-node {
+  background-color: #99CCFF;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .left-column, .right-column {
+    width: 100%;
+  }
+  
+  .left-column {
+    height: 40%;
+    min-height: 300px;
+  }
+  
+  .right-column {
+    height: 60%;
+  }
+  
+  .visualization-container {
+    height: 50%;
+  }
+  
+  .details-container {
+    height: 50%;
+  }
+  
+  .details-body {
+    flex-direction: column;
+  }
+  
+  .progression-container {
+    flex-direction: column;
+  }
+}*/

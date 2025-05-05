@@ -1,0 +1,40 @@
+CourseId,Course Name,Provider,Course Level,Pathway,Link
+1,PG-Cert Big Data Analytics,University of Derby,7,Digital,https://www.derby.ac.uk/postgraduate/computing-courses/big-data-analytics-msc/
+2,BA (Hons) Computer Games Modelling and Animation,University of Derby,6,Digital,https://www.derby.ac.uk/undergraduate/computing-courses/computer-games-modelling-and-animation-ba-hons/
+3,MSc Control and Instrumentation ,University of Derby,7,Engineering,https://www.derby.ac.uk/postgraduate/electrical-electronic-engineering-courses/control-instrumentation-msc/
+4,BSc AI and Data Science,University of Derby,6,Digital,https://www.derby.ac.uk/undergraduate/artificial-intelligence-courses/artificial-intelligence-and-data-science-bsc-hons/
+5,BSc. Internet of Things,University of Derby,6,Digital,https://www.derby.ac.uk/undergraduate/artificial-intelligence-courses/artificial-intelligence-and-data-science-bsc-hons/
+6,BTEC (HNC) Engineering ,Loughborough College,4,Engineering,https://www.loucoll.ac.uk/undergraduate-study/courses/hnc-in-engineering-for-england-htq
+7,Higher Apprenticeship Electical Power Networks Engineering ,Loughborough College,4,Engineering,https://www.loucoll.ac.uk/courses/higher-apprenticeship-level-4-in-electrical-power-networks-engineer
+8,Higher Apprenticeship - Automation and Controls Engineering Technician ,Loughborough College,4,Engineering,https://www.loucoll.ac.uk/courses/higher-apprenticeship-level-4-in-automation-and-controls-engineering-technician
+9,Higher Apprenticeship - Engineering Manufacturing Technician ,Loughborough College,4,Engineering,https://www.loucoll.ac.uk/courses/higher-apprenticeship-level-4-in-engineering-manufacturing-technician
+10,Higher Apprenticeship - Propulsion Technician ,Loughborough College,4,Engineering,https://www.loucoll.ac.uk/courses/higher-apprenticeship-level-4-in-propulsion-technician
+11,BTEC (HND) Computer and Systems Development Network Engineering,Loughborough College,5,Digital,https://www.loucoll.ac.uk/undergraduate-study/courses/higher-technical-qualification-in-cert-he-technical-practice-in-network-engineering
+12,BTEC (HND) Engineering ,Loughborough College,5,Engineering,https://www.loucoll.ac.uk/undergraduate-study/
+13,BA (Hons) in Business and Management,Loughborough College,6,Leadership & Management,https://www.loucoll.ac.uk/undergraduate-study/courses/ba-hons-in-business-and-management
+14,BSc H Engineering (Mechanical) (Top-up),Loughborough College,6,Engineering,https://www.loucoll.ac.uk/undergraduate-study/courses/beng-hons-top-up-in-engineering-mechanical
+15,BSc H Engineering (Electical and Electronic) (Top-up),Loughborough College,6,Engineering,https://www.loucoll.ac.uk/undergraduate-study/courses/beng-hons-top-up-in-engineering-electrical-electronic
+16,BSc H Sustainable Engineering ,Loughborough College,6,Engineering,https://www.loucoll.ac.uk/undergraduate-study/courses/beng-hons-in-sustainable-engineering
+17,"T-Level Digital Production, Design and Development ",Derby College Group,3,Digital,https://www.derby-college.ac.uk/course/t-level-digital-production-design-and-development-year-1/
+18,T Level Digital Support Services,Derby College Group,3,Digital,https://www.derby-college.ac.uk/course/t-level-digital-support-services-year-1/
+19,BTEC Diploma in Civil Engineering,Derby College Group,3,Professional Construction,https://www.derby-college.ac.uk/course/civil-engineering-technician-apprenticeship/
+20,"T-Level - Construction (Design, Surveying and Planning)",Derby College Group,3,Professional Construction,https://www.derby-college.ac.uk/course/t-level-in-construction-design-surveying-and-planning/
+21,T-Level in Science ,Derby College Group,3,Science,https://www.derby-college.ac.uk/course/t-level-in-science/
+22,T-Level civil engineering,Derby College Group,3,Professional Construction,https://www.derby-college.ac.uk/course/
+23,T-Level Engineering,Derby College Group,3,Engineering,https://www.derby-college.ac.uk/course/
+24,HTQ/Higher National Certificate in Engineering for England,Derby College Group,4,Engineering,https://www.derby-college.ac.uk/course/
+25,HNC/HTQ in Construction Management for England,Derby College Group,4,Professional Construction,https://www.derby-college.ac.uk/course/hnc-in-construction-management-for-england-htq/
+26,HNC/HTQ in Modern Methods of Construction for England,Derby College Group,4,Professional Construction,https://www.derby-college.ac.uk/course/hnc-in-modern-methods-of-construction-for-england-htq/
+27,HNC /HTQ Architectural Technology,Derby College Group,4,Professional Construction,https://www.derby-college.ac.uk/course/
+28,HNC/HTQ Quantity Surveying,Derby College Group,4,Professional Construction,https://www.derby-college.ac.uk/course/
+29, Foundation Degree in Software Development,Derby College Group,5,Digital,https://www.derby-college.ac.uk/course/foundation-degree-software-development-fdsc-2-years-htq/
+30,FD Integrated Engineering ,Derby College Group,5,Engineering,https://www.derby-college.ac.uk/course/foundation-degree-in-integrated-engineering-2-years/
+31,BEng H Electronic Engineering ,Derby College Group,6,Engineering,https://www.derby-college.ac.uk/course/beng-hons-engineering-top-up-1-year/
+32,BEng H Manufacturing Engineering ,Derby College Group,6,Engineering,https://www.derby-college.ac.uk/course/beng-hons-engineering-top-up-1-year/
+33,BEng H Mechanical Engineering ,Derby College Group,6,Engineering,https://www.derby-college.ac.uk/course/beng-hons-engineering-top-up-1-year/
+34,MSc Data Science ,Loughborough University,7,Digital,https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/data-science/
+35,MSc Renewable Energy Systems Technology,Loughborough University,7,Engineering,https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/renewable-energy-systems-technology-full-time/
+36,MSc Infrastructure Asset Management ,Loughborough University,7,Engineering,https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/infrastructure-asset-management/
+37,MSc Systems Engineering (DA),Loughborough University,7,Engineering,https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/systems-engineering/
+38,MSc Construction Project Management,Loughborough University,7,Professional Construction,https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/construction-project-management/
+39,Strategic Leadership (DA),Loughborough University,7,Leadership & Management,https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/strategic-leadership/

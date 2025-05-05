@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMIOT Pathway Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Vis.js for network visualization -->
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+</head>
+<body>
+<header>
+  <div class="header-content">
+    <div class="logo-container">
+      <img src="33.gif" alt="EMIOT Logo" class="logo">
+    </div>
+    <h1>PATHWAY EXPLORER</h1>
+  </div>
+</header>
+
+  <div class="app-container">
+    <!-- Left Column: Filters and Course List -->
+<!-- Replace the existing filters section with this code -->
+<div class="left-column">
+  <!-- Collapsible Filters Section -->
+  <div class="filters-container" id="filtersContainer">
+    <div class="filters-header" id="filtersHeader">
+      <div class="filters-title">
+      <h2>Filter Courses</h2>
+      </div>
+     <button class="filters-toggle" id="filtersToggle">▲</button>
+    </div>
+    <div class="filters-content">
+      <!-- Level Filter -->
+      <div class="filter-group">
+        <label for="levelFilter">Level</label>
+        <select id="levelFilter">
+          <option value="">All Levels</option>
+          <option value="3">Level 3</option>
+          <option value="4">Level 4</option>
+          <option value="5">Level 5</option>
+          <option value="6">Level 6</option>
+          <option value="7">Level 7</option>
+          <option value="8">Level 8</option>
+        </select>
+      </div>
+      
+      <!-- Provider Filter -->
+      <div class="filter-group">
+        <label for="providerFilter">Provider</label>
+        <select id="providerFilter">
+          <option value="">All Providers</option>
+          <!-- Options will be populated dynamically -->
+        </select>
+      </div>
+      
+      <!-- Subject Area Filter -->
+      <div class="filter-group">
+        <label for="subjectFilter">Subject Area</label>
+        <select id="subjectFilter">
+          <option value="">All Subjects</option>
+          <!-- Options will be populated dynamically -->
+        </select>
+      </div>
+      
+      <!-- Reset Filters Button -->
+      <div class="filter-actions">
+        <button id="resetFilters">Reset Filters</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Courses List -->
+  <div class="courses-container">
+    <h2>Available Courses</h2>
+    <div id="coursesList" class="courses-grid">
+      <!-- Course cards will be added here dynamically -->
+    </div>
+  </div>
+</div>
+    
+    <!-- Right Column: Visualization and Details -->
+    <div class="right-column">
+      <!-- View Toggle Controls -->
+      <div class="view-toggle-container">
+        <button id="forwardViewBtn" class="view-toggle-btn active">Where can I go from here?</button>
+        <button id="backwardViewBtn" class="view-toggle-btn">How do I get to this course?</button>
+      </div>
+      
+      <!-- Network Visualization Section -->
+      <div class="visualization-container">
+        <div id="visualization"></div>
+      </div>
+      
+ 
+<!-- Update this section in your index.html file -->
+<div class="details-container">
+  <div id="details" class="hidden">
+
+<!-- Replace or update this section in your details header -->
+<div class="details-header">
+  <h2 id="courseTitle">Course Details</h2>
+  <div class="header-controls">
+    <button id="detailsResize" class="details-resize" title="Expand details panel">⬆</button>
+    <button id="closeDetails" class="close-btn">×</button>
+  </div>
+</div>
+
+
+    
+    <div class="details-body">
+      <div class="course-info">
+        <p><strong>Provider:</strong> <span id="courseProvider"></span></p>
+        <p><strong>Level:</strong> <span id="courseLevel"></span></p>
+        <p><strong>Subject Area:</strong> <span id="courseSubject"></span></p>
+        <p><strong>Qualification:</strong> <span id="courseQualification"></span></p>
+        
+        <div id="courseLinkContainer" class="course-link-container">
+          <a id="courseLink" href="#" target="_blank" class="course-link-button">View Course Website</a>
+        </div>
+      </div>
+      
+      <div class="progression-container">
+        <div class="progression-section">
+          <h3>This course leads to:</h3>
+          <ul id="leadsTo" class="progression-list"></ul>
+        </div>
+        
+        <div class="progression-section">
+          <h3>Courses leading here:</h3>
+          <ul id="comingFrom" class="progression-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Instructions shown when no course is selected -->
+  <div id="noSelection" class="instructions">
+    <h3>Select a course to see progression pathways</h3>
+    <p>Click on any course from the list on the left or in the visualization to view its details and progression options.</p>
+  </div>
+</div>
+
+
+
+
+  <!-- Template for course cards -->
+  <template id="courseCardTemplate">
+    <div class="course-card">
+      <div class="card-header">
+        <span class="course-level">Level <span class="level-number"></span></span>
+        <span class="provider-badge"></span>
+      </div>
+      <h3 class="course-name"></h3>
+      <p class="subject-area"></p>
+      <button class="view-pathways-btn">View Pathways</button>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
