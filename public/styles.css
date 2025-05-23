@@ -11,29 +11,33 @@ body {
   background-color: #f8f9fa;
 }
 
+/* Center the title in the header */
 .header-content {
   background-color: #2a6496;
   display: flex;
   align-items: center;
-
+  justify-content: center; /* Center content horizontally */
   margin-top: auto;
+  position: relative; /* For absolute positioning of logo */
 }
 
 .logo-container {
-  margin-right: 300px;
+  position: absolute; /* Take out of normal flow */
+  left: 15px; /* Position on the left edge with some margin */
+  margin-right: 0; /* Remove previous margin */
 }
+
+
 
 .logo {
   height: 76px; /* Adjust height as needed */
   width: auto;
 }
 
-
 header {
-
   background-color: #2a6496;
   color: white;
-padding: 2px 15px;
+  padding: 2px 15px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -43,6 +47,10 @@ h1, h2, h3 {
 
 h1 {
   font-size: 1.8rem;
+  text-align: center; /* Center the text */
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h2 {
@@ -72,15 +80,11 @@ h3 {
   overflow-y: auto; /* Add scroll to left column */
 }
 
-.right-column {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-}
 
 /* Collapsible filters styles */
 .filters-container {
-  background-color: #f9f99;
+  max-width: 200px;
+  background-color: #f9f9f9;
   border-radius: 0;
   margin-bottom: 20px;
   overflow: hidden;
@@ -90,7 +94,8 @@ h3 {
 .filters-header {
   background-color: #7ca2c4;
   color: white;
-  padding: 12px 15px;
+  height: 30px;
+  /* padding: 10px 15px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -180,7 +185,6 @@ h3 {
   overflow-y: auto;
 }
 
-
 /* Course List Section */
 .courses-grid {
   display: grid;
@@ -253,8 +257,6 @@ h3 {
   margin-bottom: 15px;
 }
 
-
-
 .view-pathways-btn {
   width: 100%;
   padding: 8px 12px;
@@ -272,14 +274,8 @@ h3 {
   background-color: #45a049; /* Darker green on hover */
 }
 
-
 /* View Toggle Section */
-.view-toggle-container {
-  display: flex;
-  padding: 10px 15px;
-  background-color: #f1f5f9;
-  border-bottom: 1px solid #ddd;
-}
+
 
 .view-toggle-btn {
   flex: 1;
@@ -304,49 +300,45 @@ h3 {
   border-color: #2a6496;
 }
 
-/* Visualization Section */
-.visualization-container {
-  height: 60%;
-  border-bottom: 1px solid #ddd;
-  background-color: white;
-}
-
-#visualization {
-  width: 100%;
-  height: 100%;
-}
-
 
 /* Details Section Improvements */
-.details-container {
-  height: 40%;
-  /*padding: 15px;*/
-  overflow-y: auto; /* Single scroll for the entire container */
-  background-color: white;
-  position: relative; /* For positioning the expand control later */
-  transition: height 0.3s ease-in-out;
+
+.course-description {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border-left: 4px solid #2a6496;
+}
+
+.course-description h4 {
+  margin-bottom: 10px;
+  color: #2a6496;
+  font-size: 1.1rem;
+}
+
+.course-description p {
+  line-height: 1.6;
+  color: #555;
 }
 
 .details-header {
   display: flex;
   justify-content: space-between;
-  align-items: top;
-  /*margin-bottom: 15px;*/
+  align-items: center;
   position: sticky; /* Keep header visible when scrolling */
   top: 0;
   background-color: white;
   z-index: 10;
-  /*padding-bottom: 10px;*/
   border-bottom: 1px solid #eee;
+  padding: 10px 15px;
 }
-<!-- Add this CSS for the header controls layout -->
-<style>
+
 .header-controls {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-</style>
 
 .close-btn {
   font-size: 24px;
@@ -360,12 +352,31 @@ h3 {
   display: flex;
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
   gap: 20px;
+  padding: 15px;
 }
 
 .course-info {
   flex: 1;
   min-width: 250px; /* Ensure minimum width before wrapping */
   max-width: 100%; /* Allow expansion on larger screens */
+}
+
+.course-link-container {
+  margin: 15px 0;
+}
+
+.course-link-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.course-link-button:hover {
+  background-color: #45a049;
 }
 
 .progression-container {
@@ -403,121 +414,10 @@ h3 {
   border-bottom: none;
 }
 
-/* Future expand/collapse control placeholder */
-.details-resize {
-  position: absolute;
-  top: 15px;
-  right: 50px; /* Position between the title and close button */
-  cursor: pointer;
-  color: #2a6496;
-  font-size: 18px;
-  display: none; /* Hide for now - will enable later */
-}
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-  .progression-container {
-    flex-direction: column;
-  }
-  
-  .details-body {
-    flex-direction: column;
-  }
-}
-
-
-
-/* Details Section old
-.details-container {
-  height: 40%;
-  padding: 15px;
-  overflow-y: auto;
-  background-color: white;
-}
-
-.details-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.close-btn {
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #666;
-}
-
-.details-body {
-  display: flex;
-  gap: 30px;
-}
-
-.course-info {
-  flex: 1;
-}
-
-.course-link-container {
-  margin: 15px 0;
-}
-
-.course-link-button {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #4CAF50;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: bold;
-}
-
-.course-link-button:hover {
-  background-color: #45a049;
-}
-
-.progression-container {
-  flex: 2;
-  display: flex;
-  gap: 20px;
-}
-
-.progression-section {
-  flex: 1;
-}
-
-.progression-list {
-  list-style-type: none;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-.progression-list li {
-  padding: 8px 12px;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-}
-
-.progression-list li:hover {
-  background-color: #f1f5f9;
-}
-
-.progression-list li:last-child {
-  border-bottom: none;
-}
-
-.instructions {
-  text-align: center;
-  padding: 30px;
-  color: #666;
-}
-
 .hidden {
   display: none;
 }
+
 
 /* Level color coding for nodes */
 .level-3-node {
@@ -540,38 +440,499 @@ h3 {
   background-color: #99CCFF;
 }
 
+/* Make containers fill available space */
+#visualizationContainer, #detailsContainer {
+  height: 100%;
+}
+
+/* View options */
+.view-options {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.compact-toggle {
+  padding: 6px 12px;
+  background-color: #f1f5f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Compact view styles */
+.compact-view {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+}
+
+.compact-view .course-card {
+  padding: 10px;
+}
+
+.compact-view .course-name {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.compact-view .view-pathways-btn {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1200px) {
-  .app-container {
+  .progression-container {
     flex-direction: column;
-  }
-  
-  .left-column, .right-column {
-    width: 100%;
-  }
-  
-  .left-column {
-    height: 40%;
-    min-height: 300px;
-  }
-  
-  .right-column {
-    height: 60%;
-  }
-  
-  .visualization-container {
-    height: 50%;
-  }
-  
-  .details-container {
-    height: 50%;
   }
   
   .details-body {
     flex-direction: column;
   }
-  
-  .progression-container {
+}
+/* Mobile-specific adjustments */
+/* Mobile-specific adjustments with full width fix */
+@media (max-width: 768px) {
+  /* Layout structure */
+  .app-container {
     flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent overall scrolling */
+    width: 100%;
   }
-}*/
+  
+  /* Left column (courses) */
+  .left-column {
+    width: 100%;
+    height: 50vh; /* Fixed to 50% of viewport height */
+    min-height: 0;
+    max-height: 50vh;
+    overflow-y: auto; /* This section scrolls independently */
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Right column (visualization/details) */
+  .right-column {
+    width: 100vw !important; /* Force full viewport width */
+    max-width: 100vw !important;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    left: 0;
+    right: 0;
+    height: 50vh; /* Fixed to 50% of viewport height */
+    min-height: 0;
+    max-height: 50vh;
+    overflow: hidden; /* Content inside will have its own scrolling */
+  }
+  
+  /* Tab navigation - make sure it's full width */
+  .view-tabs {
+    width: 100vw;
+    max-width: 100%;
+  }
+  
+  /* Tab content sizing */
+  .tab-content {
+    width: 100vw !important;
+    max-width: 100% !important;
+    height: calc(100% - 45px); /* Full height minus tab buttons */
+    overflow: auto; /* Allow tab content to scroll if needed */
+  }
+  
+  /* Make sure visualization takes proper space */
+  .visualization-container,
+  #visualization,
+  .details-container {
+    width: 100vw !important;
+    max-width: 100% !important;
+  }
+  
+  /* Make details container scrollable */
+  .details-container {
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  /* Fix any margin/padding issues */
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+}
+
+/* Full-width left column for compact view - NOT nested in media query */
+.app-container.compact-view .left-column {
+  width: 100% !important;
+  transition: width 0.3s ease;
+}
+
+.app-container.compact-view .right-column {
+  display: none !important;
+}
+
+/* Button styling */
+.compact-toggle {
+  padding: 6px 12px;
+  background-color: #f1f5f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 10;
+}
+
+.compact-toggle.expanded {
+  background-color: #e9ecef;
+}
+
+
+
+/* Make course cards use flexbox for consistent button alignment */
+.course-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;  /* Make all cards the same height */
+}
+
+/* Push the button to the bottom */
+.view-pathways-btn {
+  margin-top: auto;  /* This is the key property */
+  width: 100%;
+  padding: 8px 12px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+/* Ensure other elements don't push the button down unnecessarily */
+.course-name {
+  flex-grow: 0;  /* Don't allow title to push other elements */
+}
+
+.subject-area {
+  flex-grow: 0;  /* Don't allow subject to push other elements */
+  margin-bottom: 10px; /* Consistent spacing */
+}
+
+
+
+
+/* Tab navigation */
+.view-tabs {
+  display: flex;
+  background-color: #f1f5f9;
+  border-bottom: 1px solid #ddd;
+  z-index: 10;
+}
+
+
+
+.tab-button:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.tab-button.active {
+  background-color: #e4e7eb;
+  color: rgb(64, 80, 125);
+}
+
+/* Right column layout */
+.right-column {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+}
+
+/* Tab content containers - completely revised */
+.tab-content {
+  display: none;
+  position: absolute;
+  top: 86px; /* Below the tabs */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  background-color: white;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Visualization container */
+#visualizationContainer {
+  display: none;
+}
+
+
+/* Details container */
+#detailsContainer {
+  display: none;
+  padding: 0;
+  overflow-y: auto;
+}
+
+#detailsContainer.active {
+  display: block;
+}
+
+.details-container {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.instructions {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+}
+
+/* Updated visualization container styles here*/
+/* Fix visualization size */
+#visualizationContainer.active {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.view-toggle-container {
+  width: 100%;
+  background-color: #f1f5f9;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+  z-index: 2;
+}
+.history-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+  min-width: 60px;
+  text-align: center;
+}
+.history-navigation {
+
+  height: 50px ;
+  display: flex;
+  gap: 10px;
+  padding: 8px 15px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+.history-nav-btn {
+  display: flex !important; /* Force display regardless of state */
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background-color: #2a6496;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+
+/* Styles for enabled buttons */
+.history-nav-btn:not(:disabled) {
+  opacity: 1;
+}
+
+.history-nav-btn:hover:not(:disabled) {
+  background-color: #1c4b73;
+}
+
+/* Styles for disabled buttons - only defined once */
+.history-nav-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+  pointer-events: auto; /* Allow hover effects to show */
+}
+
+.nav-icon {
+  font-size: 1.1em;
+}
+
+/* Button to toggle color key */
+.color-key-toggle {
+  margin-left: auto; /* Push to right side */
+  padding: 6px 12px;
+  background-color: #f1f5f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.color-key-toggle:hover {
+  background-color: #e2e8f0;
+}
+
+/* Color key popup */
+.color-key-popup1 {
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 10px;
+  z-index: 1000;
+  min-width: 150px;
+  width: 160px;  
+}
+
+.color-key-popup {
+  /* position: absolute; */
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 10px;
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.color-key-popup.hidden {
+  display: none;
+}
+
+.color-key-item {
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.color-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+}
+
+.level-3 { background-color: #FF9999; }
+.level-4 { background-color: #FFCC99; }
+.level-5 { background-color: #FFFF99; }
+.level-6 { background-color: #99FF99; }
+.level-7 { background-color: #99CCFF; }
+
+
+#visualization {
+  width: 100%;
+  height: 100%;
+}
+/* New compact view toggle with dropdown */
+.view-toggle-container.compact {
+  padding: 8px 15px;
+  background-color: #f1f5f9;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.view-toggle-container.compact label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+  margin: 0;
+}
+
+.view-mode-select {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  flex: 1;
+  max-width: 300px;
+}
+
+/* Update visualization height for compact toggle */
+
+/* Tab with dropdown */
+.tab-with-dropdown {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.tab-with-dropdown .tab-button {
+  flex: 1;
+  border-radius: 0;
+  margin-right: 0;
+}
+
+.tab-dropdown {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  width: auto;
+  max-width: 200px;
+  z-index: 5;
+}
+
+/* Make visualization container take full height since we removed the toggle container */
+.visualization-container {
+  height: 100% !important; /* No need to subtract toggle height anymore */
+}
+
+/* Update tab button styles to account for dropdown */
+.tab-button {
+  flex: 1;
+  height: 30px;
+  /* padding: 12px 16px; */
+  border: none;
+  background: none;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+}
+
+/* Make the dropdown match active tab styling when tab is active */
+.tab-button.active + .tab-dropdown,
+.tab-with-dropdown.active .tab-dropdown {
+  border-color: #2a6496;
+}

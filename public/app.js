@@ -1,4 +1,5 @@
 // Global variables
+console.log('app.js loaded');
 let network;
 let nodes;
 let edges;
@@ -6,6 +7,9 @@ let allCourses = [];
 let allConnections = [];
 let selectedCourseId = null;
 let currentView = 'forward'; // 'forward' or 'backward'
+let courseHistory = []; // Stack of course IDs
+let historyPointer = -1; // Current position in the stack (-1 means no history yet)
+let dummytext = "The core components provide a broad understanding of the digital industry and the breadth of content will help to ensure you are able to apply the skills in a variety of contexts and for a variety of different purposes.Looking at digital infrastructure, digital support and network cabling, you will learn how to apply procedures and controls to maintain the digital security of an organisation and its data. You will also learn how to explain, install, configure, test and manage both physical and virtual infrastructure while discovering, evaluating and applying reliable sources of knowledge.";
 
 // DOM elements
 const visualization = document.getElementById('visualization');
@@ -16,8 +20,8 @@ const resetFiltersBtn = document.getElementById('resetFilters');
 const detailsPanel = document.getElementById('details');
 const noSelectionPanel = document.getElementById('noSelection');
 const coursesList = document.getElementById('coursesList');
-const forwardViewBtn = document.getElementById('forwardViewBtn');
-const backwardViewBtn = document.getElementById('backwardViewBtn');
+//const forwardViewBtn = document.getElementById('forwardViewBtn');
+//const backwardViewBtn = document.getElementById('backwardViewBtn');
 const courseCardTemplate = document.getElementById('courseCardTemplate');
 // DOM elements for resize functionality
 const detailsContainer = document.querySelector('.details-container');
@@ -187,12 +191,13 @@ function createNetworkVisualization() {
         direction: 'UD', // Up to down
         sortMethod: 'directed',
         levelSeparation: 150,
-        nodeSpacing: 200
+        nodeSpacing: 300
       }
     },
     nodes: {
       shape: 'box',
       margin: 10,
+      size: 20,
       font: {
         size: 14
       }
@@ -234,35 +239,72 @@ function createNetworkVisualization() {
   });
 }
 
-
-
-
 // Select a course and show its details and progression pathways
-async function selectCourse(courseId) {
+async function selectCourse(courseId, addToHistory = true) {
+  const appContainer = document.querySelector('.app-container');
+  const inCompactView = appContainer.classList.contains('compact-view');
+  
+  // If in compact view, switch back to normal view
+  if (inCompactView) {
+    appContainer.classList.remove('compact-view');
+    document.getElementById('toggleCompactView').textContent = 'Expanded View ▶';
+    document.getElementById('toggleCompactView').classList.remove('expanded');
+  }
   // Find the course
   const course = allCourses.find(c => c.courseId == courseId);
   if (!course) return;
-
- // Add these debug lines
+ const dummyText = "Specimen text: The core components provide a broad understanding of the digital industry and the breadth of content will help to ensure you are able to apply the skills in a variety of contexts and for a variety of different purposes.Looking at digital infrastructure, digital support and network cabling, you will learn how to apply procedures and controls to maintain the digital security of an organisation and its data. You will also learn how to explain, install, configure, test and manage both physical and virtual infrastructure while discovering, evaluating and applying reliable sources of knowledge.";
+  // Add these debug lines
   console.log('Selected course:', course);
   console.log('Course URL:', course.courseUrl);
- 
-  // Update selected course
+    // Update selected course
   selectedCourseId = courseId;
+   // Handle history
+  if (addToHistory) {
+      console.log("Before adding to history:", {
+    courseHistory: [...courseHistory],
+    historyPointer,
+    newCourseId: courseId
+  });
+    // If we're not at the end of the history, truncate the forward history
+    if (historyPointer < courseHistory.length - 1) {
+      courseHistory = courseHistory.slice(0, historyPointer + 1);
+    }
+    
+    // Add this course to history if it's different from the current one
+    if (historyPointer < 0 || courseHistory[historyPointer] !== courseId) {
+      courseHistory.push(courseId);
+      historyPointer = courseHistory.length - 1;
+    }
+      if (historyPointer < courseHistory.length - 1) {
+    courseHistory = courseHistory.slice(0, historyPointer + 1);
+  }
+  
+  if (historyPointer < 0 || courseHistory[historyPointer] !== courseId) {
+    courseHistory.push(courseId);
+    historyPointer = courseHistory.length - 1;
+  }
+  
+  console.log("After adding to history:", {
+    courseHistory: [...courseHistory],
+    historyPointer
+  });
+    // Update navigation buttons
+    updateHistoryButtons();
+  }
+
   
   // Show visualization container
   document.querySelector('.visualization-container').style.display = 'block';
   
-
-  
- // Show details and hide no selection message
- detailsPanel.classList.remove('hidden');
- noSelectionPanel.classList.add('hidden');
+  // Show details and hide no selection message
+  detailsPanel.classList.remove('hidden');
+  noSelectionPanel.classList.add('hidden');
  
- // Make sure resize control is visible
- if (detailsResize) {
-   detailsResize.style.display = 'block';
- }
+  // Make sure resize control is visible
+  if (detailsResize) {
+    detailsResize.style.display = 'block';
+  }
 
   // Update course details
   document.getElementById('courseTitle').textContent = course.courseName;
@@ -270,17 +312,17 @@ async function selectCourse(courseId) {
   document.getElementById('courseLevel').textContent = course.level;
   document.getElementById('courseSubject').textContent = course.subjectArea || 'N/A';
   document.getElementById('courseQualification').textContent = course.qualificationType || 'N/A';
-  
-// Update course link
-const courseLinkContainer = document.getElementById('courseLinkContainer');
-const courseLinkElement = document.getElementById('courseLink');
+  document.getElementById('courseDescription').textContent = dummyText;
+  // Update course link
+  const courseLinkContainer = document.getElementById('courseLinkContainer');
+  const courseLinkElement = document.getElementById('courseLink');
 
-if (course.courseUrl && course.courseUrl.trim() !== '') {
-  courseLinkElement.href = course.courseUrl;
-  courseLinkContainer.style.display = 'block';
-} else {
-  courseLinkContainer.style.display = 'none';
-}
+  if (course.courseUrl && course.courseUrl.trim() !== '') {
+    courseLinkElement.href = course.courseUrl;
+    courseLinkContainer.style.display = 'block';
+  } else {
+    courseLinkContainer.style.display = 'none';
+  }
   
   // Update visualization based on current view
   updateVisualization();
@@ -306,18 +348,22 @@ function updateVisualization() {
     label: course.courseName,
     title: `${course.provider} - ${course.courseName} (Level ${course.level})`,
     level: course.level,
+    shape: 'box',
     color: {
       background: getLevelColor(course.level),
-      border: '#2B7CE9',
+      border: 'rgb(34, 73, 163)',
       highlight: {
         background: '#FFC107',
         border: '#FF9800'
       }
     },
     font: {
-      bold: true
-    },
-    borderWidth: 2
+    bold: true,
+    size: 24, // Larger font
+    color: '#000000' // Ensure good readability
+  },
+    borderWidth: 3,
+    
   });
   
   // Add relevant connections based on view mode
@@ -336,6 +382,7 @@ function updateVisualization() {
           label: toCourse.courseName,
           title: `${toCourse.provider} - ${toCourse.courseName} (Level ${toCourse.level})`,
           level: toCourse.level,
+          size: 20,
           color: {
             background: getLevelColor(toCourse.level)
           }
@@ -451,13 +498,10 @@ function resetFilters() {
 function switchViewMode(mode) {
   currentView = mode;
   
-  // Update active button
-  if (mode === 'forward') {
-    forwardViewBtn.classList.add('active');
-    backwardViewBtn.classList.remove('active');
-  } else {
-    forwardViewBtn.classList.remove('active');
-    backwardViewBtn.classList.add('active');
+  // Update selected option in dropdown
+  const viewModeSelect = document.getElementById('viewModeSelect');
+  if (viewModeSelect) {
+    viewModeSelect.value = mode;
   }
   
   // Update visualization if a course is selected
@@ -477,7 +521,6 @@ function closeDetails() {
   nodes.clear();
   edges.clear();
 }
-// Add these functions to your existing app.js file
 
 // DOM Elements for collapsible filters
 const filtersContainer = document.getElementById('filtersContainer');
@@ -505,10 +548,6 @@ function toggleFilters() {
   }
 }
 
-
-
-
-
 // Add event listener to toggle filters
 filtersHeader.addEventListener('click', toggleFilters);
 
@@ -523,69 +562,242 @@ function loadFiltersState() {
   }
 }
 
-// Track expanded state
-let detailsExpanded = false;
 
-// Set up details resize functionality
-function setupDetailsResize() {
-  // Make resize control visible
-  if (detailsResize) {
-    detailsResize.style.display = 'block';
-    
-    // Add click handler
-    detailsResize.addEventListener('click', toggleDetailsSize);
-  }
-}
-
-// Toggle details panel size
-function toggleDetailsSize() {
-  if (!detailsExpanded) {
-    // Expand details (make bigger)
-    detailsContainer.style.height = '70%';
-    visualizationContainer.style.height = '30%';
-    detailsResize.innerHTML = '⬇'; // down arrow
-    detailsResize.title = 'Reduce details panel';
-  } else {
-    // Return to normal size
-    detailsContainer.style.height = '40%';
-    visualizationContainer.style.height = '60%';
-    detailsResize.innerHTML = '⬆'; // up arrow
-    detailsResize.title = 'Expand details panel';
-  }
-  
-  // Toggle state
-  detailsExpanded = !detailsExpanded;
-  
-  // Save preference
-  localStorage.setItem('emiotDetailsExpanded', detailsExpanded.toString());
-}
 
 // Load saved preference for details size
-function loadDetailsSizePreference() {
-  const savedPreference = localStorage.getItem('emiotDetailsExpanded');
-  if (savedPreference === 'true') {
-    // Apply expanded state
-    detailsExpanded = false; // Set to opposite so toggle will set it correctly
-    toggleDetailsSize();
+
+function setupTabSwitching() {
+  const visualTab = document.getElementById('visualTab');
+  const detailsTab = document.getElementById('detailsTab');
+  const visualContainer = document.getElementById('visualizationContainer');
+  const detailsContainer = document.getElementById('detailsContainer');
+  const viewModeSelect = document.getElementById('viewModeSelect');
+  
+  if (!visualTab || !detailsTab) {
+    console.log('Tab elements not found');
+    return;
+  }
+  
+  visualTab.addEventListener('click', function() {
+    visualTab.classList.add('active');
+    detailsTab.classList.remove('active');
+    visualContainer.classList.add('active');
+    detailsContainer.classList.remove('active');
+    
+    // Make sure dropdown is visible when visualization tab is active
+    if (viewModeSelect) {
+      viewModeSelect.style.display = 'block';
+    }
+    
+    // Resize network if visible
+    if (network && visualContainer.classList.contains('active')) {
+      setTimeout(() => network.fit(), 100);
+    }
+  });
+  
+  detailsTab.addEventListener('click', function() {
+    detailsTab.classList.add('active');
+    visualTab.classList.remove('active');
+    detailsContainer.classList.add('active');
+    visualContainer.classList.remove('active');
+    
+    // Hide dropdown when details tab is active (optional)
+    if (viewModeSelect) {
+      viewModeSelect.style.display = 'none';
+    }
+  });
+  
+  // Set up view mode dropdown
+  if (viewModeSelect) {
+    viewModeSelect.addEventListener('change', function() {
+      switchViewMode(this.value);
+    });
+    
+    // Initially hide dropdown if details tab is active
+    if (!visualTab.classList.contains('active')) {
+      viewModeSelect.style.display = 'none';
+    }
   }
 }
 
-// Call this function in your initialization
-document.addEventListener('DOMContentLoaded', function() {
-  setupDetailsResize();
   
-  // Add this to the selectCourse function to ensure resize control is visible
-  // when a course is selected
+  // Debug - check initial state
+  console.log('Initial tab state:');
+  console.log('- Visual tab active:', visualTab.classList.contains('active'));
+  console.log('- Details tab active:', detailsTab.classList.contains('active'));
+ // console.log('- Visual container active:', visualContainer.classList.contains('active'));
+  console.log('- Details container active:', detailsContainer.classList.contains('active'));
+
+
+
+
+// Add compact view toggle
+function setupCompactViewToggle() {
+  // Create the toggle button
+  const toggleContainer = document.createElement('div');
+  toggleContainer.className = 'view-options';
+  
+  const toggleButton = document.createElement('button');
+  toggleButton.id = 'toggleCompactView';
+  toggleButton.className = 'compact-toggle';
+  
+  // Set initial button text for normal state (list at left)
+  toggleButton.textContent = 'Expanded View ▶';
+  
+  toggleContainer.appendChild(toggleButton);
+  
+  // Insert before the courses list
+  const coursesContainer = document.querySelector('.courses-container');
+  if (coursesContainer) {
+    // Make sure we don't add it twice
+    const existingToggle = document.getElementById('toggleCompactView');
+    if (existingToggle) {
+      existingToggle.parentNode.removeChild(existingToggle);
+    }
+    
+    coursesContainer.insertBefore(toggleContainer, document.getElementById('coursesList'));
+    
+    // Add click handler
+    toggleButton.addEventListener('click', function() {
+      // Toggle compact view class on the app container
+      const appContainer = document.querySelector('.app-container');
+      const isCurrentlyExpanded = appContainer.classList.contains('compact-view');
+      
+      // Toggle the class and update button text
+      if (isCurrentlyExpanded) {
+        // Currently expanded full screen, will return to split view
+        appContainer.classList.remove('compact-view');
+        this.textContent = 'Expanded View ▶'; // Button says "Full screen" when in normal state
+        this.classList.remove('expanded');
+        
+        // If a course is selected, make sure network is properly displayed
+        if (selectedCourseId) {
+          setTimeout(() => {
+            if (network) network.fit();
+          }, 300);
+        }
+      } else {
+        // Currently in normal state, will expand to full screen
+        appContainer.classList.add('compact-view');
+        this.textContent = '◀ Split View'; // Button says "Split View" when expanded
+        this.classList.add('expanded');
+      }
+    });
+  }
+}
+function goToPreviousCourse() {
+  if (historyPointer > 0) {
+    historyPointer--;
+    selectCourse(courseHistory[historyPointer], false);
+    updateHistoryButtons();
+  }
+}
+
+function goToNextCourse() {
+  if (historyPointer < courseHistory.length - 1) {
+    historyPointer++;
+    selectCourse(courseHistory[historyPointer], false);
+    updateHistoryButtons();
+  }
+}
+
+
+function updateHistoryButtons() {
+  // Get the buttons and indicator
+  const prevBtn = document.getElementById('prevCourseBtn');
+  const nextBtn = document.getElementById('nextCourseBtn');
+  const indicator = document.getElementById('historyIndicator');
+  
+  // Update disabled state for buttons
+  if (prevBtn) {
+    prevBtn.disabled = historyPointer <= 0;
+  }
+  
+  if (nextBtn) {
+    nextBtn.disabled = historyPointer >= courseHistory.length - 1;
+  }
+  
+  // Update the history indicator
+  if (indicator && courseHistory.length > 0) {
+    const current = historyPointer + 1; // Convert to 1-based for display
+    const total = courseHistory.length;
+    indicator.textContent = `${current} of ${total}`;
+    
+    // Optional: Hide the indicator if there's only one item
+    indicator.style.display = total > 1 ? 'flex' : 'none';
+  }
+}
+// Event listeners and initialization
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Event listeners
+  levelFilter.addEventListener('change', applyFilters);
+  providerFilter.addEventListener('change', applyFilters);
+  subjectFilter.addEventListener('change', applyFilters);
+  resetFiltersBtn.addEventListener('click', resetFilters);
+  // document.getElementById('closeDetails').addEventListener('click', closeDetails);
+    // Add history navigation listeners
+  const prevCourseBtn = document.getElementById('prevCourseBtn');
+  const nextCourseBtn = document.getElementById('nextCourseBtn');
+  
+if (prevCourseBtn) {
+  prevCourseBtn.addEventListener('click', () => {
+    // Update pointer first
+    if (historyPointer > 0) {
+      historyPointer--;
+      // Get the course ID
+      const courseId = courseHistory[historyPointer];
+      // Call selectCourse without awaiting it
+      selectCourse(courseId, false);
+      updateHistoryButtons();
+    }
+  });
+}
+
+if (nextCourseBtn) {
+  nextCourseBtn.addEventListener('click', () => {
+    if (historyPointer < courseHistory.length - 1) {
+      historyPointer++;
+      const courseId = courseHistory[historyPointer];
+      selectCourse(courseId, false);
+      updateHistoryButtons();
+    }
+  });
+}
+
+ // Replace button event listeners with dropdown handler
+  const viewModeSelect = document.getElementById('viewModeSelect');
+    if (viewModeSelect) {
+    viewModeSelect.addEventListener('change', function() {
+      switchViewMode(this.value);
+    });
+  }
+    if (selectedCourseId) {
+    updateVisualization();
+  }
+  
+    // Set up color key toggle
+    
+  const toggleColorKey = document.getElementById('toggleColorKey');
+  const colorKeyPopup = document.getElementById('colorKeyPopup');
+  
+  if (toggleColorKey && colorKeyPopup) {
+    toggleColorKey.addEventListener('click', () => {
+      colorKeyPopup.classList.toggle('hidden');
+    });
+    
+    // Close popup when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!toggleColorKey.contains(event.target) && !colorKeyPopup.contains(event.target)) {
+        colorKeyPopup.classList.add('hidden');
+      }
+    });
+  }
+  // Initialize the application
+  loadData();
+  
+  // Call our new setup functions
+  setupTabSwitching();
+  setupCompactViewToggle();
 });
 
-// Event listeners
-levelFilter.addEventListener('change', applyFilters);
-providerFilter.addEventListener('change', applyFilters);
-subjectFilter.addEventListener('change', applyFilters);
-resetFiltersBtn.addEventListener('click', resetFilters);
-document.getElementById('closeDetails').addEventListener('click', closeDetails);
-forwardViewBtn.addEventListener('click', () => switchViewMode('forward'));
-backwardViewBtn.addEventListener('click', () => switchViewMode('backward'));
-
-// Initialize the application
-loadData();
