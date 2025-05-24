@@ -1,156 +1,80 @@
-// Global variables
+/* ===========================================
+   GLOBAL VARIABLES AND INITIALIZATION
+   =========================================== */
 console.log('app.js loaded');
+
+// Network visualization variables
 let network;
 let nodes;
 let edges;
+
+// Data variables
 let allCourses = [];
 let allConnections = [];
+
+// State variables
 let selectedCourseId = null;
 let currentView = 'forward'; // 'forward' or 'backward'
-let courseHistory = []; // Stack of course IDs
-let historyPointer = -1; // Current position in the stack (-1 means no history yet)
-let wishList = []; // Array of course IDs
+let courseHistory = [];
+let historyPointer = -1;
+let wishList = [];
+let showingWishListOnly = false;
+let filtersCollapsed = false;
+
+// Constants
 const WISHLIST_STORAGE_KEY = 'emiot-wishlist';
-// DOM elements
+
+// DOM elements - Core
 const visualization = document.getElementById('visualization');
+const coursesList = document.getElementById('coursesList');
+const courseCardTemplate = document.getElementById('courseCardTemplate');
+const detailsPanel = document.getElementById('details');
+const noSelectionPanel = document.getElementById('noSelection');
+
+// DOM elements - Filters
 const levelFilter = document.getElementById('levelFilter');
 const providerFilter = document.getElementById('providerFilter');
 const subjectFilter = document.getElementById('subjectFilter');
 const resetFiltersBtn = document.getElementById('resetFilters');
-const detailsPanel = document.getElementById('details');
-const noSelectionPanel = document.getElementById('noSelection');
-const coursesList = document.getElementById('coursesList');
-//const forwardViewBtn = document.getElementById('forwardViewBtn');
-//const backwardViewBtn = document.getElementById('backwardViewBtn');
-const courseCardTemplate = document.getElementById('courseCardTemplate');
-// DOM elements for resize functionality
+const filtersContainer = document.getElementById('filtersContainer');
+const filtersHeader = document.getElementById('filtersHeader');
+const filtersToggle = document.getElementById('filtersToggle');
+
+// DOM elements - Layout
 const detailsContainer = document.querySelector('.details-container');
 const detailsResize = document.getElementById('detailsResize');
 const visualizationContainer = document.querySelector('.visualization-container');
 const rightColumn = document.querySelector('.right-column');
 
-// Load wishlist from localStorage on page load
-function loadWishList() {
-  const saved = localStorage.getItem(WISHLIST_STORAGE_KEY);
-  wishList = saved ? JSON.parse(saved) : [];
-}
-
-// Save wishlist to localStorage
-function saveWishList() {
-  localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(wishList));
-}
-// Check if course is in wishlist
-function isInWishList(courseId) {
-  return wishList.includes(courseId);
-}
-
-// Add/remove course from wishlist
-function toggleWishList(courseId) {
-  const course = allCourses.find(c => c.courseId == courseId);
-  if (!course) return;
-  
-  if (isInWishList(courseId)) {
-    // Remove from wishlist
-    wishList = wishList.filter(id => id !== courseId);
-  } else {
-    // Add to wishlist
-    wishList.push(courseId);
-  }
-  
-  saveWishList();
-  updateWishListUI();
-  updateWishListCount();
-}
-
-// Update wishlist button appearance
-function updateWishListUI() {
-  const wishlistBtn = document.getElementById('wishlistBtn');
-  const wishlistIcon = wishlistBtn?.querySelector('.wishlist-icon');
-  const wishlistText = wishlistBtn?.querySelector('.wishlist-text');
-  
-  if (selectedCourseId && wishlistBtn) {
-    const inWishlist = isInWishList(selectedCourseId);
-    
-    if (inWishlist) {
-      wishlistBtn.classList.add('in-wishlist');
-      wishlistIcon.textContent = '♥'; // Filled heart
-      wishlistText.textContent = 'Remove from Wish List';
-    } else {
-      wishlistBtn.classList.remove('in-wishlist');
-      wishlistIcon.textContent = '♡'; // Empty heart
-      wishlistText.textContent = 'Add to Wish List';
-    }
-  }
-}
-
-// Update wishlist count display
-function updateWishListCount() {
-  const countElement = document.getElementById('wishlistCount');
-  if (countElement) {
-    countElement.textContent = wishList.length;
-  }
-}
-
-// Toggle wishlist filter view
-let showingWishListOnly = false;
-
-function toggleWishListFilter() {
-  console.log('toggleWishListFilter called');
-  console.log('Current wishList:', wishList);
-  console.log('showingWishListOnly before toggle:', showingWishListOnly);
-  showingWishListOnly = !showingWishListOnly;
-  console.log('showingWishListOnly after toggle:', showingWishListOnly);
-  const btn = document.getElementById('showWishlistBtn');
-  if (btn) {
-    if (showingWishListOnly) {
-      btn.classList.add('active');
-      btn.innerHTML = '<span class="wishlist-icon">♥</span> Show All Courses';
-            console.log('Button set to "Show All Courses"');
-    } else {
-      btn.classList.remove('active');
-      btn.innerHTML = '<span class="wishlist-icon">♡</span> Show Wish List (<span id="wishlistCount">' + wishList.length + '</span>)';
-            console.log('Button set to "Show Wish List"');
-    }
-  }
-    console.log('About to call displayCourseCards');
-  displayCourseCards(); // Refresh the course list
-}
-
-
-// Fetch all courses and connections on page load
+/* ===========================================
+   DATA LOADING AND INITIALIZATION
+   =========================================== */
 async function loadData() {
   try {
     // Fetch all courses
     const coursesResponse = await fetch('/api/courses');
     allCourses = await coursesResponse.json();
-    
-    // Add this line to log courses safely
     console.log('Loaded courses sample:', Array.isArray(allCourses) ? allCourses.slice(0, 3) : allCourses);
     
     // Fetch all connections
     const connectionsResponse = await fetch('/api/connections');
     allConnections = await connectionsResponse.json();
     
-    // Populate filter dropdowns
+    // Initialize UI
     populateFilterOptions();
-    
-    // Display course cards
     displayCourseCards();
-    
-    // Initialize visualization (but don't show it yet)
     createNetworkVisualization();
     
     // Hide visualization initially
     document.querySelector('.visualization-container').style.display = 'none';
     
-    // Remember the state of the filters toggle
+    // Load saved states
     loadFiltersState();
   } catch (error) {
     console.error('Error loading data:', error);
   }
 }
 
-// Populate filter dropdowns with unique values
 function populateFilterOptions() {
   // Get unique providers
   const providers = [...new Set(allCourses.map(course => course.provider))];
@@ -171,22 +95,106 @@ function populateFilterOptions() {
   });
 }
 
-// Display course cards based on filters
+/* ===========================================
+   WISHLIST FUNCTIONALITY
+   =========================================== */
+function loadWishList() {
+  const saved = localStorage.getItem(WISHLIST_STORAGE_KEY);
+  wishList = saved ? JSON.parse(saved) : [];
+}
+
+function saveWishList() {
+  localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(wishList));
+}
+
+function isInWishList(courseId) {
+  return wishList.includes(courseId);
+}
+
+function toggleWishList(courseId) {
+  const course = allCourses.find(c => c.courseId == courseId);
+  if (!course) return;
+  
+  if (isInWishList(courseId)) {
+    wishList = wishList.filter(id => id !== courseId);
+  } else {
+    wishList.push(courseId);
+  }
+  
+  saveWishList();
+  updateWishListUI();
+  updateWishListCount();
+}
+
+function updateWishListUI() {
+  const wishlistBtn = document.getElementById('wishlistBtn');
+  const wishlistIcon = wishlistBtn?.querySelector('.wishlist-icon');
+  const wishlistText = wishlistBtn?.querySelector('.wishlist-text');
+  
+  if (selectedCourseId && wishlistBtn) {
+    const inWishlist = isInWishList(selectedCourseId);
+    
+    if (inWishlist) {
+      wishlistBtn.classList.add('in-wishlist');
+      wishlistIcon.textContent = '♥';
+      wishlistText.textContent = 'Remove from Wish List';
+    } else {
+      wishlistBtn.classList.remove('in-wishlist');
+      wishlistIcon.textContent = '♡';
+      wishlistText.textContent = 'Add to Wish List';
+    }
+  }
+}
+
+function updateWishListCount() {
+  const countElement = document.getElementById('wishlistCount');
+  if (countElement) {
+    countElement.textContent = wishList.length;
+  }
+}
+
+function toggleWishListFilter() {
+  console.log('toggleWishListFilter called');
+  console.log('Current wishList:', wishList);
+  console.log('showingWishListOnly before toggle:', showingWishListOnly);
+  
+  showingWishListOnly = !showingWishListOnly;
+  console.log('showingWishListOnly after toggle:', showingWishListOnly);
+  
+  const btn = document.getElementById('showWishlistBtn');
+  if (btn) {
+    if (showingWishListOnly) {
+      btn.classList.add('active');
+      btn.innerHTML = '<span class="wishlist-icon">♥</span> Show All Courses';
+      console.log('Button set to "Show All Courses"');
+    } else {
+      btn.classList.remove('active');
+      btn.innerHTML = '<span class="wishlist-icon">♡</span> Show Wish List (<span id="wishlistCount">' + wishList.length + '</span>)';
+      console.log('Button set to "Show Wish List"');
+    }
+  }
+  
+  console.log('About to call displayCourseCards');
+  displayCourseCards();
+}
+
+/* ===========================================
+   COURSE DISPLAY FUNCTIONALITY
+   =========================================== */
 function displayCourseCards() {
-    console.log('displayCourseCards called');
+  console.log('displayCourseCards called');
   console.log('showingWishListOnly:', showingWishListOnly);
   console.log('wishList:', wishList);
+  
   // Clear existing cards
   coursesList.innerHTML = '';
-  // Filter courses
- let filteredCourses;
+  
+  let filteredCourses;
   
   if (showingWishListOnly) {
     // When showing wishlist, ignore other filters and show all wishlist courses
     console.log('Showing wishlist only - ignoring other filters');
-    filteredCourses = allCourses.filter(course => 
-      isInWishList(course.courseId)
-    );
+    filteredCourses = allCourses.filter(course => isInWishList(course.courseId));
   } else {
     // Normal filtering when not showing wishlist
     const levelValue = levelFilter.value;
@@ -199,7 +207,6 @@ function displayCourseCards() {
       (subjectValue === '' || course.subjectArea === subjectValue)
     );
   }
-
  
   // Create a card for each filtered course
   filteredCourses.forEach(course => {
@@ -218,7 +225,6 @@ function displayCourseCards() {
   }
 }
 
-// Create a course card
 function createCourseCard(course) {
   // Clone the template
   const cardTemplate = courseCardTemplate.content.cloneNode(true);
@@ -253,7 +259,20 @@ function createCourseCard(course) {
   return card;
 }
 
-// Get provider short name
+function applyFilters() {
+  displayCourseCards();
+}
+
+function resetFilters() {
+  levelFilter.value = '';
+  providerFilter.value = '';
+  subjectFilter.value = '';
+  displayCourseCards();
+}
+
+/* ===========================================
+   UTILITY FUNCTIONS
+   =========================================== */
 function getProviderShortName(provider) {
   if (provider.includes('Derby College')) return 'DCG';
   if (provider.includes('Loughborough College')) return 'LC';
@@ -262,7 +281,6 @@ function getProviderShortName(provider) {
   return provider;
 }
 
-// Get provider class for styling
 function getProviderClass(provider) {
   if (provider.includes('Derby College')) return 'provider-derby-college';
   if (provider.includes('Loughborough College')) return 'provider-loughborough-college';
@@ -271,7 +289,6 @@ function getProviderClass(provider) {
   return '';
 }
 
-// Get color for level
 function getLevelColor(level) {
   const colors = {
     3: '#FF9999',
@@ -283,13 +300,15 @@ function getLevelColor(level) {
   return colors[level] || '#ccc';
 }
 
-// Create the network visualization
+/* ===========================================
+   NETWORK VISUALIZATION
+   =========================================== */
 function createNetworkVisualization() {
   // Options for the network
   const options = {
     layout: {
       hierarchical: {
-        direction: 'UD', // Up to down
+        direction: 'UD',
         sortMethod: 'directed',
         levelSeparation: 150,
         nodeSpacing: 300
@@ -340,101 +359,6 @@ function createNetworkVisualization() {
   });
 }
 
-// Select a course and show its details and progression pathways
-async function selectCourse(courseId, addToHistory = true) {
-  const appContainer = document.querySelector('.app-container');
-  const inCompactView = appContainer.classList.contains('compact-view');
-  
-  // If in compact view, switch back to normal view
-  if (inCompactView) {
-    appContainer.classList.remove('compact-view');
-    document.getElementById('toggleCompactView').textContent = 'Expanded View ▶';
-    document.getElementById('toggleCompactView').classList.remove('expanded');
-  }
-  // Find the course
-  const course = allCourses.find(c => c.courseId == courseId);
-  if (!course) return;
- const dummyText = "Specimen text: The core components provide a broad understanding of the digital industry and the breadth of content will help to ensure you are able to apply the skills in a variety of contexts and for a variety of different purposes.Looking at digital infrastructure, digital support and network cabling, you will learn how to apply procedures and controls to maintain the digital security of an organisation and its data. You will also learn how to explain, install, configure, test and manage both physical and virtual infrastructure while discovering, evaluating and applying reliable sources of knowledge.";
-  // Add these debug lines
-  console.log('Selected course:', course);
-  console.log('Course URL:', course.courseUrl);
-    // Update selected course
-  selectedCourseId = courseId;
-   // Handle history
-  if (addToHistory) {
-      console.log("Before adding to history:", {
-    courseHistory: [...courseHistory],
-    historyPointer,
-    newCourseId: courseId
-  });
-    // If we're not at the end of the history, truncate the forward history
-    if (historyPointer < courseHistory.length - 1) {
-      courseHistory = courseHistory.slice(0, historyPointer + 1);
-    }
-    
-    // Add this course to history if it's different from the current one
-    if (historyPointer < 0 || courseHistory[historyPointer] !== courseId) {
-      courseHistory.push(courseId);
-      historyPointer = courseHistory.length - 1;
-    }
-      if (historyPointer < courseHistory.length - 1) {
-    courseHistory = courseHistory.slice(0, historyPointer + 1);
-  }
-  
-  if (historyPointer < 0 || courseHistory[historyPointer] !== courseId) {
-    courseHistory.push(courseId);
-    historyPointer = courseHistory.length - 1;
-  }
-  
-  console.log("After adding to history:", {
-    courseHistory: [...courseHistory],
-    historyPointer
-  });
-    // Update navigation buttons
-    updateHistoryButtons();
-  }
-
-  
-  // Show visualization container
-  document.querySelector('.visualization-container').style.display = 'block';
-  
-  // Show details and hide no selection message
-  detailsPanel.classList.remove('hidden');
-  noSelectionPanel.classList.add('hidden');
- 
-  // Make sure resize control is visible
-  if (detailsResize) {
-    detailsResize.style.display = 'block';
-  }
-
-  // Update course details
-  document.getElementById('courseTitle').textContent = course.courseName;
-  document.getElementById('courseProvider').textContent = course.provider;
-  document.getElementById('courseLevel').textContent = course.level;
-  document.getElementById('courseSubject').textContent = course.subjectArea || 'N/A';
-  document.getElementById('courseQualification').textContent = course.qualificationType || 'N/A';
-  document.getElementById('courseDescription').textContent = dummyText;
-  // Update course link
-  const courseLinkContainer = document.getElementById('courseLinkContainer');
-  const courseLinkElement = document.getElementById('courseLink');
-
-  if (course.courseUrl && course.courseUrl.trim() !== '') {
-    courseLinkElement.href = course.courseUrl;
-    courseLinkContainer.style.display = 'block';
-  } else {
-    courseLinkContainer.style.display = 'none';
-  }
-  
-  // Update visualization based on current view
-  updateVisualization();
-  
-  // Fetch and display progression routes
-  await fetchProgressionRoutes(courseId);
-   // Make sure this line is at the end of the function
-  updateWishListUI(); // This should check and update button state for the current course
-}
-
-// Update the visualization based on selected course and view mode
 function updateVisualization() {
   // Clear existing nodes and edges
   nodes.clear();
@@ -461,25 +385,21 @@ function updateVisualization() {
       }
     },
     font: {
-    bold: true,
-    size: 24, // Larger font
-    color: '#000000' // Ensure good readability
-  },
+      bold: true,
+      size: 24,
+      color: '#000000'
+    },
     borderWidth: 3,
-    
   });
   
   // Add relevant connections based on view mode
   if (currentView === 'forward') {
     // Forward view: show where this course leads to
-    // Find all connections where this course is the 'from' course
     const outgoingConnections = allConnections.filter(conn => conn.fromCourseId == selectedCourseId);
     
-    // Add nodes for destination courses
     outgoingConnections.forEach(conn => {
       const toCourse = allCourses.find(c => c.courseId == conn.toCourseId);
       if (toCourse) {
-        // Add node for destination course
         nodes.add({
           id: toCourse.courseId,
           label: toCourse.courseName,
@@ -491,7 +411,6 @@ function updateVisualization() {
           }
         });
         
-        // Add edge for the connection
         edges.add({
           from: selectedCourseId,
           to: toCourse.courseId,
@@ -501,14 +420,11 @@ function updateVisualization() {
     });
   } else {
     // Backward view: show what leads to this course
-    // Find all connections where this course is the 'to' course
     const incomingConnections = allConnections.filter(conn => conn.toCourseId == selectedCourseId);
     
-    // Add nodes for source courses
     incomingConnections.forEach(conn => {
       const fromCourse = allCourses.find(c => c.courseId == conn.fromCourseId);
       if (fromCourse) {
-        // Add node for source course
         nodes.add({
           id: fromCourse.courseId,
           label: fromCourse.courseName,
@@ -519,7 +435,6 @@ function updateVisualization() {
           }
         });
         
-        // Add edge for the connection
         edges.add({
           from: fromCourse.courseId,
           to: selectedCourseId,
@@ -533,7 +448,115 @@ function updateVisualization() {
   network.fit();
 }
 
-// Fetch progression routes for a course
+function switchViewMode(mode) {
+  currentView = mode;
+  
+  // Update selected option in dropdown
+  const viewModeSelect = document.getElementById('viewModeSelect');
+  if (viewModeSelect) {
+    viewModeSelect.value = mode;
+  }
+  
+  // Update visualization if a course is selected
+  if (selectedCourseId) {
+    updateVisualization();
+  }
+}
+
+/* ===========================================
+   COURSE SELECTION AND HISTORY
+   =========================================== */
+async function selectCourse(courseId, addToHistory = true) {
+  const appContainer = document.querySelector('.app-container');
+  const inCompactView = appContainer.classList.contains('compact-view');
+  
+  // If in compact view, switch back to normal view
+  if (inCompactView) {
+    appContainer.classList.remove('compact-view');
+    document.getElementById('toggleCompactView').textContent = 'Expanded View ▶';
+    document.getElementById('toggleCompactView').classList.remove('expanded');
+  }
+  
+  // Find the course
+  const course = allCourses.find(c => c.courseId == courseId);
+  if (!course) return;
+  
+  const dummyText = "Specimen text: The core components provide a broad understanding of the digital industry and the breadth of content will help to ensure you are able to apply the skills in a variety of contexts and for a variety of different purposes.Looking at digital infrastructure, digital support and network cabling, you will learn how to apply procedures and controls to maintain the digital security of an organisation and its data. You will also learn how to explain, install, configure, test and manage both physical and virtual infrastructure while discovering, evaluating and applying reliable sources of knowledge.";
+  
+  console.log('Selected course:', course);
+  console.log('Course URL:', course.courseUrl);
+  
+  // Update selected course
+  selectedCourseId = courseId;
+  
+  // Handle history
+  if (addToHistory) {
+    console.log("Before adding to history:", {
+      courseHistory: [...courseHistory],
+      historyPointer,
+      newCourseId: courseId
+    });
+    
+    // If we're not at the end of the history, truncate the forward history
+    if (historyPointer < courseHistory.length - 1) {
+      courseHistory = courseHistory.slice(0, historyPointer + 1);
+    }
+    
+    // Add this course to history if it's different from the current one
+    if (historyPointer < 0 || courseHistory[historyPointer] !== courseId) {
+      courseHistory.push(courseId);
+      historyPointer = courseHistory.length - 1;
+    }
+    
+    console.log("After adding to history:", {
+      courseHistory: [...courseHistory],
+      historyPointer
+    });
+    
+    updateHistoryButtons();
+  }
+
+  // Show visualization container
+  document.querySelector('.visualization-container').style.display = 'block';
+  
+  // Show details and hide no selection message
+  detailsPanel.classList.remove('hidden');
+  noSelectionPanel.classList.add('hidden');
+ 
+  // Make sure resize control is visible
+  if (detailsResize) {
+    detailsResize.style.display = 'block';
+  }
+
+  // Update course details
+  document.getElementById('courseTitle').textContent = course.courseName;
+  document.getElementById('courseProvider').textContent = course.provider;
+  document.getElementById('courseLevel').textContent = course.level;
+  document.getElementById('courseSubject').textContent = course.subjectArea || 'N/A';
+  document.getElementById('courseQualification').textContent = course.qualificationType || 'N/A';
+  document.getElementById('courseDescription').textContent = dummyText;
+  
+  // Update course link
+  const courseLinkContainer = document.getElementById('courseLinkContainer');
+  const courseLinkElement = document.getElementById('courseLink');
+
+  if (course.courseUrl && course.courseUrl.trim() !== '') {
+    courseLinkElement.href = course.courseUrl;
+    courseLinkContainer.style.display = 'block';
+  } else {
+    courseLinkContainer.style.display = 'none';
+  }
+  
+  // Update visualization based on current view
+  updateVisualization();
+  
+  // Fetch and display progression routes
+  await fetchProgressionRoutes(courseId);
+  
+  // Update wishlist UI
+  updateWishListUI();
+}
+
 async function fetchProgressionRoutes(courseId) {
   try {
     // Fetch outgoing progression routes
@@ -584,36 +607,6 @@ async function fetchProgressionRoutes(courseId) {
   }
 }
 
-// Apply filters to the course list
-function applyFilters() {
-  displayCourseCards();
-}
-
-// Reset all filters
-function resetFilters() {
-  levelFilter.value = '';
-  providerFilter.value = '';
-  subjectFilter.value = '';
-  displayCourseCards();
-}
-
-// Switch view mode (forward/backward)
-function switchViewMode(mode) {
-  currentView = mode;
-  
-  // Update selected option in dropdown
-  const viewModeSelect = document.getElementById('viewModeSelect');
-  if (viewModeSelect) {
-    viewModeSelect.value = mode;
-  }
-  
-  // Update visualization if a course is selected
-  if (selectedCourseId) {
-    updateVisualization();
-  }
-}
-
-// Close details panel
 function closeDetails() {
   detailsPanel.classList.add('hidden');
   noSelectionPanel.classList.remove('hidden');
@@ -625,36 +618,70 @@ function closeDetails() {
   edges.clear();
 }
 
-// DOM Elements for collapsible filters
-const filtersContainer = document.getElementById('filtersContainer');
-const filtersHeader = document.getElementById('filtersHeader');
-const filtersToggle = document.getElementById('filtersToggle');
+/* ===========================================
+   HISTORY NAVIGATION
+   =========================================== */
+function goToPreviousCourse() {
+  if (historyPointer > 0) {
+    historyPointer--;
+    selectCourse(courseHistory[historyPointer], false);
+    updateHistoryButtons();
+  }
+}
 
-// Initialize filters state (expanded by default)
-let filtersCollapsed = false;
+function goToNextCourse() {
+  if (historyPointer < courseHistory.length - 1) {
+    historyPointer++;
+    selectCourse(courseHistory[historyPointer], false);
+    updateHistoryButtons();
+  }
+}
 
-// Function to toggle filters visibility
+function updateHistoryButtons() {
+  // Get the buttons and indicator
+  const prevBtn = document.getElementById('prevCourseBtn');
+  const nextBtn = document.getElementById('nextCourseBtn');
+  const indicator = document.getElementById('historyIndicator');
+  
+  // Update disabled state for buttons
+  if (prevBtn) {
+    prevBtn.disabled = historyPointer <= 0;
+  }
+  
+  if (nextBtn) {
+    nextBtn.disabled = historyPointer >= courseHistory.length - 1;
+  }
+  
+  // Update the history indicator
+  if (indicator && courseHistory.length > 0) {
+    const current = historyPointer + 1;
+    const total = courseHistory.length;
+    indicator.textContent = `${current} of ${total}`;
+    
+    // Hide the indicator if there's only one item
+    indicator.style.display = total > 1 ? 'flex' : 'none';
+  }
+}
+
+/* ===========================================
+   FILTERS FUNCTIONALITY
+   =========================================== */
 function toggleFilters() {
   filtersCollapsed = !filtersCollapsed;
   
   if (filtersCollapsed) {
     // Collapsed state
     filtersContainer.classList.add('collapsed');
-    // Don't use innerHTML or classList for the toggle element
-    filtersToggle.textContent = '▼'; // Down arrow when collapsed
+    filtersToggle.textContent = '▼';
     localStorage.setItem('emiotFiltersCollapsed', 'true');
   } else {
     // Expanded state
     filtersContainer.classList.remove('collapsed');
-    filtersToggle.textContent = '▲'; // Up arrow when expanded
+    filtersToggle.textContent = '▲';
     localStorage.setItem('emiotFiltersCollapsed', 'false');
   }
 }
 
-// Add event listener to toggle filters
-filtersHeader.addEventListener('click', toggleFilters);
-
-// Remember filters state between sessions
 function loadFiltersState() {
   const savedState = localStorage.getItem('emiotFiltersCollapsed');
   
@@ -665,10 +692,9 @@ function loadFiltersState() {
   }
 }
 
-
-
-// Load saved preference for details size
-
+/* ===========================================
+   UI SETUP FUNCTIONS
+   =========================================== */
 function setupTabSwitching() {
   const visualTab = document.getElementById('visualTab');
   const detailsTab = document.getElementById('detailsTab');
@@ -704,7 +730,7 @@ function setupTabSwitching() {
     detailsContainer.classList.add('active');
     visualContainer.classList.remove('active');
     
-    // Hide dropdown when details tab is active (optional)
+    // Hide dropdown when details tab is active
     if (viewModeSelect) {
       viewModeSelect.style.display = 'none';
     }
@@ -721,20 +747,14 @@ function setupTabSwitching() {
       viewModeSelect.style.display = 'none';
     }
   }
-}
-
   
   // Debug - check initial state
   console.log('Initial tab state:');
   console.log('- Visual tab active:', visualTab.classList.contains('active'));
   console.log('- Details tab active:', detailsTab.classList.contains('active'));
- // console.log('- Visual container active:', visualContainer.classList.contains('active'));
   console.log('- Details container active:', detailsContainer.classList.contains('active'));
+}
 
-
-
-
-// Add compact view toggle
 function setupCompactViewToggle() {
   // Create the toggle button
   const toggleContainer = document.createElement('div');
@@ -743,8 +763,6 @@ function setupCompactViewToggle() {
   const toggleButton = document.createElement('button');
   toggleButton.id = 'toggleCompactView';
   toggleButton.className = 'compact-toggle';
-  
-  // Set initial button text for normal state (list at left)
   toggleButton.textContent = 'Expanded View ▶';
   
   toggleContainer.appendChild(toggleButton);
@@ -762,15 +780,13 @@ function setupCompactViewToggle() {
     
     // Add click handler
     toggleButton.addEventListener('click', function() {
-      // Toggle compact view class on the app container
       const appContainer = document.querySelector('.app-container');
       const isCurrentlyExpanded = appContainer.classList.contains('compact-view');
       
-      // Toggle the class and update button text
       if (isCurrentlyExpanded) {
-        // Currently expanded full screen, will return to split view
+        // Currently expanded full screen, return to split view
         appContainer.classList.remove('compact-view');
-        this.textContent = 'Expanded View ▶'; // Button says "Full screen" when in normal state
+        this.textContent = 'Expanded View ▶';
         this.classList.remove('expanded');
         
         // If a course is selected, make sure network is properly displayed
@@ -780,62 +796,24 @@ function setupCompactViewToggle() {
           }, 300);
         }
       } else {
-        // Currently in normal state, will expand to full screen
+        // Currently in normal state, expand to full screen
         appContainer.classList.add('compact-view');
-        this.textContent = '◀ Split View'; // Button says "Split View" when expanded
+        this.textContent = '◀ Split View';
         this.classList.add('expanded');
       }
     });
   }
 }
-function goToPreviousCourse() {
-  if (historyPointer > 0) {
-    historyPointer--;
-    selectCourse(courseHistory[historyPointer], false);
-    updateHistoryButtons();
-  }
-}
 
-function goToNextCourse() {
-  if (historyPointer < courseHistory.length - 1) {
-    historyPointer++;
-    selectCourse(courseHistory[historyPointer], false);
-    updateHistoryButtons();
-  }
-}
-
-
-function updateHistoryButtons() {
-  // Get the buttons and indicator
-  const prevBtn = document.getElementById('prevCourseBtn');
-  const nextBtn = document.getElementById('nextCourseBtn');
-  const indicator = document.getElementById('historyIndicator');
-  
-  // Update disabled state for buttons
-  if (prevBtn) {
-    prevBtn.disabled = historyPointer <= 0;
-  }
-  
-  if (nextBtn) {
-    nextBtn.disabled = historyPointer >= courseHistory.length - 1;
-  }
-  
-  // Update the history indicator
-  if (indicator && courseHistory.length > 0) {
-    const current = historyPointer + 1; // Convert to 1-based for display
-    const total = courseHistory.length;
-    indicator.textContent = `${current} of ${total}`;
-    
-    // Optional: Hide the indicator if there's only one item
-    indicator.style.display = total > 1 ? 'flex' : 'none';
-  }
-}
-// Event listeners and initialization
+/* ===========================================
+   EVENT LISTENERS AND INITIALIZATION
+   =========================================== */
 document.addEventListener('DOMContentLoaded', function() {
-// Load wishlist on page load
+  // Load wishlist on page load
   loadWishList();
   updateWishListCount();
-    // Add wishlist event listeners
+  
+  // Add wishlist event listeners
   const wishlistBtn = document.getElementById('wishlistBtn');
   const showWishlistBtn = document.getElementById('showWishlistBtn');
   
@@ -850,54 +828,57 @@ document.addEventListener('DOMContentLoaded', function() {
   if (showWishlistBtn) {
     showWishlistBtn.addEventListener('click', toggleWishListFilter);
   }
-  // Event listeners
+  
+  // Filter event listeners
   levelFilter.addEventListener('change', applyFilters);
   providerFilter.addEventListener('change', applyFilters);
   subjectFilter.addEventListener('change', applyFilters);
   resetFiltersBtn.addEventListener('click', resetFilters);
-  // document.getElementById('closeDetails').addEventListener('click', closeDetails);
-    // Add history navigation listeners
+  
+  // Filter toggle event listener
+  if (filtersHeader) {
+    filtersHeader.addEventListener('click', toggleFilters);
+  }
+  
+  // History navigation listeners
   const prevCourseBtn = document.getElementById('prevCourseBtn');
   const nextCourseBtn = document.getElementById('nextCourseBtn');
   
-if (prevCourseBtn) {
-  prevCourseBtn.addEventListener('click', () => {
-    // Update pointer first
-    if (historyPointer > 0) {
-      historyPointer--;
-      // Get the course ID
-      const courseId = courseHistory[historyPointer];
-      // Call selectCourse without awaiting it
-      selectCourse(courseId, false);
-      updateHistoryButtons();
-    }
-  });
-}
+  if (prevCourseBtn) {
+    prevCourseBtn.addEventListener('click', () => {
+      if (historyPointer > 0) {
+        historyPointer--;
+        const courseId = courseHistory[historyPointer];
+        selectCourse(courseId, false);
+        updateHistoryButtons();
+      }
+    });
+  }
 
-if (nextCourseBtn) {
-  nextCourseBtn.addEventListener('click', () => {
-    if (historyPointer < courseHistory.length - 1) {
-      historyPointer++;
-      const courseId = courseHistory[historyPointer];
-      selectCourse(courseId, false);
-      updateHistoryButtons();
-    }
-  });
-}
+  if (nextCourseBtn) {
+    nextCourseBtn.addEventListener('click', () => {
+      if (historyPointer < courseHistory.length - 1) {
+        historyPointer++;
+        const courseId = courseHistory[historyPointer];
+        selectCourse(courseId, false);
+        updateHistoryButtons();
+      }
+    });
+  }
 
- // Replace button event listeners with dropdown handler
+  // View mode dropdown handler
   const viewModeSelect = document.getElementById('viewModeSelect');
-    if (viewModeSelect) {
+  if (viewModeSelect) {
     viewModeSelect.addEventListener('change', function() {
       switchViewMode(this.value);
     });
   }
-    if (selectedCourseId) {
+  
+  if (selectedCourseId) {
     updateVisualization();
   }
   
-    // Set up color key toggle
-    
+  // Set up color key toggle
   const toggleColorKey = document.getElementById('toggleColorKey');
   const colorKeyPopup = document.getElementById('colorKeyPopup');
   
@@ -913,11 +894,11 @@ if (nextCourseBtn) {
       }
     });
   }
+  
   // Initialize the application
   loadData();
   
-  // Call our new setup functions
+  // Call setup functions
   setupTabSwitching();
   setupCompactViewToggle();
 });
-
