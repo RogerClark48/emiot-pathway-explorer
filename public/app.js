@@ -9,8 +9,8 @@ let selectedCourseId = null;
 let currentView = 'forward'; // 'forward' or 'backward'
 let courseHistory = []; // Stack of course IDs
 let historyPointer = -1; // Current position in the stack (-1 means no history yet)
-let dummytext = "The core components provide a broad understanding of the digital industry and the breadth of content will help to ensure you are able to apply the skills in a variety of contexts and for a variety of different purposes.Looking at digital infrastructure, digital support and network cabling, you will learn how to apply procedures and controls to maintain the digital security of an organisation and its data. You will also learn how to explain, install, configure, test and manage both physical and virtual infrastructure while discovering, evaluating and applying reliable sources of knowledge.";
-
+let wishList = []; // Array of course IDs
+const WISHLIST_STORAGE_KEY = 'emiot-wishlist';
 // DOM elements
 const visualization = document.getElementById('visualization');
 const levelFilter = document.getElementById('levelFilter');
@@ -28,6 +28,94 @@ const detailsContainer = document.querySelector('.details-container');
 const detailsResize = document.getElementById('detailsResize');
 const visualizationContainer = document.querySelector('.visualization-container');
 const rightColumn = document.querySelector('.right-column');
+
+// Load wishlist from localStorage on page load
+function loadWishList() {
+  const saved = localStorage.getItem(WISHLIST_STORAGE_KEY);
+  wishList = saved ? JSON.parse(saved) : [];
+}
+
+// Save wishlist to localStorage
+function saveWishList() {
+  localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(wishList));
+}
+// Check if course is in wishlist
+function isInWishList(courseId) {
+  return wishList.includes(courseId);
+}
+
+// Add/remove course from wishlist
+function toggleWishList(courseId) {
+  const course = allCourses.find(c => c.courseId == courseId);
+  if (!course) return;
+  
+  if (isInWishList(courseId)) {
+    // Remove from wishlist
+    wishList = wishList.filter(id => id !== courseId);
+  } else {
+    // Add to wishlist
+    wishList.push(courseId);
+  }
+  
+  saveWishList();
+  updateWishListUI();
+  updateWishListCount();
+}
+
+// Update wishlist button appearance
+function updateWishListUI() {
+  const wishlistBtn = document.getElementById('wishlistBtn');
+  const wishlistIcon = wishlistBtn?.querySelector('.wishlist-icon');
+  const wishlistText = wishlistBtn?.querySelector('.wishlist-text');
+  
+  if (selectedCourseId && wishlistBtn) {
+    const inWishlist = isInWishList(selectedCourseId);
+    
+    if (inWishlist) {
+      wishlistBtn.classList.add('in-wishlist');
+      wishlistIcon.textContent = '♥'; // Filled heart
+      wishlistText.textContent = 'Remove from Wish List';
+    } else {
+      wishlistBtn.classList.remove('in-wishlist');
+      wishlistIcon.textContent = '♡'; // Empty heart
+      wishlistText.textContent = 'Add to Wish List';
+    }
+  }
+}
+
+// Update wishlist count display
+function updateWishListCount() {
+  const countElement = document.getElementById('wishlistCount');
+  if (countElement) {
+    countElement.textContent = wishList.length;
+  }
+}
+
+// Toggle wishlist filter view
+let showingWishListOnly = false;
+
+function toggleWishListFilter() {
+  console.log('toggleWishListFilter called');
+  console.log('Current wishList:', wishList);
+  console.log('showingWishListOnly before toggle:', showingWishListOnly);
+  showingWishListOnly = !showingWishListOnly;
+  console.log('showingWishListOnly after toggle:', showingWishListOnly);
+  const btn = document.getElementById('showWishlistBtn');
+  if (btn) {
+    if (showingWishListOnly) {
+      btn.classList.add('active');
+      btn.innerHTML = '<span class="wishlist-icon">♥</span> Show All Courses';
+            console.log('Button set to "Show All Courses"');
+    } else {
+      btn.classList.remove('active');
+      btn.innerHTML = '<span class="wishlist-icon">♡</span> Show Wish List (<span id="wishlistCount">' + wishList.length + '</span>)';
+            console.log('Button set to "Show Wish List"');
+    }
+  }
+    console.log('About to call displayCourseCards');
+  displayCourseCards(); // Refresh the course list
+}
+
 
 // Fetch all courses and connections on page load
 async function loadData() {
@@ -85,21 +173,34 @@ function populateFilterOptions() {
 
 // Display course cards based on filters
 function displayCourseCards() {
+    console.log('displayCourseCards called');
+  console.log('showingWishListOnly:', showingWishListOnly);
+  console.log('wishList:', wishList);
   // Clear existing cards
   coursesList.innerHTML = '';
-  
-  // Get filter values
-  const levelValue = levelFilter.value;
-  const providerValue = providerFilter.value;
-  const subjectValue = subjectFilter.value;
-  
   // Filter courses
-  const filteredCourses = allCourses.filter(course => 
-    (levelValue === '' || course.level == levelValue) &&
-    (providerValue === '' || course.provider === providerValue) &&
-    (subjectValue === '' || course.subjectArea === subjectValue)
-  );
+ let filteredCourses;
   
+  if (showingWishListOnly) {
+    // When showing wishlist, ignore other filters and show all wishlist courses
+    console.log('Showing wishlist only - ignoring other filters');
+    filteredCourses = allCourses.filter(course => 
+      isInWishList(course.courseId)
+    );
+  } else {
+    // Normal filtering when not showing wishlist
+    const levelValue = levelFilter.value;
+    const providerValue = providerFilter.value;
+    const subjectValue = subjectFilter.value;
+    
+    filteredCourses = allCourses.filter(course => 
+      (levelValue === '' || course.level == levelValue) &&
+      (providerValue === '' || course.provider === providerValue) &&
+      (subjectValue === '' || course.subjectArea === subjectValue)
+    );
+  }
+
+ 
   // Create a card for each filtered course
   filteredCourses.forEach(course => {
     const card = createCourseCard(course);
@@ -329,6 +430,8 @@ async function selectCourse(courseId, addToHistory = true) {
   
   // Fetch and display progression routes
   await fetchProgressionRoutes(courseId);
+   // Make sure this line is at the end of the function
+  updateWishListUI(); // This should check and update button state for the current course
 }
 
 // Update the visualization based on selected course and view mode
@@ -729,7 +832,24 @@ function updateHistoryButtons() {
 }
 // Event listeners and initialization
 document.addEventListener('DOMContentLoaded', function() {
-
+// Load wishlist on page load
+  loadWishList();
+  updateWishListCount();
+    // Add wishlist event listeners
+  const wishlistBtn = document.getElementById('wishlistBtn');
+  const showWishlistBtn = document.getElementById('showWishlistBtn');
+  
+  if (wishlistBtn) {
+    wishlistBtn.addEventListener('click', () => {
+      if (selectedCourseId) {
+        toggleWishList(selectedCourseId);
+      }
+    });
+  }
+  
+  if (showWishlistBtn) {
+    showWishlistBtn.addEventListener('click', toggleWishListFilter);
+  }
   // Event listeners
   levelFilter.addEventListener('change', applyFilters);
   providerFilter.addEventListener('change', applyFilters);

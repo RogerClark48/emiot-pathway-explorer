@@ -21,6 +21,7 @@
 <div class="app-container">
   <!-- Left Column: Filters and Course List -->
   <div class="left-column">
+
     <!-- Collapsible Filters Section -->
     <div class="filters-container" id="filtersContainer">
       <div class="filters-header" id="filtersHeader">
@@ -71,7 +72,13 @@
     
     <!-- Courses List -->
     <div class="courses-container">
-      <h2>Available Courses</h2>
+      <div style="display: grid;grid-template-columns: 1fr 1fr;">
+        <h2>Available Courses</h2>
+        <button id="showWishlistBtn" class="wishlist-filter-btn">
+          <span class="wishlist-icon">♡</span>
+          Show Wish List (<span id="wishlistCount">0</span>)
+        </button>
+       </div>
       <div id="coursesList" class="courses-grid">
         <!-- Course cards will be added here dynamically -->
       </div>
@@ -165,13 +172,22 @@
           
           <div class="details-body">
             <div class="course-info">
+                <!-- Add wishlist button -->
               <p><strong>Provider:</strong> <span id="courseProvider"></span></p>
               <p><strong>Level:</strong> <span id="courseLevel"></span></p>
               <p><strong>Subject Area:</strong> <span id="courseSubject"></span></p>
               <p><strong>Qualification:</strong> <span id="courseQualification"></span></p>
+                              <!-- Add wishlist button -->
+  <div class="wishlist-controls">
+    <button id="wishlistBtn" class="wishlist-btn">
+      <span class="wishlist-icon">♡</span>
+      <span class="wishlist-text">Add to Wish List</span>
+    </button>
+  </div>
               <div id="courseLinkContainer" class="course-link-container">
                 <a id="courseLink" href="#" target="_blank" class="course-link-button">View Course Website</a>
               </div>
+                <!-- Add wishlist button -->
               <div class="course-description">
                 <h4>Course Description</h4>
                 <p id="courseDescription">Course description will appear here...</p>
