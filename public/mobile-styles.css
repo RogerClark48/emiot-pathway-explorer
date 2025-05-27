@@ -187,35 +187,62 @@ body {
   transform: rotate(-90deg);
 }
 
-.filters-content {
+/* .filters-content {
   max-height: 200px;
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
   padding: 0 var(--space-md) var(--space-md);
+} */
+.filters-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 var(--space-sm);
 }
-
 .filters-section.collapsed .filters-content {
   max-height: 0;
   padding: 0 var(--space-md);
 }
-
-.filters-row {
+.filters-section:not(.collapsed) .filters-content {
+  max-height: 200px;
+  padding: 0 var(--space-sm) var(--space-md);
+}
+/* .filters-row {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
   gap: var(--space-sm);
   align-items: center;
+} */
+.filters-row {
+  display: grid;
+  /* Set up 2 rows: filters on top, clear button below */
+  grid-template-columns: minmax(80px, 1fr) minmax(80px, 1fr) minmax(90px, 1fr);
+  grid-template-rows: auto auto;
+  gap: var(--space-sm);
+  align-items: center;
+  padding: 0 var(--space-xs);
 }
-
-.filter-select {
+/* .filter-select {
   padding: var(--space-sm) var(--space-md);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   font-size: var(--font-size-sm);
   background: white;
   min-height: 44px;
+} */
+.filter-select {
+  padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
+  background: white;
+  min-height: 44px;
+  width: 100%;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
-
-.clear-filters {
+/* .clear-filters {
   background: var(--text-light);
   color: white;
   border: none;
@@ -225,8 +252,19 @@ body {
   cursor: pointer;
   min-height: 44px;
   white-space: nowrap;
+} */
+clear-filters {
+  background: var(--text-light);
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-sm); /* Reduce horizontal padding */
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  min-height: 44px;
+  white-space: nowrap;
+  min-width: 50px; /* Ensure it doesn't get too small */
 }
-
 .clear-filters:active {
   background: var(--text-secondary);
 }
@@ -542,6 +580,10 @@ body {
   justify-content: center;
 }
 
+.back-btn .list-symbol {
+  letter-spacing: -1px; 
+  font-size: 20px; 
+}
 .modal-title {
   flex: 1;
   text-align: center;

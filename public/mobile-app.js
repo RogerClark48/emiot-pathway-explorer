@@ -31,6 +31,7 @@ class PathwayExplorer {
       this.showLoading(true);
       await this.loadData();
       this.setupEventListeners();
+      this.initializeFiltersState();
       this.updateWishlistCount();
       // Initialize with all courses visible
       this.filteredCourses = [...this.courses];
@@ -42,6 +43,16 @@ class PathwayExplorer {
     }
   }
   
+  // Add this new method to properly initialize filter state:
+  initializeFiltersState() {
+  // Get the filters section element directly
+  const filtersSection = document.getElementById('filtersSection');
+  
+  // Ensure filters start in collapsed state
+  if (this.filtersCollapsed && filtersSection) {
+    filtersSection.classList.add('collapsed');
+  }
+}
   async loadData() {
     try {
       // Load courses
@@ -148,8 +159,8 @@ class PathwayExplorer {
       modalWishlistBtn.addEventListener('click', () => this.toggleWishlist(this.selectedCourse?.courseId));
     }
     
-    // Handle back button (browser)
-    window.addEventListener('popstate', () => this.handleBackButton());
+  // Handle back button and swipe navigation
+  window.addEventListener('popstate', (event) => this.handleHistoryNavigation(event));  
   }
   
   /* ===========================================
@@ -189,19 +200,45 @@ class PathwayExplorer {
   /* ===========================================
      FILTER FUNCTIONALITY
      =========================================== */
-  toggleFilters() {
-    const filtersSection = document.getElementById('filtersSection');
-    if (!filtersSection) return;
+  // toggleFilters() {
+  //   const filtersSection = document.getElementById('filtersSection');
+  //   if (!filtersSection) return;
     
-    this.filtersCollapsed = !this.filtersCollapsed;
+  //   this.filtersCollapsed = !this.filtersCollapsed;
     
-    if (this.filtersCollapsed) {
-      filtersSection.classList.add('collapsed');
-    } else {
-      filtersSection.classList.remove('collapsed');
-    }
-  }
+  //   if (this.filtersCollapsed) {
+  //     filtersSection.classList.add('collapsed');
+  //   } else {
+  //     filtersSection.classList.remove('collapsed');
+  //   }
+  // }
+  // Update your toggleFilters method to be more robust:
+// toggleFilters() {
+//   this.filtersCollapsed = !this.filtersCollapsed;
   
+//   if (this.filtersCollapsed) {
+//     this.elements.filtersSection.classList.add('collapsed');
+//     // Optional: Update arrow direction
+//     const arrow = this.elements.filtersToggle.querySelector('.filters-arrow');
+//     if (arrow) arrow.textContent = '▼';
+//   } else {
+//     this.elements.filtersSection.classList.remove('collapsed');
+//     // Optional: Update arrow direction  
+//     const arrow = this.elements.filtersToggle.querySelector('.filters-arrow');
+//     if (arrow) arrow.textContent = '▲';
+//   }
+// }
+toggleFilters() {
+  this.filtersCollapsed = !this.filtersCollapsed;
+  
+  const filtersSection = document.getElementById('filtersSection');
+  
+  if (this.filtersCollapsed) {
+    filtersSection.classList.add('collapsed');
+  } else {
+    filtersSection.classList.remove('collapsed');
+  }
+}
   applyFilters() {
     const searchInput = document.getElementById('searchInput');
     const levelFilter = document.getElementById('levelFilter');
@@ -877,6 +914,29 @@ class PathwayExplorer {
       this.closeModal();
     }
   }
+  async handleHistoryNavigation(event) {
+  // If we have course data from history
+  if (event.state && event.state.courseId) {
+    const courseId = event.state.courseId;
+    const course = this.courses.find(c => c.courseId == courseId);
+    
+    if (course && course.courseId !== this.selectedCourse?.courseId) {
+      // Show the course WITHOUT adding to history
+      this.selectedCourse = course;
+      await this.loadCourseDetails(course);
+      
+      // Update modal title and wishlist button
+      const modalTitle = document.getElementById('modalTitle');
+      if (modalTitle) modalTitle.textContent = course.courseName;
+      this.updateWishlistButton(document.getElementById('modalWishlistBtn'), course.courseId);
+      
+      return; // Don't close modal
+    }
+  }
+  
+  // If no course data or at end of history, close modal
+  this.handleBackButton();
+}
   
   /* ===========================================
      UTILITY FUNCTIONS
