@@ -1,0 +1,1230 @@
+CourseId,CourseName,Provider,Level,Pathway,KnowledgeAreas,SkillsAreas,Behaviours,OccupationalStandards,CareerPathways,OverallConfidenceScore,AnalysisNotes,ProcessedDate,SourceURL,StandardizedResponse
+1,PG-Cert Big Data Analytics,University of Derby,7,Digital,"[{""id"": ""K1"", ""description"": ""Big Data Analytics Fundamentals"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Statistical Analysis Methods"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Data Management Systems"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Research Methodologies"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Machine Learning Principles"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Data Analysis and Interpretation"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Big Data Tool Implementation"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Research Project Management"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Statistical Software Usage"", ""confidence"": 8}]","[{""id"": ""B1"", ""description"": ""Analytical Problem Solving"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Independent Research Capability"", ""confidence"": 8}, {""id"": ""B3"", ""description"": ""Professional Data Ethics"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Continuous Learning Mindset"", ""confidence"": 7}]","[{""name"": ""Data Scientist"", ""level"": 7, ""confidence"": 9}, {""name"": ""Data Analyst"", ""level"": 6, ""confidence"": 8}, {""name"": ""Research Data Specialist"", ""level"": 7, ""confidence"": 7}, {""name"": ""Big Data Engineer"", ""level"": 7, ""confidence"": 7}]","[{""role"": ""Data Scientist"", ""level"": ""Senior"", ""confidence"": 9}, {""role"": ""Big Data Analyst"", ""level"": ""Senior"", ""confidence"": 8}, {""role"": ""Research Data Manager"", ""level"": ""Senior"", ""confidence"": 7}, {""role"": ""Analytics Consultant"", ""level"": ""Senior"", ""confidence"": 7}, {""role"": ""Data Science Team Lead"", ""level"": ""Lead"", ""confidence"": 6}]",8,"Strong alignment with Level 7 Data Science competencies, particularly in analytics and research methods. Course structure and content directly maps to senior data science roles.",2025-05-28 12:39:09,https://www.derby.ac.uk/postgraduate/computing-courses/big-data-analytics-msc/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Big Data Analytics Fundamentals"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Statistical Analysis Methods"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Data Management Systems"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Research Methodologies"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Machine Learning Principles"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Data Analysis and Interpretation"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Big Data Tool Implementation"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Research Project Management"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Statistical Software Usage"", ""confidence"": 8}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Analytical Problem Solving"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Independent Research Capability"", ""confidence"": 8},
+    {""id"": ""B3"", ""description"": ""Professional Data Ethics"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Continuous Learning Mindset"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Data Scientist"", ""level"": 7, ""confidence"": 9},
+    {""name"": ""Data Analyst"", ""level"": 6, ""confidence"": 8},
+    {""name"": ""Research Data Specialist"", ""level"": 7, ""confidence"": 7},
+    {""name"": ""Big Data Engineer"", ""level"": 7, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Data Scientist"", ""level"": ""Senior"", ""confidence"": 9},
+    {""role"": ""Big Data Analyst"", ""level"": ""Senior"", ""confidence"": 8},
+    {""role"": ""Research Data Manager"", ""level"": ""Senior"", ""confidence"": 7},
+    {""role"": ""Analytics Consultant"", ""level"": ""Senior"", ""confidence"": 7},
+    {""role"": ""Data Science Team Lead"", ""level"": ""Lead"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Strong alignment with Level 7 Data Science competencies, particularly in analytics and research methods. Course structure and content directly maps to senior data science roles.""
+}"
+2,BA (Hons) Computer Games Modelling and Animation,University of Derby,6,Digital,"[{""id"": ""K1"", ""description"": ""Game Development Fundamentals"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""3D Modelling and Animation Principles"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Digital Art and Design Theory"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Game Engine Technologies"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Animation Pipeline Workflows"", ""confidence"": 8}]","[{""id"": ""S1"", ""description"": ""3D Asset Creation and Optimization"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Character Animation and Rigging"", ""confidence"": 9}, {""id"": ""S3"", ""description"": ""Technical Art Pipeline Implementation"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Game Development Tools Usage"", ""confidence"": 7}, {""id"": ""S5"", ""description"": ""Project Management and Pipeline Control"", ""confidence"": 6}]","[{""id"": ""B1"", ""description"": ""Creative Problem Solving"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Professional Communication"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Team Collaboration"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Attention to Detail"", ""confidence"": 8}]","[{""name"": ""Digital Games Production"", ""level"": 6, ""confidence"": 9}, {""name"": ""Digital Design and Development"", ""level"": 6, ""confidence"": 7}, {""name"": ""Animation Technical Director"", ""level"": 6, ""confidence"": 8}]","[{""role"": ""3D Games Artist"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Character Animator"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Technical Artist"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Animation Director"", ""level"": ""Senior"", ""confidence"": 6}, {""role"": ""Games Art Manager"", ""level"": ""Senior"", ""confidence"": 6}]",8,"Strong alignment with games industry art and animation roles, particularly entry-level positions. Course structure directly maps to core technical and creative competencies required in games development.",2025-05-28 12:39:19,https://www.derby.ac.uk/undergraduate/computing-courses/computer-games-modelling-and-animation-ba-hons/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Game Development Fundamentals"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""3D Modelling and Animation Principles"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Digital Art and Design Theory"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Game Engine Technologies"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Animation Pipeline Workflows"", ""confidence"": 8}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""3D Asset Creation and Optimization"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Character Animation and Rigging"", ""confidence"": 9},
+    {""id"": ""S3"", ""description"": ""Technical Art Pipeline Implementation"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Game Development Tools Usage"", ""confidence"": 7},
+    {""id"": ""S5"", ""description"": ""Project Management and Pipeline Control"", ""confidence"": 6}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Creative Problem Solving"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Professional Communication"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Team Collaboration"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Attention to Detail"", ""confidence"": 8}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Digital Games Production"", ""level"": 6, ""confidence"": 9},
+    {""name"": ""Digital Design and Development"", ""level"": 6, ""confidence"": 7},
+    {""name"": ""Animation Technical Director"", ""level"": 6, ""confidence"": 8}
+  ],
+  ""career_pathways"": [
+    {""role"": ""3D Games Artist"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Character Animator"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Technical Artist"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Animation Director"", ""level"": ""Senior"", ""confidence"": 6},
+    {""role"": ""Games Art Manager"", ""level"": ""Senior"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Strong alignment with games industry art and animation roles, particularly entry-level positions. Course structure directly maps to core technical and creative competencies required in games development.""
+}"
+3,MSc Control and Instrumentation ,University of Derby,7,Engineering,"[{""id"": ""K1"", ""description"": ""Control Systems Engineering Theory"", ""confidence"": 8}, {""id"": ""K2"", ""description"": ""Instrumentation and Measurement Principles"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Electrical Engineering Fundamentals"", ""confidence"": 7}, {""id"": ""K4"", ""description"": ""Electronic Systems and Circuits"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Digital Signal Processing"", ""confidence"": 6}]","[{""id"": ""S1"", ""description"": ""Control System Design and Implementation"", ""confidence"": 7}, {""id"": ""S2"", ""description"": ""Instrumentation System Configuration"", ""confidence"": 7}, {""id"": ""S3"", ""description"": ""Technical Analysis and Problem Solving"", ""confidence"": 6}, {""id"": ""S4"", ""description"": ""System Testing and Calibration"", ""confidence"": 6}]","[{""id"": ""B1"", ""description"": ""Professional Engineering Practice"", ""confidence"": 6}, {""id"": ""B2"", ""description"": ""Independent Research and Investigation"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Technical Leadership"", ""confidence"": 5}]","[{""name"": ""Control and Instrumentation Engineer"", ""level"": 7, ""confidence"": 8}, {""name"": ""Systems Engineer"", ""level"": 7, ""confidence"": 7}, {""name"": ""Research Engineer"", ""level"": 7, ""confidence"": 6}]","[{""role"": ""Control Systems Engineer"", ""level"": ""Advanced"", ""confidence"": 8}, {""role"": ""Instrumentation Engineer"", ""level"": ""Advanced"", ""confidence"": 8}, {""role"": ""Industrial Automation Engineer"", ""level"": ""Advanced"", ""confidence"": 7}, {""role"": ""Research and Development Engineer"", ""level"": ""Advanced"", ""confidence"": 6}]",6,Mapping based on course title and typical MSc Control & Instrumentation curriculum components. Limited course detail available reduces overall confidence.,2025-05-28 12:39:27,https://www.derby.ac.uk/postgraduate/electrical-electronic-engineering-courses/control-instrumentation-msc/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Control Systems Engineering Theory"", ""confidence"": 8},
+    {""id"": ""K2"", ""description"": ""Instrumentation and Measurement Principles"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Electrical Engineering Fundamentals"", ""confidence"": 7},
+    {""id"": ""K4"", ""description"": ""Electronic Systems and Circuits"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Digital Signal Processing"", ""confidence"": 6}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Control System Design and Implementation"", ""confidence"": 7},
+    {""id"": ""S2"", ""description"": ""Instrumentation System Configuration"", ""confidence"": 7},
+    {""id"": ""S3"", ""description"": ""Technical Analysis and Problem Solving"", ""confidence"": 6},
+    {""id"": ""S4"", ""description"": ""System Testing and Calibration"", ""confidence"": 6}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional Engineering Practice"", ""confidence"": 6},
+    {""id"": ""B2"", ""description"": ""Independent Research and Investigation"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Technical Leadership"", ""confidence"": 5}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Control and Instrumentation Engineer"", ""level"": 7, ""confidence"": 8},
+    {""name"": ""Systems Engineer"", ""level"": 7, ""confidence"": 7},
+    {""name"": ""Research Engineer"", ""level"": 7, ""confidence"": 6}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Control Systems Engineer"", ""level"": ""Advanced"", ""confidence"": 8},
+    {""role"": ""Instrumentation Engineer"", ""level"": ""Advanced"", ""confidence"": 8},
+    {""role"": ""Industrial Automation Engineer"", ""level"": ""Advanced"", ""confidence"": 7},
+    {""role"": ""Research and Development Engineer"", ""level"": ""Advanced"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 6,
+  ""analysis_notes"": ""Mapping based on course title and typical MSc Control & Instrumentation curriculum components. Limited course detail available reduces overall confidence.""
+}"
+4,BSc AI and Data Science,University of Derby,6,Digital,"[{""id"": ""K1"", ""description"": ""AI and Machine Learning Fundamentals"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Data Science Methods and Statistics"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Programming and Software Development"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Mathematics for AI/DS"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Data Management and Architecture"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Applied Machine Learning"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Data Analysis and Visualization"", ""confidence"": 9}, {""id"": ""S3"", ""description"": ""Statistical Analysis"", ""confidence"": 8}, {""id"": ""S4"", ""description"": ""Programming in Python/R"", ""confidence"": 8}, {""id"": ""S5"", ""description"": ""Big Data Technologies"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Analytical Problem Solving"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Technical Innovation"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Data Ethics and Governance"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Continuous Learning"", ""confidence"": 8}]","[{""name"": ""Data Scientist"", ""level"": 6, ""confidence"": 9}, {""name"": ""AI Data Specialist"", ""level"": 6, ""confidence"": 8}, {""name"": ""Data Analyst"", ""level"": 6, ""confidence"": 7}]","[{""role"": ""Junior Data Scientist"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""AI Developer"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Machine Learning Engineer"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Data Analytics Consultant"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Research Scientist"", ""level"": ""Advanced"", ""confidence"": 6}]",8,Mapping based on BSc AI and Data Science core components aligning with data science and AI occupational standards,2025-05-28 12:39:36,https://www.derby.ac.uk/undergraduate/artificial-intelligence-courses/artificial-intelligence-and-data-science-bsc-hons/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""AI and Machine Learning Fundamentals"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Data Science Methods and Statistics"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Programming and Software Development"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Mathematics for AI/DS"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Data Management and Architecture"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Applied Machine Learning"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Data Analysis and Visualization"", ""confidence"": 9},
+    {""id"": ""S3"", ""description"": ""Statistical Analysis"", ""confidence"": 8},
+    {""id"": ""S4"", ""description"": ""Programming in Python/R"", ""confidence"": 8},
+    {""id"": ""S5"", ""description"": ""Big Data Technologies"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Analytical Problem Solving"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Technical Innovation"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Data Ethics and Governance"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Continuous Learning"", ""confidence"": 8}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Data Scientist"", ""level"": 6, ""confidence"": 9},
+    {""name"": ""AI Data Specialist"", ""level"": 6, ""confidence"": 8},
+    {""name"": ""Data Analyst"", ""level"": 6, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Junior Data Scientist"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""AI Developer"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Machine Learning Engineer"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Data Analytics Consultant"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Research Scientist"", ""level"": ""Advanced"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Mapping based on BSc AI and Data Science core components aligning with data science and AI occupational standards""
+}"
+5,BSc. Internet of Things,University of Derby,6,Digital,"[{""id"": ""K1"", ""description"": ""IoT Systems Architecture"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Embedded Systems Design"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Network Protocols and Standards"", ""confidence"": 9}, {""id"": ""K4"", ""description"": ""Sensor Technologies"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Cloud Computing Infrastructure"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""IoT Device Programming"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Network Configuration"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Data Analytics"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""System Integration"", ""confidence"": 8}, {""id"": ""S5"", ""description"": ""Security Implementation"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Technical Problem Solving"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""System Design Thinking"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Continuous Learning"", ""confidence"": 8}, {""id"": ""B4"", ""description"": ""Collaborative Working"", ""confidence"": 7}]","[{""name"": ""IoT Engineer"", ""level"": 6, ""confidence"": 9}, {""name"": ""Network Engineer"", ""level"": 6, ""confidence"": 8}, {""name"": ""Systems Engineer"", ""level"": 6, ""confidence"": 7}, {""name"": ""Software Developer"", ""level"": 6, ""confidence"": 7}]","[{""role"": ""IoT Solutions Developer"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Embedded Systems Engineer"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Network Infrastructure Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""IoT Project Manager"", ""level"": ""Senior"", ""confidence"": 6}, {""role"": ""IoT Systems Architect"", ""level"": ""Senior"", ""confidence"": 7}]",8,Mapping based on BSc IoT curriculum alignment with industry standards and common career progression paths in IoT sector,2025-05-28 12:39:46,https://www.derby.ac.uk/undergraduate/artificial-intelligence-courses/artificial-intelligence-and-data-science-bsc-hons/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""IoT Systems Architecture"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Embedded Systems Design"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Network Protocols and Standards"", ""confidence"": 9},
+    {""id"": ""K4"", ""description"": ""Sensor Technologies"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Cloud Computing Infrastructure"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""IoT Device Programming"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Network Configuration"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Data Analytics"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""System Integration"", ""confidence"": 8},
+    {""id"": ""S5"", ""description"": ""Security Implementation"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Technical Problem Solving"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""System Design Thinking"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Continuous Learning"", ""confidence"": 8},
+    {""id"": ""B4"", ""description"": ""Collaborative Working"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""IoT Engineer"", ""level"": 6, ""confidence"": 9},
+    {""name"": ""Network Engineer"", ""level"": 6, ""confidence"": 8},
+    {""name"": ""Systems Engineer"", ""level"": 6, ""confidence"": 7},
+    {""name"": ""Software Developer"", ""level"": 6, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""IoT Solutions Developer"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Embedded Systems Engineer"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Network Infrastructure Engineer"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""IoT Project Manager"", ""level"": ""Senior"", ""confidence"": 6},
+    {""role"": ""IoT Systems Architect"", ""level"": ""Senior"", ""confidence"": 7}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Mapping based on BSc IoT curriculum alignment with industry standards and common career progression paths in IoT sector""
+}"
+6,BTEC (HNC) Engineering ,Loughborough College,4,Engineering,"[{""id"": ""K1"", ""description"": ""Engineering fundamentals and principles"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Mathematics and scientific principles"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Technical design and specifications"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Manufacturing processes and methods"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Quality assurance and control systems"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Technical drawing and CAD"", ""confidence"": 8}, {""id"": ""S2"", ""description"": ""Laboratory testing and measurement"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Problem solving and analysis"", ""confidence"": 9}, {""id"": ""S4"", ""description"": ""Project planning and management"", ""confidence"": 7}, {""id"": ""S5"", ""description"": ""Technical documentation"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Professional workplace conduct"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Self-directed learning"", ""confidence"": 9}, {""id"": ""B3"", ""description"": ""Team collaboration"", ""confidence"": 8}, {""id"": ""B4"", ""description"": ""Safety conscious approach"", ""confidence"": 8}]","[{""name"": ""Engineering Technician"", ""level"": 4, ""confidence"": 9}, {""name"": ""Manufacturing Technician"", ""level"": 4, ""confidence"": 7}, {""name"": ""Maintenance Technician"", ""level"": 4, ""confidence"": 7}]","[{""role"": ""Junior Engineering Technician"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Manufacturing Engineer"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Quality Control Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Design Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}]",8,HNC Engineering program provides strong foundation in core engineering principles with clear alignment to technician-level roles. Program emphasizes practical skills alongside theoretical knowledge.,2025-05-28 12:39:55,https://www.loucoll.ac.uk/undergraduate-study/courses/hnc-in-engineering-for-england-htq,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Engineering fundamentals and principles"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Mathematics and scientific principles"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Technical design and specifications"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Manufacturing processes and methods"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Quality assurance and control systems"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Technical drawing and CAD"", ""confidence"": 8},
+    {""id"": ""S2"", ""description"": ""Laboratory testing and measurement"", ""confidence"": 8}, 
+    {""id"": ""S3"", ""description"": ""Problem solving and analysis"", ""confidence"": 9},
+    {""id"": ""S4"", ""description"": ""Project planning and management"", ""confidence"": 7},
+    {""id"": ""S5"", ""description"": ""Technical documentation"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional workplace conduct"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Self-directed learning"", ""confidence"": 9},
+    {""id"": ""B3"", ""description"": ""Team collaboration"", ""confidence"": 8},
+    {""id"": ""B4"", ""description"": ""Safety conscious approach"", ""confidence"": 8}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Engineering Technician"", ""level"": 4, ""confidence"": 9},
+    {""name"": ""Manufacturing Technician"", ""level"": 4, ""confidence"": 7},
+    {""name"": ""Maintenance Technician"", ""level"": 4, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Junior Engineering Technician"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Manufacturing Engineer"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Quality Control Engineer"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Design Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""HNC Engineering program provides strong foundation in core engineering principles with clear alignment to technician-level roles. Program emphasizes practical skills alongside theoretical knowledge.""
+}"
+11,BTEC (HND) Computer and Systems Development Network Engineering,Loughborough College,5,Digital,"[{""id"": ""K1"", ""description"": ""Network architecture and infrastructure design"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Network security principles and protocols"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Systems development methodologies"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Programming for embedded systems"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Data communications and networking protocols"", ""confidence"": 8}]","[{""id"": ""S1"", ""description"": ""Network system optimization and performance tuning"", ""confidence"": 8}, {""id"": ""S2"", ""description"": ""Technical troubleshooting and problem resolution"", ""confidence"": 9}, {""id"": ""S3"", ""description"": ""Network system design and architecture"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Technical implementation and deployment"", ""confidence"": 7}, {""id"": ""S5"", ""description"": ""Collaborative project work"", ""confidence"": 6}]","[{""id"": ""B1"", ""description"": ""Commitment to professional development"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Workplace professionalism and readiness"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Self-directed learning capability"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Technical problem-solving mindset"", ""confidence"": 8}]","[{""name"": ""Network Engineer"", ""level"": 4, ""confidence"": 9}, {""name"": ""Infrastructure Technician"", ""level"": 3, ""confidence"": 8}, {""name"": ""Systems Development Technician"", ""level"": 4, ""confidence"": 7}, {""name"": ""Software Developer"", ""level"": 4, ""confidence"": 6}]","[{""role"": ""Junior Network Engineer"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Systems Administrator"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Network Support Technician"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Infrastructure Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Network Architect"", ""level"": ""Advanced"", ""confidence"": 6}]",8,"Course strongly aligned with network engineering competencies and career progression, with clear focus on technical skills development and professional practice",2025-05-28 12:40:05,https://www.loucoll.ac.uk/undergraduate-study/courses/higher-technical-qualification-in-cert-he-technical-practice-in-network-engineering,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Network architecture and infrastructure design"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Network security principles and protocols"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Systems development methodologies"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Programming for embedded systems"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Data communications and networking protocols"", ""confidence"": 8}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Network system optimization and performance tuning"", ""confidence"": 8},
+    {""id"": ""S2"", ""description"": ""Technical troubleshooting and problem resolution"", ""confidence"": 9},
+    {""id"": ""S3"", ""description"": ""Network system design and architecture"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Technical implementation and deployment"", ""confidence"": 7},
+    {""id"": ""S5"", ""description"": ""Collaborative project work"", ""confidence"": 6}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Commitment to professional development"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Workplace professionalism and readiness"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Self-directed learning capability"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Technical problem-solving mindset"", ""confidence"": 8}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Network Engineer"", ""level"": 4, ""confidence"": 9},
+    {""name"": ""Infrastructure Technician"", ""level"": 3, ""confidence"": 8},
+    {""name"": ""Systems Development Technician"", ""level"": 4, ""confidence"": 7},
+    {""name"": ""Software Developer"", ""level"": 4, ""confidence"": 6}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Junior Network Engineer"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Systems Administrator"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Network Support Technician"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Infrastructure Engineer"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Network Architect"", ""level"": ""Advanced"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Course strongly aligned with network engineering competencies and career progression, with clear focus on technical skills development and professional practice""
+}"
+12,BTEC (HND) Engineering ,Loughborough College,5,Engineering,"[{""id"": ""K1"", ""description"": ""Engineering mathematics and science fundamentals"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Engineering materials and manufacturing processes"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Technical drawing and CAD"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Engineering mechanics and dynamics"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Quality systems and industry standards"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Technical problem solving and analysis"", ""confidence"": 8}, {""id"": ""S2"", ""description"": ""Engineering design and development"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Project planning and management"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Use of engineering tools and equipment"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Professional work ethic"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Team collaboration"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Safety-conscious approach"", ""confidence"": 8}, {""id"": ""B4"", ""description"": ""Continuous professional development"", ""confidence"": 7}]","[{""name"": ""Engineering Technician"", ""level"": 5, ""confidence"": 9}, {""name"": ""Manufacturing Engineer"", ""level"": 5, ""confidence"": 7}, {""name"": ""Product Design Engineer"", ""level"": 5, ""confidence"": 6}]","[{""role"": ""Engineering Technician"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Manufacturing Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Design Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Project Engineer"", ""level"": ""Intermediate"", ""confidence"": 6}]",8,Analysis based on HND Engineering curriculum structure and industry alignment at Level 5,2025-05-28 12:40:13,https://www.loucoll.ac.uk/undergraduate-study/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Engineering mathematics and science fundamentals"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Engineering materials and manufacturing processes"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Technical drawing and CAD"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Engineering mechanics and dynamics"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Quality systems and industry standards"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Technical problem solving and analysis"", ""confidence"": 8},
+    {""id"": ""S2"", ""description"": ""Engineering design and development"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Project planning and management"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Use of engineering tools and equipment"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional work ethic"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Team collaboration"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Safety-conscious approach"", ""confidence"": 8},
+    {""id"": ""B4"", ""description"": ""Continuous professional development"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Engineering Technician"", ""level"": 5, ""confidence"": 9},
+    {""name"": ""Manufacturing Engineer"", ""level"": 5, ""confidence"": 7},
+    {""name"": ""Product Design Engineer"", ""level"": 5, ""confidence"": 6}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Engineering Technician"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Manufacturing Engineer"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Design Engineer"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Project Engineer"", ""level"": ""Intermediate"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Analysis based on HND Engineering curriculum structure and industry alignment at Level 5""
+}"
+13,BA (Hons) in Business and Management,Loughborough College,6,Leadership & Management,"[{""id"": ""K1"", ""description"": ""Business Operations & Strategy"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Leadership & Management Principles"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Market Analysis & Business Environment"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Organizational Behavior & Development"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Financial Management & Decision Making"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Strategic Planning & Implementation"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Team Leadership & Management"", ""confidence"": 9}, {""id"": ""S3"", ""description"": ""Business Analysis & Problem Solving"", ""confidence"": 8}, {""id"": ""S4"", ""description"": ""Project Management"", ""confidence"": 8}, {""id"": ""S5"", ""description"": ""Communication & Stakeholder Management"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Professional Leadership"", ""confidence"": 9}, {""id"": ""B2"", ""description"": ""Strategic Thinking"", ""confidence"": 8}, {""id"": ""B3"", ""description"": ""Change Management"", ""confidence"": 8}, {""id"": ""B4"", ""description"": ""Ethical Decision Making"", ""confidence"": 7}]","[{""name"": ""Senior Leader"", ""level"": 7, ""confidence"": 9}, {""name"": ""Operations Manager"", ""level"": 5, ""confidence"": 8}, {""name"": ""Business Manager"", ""level"": 5, ""confidence"": 8}]","[{""role"": ""Business Manager"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Operations Manager"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Senior Leader"", ""level"": ""Advanced"", ""confidence"": 8}, {""role"": ""Department Head"", ""level"": ""Senior"", ""confidence"": 7}]",8,"Course strongly aligned with business leadership and management competencies, particularly suitable for progression into senior management roles",2025-05-28 12:40:22,https://www.loucoll.ac.uk/undergraduate-study/courses/ba-hons-in-business-and-management,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Business Operations & Strategy"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Leadership & Management Principles"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Market Analysis & Business Environment"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Organizational Behavior & Development"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Financial Management & Decision Making"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Strategic Planning & Implementation"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Team Leadership & Management"", ""confidence"": 9},
+    {""id"": ""S3"", ""description"": ""Business Analysis & Problem Solving"", ""confidence"": 8},
+    {""id"": ""S4"", ""description"": ""Project Management"", ""confidence"": 8},
+    {""id"": ""S5"", ""description"": ""Communication & Stakeholder Management"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional Leadership"", ""confidence"": 9},
+    {""id"": ""B2"", ""description"": ""Strategic Thinking"", ""confidence"": 8},
+    {""id"": ""B3"", ""description"": ""Change Management"", ""confidence"": 8},
+    {""id"": ""B4"", ""description"": ""Ethical Decision Making"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Senior Leader"", ""level"": 7, ""confidence"": 9},
+    {""name"": ""Operations Manager"", ""level"": 5, ""confidence"": 8},
+    {""name"": ""Business Manager"", ""level"": 5, ""confidence"": 8}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Business Manager"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Operations Manager"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Senior Leader"", ""level"": ""Advanced"", ""confidence"": 8},
+    {""role"": ""Department Head"", ""level"": ""Senior"", ""confidence"": 7}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Course strongly aligned with business leadership and management competencies, particularly suitable for progression into senior management roles""
+}"
+14,BSc H Engineering (Mechanical) (Top-up),Loughborough College,6,Engineering,"[{""id"": ""K1"", ""description"": ""Advanced Engineering Mathematics and Modeling"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Advanced Mechanics of Materials and Structural Analysis"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Thermodynamics and Heat Transfer"", ""confidence"": 9}, {""id"": ""K4"", ""description"": ""Sustainable Engineering Principles"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Engineering Design and System Integration"", ""confidence"": 8}]","[{""id"": ""S1"", ""description"": ""Advanced Engineering Software Analysis"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Laboratory Testing and Experimentation"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Engineering Project Management"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Complex Problem Solving and Analysis"", ""confidence"": 8}, {""id"": ""S5"", ""description"": ""Technical Documentation and Communication"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Professional Engineering Ethics"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Independent Learning and Research"", ""confidence"": 9}, {""id"": ""B3"", ""description"": ""Team Collaboration and Leadership"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Innovation and Creative Problem Solving"", ""confidence"": 8}]","[{""name"": ""Mechanical Engineer"", ""level"": 6, ""confidence"": 9}, {""name"": ""Design Engineer"", ""level"": 6, ""confidence"": 8}, {""name"": ""Project Engineer"", ""level"": 6, ""confidence"": 7}, {""name"": ""Manufacturing Engineer"", ""level"": 6, ""confidence"": 7}]","[{""role"": ""Graduate Mechanical Engineer"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Design Engineer"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Project Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Senior Mechanical Engineer"", ""level"": ""Advanced"", ""confidence"": 7}]",8,"Course content strongly aligns with mechanical engineering professional requirements, with particular emphasis on advanced technical knowledge and practical engineering skills",2025-05-28 12:40:31,https://www.loucoll.ac.uk/undergraduate-study/courses/beng-hons-top-up-in-engineering-mechanical,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Advanced Engineering Mathematics and Modeling"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Advanced Mechanics of Materials and Structural Analysis"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Thermodynamics and Heat Transfer"", ""confidence"": 9},
+    {""id"": ""K4"", ""description"": ""Sustainable Engineering Principles"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Engineering Design and System Integration"", ""confidence"": 8}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Advanced Engineering Software Analysis"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Laboratory Testing and Experimentation"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Engineering Project Management"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Complex Problem Solving and Analysis"", ""confidence"": 8},
+    {""id"": ""S5"", ""description"": ""Technical Documentation and Communication"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional Engineering Ethics"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Independent Learning and Research"", ""confidence"": 9},
+    {""id"": ""B3"", ""description"": ""Team Collaboration and Leadership"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Innovation and Creative Problem Solving"", ""confidence"": 8}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Mechanical Engineer"", ""level"": 6, ""confidence"": 9},
+    {""name"": ""Design Engineer"", ""level"": 6, ""confidence"": 8},
+    {""name"": ""Project Engineer"", ""level"": 6, ""confidence"": 7},
+    {""name"": ""Manufacturing Engineer"", ""level"": 6, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Graduate Mechanical Engineer"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Design Engineer"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Project Engineer"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Senior Mechanical Engineer"", ""level"": ""Advanced"", ""confidence"": 7}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Course content strongly aligns with mechanical engineering professional requirements, with particular emphasis on advanced technical knowledge and practical engineering skills""
+}"
+15,BSc H Engineering (Electical and Electronic) (Top-up),Loughborough College,6,Engineering,"[{""id"": ""K1"", ""description"": ""Advanced electrical and electronic engineering principles"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Power systems and control engineering"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Digital electronics and embedded systems"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Electromagnetic theory and applications"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Sustainable engineering practices"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Circuit design and analysis"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Electronic system troubleshooting"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Laboratory testing and measurement"", ""confidence"": 8}, {""id"": ""S4"", ""description"": ""Technical documentation and reporting"", ""confidence"": 7}, {""id"": ""S5"", ""description"": ""Engineering software applications"", ""confidence"": 8}]","[{""id"": ""B1"", ""description"": ""Professional engineering ethics"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Analytical problem-solving approach"", ""confidence"": 9}, {""id"": ""B3"", ""description"": ""Collaborative team working"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Safety-conscious practice"", ""confidence"": 8}]","[{""name"": ""Electrical/Electronic Technical Support Engineer"", ""level"": 6, ""confidence"": 9}, {""name"": ""Control and Instrumentation Engineer"", ""level"": 6, ""confidence"": 8}, {""name"": ""Power Systems Engineer"", ""level"": 6, ""confidence"": 8}, {""name"": ""Electronics Design Engineer"", ""level"": 6, ""confidence"": 8}]","[{""role"": ""Graduate Electrical Engineer"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Electronics Design Engineer"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Power Systems Engineer"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Senior Electrical Engineer"", ""level"": ""Advanced"", ""confidence"": 7}]",8,"Strong alignment with electrical/electronic engineering professional standards and industry requirements, with clear progression pathways from graduate to senior roles.",2025-05-28 12:40:40,https://www.loucoll.ac.uk/undergraduate-study/courses/beng-hons-top-up-in-engineering-electrical-electronic,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Advanced electrical and electronic engineering principles"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Power systems and control engineering"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Digital electronics and embedded systems"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Electromagnetic theory and applications"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Sustainable engineering practices"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Circuit design and analysis"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Electronic system troubleshooting"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Laboratory testing and measurement"", ""confidence"": 8},
+    {""id"": ""S4"", ""description"": ""Technical documentation and reporting"", ""confidence"": 7},
+    {""id"": ""S5"", ""description"": ""Engineering software applications"", ""confidence"": 8}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional engineering ethics"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Analytical problem-solving approach"", ""confidence"": 9},
+    {""id"": ""B3"", ""description"": ""Collaborative team working"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Safety-conscious practice"", ""confidence"": 8}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Electrical/Electronic Technical Support Engineer"", ""level"": 6, ""confidence"": 9},
+    {""name"": ""Control and Instrumentation Engineer"", ""level"": 6, ""confidence"": 8},
+    {""name"": ""Power Systems Engineer"", ""level"": 6, ""confidence"": 8},
+    {""name"": ""Electronics Design Engineer"", ""level"": 6, ""confidence"": 8}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Graduate Electrical Engineer"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Electronics Design Engineer"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Power Systems Engineer"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Senior Electrical Engineer"", ""level"": ""Advanced"", ""confidence"": 7}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Strong alignment with electrical/electronic engineering professional standards and industry requirements, with clear progression pathways from graduate to senior roles.""
+}"
+16,BSc H Sustainable Engineering ,Loughborough College,6,Engineering,"[{""id"": ""K1"", ""description"": ""Mathematics and physics fundamentals for engineering"", ""confidence"": 8}, {""id"": ""K2"", ""description"": ""Core engineering principles and methods"", ""confidence"": 7}, {""id"": ""K3"", ""description"": ""Sustainability concepts and environmental systems"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Renewable energy technologies"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Materials science and sustainable materials"", ""confidence"": 6}]","[{""id"": ""S1"", ""description"": ""Engineering problem solving and analysis"", ""confidence"": 7}, {""id"": ""S2"", ""description"": ""Sustainable design and optimization"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Environmental impact assessment"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Technical documentation and reporting"", ""confidence"": 6}]","[{""id"": ""B1"", ""description"": ""Professional engineering practice and ethics"", ""confidence"": 7}, {""id"": ""B2"", ""description"": ""Environmental responsibility"", ""confidence"": 8}, {""id"": ""B3"", ""description"": ""Collaborative working"", ""confidence"": 6}]","[{""name"": ""Environmental Technology Engineer"", ""level"": 6, ""confidence"": 8}, {""name"": ""Manufacturing Engineer"", ""level"": 6, ""confidence"": 6}, {""name"": ""Energy Systems Engineer"", ""level"": 6, ""confidence"": 7}]","[{""role"": ""Sustainable Design Engineer"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Environmental Systems Engineer"", ""level"": ""Entry"", ""confidence"": 7}, {""role"": ""Energy Systems Engineer"", ""level"": ""Entry"", ""confidence"": 7}, {""role"": ""Manufacturing Process Engineer"", ""level"": ""Entry"", ""confidence"": 6}]",7,"Mapping based on course title and level, with focus on sustainable engineering principles and environmental technology applications",2025-05-28 12:40:49,https://www.loucoll.ac.uk/undergraduate-study/courses/beng-hons-in-sustainable-engineering,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Mathematics and physics fundamentals for engineering"", ""confidence"": 8},
+    {""id"": ""K2"", ""description"": ""Core engineering principles and methods"", ""confidence"": 7},
+    {""id"": ""K3"", ""description"": ""Sustainability concepts and environmental systems"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Renewable energy technologies"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Materials science and sustainable materials"", ""confidence"": 6}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Engineering problem solving and analysis"", ""confidence"": 7},
+    {""id"": ""S2"", ""description"": ""Sustainable design and optimization"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Environmental impact assessment"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Technical documentation and reporting"", ""confidence"": 6}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional engineering practice and ethics"", ""confidence"": 7},
+    {""id"": ""B2"", ""description"": ""Environmental responsibility"", ""confidence"": 8},
+    {""id"": ""B3"", ""description"": ""Collaborative working"", ""confidence"": 6}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Environmental Technology Engineer"", ""level"": 6, ""confidence"": 8},
+    {""name"": ""Manufacturing Engineer"", ""level"": 6, ""confidence"": 6},
+    {""name"": ""Energy Systems Engineer"", ""level"": 6, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Sustainable Design Engineer"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Environmental Systems Engineer"", ""level"": ""Entry"", ""confidence"": 7},
+    {""role"": ""Energy Systems Engineer"", ""level"": ""Entry"", ""confidence"": 7},
+    {""role"": ""Manufacturing Process Engineer"", ""level"": ""Entry"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 7,
+  ""analysis_notes"": ""Mapping based on course title and level, with focus on sustainable engineering principles and environmental technology applications""
+}"
+17,"T-Level Digital Production, Design and Development ",Derby College Group,3,Digital,"[{""id"": ""K1"", ""description"": ""Digital industry landscape and trends"", ""confidence"": 8}, {""id"": ""K2"", ""description"": ""Software development principles and methodologies"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""User interface and experience design"", ""confidence"": 7}, {""id"": ""K4"", ""description"": ""Database design and management"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Testing and quality assurance"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Programming and coding in multiple languages"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Web application development"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""System analysis and design"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Project management and planning"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Professional workplace conduct"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Team collaboration and communication"", ""confidence"": 8}, {""id"": ""B3"", ""description"": ""Problem-solving mindset"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Attention to detail and quality"", ""confidence"": 7}]","[{""name"": ""Digital Production, Design and Development"", ""level"": 3, ""confidence"": 9}, {""name"": ""Software Development Technician"", ""level"": 3, ""confidence"": 8}, {""name"": ""Junior Developer"", ""level"": 3, ""confidence"": 7}]","[{""role"": ""Junior Software Developer"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Web Developer"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Software Tester"", ""level"": ""Entry"", ""confidence"": 7}, {""role"": ""Digital Content Producer"", ""level"": ""Entry"", ""confidence"": 7}, {""role"": ""IT Support Technician"", ""level"": ""Entry"", ""confidence"": 6}]",8,"Strong alignment with digital production and software development pathways, supported by comprehensive technical curriculum and industry placement component",2025-05-28 12:40:58,https://www.derby-college.ac.uk/course/t-level-digital-production-design-and-development-year-1/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Digital industry landscape and trends"", ""confidence"": 8},
+    {""id"": ""K2"", ""description"": ""Software development principles and methodologies"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""User interface and experience design"", ""confidence"": 7},
+    {""id"": ""K4"", ""description"": ""Database design and management"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Testing and quality assurance"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Programming and coding in multiple languages"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Web application development"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""System analysis and design"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Project management and planning"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional workplace conduct"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Team collaboration and communication"", ""confidence"": 8},
+    {""id"": ""B3"", ""description"": ""Problem-solving mindset"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Attention to detail and quality"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Digital Production, Design and Development"", ""level"": 3, ""confidence"": 9},
+    {""name"": ""Software Development Technician"", ""level"": 3, ""confidence"": 8},
+    {""name"": ""Junior Developer"", ""level"": 3, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Junior Software Developer"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Web Developer"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Software Tester"", ""level"": ""Entry"", ""confidence"": 7},
+    {""role"": ""Digital Content Producer"", ""level"": ""Entry"", ""confidence"": 7},
+    {""role"": ""IT Support Technician"", ""level"": ""Entry"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Strong alignment with digital production and software development pathways, supported by comprehensive technical curriculum and industry placement component""
+}"
+18,T Level Digital Support Services,Derby College Group,3,Digital,"[{""id"": ""K1"", ""description"": ""Digital infrastructure and architecture"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Digital security principles and practices"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Network systems and configuration"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Business systems integration methods"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Testing methodologies and procedures"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Infrastructure configuration and setup"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Security implementation and monitoring"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Technical problem diagnosis and resolution"", ""confidence"": 8}, {""id"": ""S4"", ""description"": ""Digital tools and systems operation"", ""confidence"": 7}, {""id"": ""S5"", ""description"": ""Technical documentation and communication"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Professional workplace communication"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Analytical and systematic approach"", ""confidence"": 8}, {""id"": ""B3"", ""description"": ""Customer service orientation"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Continuous learning and development"", ""confidence"": 7}]","[{""name"": ""Digital Support Technician"", ""level"": 3, ""confidence"": 9}, {""name"": ""Infrastructure Technician"", ""level"": 3, ""confidence"": 8}, {""name"": ""IT Solutions Technician"", ""level"": 3, ""confidence"": 7}, {""name"": ""Network Support Specialist"", ""level"": 3, ""confidence"": 7}]","[{""role"": ""IT Support Technician"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Network Technician"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Systems Support Specialist"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Infrastructure Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""IT Service Desk Manager"", ""level"": ""Advanced"", ""confidence"": 6}]",8,"Strong alignment with digital support services fundamentals and entry-level IT support roles, with clear progression pathways into specialized technical positions",2025-05-28 12:41:07,https://www.derby-college.ac.uk/course/t-level-digital-support-services-year-1/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Digital infrastructure and architecture"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Digital security principles and practices"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Network systems and configuration"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Business systems integration methods"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Testing methodologies and procedures"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Infrastructure configuration and setup"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Security implementation and monitoring"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Technical problem diagnosis and resolution"", ""confidence"": 8},
+    {""id"": ""S4"", ""description"": ""Digital tools and systems operation"", ""confidence"": 7},
+    {""id"": ""S5"", ""description"": ""Technical documentation and communication"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional workplace communication"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Analytical and systematic approach"", ""confidence"": 8},
+    {""id"": ""B3"", ""description"": ""Customer service orientation"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Continuous learning and development"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Digital Support Technician"", ""level"": 3, ""confidence"": 9},
+    {""name"": ""Infrastructure Technician"", ""level"": 3, ""confidence"": 8},
+    {""name"": ""IT Solutions Technician"", ""level"": 3, ""confidence"": 7},
+    {""name"": ""Network Support Specialist"", ""level"": 3, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""IT Support Technician"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Network Technician"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Systems Support Specialist"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Infrastructure Engineer"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""IT Service Desk Manager"", ""level"": ""Advanced"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Strong alignment with digital support services fundamentals and entry-level IT support roles, with clear progression pathways into specialized technical positions""
+}"
+19,BTEC Diploma in Civil Engineering,Derby College Group,3,Professional Construction,"[{""id"": ""K1"", ""description"": ""Engineering mathematics and scientific principles fundamental to civil engineering"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Technical design principles including CAD/BIM software and modeling"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Construction materials, methods and structural mechanics"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Health, safety and environmental regulations in construction"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Project management methodologies and quality systems"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Application of engineering calculations and technical problem-solving"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Use of CAD/BIM software for technical drawings and designs"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Site surveying and setting out techniques"", ""confidence"": 8}, {""id"": ""S4"", ""description"": ""Technical documentation and report writing"", ""confidence"": 7}, {""id"": ""S5"", ""description"": ""Project planning and resource management"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Professional conduct and ethical practice in engineering"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Safety-conscious approach to work"", ""confidence"": 9}, {""id"": ""B3"", ""description"": ""Attention to detail and accuracy"", ""confidence"": 8}, {""id"": ""B4"", ""description"": ""Collaborative working in multidisciplinary teams"", ""confidence"": 7}]","[{""name"": ""Civil Engineering Technician"", ""level"": 3, ""confidence"": 9}, {""name"": ""Construction Site Supervisor"", ""level"": 3, ""confidence"": 8}, {""name"": ""Civil Engineering Site Manager"", ""level"": 4, ""confidence"": 7}]","[{""role"": ""Junior Civil Engineering Technician"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Civil Engineering Designer"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Site Engineering Technician"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""CAD Technician"", ""level"": ""Entry"", ""confidence"": 7}]",8,Course aligns strongly with civil engineering technician roles and provides foundation for progression to higher level engineering positions. Strong focus on technical skills and industry-standard software.,2025-05-28 12:41:17,https://www.derby-college.ac.uk/course/civil-engineering-technician-apprenticeship/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Engineering mathematics and scientific principles fundamental to civil engineering"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Technical design principles including CAD/BIM software and modeling"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Construction materials, methods and structural mechanics"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Health, safety and environmental regulations in construction"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Project management methodologies and quality systems"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Application of engineering calculations and technical problem-solving"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Use of CAD/BIM software for technical drawings and designs"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Site surveying and setting out techniques"", ""confidence"": 8},
+    {""id"": ""S4"", ""description"": ""Technical documentation and report writing"", ""confidence"": 7},
+    {""id"": ""S5"", ""description"": ""Project planning and resource management"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional conduct and ethical practice in engineering"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Safety-conscious approach to work"", ""confidence"": 9},
+    {""id"": ""B3"", ""description"": ""Attention to detail and accuracy"", ""confidence"": 8},
+    {""id"": ""B4"", ""description"": ""Collaborative working in multidisciplinary teams"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Civil Engineering Technician"", ""level"": 3, ""confidence"": 9},
+    {""name"": ""Construction Site Supervisor"", ""level"": 3, ""confidence"": 8},
+    {""name"": ""Civil Engineering Site Manager"", ""level"": 4, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Junior Civil Engineering Technician"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Civil Engineering Designer"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Site Engineering Technician"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""CAD Technician"", ""level"": ""Entry"", ""confidence"": 7}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Course aligns strongly with civil engineering technician roles and provides foundation for progression to higher level engineering positions. Strong focus on technical skills and industry-standard software.""
+}"
+20,"T-Level - Construction (Design, Surveying and Planning)",Derby College Group,3,Professional Construction,"[{""id"": ""K1"", ""description"": ""Construction science and engineering principles"", ""confidence"": 8}, {""id"": ""K2"", ""description"": ""Building design and architectural concepts"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Mathematical and quantitative methods"", ""confidence"": 9}, {""id"": ""K4"", ""description"": ""Construction industry standards and regulations"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Building Information Modeling (BIM)"", ""confidence"": 8}]","[{""id"": ""S1"", ""description"": ""Technical drawing and CAD"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Land and building surveying"", ""confidence"": 9}, {""id"": ""S3"", ""description"": ""Construction project planning"", ""confidence"": 8}, {""id"": ""S4"", ""description"": ""Digital design tools and software"", ""confidence"": 8}, {""id"": ""S5"", ""description"": ""Site measurement and analysis"", ""confidence"": 8}]","[{""id"": ""B1"", ""description"": ""Professional workplace conduct"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Team collaboration and communication"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Attention to detail and accuracy"", ""confidence"": 8}, {""id"": ""B4"", ""description"": ""Continuous professional development"", ""confidence"": 7}]","[{""name"": ""Construction Design and Build Technician"", ""level"": 3, ""confidence"": 9}, {""name"": ""Civil Engineering Technician"", ""level"": 3, ""confidence"": 8}, {""name"": ""Architectural Technician"", ""level"": 3, ""confidence"": 7}, {""name"": ""Building Services Design Technician"", ""level"": 3, ""confidence"": 7}]","[{""role"": ""Junior Construction Designer"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Assistant Building Surveyor"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""CAD Technician"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Construction Project Coordinator"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Architectural Technologist"", ""level"": ""Intermediate"", ""confidence"": 7}]",8,"Strong alignment with construction design and surveying pathways, supported by industry placement component and technical skill development",2025-05-28 12:41:27,https://www.derby-college.ac.uk/course/t-level-in-construction-design-surveying-and-planning/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Construction science and engineering principles"", ""confidence"": 8},
+    {""id"": ""K2"", ""description"": ""Building design and architectural concepts"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Mathematical and quantitative methods"", ""confidence"": 9},
+    {""id"": ""K4"", ""description"": ""Construction industry standards and regulations"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Building Information Modeling (BIM)"", ""confidence"": 8}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Technical drawing and CAD"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Land and building surveying"", ""confidence"": 9},
+    {""id"": ""S3"", ""description"": ""Construction project planning"", ""confidence"": 8},
+    {""id"": ""S4"", ""description"": ""Digital design tools and software"", ""confidence"": 8},
+    {""id"": ""S5"", ""description"": ""Site measurement and analysis"", ""confidence"": 8}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional workplace conduct"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Team collaboration and communication"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Attention to detail and accuracy"", ""confidence"": 8},
+    {""id"": ""B4"", ""description"": ""Continuous professional development"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Construction Design and Build Technician"", ""level"": 3, ""confidence"": 9},
+    {""name"": ""Civil Engineering Technician"", ""level"": 3, ""confidence"": 8},
+    {""name"": ""Architectural Technician"", ""level"": 3, ""confidence"": 7},
+    {""name"": ""Building Services Design Technician"", ""level"": 3, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Junior Construction Designer"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Assistant Building Surveyor"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""CAD Technician"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Construction Project Coordinator"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Architectural Technologist"", ""level"": ""Intermediate"", ""confidence"": 7}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Strong alignment with construction design and surveying pathways, supported by industry placement component and technical skill development""
+}"
+21,T-Level in Science ,Derby College Group,3,Science,"[{""id"": ""K1"", ""description"": ""Core scientific concepts including microbiology, cell biology and genetics"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Laboratory techniques and chemical analysis methods"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Health and safety regulations and protocols"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Scientific data management and analysis"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Research methodology and experimental design"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Laboratory procedures and equipment operation"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Scientific analysis and data interpretation"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Technical documentation and report writing"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Sample preparation and handling"", ""confidence"": 8}]","[{""id"": ""B1"", ""description"": ""Laboratory safety and protocol adherence"", ""confidence"": 9}, {""id"": ""B2"", ""description"": ""Scientific integrity and attention to detail"", ""confidence"": 8}, {""id"": ""B3"", ""description"": ""Collaborative working in scientific environments"", ""confidence"": 7}]","[{""name"": ""Laboratory Scientist"", ""level"": 3, ""confidence"": 9}, {""name"": ""Laboratory Technician"", ""level"": 3, ""confidence"": 8}, {""name"": ""Research Assistant"", ""level"": 3, ""confidence"": 7}, {""name"": ""Quality Control Technician"", ""level"": 3, ""confidence"": 8}]","[{""role"": ""Junior Laboratory Technician"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Research Laboratory Assistant"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Quality Control Assistant"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Scientific Analysis Technician"", ""level"": ""Entry"", ""confidence"": 7}]",8,Mapping based on T-Level Science curriculum alignment with laboratory science occupations and progression pathways,2025-05-28 12:41:37,https://www.derby-college.ac.uk/course/t-level-in-science/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Core scientific concepts including microbiology, cell biology and genetics"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Laboratory techniques and chemical analysis methods"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Health and safety regulations and protocols"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Scientific data management and analysis"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Research methodology and experimental design"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Laboratory procedures and equipment operation"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Scientific analysis and data interpretation"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Technical documentation and report writing"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Sample preparation and handling"", ""confidence"": 8}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Laboratory safety and protocol adherence"", ""confidence"": 9},
+    {""id"": ""B2"", ""description"": ""Scientific integrity and attention to detail"", ""confidence"": 8},
+    {""id"": ""B3"", ""description"": ""Collaborative working in scientific environments"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Laboratory Scientist"", ""level"": 3, ""confidence"": 9},
+    {""name"": ""Laboratory Technician"", ""level"": 3, ""confidence"": 8},
+    {""name"": ""Research Assistant"", ""level"": 3, ""confidence"": 7},
+    {""name"": ""Quality Control Technician"", ""level"": 3, ""confidence"": 8}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Junior Laboratory Technician"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Research Laboratory Assistant"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Quality Control Assistant"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Scientific Analysis Technician"", ""level"": ""Entry"", ""confidence"": 7}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Mapping based on T-Level Science curriculum alignment with laboratory science occupations and progression pathways""
+}"
+22,T-Level civil engineering,Derby College Group,3,Professional Construction,"[{""id"": ""K1"", ""description"": ""Construction materials and methods"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Structural engineering principles"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Site surveying and leveling"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Civil engineering mathematics"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Building regulations and standards"", ""confidence"": 8}]","[{""id"": ""S1"", ""description"": ""Technical drawing and CAD"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Construction project planning"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Site inspection and quality control"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Engineering calculations and analysis"", ""confidence"": 8}]","[{""id"": ""B1"", ""description"": ""Health and safety consciousness"", ""confidence"": 9}, {""id"": ""B2"", ""description"": ""Attention to technical detail"", ""confidence"": 8}, {""id"": ""B3"", ""description"": ""Professional communication"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Problem-solving approach"", ""confidence"": 8}]","[{""name"": ""Civil Engineering Technician"", ""level"": 3, ""confidence"": 9}, {""name"": ""Construction Site Engineering Technician"", ""level"": 3, ""confidence"": 8}, {""name"": ""Built Environment Design"", ""level"": 3, ""confidence"": 7}]","[{""role"": ""Junior Civil Engineering Technician"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Site Engineering Technician"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""CAD Technician"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Construction Site Supervisor"", ""level"": ""Intermediate"", ""confidence"": 7}]",8,Mapping based on T-Level Civil Engineering curriculum alignment with industry standards and typical entry-level civil engineering roles,2025-05-28 12:41:46,https://www.derby-college.ac.uk/course/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Construction materials and methods"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Structural engineering principles"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Site surveying and leveling"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Civil engineering mathematics"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Building regulations and standards"", ""confidence"": 8}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Technical drawing and CAD"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Construction project planning"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Site inspection and quality control"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Engineering calculations and analysis"", ""confidence"": 8}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Health and safety consciousness"", ""confidence"": 9},
+    {""id"": ""B2"", ""description"": ""Attention to technical detail"", ""confidence"": 8},
+    {""id"": ""B3"", ""description"": ""Professional communication"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Problem-solving approach"", ""confidence"": 8}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Civil Engineering Technician"", ""level"": 3, ""confidence"": 9},
+    {""name"": ""Construction Site Engineering Technician"", ""level"": 3, ""confidence"": 8},
+    {""name"": ""Built Environment Design"", ""level"": 3, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Junior Civil Engineering Technician"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Site Engineering Technician"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""CAD Technician"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Construction Site Supervisor"", ""level"": ""Intermediate"", ""confidence"": 7}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Mapping based on T-Level Civil Engineering curriculum alignment with industry standards and typical entry-level civil engineering roles""
+}"
+23,T-Level Engineering,Derby College Group,3,Engineering,"[{""id"": ""K1"", ""description"": ""Engineering science fundamentals including mechanics and materials"", ""confidence"": 8}, {""id"": ""K2"", ""description"": ""Technical mathematics and calculations"", ""confidence"": 7}, {""id"": ""K3"", ""description"": ""Building services and systems"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Engineering design principles"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Health and safety regulations"", ""confidence"": 6}]","[{""id"": ""S1"", ""description"": ""Technical drawing and design"", ""confidence"": 8}, {""id"": ""S2"", ""description"": ""System installation and maintenance"", ""confidence"": 7}, {""id"": ""S3"", ""description"": ""Problem solving and fault diagnosis"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Use of engineering tools and equipment"", ""confidence"": 8}]","[{""id"": ""B1"", ""description"": ""Safety-conscious working practices"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Professional work ethic"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Team collaboration"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Attention to detail and precision"", ""confidence"": 8}]","[{""name"": ""Engineering Technician"", ""level"": 3, ""confidence"": 8}, {""name"": ""Building Services Engineering Technician"", ""level"": 3, ""confidence"": 7}, {""name"": ""Manufacturing Engineering Technician"", ""level"": 3, ""confidence"": 6}]","[{""role"": ""Engineering Technician"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Building Services Technician"", ""level"": ""Entry"", ""confidence"": 7}, {""role"": ""CAD Technician"", ""level"": ""Entry"", ""confidence"": 7}, {""role"": ""Maintenance Engineer"", ""level"": ""Intermediate"", ""confidence"": 6}]",7,Mapping based on T-Level Engineering core components and occupational specialisms,2025-05-28 12:41:55,https://www.derby-college.ac.uk/course/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Engineering science fundamentals including mechanics and materials"", ""confidence"": 8},
+    {""id"": ""K2"", ""description"": ""Technical mathematics and calculations"", ""confidence"": 7},
+    {""id"": ""K3"", ""description"": ""Building services and systems"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Engineering design principles"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Health and safety regulations"", ""confidence"": 6}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Technical drawing and design"", ""confidence"": 8},
+    {""id"": ""S2"", ""description"": ""System installation and maintenance"", ""confidence"": 7},
+    {""id"": ""S3"", ""description"": ""Problem solving and fault diagnosis"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Use of engineering tools and equipment"", ""confidence"": 8}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Safety-conscious working practices"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Professional work ethic"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Team collaboration"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Attention to detail and precision"", ""confidence"": 8}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Engineering Technician"", ""level"": 3, ""confidence"": 8},
+    {""name"": ""Building Services Engineering Technician"", ""level"": 3, ""confidence"": 7},
+    {""name"": ""Manufacturing Engineering Technician"", ""level"": 3, ""confidence"": 6}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Engineering Technician"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Building Services Technician"", ""level"": ""Entry"", ""confidence"": 7},
+    {""role"": ""CAD Technician"", ""level"": ""Entry"", ""confidence"": 7},
+    {""role"": ""Maintenance Engineer"", ""level"": ""Intermediate"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 7,
+  ""analysis_notes"": ""Mapping based on T-Level Engineering core components and occupational specialisms""
+}"
+24,HTQ/Higher National Certificate in Engineering for England,Derby College Group,4,Engineering,"[{""id"": ""K1"", ""description"": ""Engineering mathematics and science fundamentals"", ""confidence"": 7}, {""id"": ""K2"", ""description"": ""Engineering principles and theories"", ""confidence"": 7}, {""id"": ""K3"", ""description"": ""Technical documentation and specifications"", ""confidence"": 6}, {""id"": ""K4"", ""description"": ""Engineering materials and components"", ""confidence"": 6}]","[{""id"": ""S1"", ""description"": ""Technical problem solving and analysis"", ""confidence"": 6}, {""id"": ""S2"", ""description"": ""Engineering calculations and modeling"", ""confidence"": 6}, {""id"": ""S3"", ""description"": ""Use of engineering tools and equipment"", ""confidence"": 5}, {""id"": ""S4"", ""description"": ""Technical drawing and design"", ""confidence"": 5}]","[{""id"": ""B1"", ""description"": ""Attention to detail and precision"", ""confidence"": 5}, {""id"": ""B2"", ""description"": ""Safety-conscious approach"", ""confidence"": 5}, {""id"": ""B3"", ""description"": ""Professional work ethic"", ""confidence"": 5}]","[{""name"": ""Engineering Technician"", ""level"": 4, ""confidence"": 7}, {""name"": ""Manufacturing Technician"", ""level"": 4, ""confidence"": 6}, {""name"": ""Maintenance Technician"", ""level"": 4, ""confidence"": 6}]","[{""role"": ""Engineering Technician"", ""level"": ""Entry"", ""confidence"": 7}, {""role"": ""Junior Engineer"", ""level"": ""Entry"", ""confidence"": 7}, {""role"": ""Maintenance Engineer"", ""level"": ""Entry"", ""confidence"": 6}, {""role"": ""Manufacturing Engineer"", ""level"": ""Entry"", ""confidence"": 6}]",6,"Mapping based on typical HNC Engineering curriculum structures, but limited by lack of specific course content details",2025-05-28 12:42:02,https://www.derby-college.ac.uk/course/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Engineering mathematics and science fundamentals"", ""confidence"": 7},
+    {""id"": ""K2"", ""description"": ""Engineering principles and theories"", ""confidence"": 7},
+    {""id"": ""K3"", ""description"": ""Technical documentation and specifications"", ""confidence"": 6},
+    {""id"": ""K4"", ""description"": ""Engineering materials and components"", ""confidence"": 6}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Technical problem solving and analysis"", ""confidence"": 6},
+    {""id"": ""S2"", ""description"": ""Engineering calculations and modeling"", ""confidence"": 6},
+    {""id"": ""S3"", ""description"": ""Use of engineering tools and equipment"", ""confidence"": 5},
+    {""id"": ""S4"", ""description"": ""Technical drawing and design"", ""confidence"": 5}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Attention to detail and precision"", ""confidence"": 5},
+    {""id"": ""B2"", ""description"": ""Safety-conscious approach"", ""confidence"": 5},
+    {""id"": ""B3"", ""description"": ""Professional work ethic"", ""confidence"": 5}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Engineering Technician"", ""level"": 4, ""confidence"": 7},
+    {""name"": ""Manufacturing Technician"", ""level"": 4, ""confidence"": 6},
+    {""name"": ""Maintenance Technician"", ""level"": 4, ""confidence"": 6}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Engineering Technician"", ""level"": ""Entry"", ""confidence"": 7},
+    {""role"": ""Junior Engineer"", ""level"": ""Entry"", ""confidence"": 7},
+    {""role"": ""Maintenance Engineer"", ""level"": ""Entry"", ""confidence"": 6},
+    {""role"": ""Manufacturing Engineer"", ""level"": ""Entry"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 6,
+  ""analysis_notes"": ""Mapping based on typical HNC Engineering curriculum structures, but limited by lack of specific course content details""
+}"
+25,HNC/HTQ in Construction Management for England,Derby College Group,4,Professional Construction,"[{""id"": ""K1"", ""description"": ""Core construction principles and methods"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Project planning and management fundamentals"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Sustainable construction and net zero practices"", ""confidence"": 7}, {""id"": ""K4"", ""description"": ""Construction design processes and regulations"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Site operations and safety management"", ""confidence"": 9}]","[{""id"": ""S1"", ""description"": ""Construction site supervision"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Project coordination and planning"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Technical documentation and reporting"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Team leadership and management"", ""confidence"": 8}, {""id"": ""S5"", ""description"": ""Risk assessment and safety monitoring"", ""confidence"": 8}]","[{""id"": ""B1"", ""description"": ""Professional accountability"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Effective time management"", ""confidence"": 9}, {""id"": ""B3"", ""description"": ""Collaborative working"", ""confidence"": 8}, {""id"": ""B4"", ""description"": ""Problem-solving mindset"", ""confidence"": 7}]","[{""name"": ""Construction Site Supervisor"", ""level"": 4, ""confidence"": 9}, {""name"": ""Assistant Project Manager"", ""level"": 4, ""confidence"": 8}, {""name"": ""Construction Design Coordinator"", ""level"": 4, ""confidence"": 7}]","[{""role"": ""Assistant Site Manager"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Project Coordinator"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Construction Design Technician"", ""level"": ""Entry"", ""confidence"": 7}, {""role"": ""Site Supervisor"", ""level"": ""Intermediate"", ""confidence"": 8}]",8,Mapping based on HNC/HTQ Construction Management course content aligned with industry standards and progression pathways,2025-05-28 12:42:11,https://www.derby-college.ac.uk/course/hnc-in-construction-management-for-england-htq/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Core construction principles and methods"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Project planning and management fundamentals"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Sustainable construction and net zero practices"", ""confidence"": 7},
+    {""id"": ""K4"", ""description"": ""Construction design processes and regulations"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Site operations and safety management"", ""confidence"": 9}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Construction site supervision"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Project coordination and planning"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Technical documentation and reporting"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Team leadership and management"", ""confidence"": 8},
+    {""id"": ""S5"", ""description"": ""Risk assessment and safety monitoring"", ""confidence"": 8}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional accountability"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Effective time management"", ""confidence"": 9},
+    {""id"": ""B3"", ""description"": ""Collaborative working"", ""confidence"": 8},
+    {""id"": ""B4"", ""description"": ""Problem-solving mindset"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Construction Site Supervisor"", ""level"": 4, ""confidence"": 9},
+    {""name"": ""Assistant Project Manager"", ""level"": 4, ""confidence"": 8},
+    {""name"": ""Construction Design Coordinator"", ""level"": 4, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Assistant Site Manager"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Project Coordinator"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Construction Design Technician"", ""level"": ""Entry"", ""confidence"": 7},
+    {""role"": ""Site Supervisor"", ""level"": ""Intermediate"", ""confidence"": 8}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Mapping based on HNC/HTQ Construction Management course content aligned with industry standards and progression pathways""
+}"
+26,HNC/HTQ in Modern Methods of Construction for England,Derby College Group,4,Professional Construction,"[{""id"": ""K1"", ""description"": ""Construction Technology fundamentals and principles"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Modern Methods of Construction techniques and applications"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Digital Construction and BIM processes"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Sustainable Construction practices and Net Zero principles"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Procurement and Tendering processes in construction"", ""confidence"": 8}]","[{""id"": ""S1"", ""description"": ""Digital design and BIM software application"", ""confidence"": 8}, {""id"": ""S2"", ""description"": ""Technical drawing and construction documentation"", ""confidence"": 7}, {""id"": ""S3"", ""description"": ""Project management and coordination"", ""confidence"": 6}, {""id"": ""S4"", ""description"": ""Research and analytical methods"", ""confidence"": 7}, {""id"": ""S5"", ""description"": ""Off-site construction planning and execution"", ""confidence"": 8}]","[{""id"": ""B1"", ""description"": ""Professional conduct and industry best practices"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Time management and project organization"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Collaborative working and team communication"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Problem-solving and critical thinking"", ""confidence"": 8}]","[{""name"": ""Construction Site Supervisor"", ""level"": 4, ""confidence"": 8}, {""name"": ""MMC Specialist"", ""level"": 4, ""confidence"": 9}, {""name"": ""Digital Construction Technician"", ""level"": 4, ""confidence"": 7}, {""name"": ""Construction Project Manager"", ""level"": 4, ""confidence"": 6}]","[{""role"": ""MMC Project Coordinator"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Digital Construction Specialist"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Site Manager"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Construction Project Manager"", ""level"": ""Advanced"", ""confidence"": 6}]",8,"Strong alignment with MMC and digital construction competencies, with clear progression pathways in modern construction roles. Course content directly maps to current industry requirements and emerging technologies.",2025-05-28 12:42:21,https://www.derby-college.ac.uk/course/hnc-in-modern-methods-of-construction-for-england-htq/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Construction Technology fundamentals and principles"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Modern Methods of Construction techniques and applications"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Digital Construction and BIM processes"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Sustainable Construction practices and Net Zero principles"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Procurement and Tendering processes in construction"", ""confidence"": 8}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Digital design and BIM software application"", ""confidence"": 8},
+    {""id"": ""S2"", ""description"": ""Technical drawing and construction documentation"", ""confidence"": 7},
+    {""id"": ""S3"", ""description"": ""Project management and coordination"", ""confidence"": 6},
+    {""id"": ""S4"", ""description"": ""Research and analytical methods"", ""confidence"": 7},
+    {""id"": ""S5"", ""description"": ""Off-site construction planning and execution"", ""confidence"": 8}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional conduct and industry best practices"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Time management and project organization"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Collaborative working and team communication"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Problem-solving and critical thinking"", ""confidence"": 8}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Construction Site Supervisor"", ""level"": 4, ""confidence"": 8},
+    {""name"": ""MMC Specialist"", ""level"": 4, ""confidence"": 9},
+    {""name"": ""Digital Construction Technician"", ""level"": 4, ""confidence"": 7},
+    {""name"": ""Construction Project Manager"", ""level"": 4, ""confidence"": 6}
+  ],
+  ""career_pathways"": [
+    {""role"": ""MMC Project Coordinator"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Digital Construction Specialist"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Site Manager"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Construction Project Manager"", ""level"": ""Advanced"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Strong alignment with MMC and digital construction competencies, with clear progression pathways in modern construction roles. Course content directly maps to current industry requirements and emerging technologies.""
+}"
+27,HNC /HTQ Architectural Technology,Derby College Group,4,Professional Construction,"[{""id"": ""K1"", ""description"": ""Building technology and construction methods"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Architectural design principles and processes"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Building regulations and technical standards"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Sustainable construction and environmental impact"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Building Information Modeling (BIM)"", ""confidence"": 8}]","[{""id"": ""S1"", ""description"": ""Technical drawing and CAD software use"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Building design and specification development"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Project documentation and management"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Construction detailing and material selection"", ""confidence"": 8}]","[{""id"": ""B1"", ""description"": ""Technical precision and attention to detail"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Professional collaboration with stakeholders"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Commitment to sustainable design practices"", ""confidence"": 7}]","[{""name"": ""Architectural Technician"", ""level"": 4, ""confidence"": 9}, {""name"": ""Construction Design Coordinator"", ""level"": 4, ""confidence"": 7}, {""name"": ""Building Services Engineering Technician"", ""level"": 4, ""confidence"": 6}]","[{""role"": ""Architectural Technician"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""BIM Coordinator"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Technical Design Manager"", ""level"": ""Advanced"", ""confidence"": 7}, {""role"": ""Construction Design Manager"", ""level"": ""Senior"", ""confidence"": 6}]",8,Strong alignment with architectural technology standards and clear progression pathway in technical design roles,2025-05-28 12:42:31,https://www.derby-college.ac.uk/course/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Building technology and construction methods"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Architectural design principles and processes"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Building regulations and technical standards"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Sustainable construction and environmental impact"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Building Information Modeling (BIM)"", ""confidence"": 8}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Technical drawing and CAD software use"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Building design and specification development"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Project documentation and management"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Construction detailing and material selection"", ""confidence"": 8}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Technical precision and attention to detail"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Professional collaboration with stakeholders"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Commitment to sustainable design practices"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Architectural Technician"", ""level"": 4, ""confidence"": 9},
+    {""name"": ""Construction Design Coordinator"", ""level"": 4, ""confidence"": 7},
+    {""name"": ""Building Services Engineering Technician"", ""level"": 4, ""confidence"": 6}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Architectural Technician"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""BIM Coordinator"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Technical Design Manager"", ""level"": ""Advanced"", ""confidence"": 7},
+    {""role"": ""Construction Design Manager"", ""level"": ""Senior"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Strong alignment with architectural technology standards and clear progression pathway in technical design roles""
+}"
+28,HNC/HTQ Quantity Surveying,Derby College Group,4,Professional Construction,"[{""id"": ""K1"", ""description"": ""Construction Technology and Materials"", ""confidence"": 8}, {""id"": ""K2"", ""description"": ""Measurement and Quantification Methods"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Construction Contract Law"", ""confidence"": 7}, {""id"": ""K4"", ""description"": ""Cost Planning and Estimating"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Project Financial Management"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Quantity Take-off and Measurement"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Cost Estimation and Analysis"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Contract Administration"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Digital Tools and BIM Usage"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Professional Ethics and Standards"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Collaborative Working"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Attention to Detail and Accuracy"", ""confidence"": 8}]","[{""name"": ""Construction Quantity Surveyor ST0049"", ""level"": 4, ""confidence"": 9}, {""name"": ""Construction Site Supervisor ST0048"", ""level"": 4, ""confidence"": 6}, {""name"": ""Construction Site Engineering Technician ST0046"", ""level"": 4, ""confidence"": 5}]","[{""role"": ""Assistant Quantity Surveyor"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Junior Cost Consultant"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Trainee Estimator"", ""level"": ""Entry"", ""confidence"": 7}, {""role"": ""Construction Cost Manager"", ""level"": ""Intermediate"", ""confidence"": 6}]",7,Mapping based on typical HNC/HTQ Quantity Surveying curriculum structure and industry standards,2025-05-28 12:42:40,https://www.derby-college.ac.uk/course/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Construction Technology and Materials"", ""confidence"": 8},
+    {""id"": ""K2"", ""description"": ""Measurement and Quantification Methods"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Construction Contract Law"", ""confidence"": 7},
+    {""id"": ""K4"", ""description"": ""Cost Planning and Estimating"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Project Financial Management"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Quantity Take-off and Measurement"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Cost Estimation and Analysis"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Contract Administration"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Digital Tools and BIM Usage"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional Ethics and Standards"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Collaborative Working"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Attention to Detail and Accuracy"", ""confidence"": 8}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Construction Quantity Surveyor ST0049"", ""level"": 4, ""confidence"": 9},
+    {""name"": ""Construction Site Supervisor ST0048"", ""level"": 4, ""confidence"": 6},
+    {""name"": ""Construction Site Engineering Technician ST0046"", ""level"": 4, ""confidence"": 5}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Assistant Quantity Surveyor"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Junior Cost Consultant"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Trainee Estimator"", ""level"": ""Entry"", ""confidence"": 7},
+    {""role"": ""Construction Cost Manager"", ""level"": ""Intermediate"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 7,
+  ""analysis_notes"": ""Mapping based on typical HNC/HTQ Quantity Surveying curriculum structure and industry standards""
+}"
+29, Foundation Degree in Software Development,Derby College Group,5,Digital,"[{""id"": ""K1"", ""description"": ""Software development fundamentals and programming concepts"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Software design principles and methodologies"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Computing and engineering fundamentals"", ""confidence"": 7}, {""id"": ""K4"", ""description"": ""Digital sector knowledge and industry practices"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Database design and management"", ""confidence"": 8}]","[{""id"": ""S1"", ""description"": ""Software development and coding practices"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Independent research and study capabilities"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Technical documentation and specification"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Problem-solving and debugging"", ""confidence"": 8}]","[{""id"": ""B1"", ""description"": ""Professional work ethic and time management"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Collaboration and team working"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Continuous learning and development"", ""confidence"": 8}, {""id"": ""B4"", ""description"": ""Industry engagement and workplace professionalism"", ""confidence"": 7}]","[{""name"": ""Software Developer"", ""level"": 5, ""confidence"": 9}, {""name"": ""DevOps Engineer"", ""level"": 4, ""confidence"": 7}, {""name"": ""Web Developer"", ""level"": 4, ""confidence"": 8}]","[{""role"": ""Junior Software Developer"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Web Developer"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Software Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Application Developer"", ""level"": ""Intermediate"", ""confidence"": 7}]",8,Foundation degree aligns strongly with software development roles and provides core technical and professional competencies needed for entry-level positions in software development,2025-05-28 12:42:49,https://www.derby-college.ac.uk/course/foundation-degree-software-development-fdsc-2-years-htq/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Software development fundamentals and programming concepts"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Software design principles and methodologies"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Computing and engineering fundamentals"", ""confidence"": 7},
+    {""id"": ""K4"", ""description"": ""Digital sector knowledge and industry practices"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Database design and management"", ""confidence"": 8}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Software development and coding practices"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Independent research and study capabilities"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Technical documentation and specification"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Problem-solving and debugging"", ""confidence"": 8}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional work ethic and time management"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Collaboration and team working"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Continuous learning and development"", ""confidence"": 8},
+    {""id"": ""B4"", ""description"": ""Industry engagement and workplace professionalism"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Software Developer"", ""level"": 5, ""confidence"": 9},
+    {""name"": ""DevOps Engineer"", ""level"": 4, ""confidence"": 7},
+    {""name"": ""Web Developer"", ""level"": 4, ""confidence"": 8}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Junior Software Developer"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Web Developer"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Software Engineer"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Application Developer"", ""level"": ""Intermediate"", ""confidence"": 7}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Foundation degree aligns strongly with software development roles and provides core technical and professional competencies needed for entry-level positions in software development""
+}"
+30,FD Integrated Engineering ,Derby College Group,5,Engineering,"[{""id"": ""K1"", ""description"": ""Engineering Mathematics & Calculus"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Engineering Science Fundamentals"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Mechanical Engineering Principles"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Electrical/Electronic Engineering"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Manufacturing Processes & Systems"", ""confidence"": 8}, {""id"": ""K6"", ""description"": ""Computer Programming & Control Systems"", ""confidence"": 6}]","[{""id"": ""S1"", ""description"": ""Engineering Design & Problem Solving"", ""confidence"": 8}, {""id"": ""S2"", ""description"": ""Technical Analysis & Calculations"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""CAD/CAM Software Applications"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Project Management"", ""confidence"": 7}, {""id"": ""S5"", ""description"": ""Laboratory & Workshop Practice"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Professional Work Ethic"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Independent Learning & Research"", ""confidence"": 8}, {""id"": ""B3"", ""description"": ""Team Collaboration"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Safety-Conscious Approach"", ""confidence"": 7}]","[{""name"": ""Engineering Technician"", ""level"": 5, ""confidence"": 9}, {""name"": ""Manufacturing Engineer"", ""level"": 5, ""confidence"": 8}, {""name"": ""Maintenance Engineer"", ""level"": 5, ""confidence"": 7}, {""name"": ""Systems Integration Engineer"", ""level"": 5, ""confidence"": 7}]","[{""role"": ""Junior Engineer"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Manufacturing Technician"", ""level"": ""Entry"", ""confidence"": 8}, {""role"": ""Design Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Project Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Systems Engineer"", ""level"": ""Senior"", ""confidence"": 6}]",8,"Strong alignment with integrated engineering fundamentals across mechanical, electrical and manufacturing disciplines with clear progression into various engineering roles",2025-05-28 12:42:58,https://www.derby-college.ac.uk/course/foundation-degree-in-integrated-engineering-2-years/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Engineering Mathematics & Calculus"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Engineering Science Fundamentals"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Mechanical Engineering Principles"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Electrical/Electronic Engineering"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Manufacturing Processes & Systems"", ""confidence"": 8},
+    {""id"": ""K6"", ""description"": ""Computer Programming & Control Systems"", ""confidence"": 6}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Engineering Design & Problem Solving"", ""confidence"": 8},
+    {""id"": ""S2"", ""description"": ""Technical Analysis & Calculations"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""CAD/CAM Software Applications"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Project Management"", ""confidence"": 7},
+    {""id"": ""S5"", ""description"": ""Laboratory & Workshop Practice"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional Work Ethic"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Independent Learning & Research"", ""confidence"": 8},
+    {""id"": ""B3"", ""description"": ""Team Collaboration"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Safety-Conscious Approach"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Engineering Technician"", ""level"": 5, ""confidence"": 9},
+    {""name"": ""Manufacturing Engineer"", ""level"": 5, ""confidence"": 8},
+    {""name"": ""Maintenance Engineer"", ""level"": 5, ""confidence"": 7},
+    {""name"": ""Systems Integration Engineer"", ""level"": 5, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Junior Engineer"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Manufacturing Technician"", ""level"": ""Entry"", ""confidence"": 8},
+    {""role"": ""Design Engineer"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Project Engineer"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Systems Engineer"", ""level"": ""Senior"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Strong alignment with integrated engineering fundamentals across mechanical, electrical and manufacturing disciplines with clear progression into various engineering roles""
+}"
+31,BEng H Electronic Engineering ,Derby College Group,6,Engineering,"[{""id"": ""K1"", ""description"": ""Electronic circuit theory and design"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Digital and analog systems"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Electromagnetic principles"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Engineering mathematics"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Control systems theory"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Electronic circuit design and testing"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Programming and embedded systems"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Laboratory instrumentation"", ""confidence"": 8}, {""id"": ""S4"", ""description"": ""Technical documentation"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Analytical problem solving"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Technical innovation"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Professional communication"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Project management"", ""confidence"": 7}]","[{""name"": ""Electronics Engineer"", ""level"": 6, ""confidence"": 9}, {""name"": ""Design and Development Engineer"", ""level"": 6, ""confidence"": 8}, {""name"": ""Control Systems Engineer"", ""level"": 6, ""confidence"": 7}]","[{""role"": ""Electronic Design Engineer"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Systems Engineer"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Project Engineer"", ""level"": ""Intermediate"", ""confidence"": 7}, {""role"": ""Technical Lead"", ""level"": ""Senior"", ""confidence"": 6}]",8,"Course content strongly aligned with electronic engineering fundamentals and industry requirements, with clear progression paths into electronic design and systems engineering roles",2025-05-28 12:43:08,https://www.derby-college.ac.uk/course/beng-hons-engineering-top-up-1-year/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Electronic circuit theory and design"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Digital and analog systems"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Electromagnetic principles"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Engineering mathematics"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Control systems theory"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Electronic circuit design and testing"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Programming and embedded systems"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Laboratory instrumentation"", ""confidence"": 8},
+    {""id"": ""S4"", ""description"": ""Technical documentation"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Analytical problem solving"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Technical innovation"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Professional communication"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Project management"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Electronics Engineer"", ""level"": 6, ""confidence"": 9},
+    {""name"": ""Design and Development Engineer"", ""level"": 6, ""confidence"": 8},
+    {""name"": ""Control Systems Engineer"", ""level"": 6, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Electronic Design Engineer"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Systems Engineer"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Project Engineer"", ""level"": ""Intermediate"", ""confidence"": 7},
+    {""role"": ""Technical Lead"", ""level"": ""Senior"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Course content strongly aligned with electronic engineering fundamentals and industry requirements, with clear progression paths into electronic design and systems engineering roles""
+}"
+32,BEng H Manufacturing Engineering ,Derby College Group,6,Engineering,"[{""id"": ""K1"", ""description"": ""Manufacturing processes and techniques"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Engineering materials and properties"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Production systems and automation"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Quality management systems"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Design for manufacture principles"", ""confidence"": 8}]","[{""id"": ""S1"", ""description"": ""Process optimization and control"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""CAD/CAM software operation"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Production planning and scheduling"", ""confidence"": 8}, {""id"": ""S4"", ""description"": ""Quality assurance testing"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Analytical and systematic approach"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Safety-conscious working practices"", ""confidence"": 9}, {""id"": ""B3"", ""description"": ""Continuous improvement mindset"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Team collaboration and leadership"", ""confidence"": 8}]","[{""name"": ""Manufacturing Engineer"", ""level"": 6, ""confidence"": 9}, {""name"": ""Process Improvement Engineer"", ""level"": 6, ""confidence"": 8}, {""name"": ""Production Engineer"", ""level"": 6, ""confidence"": 7}]","[{""role"": ""Manufacturing Engineer"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Production Manager"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Operations Director"", ""level"": ""Senior"", ""confidence"": 7}, {""role"": ""Plant Manager"", ""level"": ""Senior"", ""confidence"": 7}]",8,Course aligns strongly with manufacturing engineering standards and provides clear progression path to senior manufacturing roles,2025-05-28 12:43:17,https://www.derby-college.ac.uk/course/beng-hons-engineering-top-up-1-year/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Manufacturing processes and techniques"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Engineering materials and properties"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Production systems and automation"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Quality management systems"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Design for manufacture principles"", ""confidence"": 8}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Process optimization and control"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""CAD/CAM software operation"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Production planning and scheduling"", ""confidence"": 8},
+    {""id"": ""S4"", ""description"": ""Quality assurance testing"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Analytical and systematic approach"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Safety-conscious working practices"", ""confidence"": 9},
+    {""id"": ""B3"", ""description"": ""Continuous improvement mindset"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Team collaboration and leadership"", ""confidence"": 8}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Manufacturing Engineer"", ""level"": 6, ""confidence"": 9},
+    {""name"": ""Process Improvement Engineer"", ""level"": 6, ""confidence"": 8},
+    {""name"": ""Production Engineer"", ""level"": 6, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Manufacturing Engineer"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Production Manager"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Operations Director"", ""level"": ""Senior"", ""confidence"": 7},
+    {""role"": ""Plant Manager"", ""level"": ""Senior"", ""confidence"": 7}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Course aligns strongly with manufacturing engineering standards and provides clear progression path to senior manufacturing roles""
+}"
+33,BEng H Mechanical Engineering ,Derby College Group,6,Engineering,"[{""id"": ""K1"", ""description"": ""Advanced Engineering Mathematics and Thermodynamics"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Structural Analysis and Mechanics"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Systems Engineering Principles"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Engineering Project Management"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Design Methodology and Evaluation"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""CAD and Technical Drawing"", ""confidence"": 7}, {""id"": ""S2"", ""description"": ""Engineering Analysis and FEA"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Project Planning and Delivery"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Research and Technical Analysis"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Professional Engineering Practice"", ""confidence"": 7}, {""id"": ""B2"", ""description"": ""Self-Directed Learning"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Technical Leadership"", ""confidence"": 6}, {""id"": ""B4"", ""description"": ""Problem-Solving Mindset"", ""confidence"": 7}]","[{""name"": ""Mechanical Engineer"", ""level"": 6, ""confidence"": 9}, {""name"": ""Manufacturing Engineer"", ""level"": 6, ""confidence"": 7}, {""name"": ""Design Engineer"", ""level"": 6, ""confidence"": 8}, {""name"": ""Project Engineer"", ""level"": 6, ""confidence"": 7}]","[{""role"": ""Graduate Mechanical Engineer"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Design Engineer"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Senior Mechanical Engineer"", ""level"": ""Advanced"", ""confidence"": 7}, {""role"": ""Engineering Project Manager"", ""level"": ""Senior"", ""confidence"": 6}]",8,"BEng program shows strong alignment with mechanical engineering core competencies and career progression, with particular emphasis on technical knowledge and analytical skills",2025-05-28 12:43:26,https://www.derby-college.ac.uk/course/beng-hons-engineering-top-up-1-year/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Advanced Engineering Mathematics and Thermodynamics"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Structural Analysis and Mechanics"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Systems Engineering Principles"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Engineering Project Management"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Design Methodology and Evaluation"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""CAD and Technical Drawing"", ""confidence"": 7},
+    {""id"": ""S2"", ""description"": ""Engineering Analysis and FEA"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Project Planning and Delivery"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Research and Technical Analysis"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional Engineering Practice"", ""confidence"": 7},
+    {""id"": ""B2"", ""description"": ""Self-Directed Learning"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Technical Leadership"", ""confidence"": 6},
+    {""id"": ""B4"", ""description"": ""Problem-Solving Mindset"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Mechanical Engineer"", ""level"": 6, ""confidence"": 9},
+    {""name"": ""Manufacturing Engineer"", ""level"": 6, ""confidence"": 7},
+    {""name"": ""Design Engineer"", ""level"": 6, ""confidence"": 8},
+    {""name"": ""Project Engineer"", ""level"": 6, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Graduate Mechanical Engineer"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Design Engineer"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Senior Mechanical Engineer"", ""level"": ""Advanced"", ""confidence"": 7},
+    {""role"": ""Engineering Project Manager"", ""level"": ""Senior"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""BEng program shows strong alignment with mechanical engineering core competencies and career progression, with particular emphasis on technical knowledge and analytical skills""
+}"
+34,MSc Data Science ,Loughborough University,7,Digital,"[{""id"": ""K1"", ""description"": ""Data Science Fundamentals & Statistical Methods"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Programming Languages (Python/R) & Development"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Data Governance, Ethics & Compliance"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Machine Learning & AI Principles"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Data Mining & Analytics Techniques"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Statistical Analysis & Data Modeling"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Data Visualization & Reporting"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Programming in Python/R"", ""confidence"": 8}, {""id"": ""S4"", ""description"": ""Data Cleaning & Preprocessing"", ""confidence"": 7}, {""id"": ""S5"", ""description"": ""Business Intelligence Tools"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Ethical Data Handling & Governance"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Analytical Problem Solving"", ""confidence"": 8}, {""id"": ""B3"", ""description"": ""Research & Critical Thinking"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Professional Communication"", ""confidence"": 7}]","[{""name"": ""Data Scientist"", ""level"": 7, ""confidence"": 9}, {""name"": ""Data Analyst"", ""level"": 6, ""confidence"": 8}, {""name"": ""Machine Learning Engineer"", ""level"": 7, ""confidence"": 7}, {""name"": ""Business Intelligence Analyst"", ""level"": 6, ""confidence"": 7}]","[{""role"": ""Data Scientist"", ""level"": ""Senior"", ""confidence"": 9}, {""role"": ""Machine Learning Engineer"", ""level"": ""Mid-Level"", ""confidence"": 8}, {""role"": ""Data Analytics Manager"", ""level"": ""Senior"", ""confidence"": 7}, {""role"": ""Business Intelligence Developer"", ""level"": ""Mid-Level"", ""confidence"": 7}]",8,"MSc Data Science program strongly aligns with data science and analytics career paths, with comprehensive coverage of technical and theoretical aspects",2025-05-28 12:43:37,https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/data-science/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Data Science Fundamentals & Statistical Methods"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Programming Languages (Python/R) & Development"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Data Governance, Ethics & Compliance"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Machine Learning & AI Principles"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Data Mining & Analytics Techniques"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Statistical Analysis & Data Modeling"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Data Visualization & Reporting"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Programming in Python/R"", ""confidence"": 8},
+    {""id"": ""S4"", ""description"": ""Data Cleaning & Preprocessing"", ""confidence"": 7},
+    {""id"": ""S5"", ""description"": ""Business Intelligence Tools"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Ethical Data Handling & Governance"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Analytical Problem Solving"", ""confidence"": 8},
+    {""id"": ""B3"", ""description"": ""Research & Critical Thinking"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Professional Communication"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Data Scientist"", ""level"": 7, ""confidence"": 9},
+    {""name"": ""Data Analyst"", ""level"": 6, ""confidence"": 8},
+    {""name"": ""Machine Learning Engineer"", ""level"": 7, ""confidence"": 7},
+    {""name"": ""Business Intelligence Analyst"", ""level"": 6, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Data Scientist"", ""level"": ""Senior"", ""confidence"": 9},
+    {""role"": ""Machine Learning Engineer"", ""level"": ""Mid-Level"", ""confidence"": 8},
+    {""role"": ""Data Analytics Manager"", ""level"": ""Senior"", ""confidence"": 7},
+    {""role"": ""Business Intelligence Developer"", ""level"": ""Mid-Level"", ""confidence"": 7}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""MSc Data Science program strongly aligns with data science and analytics career paths, with comprehensive coverage of technical and theoretical aspects""
+}"
+35,MSc Renewable Energy Systems Technology,Loughborough University,7,Engineering,"[{""id"": ""K1"", ""description"": ""Renewable Energy Technologies"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Solar Power Systems"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Wind Power Systems"", ""confidence"": 9}, {""id"": ""K4"", ""description"": ""Energy Economics and Policy"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Energy Storage Systems"", ""confidence"": 7}, {""id"": ""K6"", ""description"": ""Grid Integration and Networks"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Renewable System Design"", ""confidence"": 8}, {""id"": ""S2"", ""description"": ""Energy System Analysis"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Technical Data Analysis"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Project Management"", ""confidence"": 6}, {""id"": ""S5"", ""description"": ""Research Methods"", ""confidence"": 8}]","[{""id"": ""B1"", ""description"": ""Professional Engineering Practice"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Environmental Stewardship"", ""confidence"": 9}, {""id"": ""B3"", ""description"": ""Analytical Problem Solving"", ""confidence"": 8}, {""id"": ""B4"", ""description"": ""Collaborative Working"", ""confidence"": 7}]","[{""name"": ""Renewable Energy Systems Engineer"", ""level"": 7, ""confidence"": 9}, {""name"": ""Energy Systems Analyst"", ""level"": 7, ""confidence"": 8}, {""name"": ""Clean Energy Project Manager"", ""level"": 7, ""confidence"": 7}, {""name"": ""Sustainability Consultant"", ""level"": 7, ""confidence"": 7}]","[{""role"": ""Renewable Energy Engineer"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Energy Systems Designer"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Clean Energy Consultant"", ""level"": ""Senior"", ""confidence"": 7}, {""role"": ""Technical Project Manager"", ""level"": ""Senior"", ""confidence"": 7}, {""role"": ""Research Engineer"", ""level"": ""Advanced"", ""confidence"": 8}]",8,Course provides comprehensive coverage of renewable energy technologies with strong theoretical and practical components aligned to industry requirements,2025-05-28 12:43:46,https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/renewable-energy-systems-technology-full-time/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Renewable Energy Technologies"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Solar Power Systems"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Wind Power Systems"", ""confidence"": 9},
+    {""id"": ""K4"", ""description"": ""Energy Economics and Policy"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Energy Storage Systems"", ""confidence"": 7},
+    {""id"": ""K6"", ""description"": ""Grid Integration and Networks"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Renewable System Design"", ""confidence"": 8},
+    {""id"": ""S2"", ""description"": ""Energy System Analysis"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Technical Data Analysis"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Project Management"", ""confidence"": 6},
+    {""id"": ""S5"", ""description"": ""Research Methods"", ""confidence"": 8}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional Engineering Practice"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Environmental Stewardship"", ""confidence"": 9},
+    {""id"": ""B3"", ""description"": ""Analytical Problem Solving"", ""confidence"": 8},
+    {""id"": ""B4"", ""description"": ""Collaborative Working"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Renewable Energy Systems Engineer"", ""level"": 7, ""confidence"": 9},
+    {""name"": ""Energy Systems Analyst"", ""level"": 7, ""confidence"": 8},
+    {""name"": ""Clean Energy Project Manager"", ""level"": 7, ""confidence"": 7},
+    {""name"": ""Sustainability Consultant"", ""level"": 7, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Renewable Energy Engineer"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Energy Systems Designer"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Clean Energy Consultant"", ""level"": ""Senior"", ""confidence"": 7},
+    {""role"": ""Technical Project Manager"", ""level"": ""Senior"", ""confidence"": 7},
+    {""role"": ""Research Engineer"", ""level"": ""Advanced"", ""confidence"": 8}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Course provides comprehensive coverage of renewable energy technologies with strong theoretical and practical components aligned to industry requirements""
+}"
+36,MSc Infrastructure Asset Management ,Loughborough University,7,Engineering,"[{""id"": ""K1"", ""description"": ""Asset Management Principles and Standards"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Systems Thinking and Analysis"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Strategic Management and Governance"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Risk Management and Compliance"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Infrastructure Engineering"", ""confidence"": 8}]","[{""id"": ""S1"", ""description"": ""Strategic Asset Planning"", ""confidence"": 8}, {""id"": ""S2"", ""description"": ""Asset Performance Analysis"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Risk Assessment and Management"", ""confidence"": 7}, {""id"": ""S4"", ""description"": ""Project Management"", ""confidence"": 7}, {""id"": ""S5"", ""description"": ""Decision Making and Problem Solving"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Strategic Thinking"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Professional Ethics"", ""confidence"": 7}, {""id"": ""B3"", ""description"": ""Innovation Mindset"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Leadership"", ""confidence"": 7}]","[{""name"": ""Asset Management Professional"", ""level"": 7, ""confidence"": 9}, {""name"": ""Infrastructure Manager"", ""level"": 7, ""confidence"": 8}, {""name"": ""Strategic Facilities Manager"", ""level"": 7, ""confidence"": 7}, {""name"": ""Risk Management Specialist"", ""level"": 7, ""confidence"": 7}]","[{""role"": ""Asset Management Consultant"", ""level"": ""Senior"", ""confidence"": 9}, {""role"": ""Infrastructure Director"", ""level"": ""Senior"", ""confidence"": 8}, {""role"": ""Head of Facilities"", ""level"": ""Senior"", ""confidence"": 7}, {""role"": ""Strategic Asset Manager"", ""level"": ""Senior"", ""confidence"": 8}]",8,"Course strongly aligned with asset management professional standards and senior infrastructure roles, with comprehensive coverage of strategic, technical and management competencies",2025-05-28 12:43:56,https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/infrastructure-asset-management/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Asset Management Principles and Standards"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Systems Thinking and Analysis"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Strategic Management and Governance"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Risk Management and Compliance"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Infrastructure Engineering"", ""confidence"": 8}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Strategic Asset Planning"", ""confidence"": 8},
+    {""id"": ""S2"", ""description"": ""Asset Performance Analysis"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Risk Assessment and Management"", ""confidence"": 7},
+    {""id"": ""S4"", ""description"": ""Project Management"", ""confidence"": 7},
+    {""id"": ""S5"", ""description"": ""Decision Making and Problem Solving"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Strategic Thinking"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Professional Ethics"", ""confidence"": 7},
+    {""id"": ""B3"", ""description"": ""Innovation Mindset"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Leadership"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Asset Management Professional"", ""level"": 7, ""confidence"": 9},
+    {""name"": ""Infrastructure Manager"", ""level"": 7, ""confidence"": 8},
+    {""name"": ""Strategic Facilities Manager"", ""level"": 7, ""confidence"": 7},
+    {""name"": ""Risk Management Specialist"", ""level"": 7, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Asset Management Consultant"", ""level"": ""Senior"", ""confidence"": 9},
+    {""role"": ""Infrastructure Director"", ""level"": ""Senior"", ""confidence"": 8},
+    {""role"": ""Head of Facilities"", ""level"": ""Senior"", ""confidence"": 7},
+    {""role"": ""Strategic Asset Manager"", ""level"": ""Senior"", ""confidence"": 8}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Course strongly aligned with asset management professional standards and senior infrastructure roles, with comprehensive coverage of strategic, technical and management competencies""
+}"
+37,MSc Systems Engineering (DA),Loughborough University,7,Engineering,"[{""id"": ""K1"", ""description"": ""Systems Engineering Principles and Methodologies"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Model-Based Systems Engineering"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Systems Architecture and Design"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Complex Systems Integration"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Engineering Standards and Compliance"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Systems Analysis and Requirements Engineering"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""MBSE Tool Implementation"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Project Management and Leadership"", ""confidence"": 8}, {""id"": ""S4"", ""description"": ""Complex Problem Solving"", ""confidence"": 8}, {""id"": ""S5"", ""description"": ""Technical Documentation"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Systems Thinking Mindset"", ""confidence"": 9}, {""id"": ""B2"", ""description"": ""Professional Collaboration"", ""confidence"": 8}, {""id"": ""B3"", ""description"": ""Enterprise and Business Awareness"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Innovation and Continuous Learning"", ""confidence"": 8}]","[{""name"": ""Systems Engineering Level 7"", ""level"": 7, ""confidence"": 9}, {""name"": ""Engineering Manager"", ""level"": 7, ""confidence"": 7}, {""name"": ""Technical Architect"", ""level"": 7, ""confidence"": 7}]","[{""role"": ""Systems Engineer"", ""level"": ""Senior"", ""confidence"": 9}, {""role"": ""Technical Architect"", ""level"": ""Senior"", ""confidence"": 8}, {""role"": ""Engineering Manager"", ""level"": ""Senior"", ""confidence"": 7}, {""role"": ""Systems Integration Specialist"", ""level"": ""Senior"", ""confidence"": 8}]",8,"MSc aligned strongly with Systems Engineering standards and career progression, with particular emphasis on MBSE and systems thinking approaches",2025-05-28 12:44:05,https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/systems-engineering/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Systems Engineering Principles and Methodologies"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Model-Based Systems Engineering"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Systems Architecture and Design"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Complex Systems Integration"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Engineering Standards and Compliance"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Systems Analysis and Requirements Engineering"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""MBSE Tool Implementation"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Project Management and Leadership"", ""confidence"": 8},
+    {""id"": ""S4"", ""description"": ""Complex Problem Solving"", ""confidence"": 8},
+    {""id"": ""S5"", ""description"": ""Technical Documentation"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Systems Thinking Mindset"", ""confidence"": 9},
+    {""id"": ""B2"", ""description"": ""Professional Collaboration"", ""confidence"": 8},
+    {""id"": ""B3"", ""description"": ""Enterprise and Business Awareness"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Innovation and Continuous Learning"", ""confidence"": 8}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Systems Engineering Level 7"", ""level"": 7, ""confidence"": 9},
+    {""name"": ""Engineering Manager"", ""level"": 7, ""confidence"": 7},
+    {""name"": ""Technical Architect"", ""level"": 7, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Systems Engineer"", ""level"": ""Senior"", ""confidence"": 9},
+    {""role"": ""Technical Architect"", ""level"": ""Senior"", ""confidence"": 8},
+    {""role"": ""Engineering Manager"", ""level"": ""Senior"", ""confidence"": 7},
+    {""role"": ""Systems Integration Specialist"", ""level"": ""Senior"", ""confidence"": 8}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""MSc aligned strongly with Systems Engineering standards and career progression, with particular emphasis on MBSE and systems thinking approaches""
+}"
+38,MSc Construction Project Management,Loughborough University,7,Professional Construction,"[{""id"": ""K1"", ""description"": ""Construction Project Management Principles"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""BIM Technology and Implementation"", ""confidence"": 8}, {""id"": ""K3"", ""description"": ""Research Methodology in Construction"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""Sustainable Construction Methods"", ""confidence"": 7}, {""id"": ""K5"", ""description"": ""Infrastructure Development"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Project Planning and Control"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""BIM Software Application"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Research and Analysis"", ""confidence"": 8}, {""id"": ""S4"", ""description"": ""Risk Management"", ""confidence"": 7}, {""id"": ""S5"", ""description"": ""Stakeholder Communication"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Professional Leadership"", ""confidence"": 8}, {""id"": ""B2"", ""description"": ""Industry Collaboration"", ""confidence"": 8}, {""id"": ""B3"", ""description"": ""Ethical Decision Making"", ""confidence"": 7}, {""id"": ""B4"", ""description"": ""Strategic Thinking"", ""confidence"": 7}]","[{""name"": ""Construction Project Manager"", ""level"": 7, ""confidence"": 9}, {""name"": ""BIM Coordinator"", ""level"": 6, ""confidence"": 7}, {""name"": ""Construction Site Manager"", ""level"": 6, ""confidence"": 7}]","[{""role"": ""Assistant Project Manager"", ""level"": ""Entry"", ""confidence"": 9}, {""role"": ""Construction Project Manager"", ""level"": ""Intermediate"", ""confidence"": 8}, {""role"": ""Senior Project Manager"", ""level"": ""Advanced"", ""confidence"": 7}, {""role"": ""Program Director"", ""level"": ""Expert"", ""confidence"": 6}]",8,"Analysis based on MSc Construction Project Management curriculum, industry accreditation, and alignment with professional standards",2025-05-28 12:44:13,https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/construction-project-management/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Construction Project Management Principles"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""BIM Technology and Implementation"", ""confidence"": 8},
+    {""id"": ""K3"", ""description"": ""Research Methodology in Construction"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""Sustainable Construction Methods"", ""confidence"": 7},
+    {""id"": ""K5"", ""description"": ""Infrastructure Development"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Project Planning and Control"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""BIM Software Application"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Research and Analysis"", ""confidence"": 8},
+    {""id"": ""S4"", ""description"": ""Risk Management"", ""confidence"": 7},
+    {""id"": ""S5"", ""description"": ""Stakeholder Communication"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Professional Leadership"", ""confidence"": 8},
+    {""id"": ""B2"", ""description"": ""Industry Collaboration"", ""confidence"": 8},
+    {""id"": ""B3"", ""description"": ""Ethical Decision Making"", ""confidence"": 7},
+    {""id"": ""B4"", ""description"": ""Strategic Thinking"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Construction Project Manager"", ""level"": 7, ""confidence"": 9},
+    {""name"": ""BIM Coordinator"", ""level"": 6, ""confidence"": 7},
+    {""name"": ""Construction Site Manager"", ""level"": 6, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Assistant Project Manager"", ""level"": ""Entry"", ""confidence"": 9},
+    {""role"": ""Construction Project Manager"", ""level"": ""Intermediate"", ""confidence"": 8},
+    {""role"": ""Senior Project Manager"", ""level"": ""Advanced"", ""confidence"": 7},
+    {""role"": ""Program Director"", ""level"": ""Expert"", ""confidence"": 6}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Analysis based on MSc Construction Project Management curriculum, industry accreditation, and alignment with professional standards""
+}"
+39,Strategic Leadership (DA),Loughborough University,7,Leadership & Management,"[{""id"": ""K1"", ""description"": ""Strategic leadership models and theories"", ""confidence"": 9}, {""id"": ""K2"", ""description"": ""Governance and risk management principles"", ""confidence"": 9}, {""id"": ""K3"", ""description"": ""Financial management and strategy"", ""confidence"": 8}, {""id"": ""K4"", ""description"": ""People management and development"", ""confidence"": 8}, {""id"": ""K5"", ""description"": ""Organizational change management"", ""confidence"": 7}]","[{""id"": ""S1"", ""description"": ""Strategic decision making"", ""confidence"": 9}, {""id"": ""S2"", ""description"": ""Critical analysis and evaluation"", ""confidence"": 8}, {""id"": ""S3"", ""description"": ""Leadership and coaching"", ""confidence"": 8}, {""id"": ""S4"", ""description"": ""Business report writing"", ""confidence"": 7}, {""id"": ""S5"", ""description"": ""Change management implementation"", ""confidence"": 7}]","[{""id"": ""B1"", ""description"": ""Strategic thinking"", ""confidence"": 9}, {""id"": ""B2"", ""description"": ""Inclusive leadership"", ""confidence"": 8}, {""id"": ""B3"", ""description"": ""Professional integrity"", ""confidence"": 8}, {""id"": ""B4"", ""description"": ""Innovation mindset"", ""confidence"": 7}]","[{""name"": ""Senior Leader"", ""level"": 7, ""confidence"": 9}, {""name"": ""Chartered Manager"", ""level"": 6, ""confidence"": 8}, {""name"": ""Executive Leader"", ""level"": 7, ""confidence"": 7}]","[{""role"": ""Senior Manager"", ""level"": ""Advanced"", ""confidence"": 9}, {""role"": ""Department Director"", ""level"": ""Senior"", ""confidence"": 8}, {""role"": ""Chief Executive Officer"", ""level"": ""Executive"", ""confidence"": 7}, {""role"": ""Operations Director"", ""level"": ""Senior"", ""confidence"": 8}]",8,"Course strongly aligned with senior leadership competencies and career progression, with particular emphasis on strategic management and organizational leadership",2025-05-28 12:44:22,https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/strategic-leadership/,"{
+  ""knowledge_areas"": [
+    {""id"": ""K1"", ""description"": ""Strategic leadership models and theories"", ""confidence"": 9},
+    {""id"": ""K2"", ""description"": ""Governance and risk management principles"", ""confidence"": 9},
+    {""id"": ""K3"", ""description"": ""Financial management and strategy"", ""confidence"": 8},
+    {""id"": ""K4"", ""description"": ""People management and development"", ""confidence"": 8},
+    {""id"": ""K5"", ""description"": ""Organizational change management"", ""confidence"": 7}
+  ],
+  ""skills_areas"": [
+    {""id"": ""S1"", ""description"": ""Strategic decision making"", ""confidence"": 9},
+    {""id"": ""S2"", ""description"": ""Critical analysis and evaluation"", ""confidence"": 8},
+    {""id"": ""S3"", ""description"": ""Leadership and coaching"", ""confidence"": 8},
+    {""id"": ""S4"", ""description"": ""Business report writing"", ""confidence"": 7},
+    {""id"": ""S5"", ""description"": ""Change management implementation"", ""confidence"": 7}
+  ],
+  ""behaviours"": [
+    {""id"": ""B1"", ""description"": ""Strategic thinking"", ""confidence"": 9},
+    {""id"": ""B2"", ""description"": ""Inclusive leadership"", ""confidence"": 8},
+    {""id"": ""B3"", ""description"": ""Professional integrity"", ""confidence"": 8},
+    {""id"": ""B4"", ""description"": ""Innovation mindset"", ""confidence"": 7}
+  ],
+  ""occupational_standards"": [
+    {""name"": ""Senior Leader"", ""level"": 7, ""confidence"": 9},
+    {""name"": ""Chartered Manager"", ""level"": 6, ""confidence"": 8},
+    {""name"": ""Executive Leader"", ""level"": 7, ""confidence"": 7}
+  ],
+  ""career_pathways"": [
+    {""role"": ""Senior Manager"", ""level"": ""Advanced"", ""confidence"": 9},
+    {""role"": ""Department Director"", ""level"": ""Senior"", ""confidence"": 8},
+    {""role"": ""Chief Executive Officer"", ""level"": ""Executive"", ""confidence"": 7},
+    {""role"": ""Operations Director"", ""level"": ""Senior"", ""confidence"": 8}
+  ],
+  ""overall_confidence_score"": 8,
+  ""analysis_notes"": ""Course strongly aligned with senior leadership competencies and career progression, with particular emphasis on strategic management and organizational leadership""
+}"
