@@ -668,3 +668,327 @@ clear-filters {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+/* ===========================================
+   ENHANCED STYLES FOR SKILLS DISCOVERY
+   Add these to your existing mobile-styles.css
+   =========================================== */
+
+/* Search Mode Toggle */
+.search-mode-toggle {
+  background: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-mode-toggle.skills-mode {
+  background: var(--accent-green, #28a745);
+}
+
+/* Match Indicators on Course Cards */
+.match-indicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--accent-green, #28a745);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.match-info {
+  margin-top: 8px;
+  padding: 8px;
+  background: #f0f8ff;
+  border-radius: 4px;
+  border-left: 3px solid var(--primary-blue);
+}
+
+.match-reason {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.match-reason:last-child {
+  margin-bottom: 0;
+}
+
+.confidence-indicator {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.1);
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 10px;
+  color: var(--text-secondary);
+  z-index: 2;
+}
+
+/* Course Card Positioning */
+.course-card {
+  position: relative;
+}
+
+/* Modal Match Summary */
+.match-summary {
+  background: #e8f5e8;
+  border: 1px solid #28a745;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.match-summary h4 {
+  color: #155724;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.match-reasons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.match-reasons-list li {
+  padding: 4px 0;
+  font-size: 13px;
+  color: #155724;
+  border-bottom: 1px solid rgba(40,167,69,0.2);
+}
+
+.match-reasons-list li:last-child {
+  border-bottom: none;
+}
+
+/* Skills & Careers Sections */
+.skills-career-section {
+  padding: 16px 0;
+}
+
+.skills-section, .careers-section {
+  margin-bottom: 24px;
+}
+
+.ksb-group {
+  margin-bottom: 20px;
+}
+
+.ksb-group h5 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--primary-blue);
+}
+
+.ksb-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ksb-item {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.confidence-badge {
+  background: var(--primary-blue);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+/* Career and Standards Grids */
+.career-grid, .standards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.career-item, .standard-item {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.career-item h6, .standard-item h6 {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.career-level, .standard-level {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* Analysis Notes */
+.analysis-notes {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 16px;
+}
+
+.analysis-notes h5 {
+  color: #856404;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.analysis-notes p {
+  color: #856404;
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Skills Suggestions */
+.skills-suggestions {
+  margin-top: 8px;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.skills-suggestions.hidden {
+  display: none;
+}
+
+.suggestion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.suggestion-item:hover {
+  background: #f8f9fa;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+/* Enhanced Search Bar Layout */
+.search-bar {
+  padding: var(--space-md);
+}
+
+.search-bar input {
+  flex: 1;
+  padding: var(--space-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+}
+
+.search-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* Additional Color Variables */
+:root {
+  --accent-green: #28a745;
+  --accent-orange: #fd7e14;
+  --accent-purple: #6f42c1;
+  --success-bg: #e8f5e8;
+  --success-border: #28a745;
+  --success-text: #155724;
+  --warning-bg: #fff3cd;
+  --warning-border: #ffeaa7;
+  --warning-text: #856404;
+}
+// ===========================================
+// ENHANCED CSS - Add to your mobile-styles.css
+// ===========================================
+
+/* Career Links Styling */
+.career-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  padding: 4px 8px;
+  background: var(--primary-blue);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.career-link:hover {
+  background: var(--primary-blue-dark);
+}
+
+.link-icon {
+  font-size: 10px;
+}
+
+.no-link {
+  font-size: 11px;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+.career-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.career-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 10px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hint-icon {
+  font-size: 10px;
+}

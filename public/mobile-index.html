@@ -22,11 +22,21 @@
   </header>
 
   <!-- Search Bar (initially hidden) -->
-  <div class="search-bar hidden" id="searchBar">
+  <!-- <div class="search-bar hidden" id="searchBar">
+    <input type="text" placeholder="Search courses..." id="searchInput">
+    <button class="search-close" id="searchClose">✕</button>
+  </div> -->
+<!-- Enhanced Search Bar with Mode Toggle -->
+<div class="search-bar hidden" id="searchBar">
+  <div class="search-controls">
+    <button class="search-mode-toggle" id="searchModeToggle">Courses</button>
     <input type="text" placeholder="Search courses..." id="searchInput">
     <button class="search-close" id="searchClose">✕</button>
   </div>
-
+  <div class="skills-suggestions hidden" id="skillsSuggestions">
+    <!-- Will be populated with skill suggestions -->
+  </div>
+</div>
   <!-- Main Content -->
   <main class="app-main">
     
@@ -153,6 +163,6 @@
     </div>
   </template>
 
-  <script src="mobile-app.js"></script>
+  <script src="mobile-app-ksb.js"></script>
 </body>
 </html>

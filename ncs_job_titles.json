@@ -1,0 +1,3826 @@
+{
+  "scrapeDate": "2025-05-29T07:26:58.752Z",
+  "totalJobs": 764,
+  "jobs": [
+    {
+      "title": "3D printing technician",
+      "slug": "3d-printing-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/3d-printing-technician"
+    },
+    {
+      "title": "Accommodation warden",
+      "slug": "accommodation-warden",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/accommodation-warden"
+    },
+    {
+      "title": "Accounting technician",
+      "slug": "accounting-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/accounting-technician"
+    },
+    {
+      "title": "Acoustics consultant",
+      "slug": "acoustics-consultant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/acoustics-consultant"
+    },
+    {
+      "title": "Actor",
+      "slug": "actor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/actor"
+    },
+    {
+      "title": "Actuary",
+      "slug": "actuary",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/actuary"
+    },
+    {
+      "title": "Acupuncturist",
+      "slug": "acupuncturist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/acupuncturist"
+    },
+    {
+      "title": "Admin assistant",
+      "slug": "admin-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/admin-assistant"
+    },
+    {
+      "title": "Advertising account executive",
+      "slug": "advertising-account-executive",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/advertising-account-executive"
+    },
+    {
+      "title": "Advertising account planner",
+      "slug": "advertising-account-planner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/advertising-account-planner"
+    },
+    {
+      "title": "Advertising art director",
+      "slug": "advertising-art-director",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/advertising-art-director"
+    },
+    {
+      "title": "Advertising copywriter",
+      "slug": "advertising-copywriter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/advertising-copywriter"
+    },
+    {
+      "title": "Advertising media buyer",
+      "slug": "advertising-media-buyer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/advertising-media-buyer"
+    },
+    {
+      "title": "Advertising media planner",
+      "slug": "advertising-media-planner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/advertising-media-planner"
+    },
+    {
+      "title": "Advocacy worker",
+      "slug": "care-home-advocate",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/care-home-advocate"
+    },
+    {
+      "title": "Aerospace engineer",
+      "slug": "aerospace-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/aerospace-engineer"
+    },
+    {
+      "title": "Aerospace engineering technician",
+      "slug": "aerospace-engineering-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/aerospace-engineering-technician"
+    },
+    {
+      "title": "Agricultural contractor",
+      "slug": "agricultural-contractor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/agricultural-contractor"
+    },
+    {
+      "title": "Agricultural engineer",
+      "slug": "agricultural-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/agricultural-engineer"
+    },
+    {
+      "title": "Agricultural engineering technician",
+      "slug": "agricultural-engineering-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/agricultural-engineering-technician"
+    },
+    {
+      "title": "Agricultural inspector",
+      "slug": "agricultural-inspector",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/agricultural-inspector"
+    },
+    {
+      "title": "Agronomist",
+      "slug": "agronomist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/agronomist"
+    },
+    {
+      "title": "Aid worker",
+      "slug": "aid-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/aid-worker"
+    },
+    {
+      "title": "Air accident investigator",
+      "slug": "air-accident-investigator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/air-accident-investigator"
+    },
+    {
+      "title": "Air traffic controller",
+      "slug": "air-traffic-controller",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/air-traffic-controller"
+    },
+    {
+      "title": "Airline customer service agent",
+      "slug": "airline-customer-service-agent",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/airline-customer-service-agent"
+    },
+    {
+      "title": "Airline pilot",
+      "slug": "airline-pilot",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/airline-pilot"
+    },
+    {
+      "title": "Airport baggage handler",
+      "slug": "airport-baggage-handler",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/airport-baggage-handler"
+    },
+    {
+      "title": "Airport information assistant",
+      "slug": "airport-information-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/airport-information-assistant"
+    },
+    {
+      "title": "Ambulance care assistant",
+      "slug": "ambulance-care-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/ambulance-care-assistant"
+    },
+    {
+      "title": "Anaesthetist",
+      "slug": "anaesthetist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/anaesthetist"
+    },
+    {
+      "title": "Anatomical pathology technician",
+      "slug": "anatomical-pathology-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/anatomical-pathology-technician"
+    },
+    {
+      "title": "Animal care worker",
+      "slug": "animal-care-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/animal-care-worker"
+    },
+    {
+      "title": "Animal technician",
+      "slug": "animal-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/animal-technician"
+    },
+    {
+      "title": "Animator",
+      "slug": "animator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/animator"
+    },
+    {
+      "title": "Antique dealer",
+      "slug": "antique-dealer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/antique-dealer"
+    },
+    {
+      "title": "App developer",
+      "slug": "app-developer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/app-developer"
+    },
+    {
+      "title": "Arboricultural officer",
+      "slug": "arboricultural-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/arboricultural-officer"
+    },
+    {
+      "title": "Archaeologist",
+      "slug": "archaeologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/archaeologist"
+    },
+    {
+      "title": "Architect",
+      "slug": "architect",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/architect"
+    },
+    {
+      "title": "Architectural technician",
+      "slug": "architectural-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/architectural-technician"
+    },
+    {
+      "title": "Architectural technologist",
+      "slug": "architectural-technologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/architectural-technologist"
+    },
+    {
+      "title": "Archivist",
+      "slug": "archivist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/archivist"
+    },
+    {
+      "title": "Army officer",
+      "slug": "army-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/army-officer"
+    },
+    {
+      "title": "Aromatherapist",
+      "slug": "aromatherapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/aromatherapist"
+    },
+    {
+      "title": "Art editor",
+      "slug": "art-editor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/art-editor"
+    },
+    {
+      "title": "Art therapist",
+      "slug": "art-therapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/art-therapist"
+    },
+    {
+      "title": "Art valuer",
+      "slug": "art-valuer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/art-valuer"
+    },
+    {
+      "title": "Artificial intelligence (AI) engineer",
+      "slug": "artificial-intelligence-ai-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/artificial-intelligence-ai-engineer"
+    },
+    {
+      "title": "Arts administrator",
+      "slug": "arts-administrator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/arts-administrator"
+    },
+    {
+      "title": "Assistance dog trainer",
+      "slug": "assistance-dog-trainer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/assistance-dog-trainer"
+    },
+    {
+      "title": "Assistant immigration officer",
+      "slug": "assistant-immigration-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/assistant-immigration-officer"
+    },
+    {
+      "title": "Astronaut",
+      "slug": "astronaut",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/astronaut"
+    },
+    {
+      "title": "Astronomer",
+      "slug": "astronomer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/astronomer"
+    },
+    {
+      "title": "Athlete",
+      "slug": "athlete",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/athlete"
+    },
+    {
+      "title": "Audio visual technician",
+      "slug": "audio-visual-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/audio-visual-technician"
+    },
+    {
+      "title": "Audiologist",
+      "slug": "audiologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/audiologist"
+    },
+    {
+      "title": "Auditor",
+      "slug": "auditor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/auditor"
+    },
+    {
+      "title": "Auto electrician",
+      "slug": "auto-electrician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/auto-electrician"
+    },
+    {
+      "title": "Automotive engineer",
+      "slug": "automotive-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/automotive-engineer"
+    },
+    {
+      "title": "Automotive parts advisor",
+      "slug": "motor-vehicle-parts-person",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/motor-vehicle-parts-person"
+    },
+    {
+      "title": "Bailiff",
+      "slug": "bailiff",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/bailiff"
+    },
+    {
+      "title": "Baker",
+      "slug": "baker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/baker"
+    },
+    {
+      "title": "Bank manager",
+      "slug": "bank-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/bank-manager"
+    },
+    {
+      "title": "Banking customer service adviser",
+      "slug": "banking-customer-service-adviser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/banking-customer-service-adviser"
+    },
+    {
+      "title": "Bar person",
+      "slug": "bar-person",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/bar-person"
+    },
+    {
+      "title": "Barista",
+      "slug": "barista",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/barista"
+    },
+    {
+      "title": "Barrister",
+      "slug": "barrister",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/barrister"
+    },
+    {
+      "title": "Barrister's clerk",
+      "slug": "barristers-clerk",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/barristers-clerk"
+    },
+    {
+      "title": "Beauty consultant",
+      "slug": "beauty-consultant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/beauty-consultant"
+    },
+    {
+      "title": "Beauty therapist",
+      "slug": "beauty-therapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/beauty-therapist"
+    },
+    {
+      "title": "Beekeeper",
+      "slug": "beekeeper",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/beekeeper"
+    },
+    {
+      "title": "Bid writer",
+      "slug": "bid-writer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/bid-writer"
+    },
+    {
+      "title": "Bilingual secretary",
+      "slug": "bilingual-secretary",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/bilingual-secretary"
+    },
+    {
+      "title": "Bin worker",
+      "slug": "bin-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/bin-worker"
+    },
+    {
+      "title": "Biochemist",
+      "slug": "biochemist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/biochemist"
+    },
+    {
+      "title": "Biologist",
+      "slug": "biologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/biologist"
+    },
+    {
+      "title": "Biomedical scientist",
+      "slug": "biomedical-scientist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/biomedical-scientist"
+    },
+    {
+      "title": "Biotechnologist",
+      "slug": "biotechnologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/biotechnologist"
+    },
+    {
+      "title": "Blacksmith",
+      "slug": "blacksmith",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/blacksmith"
+    },
+    {
+      "title": "Boat builder",
+      "slug": "boat-builder",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/boat-builder"
+    },
+    {
+      "title": "Bodyguard",
+      "slug": "bodyguard",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/bodyguard"
+    },
+    {
+      "title": "Bookbinder",
+      "slug": "bookbinder-or-print-finisher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/bookbinder-or-print-finisher"
+    },
+    {
+      "title": "Bookkeeper",
+      "slug": "bookkeeper",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/bookkeeper"
+    },
+    {
+      "title": "Bookseller",
+      "slug": "bookseller",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/bookseller"
+    },
+    {
+      "title": "Border Force officer",
+      "slug": "border-force-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/border-force-officer"
+    },
+    {
+      "title": "Bricklayer",
+      "slug": "bricklayer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/bricklayer"
+    },
+    {
+      "title": "British Sign Language interpreter",
+      "slug": "british-sign-language-interpreter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/british-sign-language-interpreter"
+    },
+    {
+      "title": "British Sign Language teacher",
+      "slug": "british-sign-language-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/british-sign-language-teacher"
+    },
+    {
+      "title": "Broadcast engineer",
+      "slug": "broadcast-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/broadcast-engineer"
+    },
+    {
+      "title": "Broadcast journalist",
+      "slug": "broadcast-journalist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/broadcast-journalist"
+    },
+    {
+      "title": "Builders' merchant",
+      "slug": "builders-merchant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/builders-merchant"
+    },
+    {
+      "title": "Building control officer",
+      "slug": "building-control-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/building-control-officer"
+    },
+    {
+      "title": "Building services engineer",
+      "slug": "building-services-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/building-services-engineer"
+    },
+    {
+      "title": "Building site inspector",
+      "slug": "building-site-inspector",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/building-site-inspector"
+    },
+    {
+      "title": "Building surveyor",
+      "slug": "building-surveyor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/building-surveyor"
+    },
+    {
+      "title": "Building technician",
+      "slug": "building-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/building-technician"
+    },
+    {
+      "title": "Bus or coach driver",
+      "slug": "bus-or-coach-driver",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/bus-or-coach-driver"
+    },
+    {
+      "title": "Business adviser",
+      "slug": "business-adviser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/business-adviser"
+    },
+    {
+      "title": "Business analyst",
+      "slug": "business-analyst",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/business-analyst"
+    },
+    {
+      "title": "Business development manager",
+      "slug": "business-development-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/business-development-manager"
+    },
+    {
+      "title": "Business project manager",
+      "slug": "business-project-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/business-project-manager"
+    },
+    {
+      "title": "Butcher",
+      "slug": "butcher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/butcher"
+    },
+    {
+      "title": "Cabin crew",
+      "slug": "cabin-crew",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cabin-crew"
+    },
+    {
+      "title": "CAD technician",
+      "slug": "cad-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cad-technician"
+    },
+    {
+      "title": "Cake decorator",
+      "slug": "cake-decorator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cake-decorator"
+    },
+    {
+      "title": "Call centre operator",
+      "slug": "call-centre-operator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/call-centre-operator"
+    },
+    {
+      "title": "Car manufacturing worker",
+      "slug": "car-manufacturing-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/car-manufacturing-worker"
+    },
+    {
+      "title": "Car rental agent",
+      "slug": "car-rental-agent",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/car-rental-agent"
+    },
+    {
+      "title": "Car valet",
+      "slug": "car-valet",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/car-valet"
+    },
+    {
+      "title": "Care escort",
+      "slug": "care-escort",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/care-escort"
+    },
+    {
+      "title": "Care home manager",
+      "slug": "care-home-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/care-home-manager"
+    },
+    {
+      "title": "Care worker",
+      "slug": "care-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/care-worker"
+    },
+    {
+      "title": "Careers adviser",
+      "slug": "careers-adviser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/careers-adviser"
+    },
+    {
+      "title": "Caretaker",
+      "slug": "caretaker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/caretaker"
+    },
+    {
+      "title": "Carpenter",
+      "slug": "carpenter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/carpenter"
+    },
+    {
+      "title": "Carpet fitter and floor layer",
+      "slug": "carpet-fitter-and-floor-layer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/carpet-fitter-and-floor-layer"
+    },
+    {
+      "title": "Cartographer",
+      "slug": "cartographer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cartographer"
+    },
+    {
+      "title": "Catering manager",
+      "slug": "catering-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/catering-manager"
+    },
+    {
+      "title": "Cavity insulation installer",
+      "slug": "cavity-insulation-installer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cavity-insulation-installer"
+    },
+    {
+      "title": "Ceiling fixer",
+      "slug": "ceiling-fixer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/ceiling-fixer"
+    },
+    {
+      "title": "Celebrant",
+      "slug": "celebrant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/celebrant"
+    },
+    {
+      "title": "Cellar technician",
+      "slug": "cellar-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cellar-technician"
+    },
+    {
+      "title": "Cemetery worker",
+      "slug": "cemetery-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cemetery-worker"
+    },
+    {
+      "title": "Charity fundraiser",
+      "slug": "charity-fundraiser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/charity-fundraiser"
+    },
+    {
+      "title": "Chef",
+      "slug": "chef",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/chef"
+    },
+    {
+      "title": "Chemical engineer",
+      "slug": "chemical-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/chemical-engineer"
+    },
+    {
+      "title": "Chemical engineering technician",
+      "slug": "chemical-engineering-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/chemical-engineering-technician"
+    },
+    {
+      "title": "Chemical plant process operator",
+      "slug": "chemical-plant-process-operator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/chemical-plant-process-operator"
+    },
+    {
+      "title": "Chemist",
+      "slug": "chemist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/chemist"
+    },
+    {
+      "title": "Chief inspector",
+      "slug": "chief-inspector",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/chief-inspector"
+    },
+    {
+      "title": "Child protection officer",
+      "slug": "child-protection-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/child-protection-officer"
+    },
+    {
+      "title": "Childminder",
+      "slug": "childminder",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/childminder"
+    },
+    {
+      "title": "Children's nurse",
+      "slug": "childrens-nurse",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/childrens-nurse"
+    },
+    {
+      "title": "Chiropractor",
+      "slug": "chiropractor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/chiropractor"
+    },
+    {
+      "title": "Choreographer",
+      "slug": "choreographer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/choreographer"
+    },
+    {
+      "title": "Cinema or theatre attendant",
+      "slug": "cinema-or-theatre-attendant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cinema-or-theatre-attendant"
+    },
+    {
+      "title": "Civil enforcement officer",
+      "slug": "civil-enforcement-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/civil-enforcement-officer"
+    },
+    {
+      "title": "Civil engineer",
+      "slug": "civil-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/civil-engineer"
+    },
+    {
+      "title": "Civil engineering technician",
+      "slug": "civil-engineering-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/civil-engineering-technician"
+    },
+    {
+      "title": "Civil Service administrative officer",
+      "slug": "civil-service-administrative-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/civil-service-administrative-officer"
+    },
+    {
+      "title": "Civil Service executive officer",
+      "slug": "civil-service-executive-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/civil-service-executive-officer"
+    },
+    {
+      "title": "Civil Service manager",
+      "slug": "civil-service-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/civil-service-manager"
+    },
+    {
+      "title": "Cleaner",
+      "slug": "cleaner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cleaner"
+    },
+    {
+      "title": "Climate scientist",
+      "slug": "climate-scientist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/climate-scientist"
+    },
+    {
+      "title": "Clinical engineer",
+      "slug": "clinical-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/clinical-engineer"
+    },
+    {
+      "title": "Clinical psychologist",
+      "slug": "clinical-psychologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/clinical-psychologist"
+    },
+    {
+      "title": "Clinical scientist",
+      "slug": "clinical-scientist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/clinical-scientist"
+    },
+    {
+      "title": "CNC machinist",
+      "slug": "cnc-machinist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cnc-machinist"
+    },
+    {
+      "title": "Coastguard",
+      "slug": "coastguard",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/coastguard"
+    },
+    {
+      "title": "Cognitive behavioural therapist",
+      "slug": "cognitive-behavioural-therapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cognitive-behavioural-therapist"
+    },
+    {
+      "title": "Commercial energy assessor",
+      "slug": "commercial-energy-assessor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/commercial-energy-assessor"
+    },
+    {
+      "title": "Communication support worker",
+      "slug": "communication-support-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/communication-support-worker"
+    },
+    {
+      "title": "Community arts worker",
+      "slug": "community-arts-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/community-arts-worker"
+    },
+    {
+      "title": "Community development worker",
+      "slug": "community-development-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/community-development-worker"
+    },
+    {
+      "title": "Community education co-ordinator",
+      "slug": "community-education-coordinator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/community-education-coordinator"
+    },
+    {
+      "title": "Community matron",
+      "slug": "community-matron",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/community-matron"
+    },
+    {
+      "title": "Community transport driver",
+      "slug": "community-transport-driver",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/community-transport-driver"
+    },
+    {
+      "title": "Company secretary",
+      "slug": "company-secretary",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/company-secretary"
+    },
+    {
+      "title": "Computer games developer",
+      "slug": "computer-games-developer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/computer-games-developer"
+    },
+    {
+      "title": "Computer games tester",
+      "slug": "computer-games-tester",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/computer-games-tester"
+    },
+    {
+      "title": "Conservator",
+      "slug": "conservator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/conservator"
+    },
+    {
+      "title": "Construction contracts manager",
+      "slug": "construction-contracts-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/construction-contracts-manager"
+    },
+    {
+      "title": "Construction labourer",
+      "slug": "construction-labourer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/construction-labourer"
+    },
+    {
+      "title": "Construction manager",
+      "slug": "construction-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/construction-manager"
+    },
+    {
+      "title": "Construction plant mechanic",
+      "slug": "construction-plant-mechanic",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/construction-plant-mechanic"
+    },
+    {
+      "title": "Construction plant operator",
+      "slug": "construction-plant-operator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/construction-plant-operator"
+    },
+    {
+      "title": "Construction site supervisor",
+      "slug": "construction-site-supervisor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/construction-site-supervisor"
+    },
+    {
+      "title": "Consumer scientist",
+      "slug": "consumer-scientist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/consumer-scientist"
+    },
+    {
+      "title": "Copy editor",
+      "slug": "copy-editor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/copy-editor"
+    },
+    {
+      "title": "Coroner",
+      "slug": "coroner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/coroner"
+    },
+    {
+      "title": "Corporate responsibility and sustainability practitioner",
+      "slug": "corporate-responsibility-and-sustainability-practitioner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/corporate-responsibility-and-sustainability-practitioner"
+    },
+    {
+      "title": "Costume designer",
+      "slug": "costume-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/costume-designer"
+    },
+    {
+      "title": "Counsellor",
+      "slug": "counsellor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/counsellor"
+    },
+    {
+      "title": "Counter service assistant",
+      "slug": "counter-service-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/counter-service-assistant"
+    },
+    {
+      "title": "Countryside officer",
+      "slug": "countryside-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/countryside-officer"
+    },
+    {
+      "title": "Countryside ranger",
+      "slug": "countryside-ranger",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/countryside-ranger"
+    },
+    {
+      "title": "Court administrative assistant",
+      "slug": "court-administrative-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/court-administrative-assistant"
+    },
+    {
+      "title": "Court legal adviser",
+      "slug": "court-legal-adviser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/court-legal-adviser"
+    },
+    {
+      "title": "Court usher",
+      "slug": "court-usher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/court-usher"
+    },
+    {
+      "title": "Crane driver",
+      "slug": "crane-driver",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/crane-driver"
+    },
+    {
+      "title": "Credit controller",
+      "slug": "credit-controller",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/credit-controller"
+    },
+    {
+      "title": "Crematorium technician",
+      "slug": "crematorium-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/crematorium-technician"
+    },
+    {
+      "title": "Criminologist",
+      "slug": "criminologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/criminologist"
+    },
+    {
+      "title": "Critical care technologist",
+      "slug": "critical-care-technologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/critical-care-technologist"
+    },
+    {
+      "title": "Crown prosecutor",
+      "slug": "crown-prosecutor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/crown-prosecutor"
+    },
+    {
+      "title": "Cruise ship steward",
+      "slug": "cruise-ship-steward",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cruise-ship-steward"
+    },
+    {
+      "title": "Customer service assistant",
+      "slug": "customer-service-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/customer-service-assistant"
+    },
+    {
+      "title": "Customer services manager",
+      "slug": "customer-services-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/customer-services-manager"
+    },
+    {
+      "title": "Cyber intelligence officer",
+      "slug": "cyber-intelligence-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cyber-intelligence-officer"
+    },
+    {
+      "title": "Cycle mechanic",
+      "slug": "cycle-mechanic",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cycle-mechanic"
+    },
+    {
+      "title": "Cycling coach",
+      "slug": "cycling-coach",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cycling-coach"
+    },
+    {
+      "title": "Dance movement psychotherapist",
+      "slug": "dance-movement-psychotherapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dance-movement-psychotherapist"
+    },
+    {
+      "title": "Dance teacher",
+      "slug": "dance-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dance-teacher"
+    },
+    {
+      "title": "Dancer",
+      "slug": "dancer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dancer"
+    },
+    {
+      "title": "Data analyst-statistician",
+      "slug": "data-analyst-statistician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/data-analyst-statistician"
+    },
+    {
+      "title": "Data scientist",
+      "slug": "data-scientist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/data-scientist"
+    },
+    {
+      "title": "Database administrator",
+      "slug": "database-administrator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/database-administrator"
+    },
+    {
+      "title": "Delivery van driver",
+      "slug": "delivery-van-driver",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/delivery-van-driver"
+    },
+    {
+      "title": "Demolition operative",
+      "slug": "demolition-operative",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/demolition-operative"
+    },
+    {
+      "title": "Dental hygienist",
+      "slug": "dental-hygienist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dental-hygienist"
+    },
+    {
+      "title": "Dental nurse",
+      "slug": "dental-nurse",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dental-nurse"
+    },
+    {
+      "title": "Dental technician",
+      "slug": "dental-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dental-technician"
+    },
+    {
+      "title": "Dental therapist",
+      "slug": "dental-therapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dental-therapist"
+    },
+    {
+      "title": "Dentist",
+      "slug": "dentist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dentist"
+    },
+    {
+      "title": "Design and development engineer",
+      "slug": "design-and-development-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/design-and-development-engineer"
+    },
+    {
+      "title": "Dietitian",
+      "slug": "dietitian",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dietitian"
+    },
+    {
+      "title": "Digital delivery manager",
+      "slug": "digital-delivery-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/digital-delivery-manager"
+    },
+    {
+      "title": "Digital product owner",
+      "slug": "digital-product-owner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/digital-product-owner"
+    },
+    {
+      "title": "Diplomatic Service officer",
+      "slug": "diplomatic-service-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/diplomatic-service-officer"
+    },
+    {
+      "title": "Director of photography",
+      "slug": "director-of-photography",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/director-of-photography"
+    },
+    {
+      "title": "Dispensing optician",
+      "slug": "dispensing-optician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dispensing-optician"
+    },
+    {
+      "title": "District nurse",
+      "slug": "district-nurse",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/district-nurse"
+    },
+    {
+      "title": "Diver",
+      "slug": "diver",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/diver"
+    },
+    {
+      "title": "DJ",
+      "slug": "dj",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dj"
+    },
+    {
+      "title": "Dog groomer",
+      "slug": "dog-groomer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dog-groomer"
+    },
+    {
+      "title": "Dog handler",
+      "slug": "dog-handler",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dog-handler"
+    },
+    {
+      "title": "Domestic appliance service engineer",
+      "slug": "domestic-appliance-service-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/domestic-appliance-service-engineer"
+    },
+    {
+      "title": "Domestic energy assessor",
+      "slug": "domestic-energy-assessor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/domestic-energy-assessor"
+    },
+    {
+      "title": "Door supervisor",
+      "slug": "door-supervisor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/door-supervisor"
+    },
+    {
+      "title": "Dramatherapist",
+      "slug": "dramatherapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dramatherapist"
+    },
+    {
+      "title": "Dressmaker",
+      "slug": "dress-maker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dress-maker"
+    },
+    {
+      "title": "Driving instructor",
+      "slug": "driving-instructor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/driving-instructor"
+    },
+    {
+      "title": "Drone pilot",
+      "slug": "drone-pilot",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/drone-pilot"
+    },
+    {
+      "title": "Dryliner",
+      "slug": "dry-liner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/dry-liner"
+    },
+    {
+      "title": "E-commerce manager",
+      "slug": "e-commerce-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/e-commerce-manager"
+    },
+    {
+      "title": "E-learning developer",
+      "slug": "e-learning-developer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/e-learning-developer"
+    },
+    {
+      "title": "Early years teacher",
+      "slug": "early-years-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/early-years-teacher"
+    },
+    {
+      "title": "Ecologist",
+      "slug": "ecologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/ecologist"
+    },
+    {
+      "title": "Economist",
+      "slug": "economist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/economist"
+    },
+    {
+      "title": "Editorial assistant",
+      "slug": "editorial-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/editorial-assistant"
+    },
+    {
+      "title": "Education technician",
+      "slug": "education-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/education-technician"
+    },
+    {
+      "title": "Education welfare officer",
+      "slug": "education-welfare-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/education-welfare-officer"
+    },
+    {
+      "title": "Electrical engineer",
+      "slug": "electrical-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/electrical-engineer"
+    },
+    {
+      "title": "Electrical engineering technician",
+      "slug": "electrical-engineering-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/electrical-engineering-technician"
+    },
+    {
+      "title": "Electrician",
+      "slug": "electrician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/electrician"
+    },
+    {
+      "title": "Electricity distribution worker",
+      "slug": "electricity-distribution-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/electricity-distribution-worker"
+    },
+    {
+      "title": "Electricity generation worker",
+      "slug": "electricity-generation-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/electricity-generation-worker"
+    },
+    {
+      "title": "Electronics engineer",
+      "slug": "electronics-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/electronics-engineer"
+    },
+    {
+      "title": "Electronics engineering technician",
+      "slug": "electronics-engineering-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/electronics-engineering-technician"
+    },
+    {
+      "title": "Embalmer",
+      "slug": "embalmer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/embalmer"
+    },
+    {
+      "title": "Emergency care assistant",
+      "slug": "emergency-care-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/emergency-care-assistant"
+    },
+    {
+      "title": "Emergency medical dispatcher",
+      "slug": "emergency-medical-dispatcher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/emergency-medical-dispatcher"
+    },
+    {
+      "title": "Engineering construction craftworker",
+      "slug": "engineering-construction-craftworker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/engineering-construction-craftworker"
+    },
+    {
+      "title": "Engineering construction technician",
+      "slug": "engineering-construction-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/engineering-construction-technician"
+    },
+    {
+      "title": "Engineering craft machinist",
+      "slug": "engineering-craft-machinist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/engineering-craft-machinist"
+    },
+    {
+      "title": "Engineering maintenance technician",
+      "slug": "engineering-maintenance-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/engineering-maintenance-technician"
+    },
+    {
+      "title": "Engineering operative",
+      "slug": "engineering-operative",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/engineering-operative"
+    },
+    {
+      "title": "English as a foreign language (EFL) teacher",
+      "slug": "efl-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/efl-teacher"
+    },
+    {
+      "title": "Environmental consultant",
+      "slug": "environmental-consultant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/environmental-consultant"
+    },
+    {
+      "title": "Environmental health practitioner",
+      "slug": "environmental-health-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/environmental-health-officer"
+    },
+    {
+      "title": "Equalities officer",
+      "slug": "equalities-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/equalities-officer"
+    },
+    {
+      "title": "Ergonomist",
+      "slug": "ergonomist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/ergonomist"
+    },
+    {
+      "title": "Esports gamer",
+      "slug": "esports-gamer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/esports-gamer"
+    },
+    {
+      "title": "Estate agent",
+      "slug": "estate-agent",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/estate-agent"
+    },
+    {
+      "title": "Estates officer",
+      "slug": "estates-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/estates-officer"
+    },
+    {
+      "title": "Estimator",
+      "slug": "estimator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/estimator"
+    },
+    {
+      "title": "Events manager",
+      "slug": "events-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/events-manager"
+    },
+    {
+      "title": "Executive assistant",
+      "slug": "personal-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/personal-assistant"
+    },
+    {
+      "title": "Exhibition designer",
+      "slug": "exhibition-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/exhibition-designer"
+    },
+    {
+      "title": "Facilities manager",
+      "slug": "facilities-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/facilities-manager"
+    },
+    {
+      "title": "Family mediator",
+      "slug": "family-mediator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/family-mediator"
+    },
+    {
+      "title": "Family support worker",
+      "slug": "family-support-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/family-support-worker"
+    },
+    {
+      "title": "Farm secretary",
+      "slug": "farm-secretary",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/farm-secretary"
+    },
+    {
+      "title": "Farm worker",
+      "slug": "farm-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/farm-worker"
+    },
+    {
+      "title": "Farmer",
+      "slug": "farmer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/farmer"
+    },
+    {
+      "title": "Farrier",
+      "slug": "farrier",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/farrier"
+    },
+    {
+      "title": "Fashion design assistant",
+      "slug": "fashion-design-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/fashion-design-assistant"
+    },
+    {
+      "title": "Fashion designer",
+      "slug": "fashion-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/fashion-designer"
+    },
+    {
+      "title": "Fashion model",
+      "slug": "fashion-model",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/fashion-model"
+    },
+    {
+      "title": "Fast fit technician",
+      "slug": "motor-vehicle-fitter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/motor-vehicle-fitter"
+    },
+    {
+      "title": "Fence installer",
+      "slug": "fence-installer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/fence-installer"
+    },
+    {
+      "title": "Film critic",
+      "slug": "film-critic",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/film-critic"
+    },
+    {
+      "title": "Finance officer",
+      "slug": "finance-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/finance-officer"
+    },
+    {
+      "title": "Financial adviser",
+      "slug": "financial-adviser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/financial-adviser"
+    },
+    {
+      "title": "Financial services customer adviser",
+      "slug": "financial-services-customer-adviser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/financial-services-customer-adviser"
+    },
+    {
+      "title": "Fine artist",
+      "slug": "fine-artist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/fine-artist"
+    },
+    {
+      "title": "Fingerprint officer",
+      "slug": "fingerprint-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/fingerprint-officer"
+    },
+    {
+      "title": "Fire safety engineer",
+      "slug": "fire-safety-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/fire-safety-engineer"
+    },
+    {
+      "title": "Firefighter",
+      "slug": "firefighter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/firefighter"
+    },
+    {
+      "title": "Fish farmer",
+      "slug": "fish-farmer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/fish-farmer"
+    },
+    {
+      "title": "Fishing boat deckhand",
+      "slug": "fishing-boat-deckhand",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/fishing-boat-deckhand"
+    },
+    {
+      "title": "Fitness instructor",
+      "slug": "fitness-instructor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/fitness-instructor"
+    },
+    {
+      "title": "Florist",
+      "slug": "florist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/florist"
+    },
+    {
+      "title": "Food factory worker",
+      "slug": "food-factory-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/food-factory-worker"
+    },
+    {
+      "title": "Food manufacturing inspector",
+      "slug": "food-manufacturing-inspector",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/food-manufacturing-inspector"
+    },
+    {
+      "title": "Food packaging operative",
+      "slug": "food-packaging-operative",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/food-packaging-operative"
+    },
+    {
+      "title": "Food scientist",
+      "slug": "food-scientist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/food-scientist"
+    },
+    {
+      "title": "Football coach",
+      "slug": "football-coach",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/football-coach"
+    },
+    {
+      "title": "Football referee",
+      "slug": "football-referee",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/football-referee"
+    },
+    {
+      "title": "Footwear designer",
+      "slug": "footwear-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/footwear-designer"
+    },
+    {
+      "title": "Footwear manufacturing operative",
+      "slug": "footwear-manufacturing-operative",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/footwear-manufacturing-operative"
+    },
+    {
+      "title": "Forensic collision investigator",
+      "slug": "road-traffic-accident-investigator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/road-traffic-accident-investigator"
+    },
+    {
+      "title": "Forensic computer analyst",
+      "slug": "forensic-computer-analyst",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/forensic-computer-analyst"
+    },
+    {
+      "title": "Forensic psychologist",
+      "slug": "forensic-psychologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/forensic-psychologist"
+    },
+    {
+      "title": "Forensic scientist",
+      "slug": "forensic-scientist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/forensic-scientist"
+    },
+    {
+      "title": "Forestry worker",
+      "slug": "forestry-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/forestry-worker"
+    },
+    {
+      "title": "Forklift driver",
+      "slug": "forklift-driver",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/forklift-driver"
+    },
+    {
+      "title": "Forklift truck engineer",
+      "slug": "forklift-truck-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/forklift-truck-engineer"
+    },
+    {
+      "title": "Formworker",
+      "slug": "formworker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/formworker"
+    },
+    {
+      "title": "Foster carer",
+      "slug": "foster-carer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/foster-carer"
+    },
+    {
+      "title": "Foundry moulder",
+      "slug": "foundry-mould-maker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/foundry-mould-maker"
+    },
+    {
+      "title": "Funeral director",
+      "slug": "funeral-director",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/funeral-director"
+    },
+    {
+      "title": "Furniture designer",
+      "slug": "furniture-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/furniture-designer"
+    },
+    {
+      "title": "Furniture maker",
+      "slug": "furniture-maker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/furniture-maker"
+    },
+    {
+      "title": "Furniture restorer",
+      "slug": "furniture-restorer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/furniture-restorer"
+    },
+    {
+      "title": "Further education teacher",
+      "slug": "further-education-lecturer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/further-education-lecturer"
+    },
+    {
+      "title": "Gamekeeper",
+      "slug": "gamekeeper",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/gamekeeper"
+    },
+    {
+      "title": "Gardener",
+      "slug": "gardener",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/gardener"
+    },
+    {
+      "title": "Garment technologist",
+      "slug": "garment-technologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/garment-technologist"
+    },
+    {
+      "title": "Gas mains layer",
+      "slug": "gas-mains-layer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/gas-mains-layer"
+    },
+    {
+      "title": "Gas service technician",
+      "slug": "gas-service-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/gas-service-technician"
+    },
+    {
+      "title": "General practice surveyor",
+      "slug": "general-practice-surveyor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/general-practice-surveyor"
+    },
+    {
+      "title": "Geneticist",
+      "slug": "geneticist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/geneticist"
+    },
+    {
+      "title": "Geoscientist",
+      "slug": "geoscientist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/geoscientist"
+    },
+    {
+      "title": "Geospatial  technician",
+      "slug": "geospatial-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/geospatial-technician"
+    },
+    {
+      "title": "Geotechnician",
+      "slug": "geotechnician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/geotechnician"
+    },
+    {
+      "title": "Glassmaker",
+      "slug": "glassmaker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/glassmaker"
+    },
+    {
+      "title": "Glazier",
+      "slug": "glazier",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/glazier"
+    },
+    {
+      "title": "GP",
+      "slug": "gp",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/gp"
+    },
+    {
+      "title": "GP practice manager",
+      "slug": "gp-practice-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/gp-practice-manager"
+    },
+    {
+      "title": "Graphic designer",
+      "slug": "graphic-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/graphic-designer"
+    },
+    {
+      "title": "Groundsperson",
+      "slug": "groundsperson",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/groundsperson"
+    },
+    {
+      "title": "Hairdresser",
+      "slug": "hairdresser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/hairdresser"
+    },
+    {
+      "title": "Headteacher",
+      "slug": "headteacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/headteacher"
+    },
+    {
+      "title": "Health and safety adviser",
+      "slug": "health-and-safety-adviser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/health-and-safety-adviser"
+    },
+    {
+      "title": "Health play specialist",
+      "slug": "health-play-specialist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/health-play-specialist"
+    },
+    {
+      "title": "Health promotion specialist",
+      "slug": "health-promotion-specialist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/health-promotion-specialist"
+    },
+    {
+      "title": "Health records clerk",
+      "slug": "health-records-clerk",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/health-records-clerk"
+    },
+    {
+      "title": "Health service manager",
+      "slug": "health-service-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/health-service-manager"
+    },
+    {
+      "title": "Health trainer",
+      "slug": "health-trainer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/health-trainer"
+    },
+    {
+      "title": "Health visitor",
+      "slug": "health-visitor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/health-visitor"
+    },
+    {
+      "title": "Healthcare assistant",
+      "slug": "healthcare-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/healthcare-assistant"
+    },
+    {
+      "title": "Healthcare science assistant",
+      "slug": "healthcare-science-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/healthcare-science-assistant"
+    },
+    {
+      "title": "Heat pump engineer",
+      "slug": "heat-pump-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/heat-pump-engineer"
+    },
+    {
+      "title": "Heating and ventilation engineer",
+      "slug": "heating-and-ventilation-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/heating-and-ventilation-engineer"
+    },
+    {
+      "title": "Helicopter engineer",
+      "slug": "helicopter-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/helicopter-engineer"
+    },
+    {
+      "title": "Helicopter pilot",
+      "slug": "helicopter-pilot",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/helicopter-pilot"
+    },
+    {
+      "title": "Heritage officer",
+      "slug": "heritage-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/heritage-officer"
+    },
+    {
+      "title": "HGV driver",
+      "slug": "large-goods-vehicle-driver",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/large-goods-vehicle-driver"
+    },
+    {
+      "title": "Higher education lecturer",
+      "slug": "higher-education-lecturer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/higher-education-lecturer"
+    },
+    {
+      "title": "Homeopath",
+      "slug": "homeopath",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/homeopath"
+    },
+    {
+      "title": "Horse groom",
+      "slug": "horse-groom",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/horse-groom"
+    },
+    {
+      "title": "Horse riding instructor",
+      "slug": "horse-riding-instructor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/horse-riding-instructor"
+    },
+    {
+      "title": "Horticultural manager",
+      "slug": "horticultural-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/horticultural-manager"
+    },
+    {
+      "title": "Horticultural therapist",
+      "slug": "horticultural-therapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/horticultural-therapist"
+    },
+    {
+      "title": "Horticultural worker",
+      "slug": "horticultural-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/horticultural-worker"
+    },
+    {
+      "title": "Hospital doctor",
+      "slug": "hospital-doctor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/hospital-doctor"
+    },
+    {
+      "title": "Hospital porter",
+      "slug": "hospital-porter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/hospital-porter"
+    },
+    {
+      "title": "Hotel housekeeper",
+      "slug": "housekeeper",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/housekeeper"
+    },
+    {
+      "title": "Hotel manager",
+      "slug": "hotel-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/hotel-manager"
+    },
+    {
+      "title": "Hotel porter",
+      "slug": "hotel-porter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/hotel-porter"
+    },
+    {
+      "title": "Housing officer",
+      "slug": "housing-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/housing-officer"
+    },
+    {
+      "title": "Human resources officer",
+      "slug": "human-resources-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/human-resources-officer"
+    },
+    {
+      "title": "Hydrologist",
+      "slug": "hydrologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/hydrologist"
+    },
+    {
+      "title": "Hypnotherapist",
+      "slug": "hypnotherapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/hypnotherapist"
+    },
+    {
+      "title": "Illustrator",
+      "slug": "illustrator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/illustrator"
+    },
+    {
+      "title": "Immigration adviser (non-government)",
+      "slug": "immigration-adviser-non-government",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/immigration-adviser-non-government"
+    },
+    {
+      "title": "Immigration officer",
+      "slug": "immigration-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/immigration-officer"
+    },
+    {
+      "title": "Import-export clerk",
+      "slug": "import-export-clerk",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/import-export-clerk"
+    },
+    {
+      "title": "Indexer",
+      "slug": "indexer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/indexer"
+    },
+    {
+      "title": "Industrial cleaner",
+      "slug": "industrial-cleaner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/industrial-cleaner"
+    },
+    {
+      "title": "Information scientist",
+      "slug": "information-scientist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/information-scientist"
+    },
+    {
+      "title": "Insurance account manager",
+      "slug": "insurance-account-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/insurance-account-manager"
+    },
+    {
+      "title": "Insurance broker",
+      "slug": "insurance-broker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/insurance-broker"
+    },
+    {
+      "title": "Insurance claims handler",
+      "slug": "insurance-claims-handler",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/insurance-claims-handler"
+    },
+    {
+      "title": "Insurance loss adjuster",
+      "slug": "insurance-loss-adjuster",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/insurance-loss-adjuster"
+    },
+    {
+      "title": "Insurance risk surveyor",
+      "slug": "insurance-risk-surveyor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/insurance-risk-surveyor"
+    },
+    {
+      "title": "Insurance technician",
+      "slug": "insurance-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/insurance-technician"
+    },
+    {
+      "title": "Insurance underwriter",
+      "slug": "insurance-underwriter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/insurance-underwriter"
+    },
+    {
+      "title": "Intelligence analyst",
+      "slug": "criminal-intelligence-analyst",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/criminal-intelligence-analyst"
+    },
+    {
+      "title": "Interior designer",
+      "slug": "interior-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/interior-designer"
+    },
+    {
+      "title": "Interpreter",
+      "slug": "interpreter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/interpreter"
+    },
+    {
+      "title": "Investment analyst",
+      "slug": "investment-analyst",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/investment-analyst"
+    },
+    {
+      "title": "IT project manager",
+      "slug": "it-project-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/it-project-manager"
+    },
+    {
+      "title": "IT security co-ordinator",
+      "slug": "it-security-co-ordinator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/it-security-co-ordinator"
+    },
+    {
+      "title": "IT service engineer",
+      "slug": "it-service-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/it-service-engineer"
+    },
+    {
+      "title": "IT support technician",
+      "slug": "it-support-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/it-support-technician"
+    },
+    {
+      "title": "IT trainer",
+      "slug": "it-trainer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/it-trainer"
+    },
+    {
+      "title": "Jewellery designer-maker",
+      "slug": "jewellery-designer-maker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/jewellery-designer-maker"
+    },
+    {
+      "title": "Jockey",
+      "slug": "jockey",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/jockey"
+    },
+    {
+      "title": "Judge",
+      "slug": "judge",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/judge"
+    },
+    {
+      "title": "Kennel worker",
+      "slug": "kennel-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/kennel-worker"
+    },
+    {
+      "title": "Kitchen and bathroom designer",
+      "slug": "kitchen-and-bathroom-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/kitchen-and-bathroom-designer"
+    },
+    {
+      "title": "Kitchen and bathroom fitter",
+      "slug": "kitchen-and-bathroom-fitter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/kitchen-and-bathroom-fitter"
+    },
+    {
+      "title": "Kitchen porter",
+      "slug": "kitchen-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/kitchen-assistant"
+    },
+    {
+      "title": "Laboratory technician",
+      "slug": "laboratory-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/laboratory-technician"
+    },
+    {
+      "title": "Land and property valuer and auctioneer",
+      "slug": "land-and-property-valuer-and-auctioneer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/land-and-property-valuer-and-auctioneer"
+    },
+    {
+      "title": "Land surveyor",
+      "slug": "land-surveyor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/land-surveyor"
+    },
+    {
+      "title": "Landscape architect",
+      "slug": "landscape-architect",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/landscape-architect"
+    },
+    {
+      "title": "Landscaper",
+      "slug": "landscaper",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/landscaper"
+    },
+    {
+      "title": "Laundry worker",
+      "slug": "laundry-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/laundry-worker"
+    },
+    {
+      "title": "Learning disability nurse",
+      "slug": "learning-disability-nurse",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/learning-disability-nurse"
+    },
+    {
+      "title": "Learning mentor",
+      "slug": "learning-mentor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/learning-mentor"
+    },
+    {
+      "title": "Leather craftworker",
+      "slug": "leather-craftworker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/leather-craftworker"
+    },
+    {
+      "title": "Legal executive",
+      "slug": "legal-executive",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/legal-executive"
+    },
+    {
+      "title": "Legal secretary",
+      "slug": "legal-secretary",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/legal-secretary"
+    },
+    {
+      "title": "Leisure centre assistant",
+      "slug": "leisure-centre-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/leisure-centre-assistant"
+    },
+    {
+      "title": "Leisure centre manager",
+      "slug": "leisure-centre-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/leisure-centre-manager"
+    },
+    {
+      "title": "Letting agent",
+      "slug": "letting-agent",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/letting-agent"
+    },
+    {
+      "title": "Librarian",
+      "slug": "librarian",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/librarian"
+    },
+    {
+      "title": "Library assistant",
+      "slug": "library-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/library-assistant"
+    },
+    {
+      "title": "Licensed conveyancer",
+      "slug": "licensed-conveyancer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/licensed-conveyancer"
+    },
+    {
+      "title": "Life coach",
+      "slug": "life-coach",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/life-coach"
+    },
+    {
+      "title": "Lifeguard",
+      "slug": "lifeguard",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/lifeguard"
+    },
+    {
+      "title": "Lift engineer",
+      "slug": "lift-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/lift-engineer"
+    },
+    {
+      "title": "Lighting technician",
+      "slug": "lighting-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/lighting-technician"
+    },
+    {
+      "title": "Live sound engineer",
+      "slug": "live-sound-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/live-sound-engineer"
+    },
+    {
+      "title": "Local government officer",
+      "slug": "local-government-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/local-government-officer"
+    },
+    {
+      "title": "Local government revenues officer",
+      "slug": "local-government-revenues-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/local-government-revenues-officer"
+    },
+    {
+      "title": "Locksmith",
+      "slug": "locksmith",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/locksmith"
+    },
+    {
+      "title": "Maintenance fitter",
+      "slug": "maintenance-fitter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/maintenance-fitter"
+    },
+    {
+      "title": "Make-up artist",
+      "slug": "make-up-artist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/make-up-artist"
+    },
+    {
+      "title": "Management accountant",
+      "slug": "management-accountant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/management-accountant"
+    },
+    {
+      "title": "Management consultant",
+      "slug": "management-consultant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/management-consultant"
+    },
+    {
+      "title": "Manufacturing systems engineer",
+      "slug": "manufacturing-systems-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/manufacturing-systems-engineer"
+    },
+    {
+      "title": "Marine engineer",
+      "slug": "marine-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/marine-engineer"
+    },
+    {
+      "title": "Marine engineering technician",
+      "slug": "marine-engineering-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/marine-engineering-technician"
+    },
+    {
+      "title": "Market research data analyst",
+      "slug": "market-research-data-analyst",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/market-research-data-analyst"
+    },
+    {
+      "title": "Market research executive",
+      "slug": "market-research-executive",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/market-research-executive"
+    },
+    {
+      "title": "Market researcher",
+      "slug": "market-researcher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/market-researcher"
+    },
+    {
+      "title": "Market trader",
+      "slug": "market-trader",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/market-trader"
+    },
+    {
+      "title": "Marketing executive",
+      "slug": "marketing-executive",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/marketing-executive"
+    },
+    {
+      "title": "Marketing manager",
+      "slug": "marketing-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/marketing-manager"
+    },
+    {
+      "title": "Martial arts instructor",
+      "slug": "martial-arts-instructor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/martial-arts-instructor"
+    },
+    {
+      "title": "Massage therapist",
+      "slug": "massage-therapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/massage-therapist"
+    },
+    {
+      "title": "Materials engineer",
+      "slug": "materials-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/materials-engineer"
+    },
+    {
+      "title": "Materials technician",
+      "slug": "materials-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/materials-technician"
+    },
+    {
+      "title": "Maternity support worker",
+      "slug": "maternity-support-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/maternity-support-worker"
+    },
+    {
+      "title": "Meat hygiene inspector",
+      "slug": "meat-hygiene-inspector",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/meat-hygiene-inspector"
+    },
+    {
+      "title": "Mechanical engineer",
+      "slug": "mechanical-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/mechanical-engineer"
+    },
+    {
+      "title": "Mechanical engineering technician",
+      "slug": "mechanical-engineering-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/mechanical-engineering-technician"
+    },
+    {
+      "title": "Media researcher",
+      "slug": "media-researcher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/media-researcher"
+    },
+    {
+      "title": "Medical herbalist",
+      "slug": "medical-herbalist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/medical-herbalist"
+    },
+    {
+      "title": "Medical illustrator",
+      "slug": "medical-illustrator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/medical-illustrator"
+    },
+    {
+      "title": "Medical physicist",
+      "slug": "medical-physicist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/medical-physicist"
+    },
+    {
+      "title": "Medical secretary",
+      "slug": "medical-secretary",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/medical-secretary"
+    },
+    {
+      "title": "Mental health nurse",
+      "slug": "mental-health-nurse",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/mental-health-nurse"
+    },
+    {
+      "title": "Merchant Navy deck officer",
+      "slug": "merchant-navy-deck-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/merchant-navy-deck-officer"
+    },
+    {
+      "title": "Merchant Navy engineering officer",
+      "slug": "merchant-navy-engineering-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/merchant-navy-engineering-officer"
+    },
+    {
+      "title": "Merchant Navy rating",
+      "slug": "merchant-navy-rating",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/merchant-navy-rating"
+    },
+    {
+      "title": "Meteorologist",
+      "slug": "meteorologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/meteorologist"
+    },
+    {
+      "title": "Metrologist",
+      "slug": "metrologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/metrologist"
+    },
+    {
+      "title": "Microbiologist",
+      "slug": "microbiologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/microbiologist"
+    },
+    {
+      "title": "Microbrewer",
+      "slug": "microbrewer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/microbrewer"
+    },
+    {
+      "title": "Midwife",
+      "slug": "midwife",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/midwife"
+    },
+    {
+      "title": "Model maker",
+      "slug": "model-maker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/model-maker"
+    },
+    {
+      "title": "Money adviser",
+      "slug": "money-adviser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/money-adviser"
+    },
+    {
+      "title": "Montessori teacher",
+      "slug": "montessori-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/montessori-teacher"
+    },
+    {
+      "title": "Mortgage adviser",
+      "slug": "mortgage-adviser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/mortgage-adviser"
+    },
+    {
+      "title": "Motor mechanic",
+      "slug": "motor-mechanic",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/motor-mechanic"
+    },
+    {
+      "title": "Motorcycle mechanic",
+      "slug": "motorcycle-mechanic",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/motorcycle-mechanic"
+    },
+    {
+      "title": "Motorsport engineer",
+      "slug": "motorsport-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/motorsport-engineer"
+    },
+    {
+      "title": "MP",
+      "slug": "mp",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/mp"
+    },
+    {
+      "title": "Museum attendant",
+      "slug": "museum-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/museum-assistant"
+    },
+    {
+      "title": "Museum curator",
+      "slug": "museum-curator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/museum-curator"
+    },
+    {
+      "title": "Music promotions manager",
+      "slug": "music-promotions-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/music-promotions-manager"
+    },
+    {
+      "title": "Music teacher",
+      "slug": "music-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/music-teacher"
+    },
+    {
+      "title": "Music therapist",
+      "slug": "music-therapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/music-therapist"
+    },
+    {
+      "title": "Musical instrument maker and repairer",
+      "slug": "musical-instrument-maker-repairer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/musical-instrument-maker-repairer"
+    },
+    {
+      "title": "Musician",
+      "slug": "classical-musician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/classical-musician"
+    },
+    {
+      "title": "Nail technician",
+      "slug": "nail-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/nail-technician"
+    },
+    {
+      "title": "Nanny",
+      "slug": "nanny",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/nanny"
+    },
+    {
+      "title": "Nanotechnologist",
+      "slug": "nanotechnologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/nanotechnologist"
+    },
+    {
+      "title": "Naturopath",
+      "slug": "naturopath",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/naturopath"
+    },
+    {
+      "title": "Naval architect",
+      "slug": "naval-architect",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/naval-architect"
+    },
+    {
+      "title": "Neighbourhood warden",
+      "slug": "neighbourhood-warden",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/neighbourhood-warden"
+    },
+    {
+      "title": "Network engineer",
+      "slug": "network-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/network-engineer"
+    },
+    {
+      "title": "Network manager",
+      "slug": "network-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/network-manager"
+    },
+    {
+      "title": "Newspaper or magazine editor",
+      "slug": "newspaper-or-magazine-editor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/newspaper-or-magazine-editor"
+    },
+    {
+      "title": "Newspaper or magazine journalist",
+      "slug": "newspaper-journalist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/newspaper-journalist"
+    },
+    {
+      "title": "Non-destructive testing technician",
+      "slug": "non-destructive-testing-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/non-destructive-testing-technician"
+    },
+    {
+      "title": "Nuclear engineer",
+      "slug": "nuclear-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/nuclear-engineer"
+    },
+    {
+      "title": "Nuclear technician",
+      "slug": "nuclear-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/nuclear-technician"
+    },
+    {
+      "title": "Nurse",
+      "slug": "nurse",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/nurse"
+    },
+    {
+      "title": "Nursery manager",
+      "slug": "nursery-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/nursery-manager"
+    },
+    {
+      "title": "Nursery worker",
+      "slug": "nursery-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/nursery-worker"
+    },
+    {
+      "title": "Nursing associate",
+      "slug": "nursing-associate",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/nursing-associate"
+    },
+    {
+      "title": "Nutritional therapist",
+      "slug": "nutritional-therapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/nutritional-therapist"
+    },
+    {
+      "title": "Nutritionist",
+      "slug": "nutritionist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/nutritionist"
+    },
+    {
+      "title": "Occupational health nurse",
+      "slug": "occupational-health-nurse",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/occupational-health-nurse"
+    },
+    {
+      "title": "Occupational therapist",
+      "slug": "occupational-therapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/occupational-therapist"
+    },
+    {
+      "title": "Occupational therapy support worker",
+      "slug": "occupational-therapy-support-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/occupational-therapy-support-worker"
+    },
+    {
+      "title": "Oceanographer",
+      "slug": "oceanographer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/oceanographer"
+    },
+    {
+      "title": "Office manager",
+      "slug": "office-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/office-manager"
+    },
+    {
+      "title": "Offshore drilling worker",
+      "slug": "offshore-drilling-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/offshore-drilling-worker"
+    },
+    {
+      "title": "Ofsted inspector",
+      "slug": "ofsted-inspector",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/ofsted-inspector"
+    },
+    {
+      "title": "Online tutor",
+      "slug": "online-tutor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/online-tutor"
+    },
+    {
+      "title": "Operating department practitioner",
+      "slug": "operating-department-practitioner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/operating-department-practitioner"
+    },
+    {
+      "title": "Operational researcher",
+      "slug": "operational-researcher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/operational-researcher"
+    },
+    {
+      "title": "Optometrist",
+      "slug": "optometrist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/optometrist"
+    },
+    {
+      "title": "Orthoptist",
+      "slug": "orthoptist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/orthoptist"
+    },
+    {
+      "title": "Osteopath",
+      "slug": "osteopath",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/osteopath"
+    },
+    {
+      "title": "Outdoor activities instructor",
+      "slug": "outdoor-activities-instructor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/outdoor-activities-instructor"
+    },
+    {
+      "title": "Packaging technologist",
+      "slug": "packaging-technologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/packaging-technologist"
+    },
+    {
+      "title": "Packer",
+      "slug": "packer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/packer"
+    },
+    {
+      "title": "Paediatrician",
+      "slug": "paediatrician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/paediatrician"
+    },
+    {
+      "title": "Paint sprayer",
+      "slug": "paint-sprayer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/paint-sprayer"
+    },
+    {
+      "title": "Painter and decorator",
+      "slug": "painter-and-decorator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/painter-and-decorator"
+    },
+    {
+      "title": "Palaeontologist",
+      "slug": "palaeontologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/palaeontologist"
+    },
+    {
+      "title": "Palliative care assistant",
+      "slug": "palliative-care-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/palliative-care-assistant"
+    },
+    {
+      "title": "Paralegal",
+      "slug": "paralegal",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/paralegal"
+    },
+    {
+      "title": "Paramedic",
+      "slug": "paramedic",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/paramedic"
+    },
+    {
+      "title": "Paraplanner",
+      "slug": "paraplanner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/paraplanner"
+    },
+    {
+      "title": "Patent attorney",
+      "slug": "patent-attorney",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/patent-attorney"
+    },
+    {
+      "title": "Pathologist",
+      "slug": "pathologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pathologist"
+    },
+    {
+      "title": "Patient advice and liaison service officer",
+      "slug": "patient-advice-and-liaison-service-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/patient-advice-and-liaison-service-officer"
+    },
+    {
+      "title": "Patient transport service controller",
+      "slug": "patient-transport-service-controller",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/patient-transport-service-controller"
+    },
+    {
+      "title": "Pattern cutter",
+      "slug": "pattern-cutter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pattern-cutter"
+    },
+    {
+      "title": "Payroll administrator",
+      "slug": "payroll-administrator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/payroll-administrator"
+    },
+    {
+      "title": "PE teacher",
+      "slug": "pe-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pe-teacher"
+    },
+    {
+      "title": "Pensions administrator",
+      "slug": "pensions-administrator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pensions-administrator"
+    },
+    {
+      "title": "Performance sports scientist",
+      "slug": "sports-scientist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sports-scientist"
+    },
+    {
+      "title": "Personal shopper",
+      "slug": "personal-shopper",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/personal-shopper"
+    },
+    {
+      "title": "Personal trainer",
+      "slug": "personal-trainer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/personal-trainer"
+    },
+    {
+      "title": "Pest control technician",
+      "slug": "pest-control-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pest-control-technician"
+    },
+    {
+      "title": "Pet behaviour consultant",
+      "slug": "pet-behaviour-consultant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pet-behaviour-consultant"
+    },
+    {
+      "title": "Pharmacist",
+      "slug": "pharmacist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pharmacist"
+    },
+    {
+      "title": "Pharmacologist",
+      "slug": "pharmacologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pharmacologist"
+    },
+    {
+      "title": "Pharmacy assistant",
+      "slug": "pharmacy-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pharmacy-assistant"
+    },
+    {
+      "title": "Pharmacy technician",
+      "slug": "pharmacy-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pharmacy-technician"
+    },
+    {
+      "title": "Phlebotomist",
+      "slug": "phlebotomist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/phlebotomist"
+    },
+    {
+      "title": "Photographer",
+      "slug": "photographer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/photographer"
+    },
+    {
+      "title": "Photographic stylist",
+      "slug": "photographic-stylist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/photographic-stylist"
+    },
+    {
+      "title": "Photographic technician",
+      "slug": "photographic-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/photographic-technician"
+    },
+    {
+      "title": "Physician associate",
+      "slug": "physician-associate",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/physician-associate"
+    },
+    {
+      "title": "Physicist",
+      "slug": "physicist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/physicist"
+    },
+    {
+      "title": "Physiotherapist",
+      "slug": "physiotherapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/physiotherapist"
+    },
+    {
+      "title": "Physiotherapy assistant",
+      "slug": "physiotherapy-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/physiotherapy-assistant"
+    },
+    {
+      "title": "Pilates teacher",
+      "slug": "pilates-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pilates-teacher"
+    },
+    {
+      "title": "Pipe fitter",
+      "slug": "pipe-fitter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pipe-fitter"
+    },
+    {
+      "title": "Planning and development surveyor",
+      "slug": "planning-and-development-surveyor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/planning-and-development-surveyor"
+    },
+    {
+      "title": "Plasterer",
+      "slug": "plasterer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/plasterer"
+    },
+    {
+      "title": "Plastic surgeon",
+      "slug": "cosmetic-surgeon",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/cosmetic-surgeon"
+    },
+    {
+      "title": "Play therapist",
+      "slug": "play-therapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/play-therapist"
+    },
+    {
+      "title": "Playworker",
+      "slug": "playworker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/playworker"
+    },
+    {
+      "title": "Plumber",
+      "slug": "plumber",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/plumber"
+    },
+    {
+      "title": "Podiatrist",
+      "slug": "podiatrist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/podiatrist"
+    },
+    {
+      "title": "Podiatry assistant",
+      "slug": "podiatry-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/podiatry-assistant"
+    },
+    {
+      "title": "Police community support officer",
+      "slug": "police-community-support-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/police-community-support-officer"
+    },
+    {
+      "title": "Police officer",
+      "slug": "police-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/police-officer"
+    },
+    {
+      "title": "Port operative",
+      "slug": "port-operative",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/port-operative"
+    },
+    {
+      "title": "Portage home visitor",
+      "slug": "portage-home-visitor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/portage-home-visitor"
+    },
+    {
+      "title": "Post Office customer service assistant",
+      "slug": "post-office-customer-service-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/post-office-customer-service-assistant"
+    },
+    {
+      "title": "Postperson",
+      "slug": "postman-or-postwoman",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/postman-or-postwoman"
+    },
+    {
+      "title": "Practice nurse",
+      "slug": "practice-nurse",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/practice-nurse"
+    },
+    {
+      "title": "Pre-press operator",
+      "slug": "pre-press-operator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/pre-press-operator"
+    },
+    {
+      "title": "Primary school teacher",
+      "slug": "primary-school-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/primary-school-teacher"
+    },
+    {
+      "title": "Prison governor",
+      "slug": "prison-governor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/prison-governor"
+    },
+    {
+      "title": "Prison instructor",
+      "slug": "prison-instructor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/prison-instructor"
+    },
+    {
+      "title": "Prison officer",
+      "slug": "prison-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/prison-officer"
+    },
+    {
+      "title": "Private practice accountant",
+      "slug": "private-practice-accountant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/private-practice-accountant"
+    },
+    {
+      "title": "Probation officer",
+      "slug": "probation-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/probation-officer"
+    },
+    {
+      "title": "Probation services officer",
+      "slug": "probation-services-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/probation-services-officer"
+    },
+    {
+      "title": "Product designer",
+      "slug": "product-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/product-designer"
+    },
+    {
+      "title": "Production manager (manufacturing)",
+      "slug": "production-manager-manufacturing-",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/production-manager-manufacturing-"
+    },
+    {
+      "title": "Production worker (manufacturing)",
+      "slug": "production-worker-manufacturing",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/production-worker-manufacturing"
+    },
+    {
+      "title": "Proofreader",
+      "slug": "proofreader",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/proofreader"
+    },
+    {
+      "title": "Prop maker",
+      "slug": "prop-maker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/prop-maker"
+    },
+    {
+      "title": "Prosthetist and orthotist",
+      "slug": "prosthetist-orthotist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/prosthetist-orthotist"
+    },
+    {
+      "title": "Psychiatrist",
+      "slug": "psychiatrist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/psychiatrist"
+    },
+    {
+      "title": "Psychological wellbeing practitioner",
+      "slug": "primary-care-graduate-mental-health-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/primary-care-graduate-mental-health-worker"
+    },
+    {
+      "title": "Psychologist",
+      "slug": "psychologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/psychologist"
+    },
+    {
+      "title": "Psychotherapist",
+      "slug": "psychotherapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/psychotherapist"
+    },
+    {
+      "title": "Public finance accountant",
+      "slug": "public-finance-accountant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/public-finance-accountant"
+    },
+    {
+      "title": "Public relations director",
+      "slug": "public-relations-director",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/public-relations-director"
+    },
+    {
+      "title": "Public relations officer",
+      "slug": "public-relations-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/public-relations-officer"
+    },
+    {
+      "title": "Publican",
+      "slug": "publican",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/publican"
+    },
+    {
+      "title": "Purchasing manager",
+      "slug": "purchasing-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/purchasing-manager"
+    },
+    {
+      "title": "Quality control officer",
+      "slug": "quality-control-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/quality-control-assistant"
+    },
+    {
+      "title": "Quantity surveyor",
+      "slug": "quantity-surveyor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/quantity-surveyor"
+    },
+    {
+      "title": "Quarry engineer",
+      "slug": "quarry-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/quarry-engineer"
+    },
+    {
+      "title": "Quarry worker",
+      "slug": "quarry-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/quarry-worker"
+    },
+    {
+      "title": "Racehorse trainer",
+      "slug": "racehorse-trainer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/racehorse-trainer"
+    },
+    {
+      "title": "Radio broadcast assistant",
+      "slug": "radio-broadcast-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/radio-broadcast-assistant"
+    },
+    {
+      "title": "Radiographer",
+      "slug": "radiographer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/radiographer"
+    },
+    {
+      "title": "Radiography assistant",
+      "slug": "radiography-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/radiography-assistant"
+    },
+    {
+      "title": "RAF aviator",
+      "slug": "raf-airman-or-airwoman",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/raf-airman-or-airwoman"
+    },
+    {
+      "title": "RAF officer",
+      "slug": "raf-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/raf-officer"
+    },
+    {
+      "title": "RAF regiment gunner",
+      "slug": "raf-non-commissioned-aircrew",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/raf-non-commissioned-aircrew"
+    },
+    {
+      "title": "Rail track maintenance worker",
+      "slug": "rail-track-maintenance-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/rail-track-maintenance-worker"
+    },
+    {
+      "title": "Railway signaller",
+      "slug": "railway-signaller",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/railway-signaller"
+    },
+    {
+      "title": "Receptionist",
+      "slug": "receptionist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/receptionist"
+    },
+    {
+      "title": "Recruitment consultant",
+      "slug": "recruitment-consultant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/recruitment-consultant"
+    },
+    {
+      "title": "Recycled metals worker",
+      "slug": "recycled-metals-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/recycled-metals-worker"
+    },
+    {
+      "title": "Recycling engagement officer",
+      "slug": "recycling-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/recycling-officer"
+    },
+    {
+      "title": "Recycling operative",
+      "slug": "recycling-operative",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/recycling-operative"
+    },
+    {
+      "title": "Reflexologist",
+      "slug": "reflexologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/reflexologist"
+    },
+    {
+      "title": "Refrigeration and air-conditioning installer",
+      "slug": "refrigeration-and-air-conditioning-installer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/refrigeration-and-air-conditioning-installer"
+    },
+    {
+      "title": "Registrar of births, deaths, marriages and civil partnerships",
+      "slug": "registrar-of-births-deaths-marriages-and-civil-partnerships",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/registrar-of-births-deaths-marriages-and-civil-partnerships"
+    },
+    {
+      "title": "Reiki healer",
+      "slug": "reiki-healer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/reiki-healer"
+    },
+    {
+      "title": "Religious leader",
+      "slug": "religious-leader",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/religious-leader"
+    },
+    {
+      "title": "Removals worker",
+      "slug": "removals-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/removals-worker"
+    },
+    {
+      "title": "Renewable energy engineer",
+      "slug": "energy-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/energy-engineer"
+    },
+    {
+      "title": "Reprographic assistant",
+      "slug": "reprographic-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/reprographic-assistant"
+    },
+    {
+      "title": "Research scientist",
+      "slug": "research-scientist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/research-scientist"
+    },
+    {
+      "title": "Residential support worker",
+      "slug": "residential-support-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/residential-support-worker"
+    },
+    {
+      "title": "Resort representative",
+      "slug": "resort-representative",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/resort-representative"
+    },
+    {
+      "title": "Restaurant manager",
+      "slug": "restaurant-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/restaurant-manager"
+    },
+    {
+      "title": "Retail buyer",
+      "slug": "retail-buyer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/retail-buyer"
+    },
+    {
+      "title": "Retail manager",
+      "slug": "retail-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/retail-manager"
+    },
+    {
+      "title": "Retail merchandiser",
+      "slug": "retail-merchandiser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/retail-merchandiser"
+    },
+    {
+      "title": "Road transport manager",
+      "slug": "road-transport-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/road-transport-manager"
+    },
+    {
+      "title": "Road worker",
+      "slug": "road-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/road-worker"
+    },
+    {
+      "title": "Roadie",
+      "slug": "roadie",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/roadie"
+    },
+    {
+      "title": "Roadside assistance technician",
+      "slug": "motor-vehicle-breakdown-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/motor-vehicle-breakdown-engineer"
+    },
+    {
+      "title": "Robotics engineer",
+      "slug": "robotics-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/robotics-engineer"
+    },
+    {
+      "title": "Rolling stock engineering technician",
+      "slug": "rail-engineering-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/rail-engineering-technician"
+    },
+    {
+      "title": "Roofer",
+      "slug": "roofer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/roofer"
+    },
+    {
+      "title": "Roustabout",
+      "slug": "roustabout",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/roustabout"
+    },
+    {
+      "title": "Royal Marines commando",
+      "slug": "royal-marines-commando",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/royal-marines-commando"
+    },
+    {
+      "title": "Royal Marines officer",
+      "slug": "royal-marines-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/royal-marines-officer"
+    },
+    {
+      "title": "Royal Navy officer",
+      "slug": "royal-navy-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/royal-navy-officer"
+    },
+    {
+      "title": "Royal Navy rating",
+      "slug": "royal-navy-rating",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/royal-navy-rating"
+    },
+    {
+      "title": "RQF assessor",
+      "slug": "qcf-assessor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/qcf-assessor"
+    },
+    {
+      "title": "RSPCA inspector",
+      "slug": "rspca-inspector",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/rspca-inspector"
+    },
+    {
+      "title": "Rural surveyor",
+      "slug": "rural-surveyor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/rural-surveyor"
+    },
+    {
+      "title": "Sailing instructor",
+      "slug": "sailing-instructor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sailing-instructor"
+    },
+    {
+      "title": "Sales administrator",
+      "slug": "sales-administrator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sales-administrator"
+    },
+    {
+      "title": "Sales assistant",
+      "slug": "sales-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sales-assistant"
+    },
+    {
+      "title": "Sales manager",
+      "slug": "sales-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sales-manager"
+    },
+    {
+      "title": "Sales representative",
+      "slug": "sales-representative",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sales-representative"
+    },
+    {
+      "title": "Satellite engineer",
+      "slug": "satellite-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/satellite-engineer"
+    },
+    {
+      "title": "Scaffolder",
+      "slug": "scaffolder",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/scaffolder"
+    },
+    {
+      "title": "Scenes of crime officer",
+      "slug": "scenes-of-crime-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/scenes-of-crime-officer"
+    },
+    {
+      "title": "School business manager",
+      "slug": "school-business-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/school-business-manager"
+    },
+    {
+      "title": "School houseparent",
+      "slug": "school-matron",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/school-matron"
+    },
+    {
+      "title": "School lunchtime supervisor",
+      "slug": "school-lunchtime-supervisor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/school-lunchtime-supervisor"
+    },
+    {
+      "title": "School nurse",
+      "slug": "school-nurse",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/school-nurse"
+    },
+    {
+      "title": "School secretary",
+      "slug": "school-secretary",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/school-secretary"
+    },
+    {
+      "title": "Screenwriter",
+      "slug": "screenwriter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/screenwriter"
+    },
+    {
+      "title": "Secondary school teacher",
+      "slug": "secondary-school-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/secondary-school-teacher"
+    },
+    {
+      "title": "Secretary",
+      "slug": "secretary",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/secretary"
+    },
+    {
+      "title": "Security manager",
+      "slug": "security-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/security-manager"
+    },
+    {
+      "title": "Security officer",
+      "slug": "security-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/security-officer"
+    },
+    {
+      "title": "Security Service personnel",
+      "slug": "security-service-personnel",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/security-service-personnel"
+    },
+    {
+      "title": "Security systems installer",
+      "slug": "security-systems-installer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/security-systems-installer"
+    },
+    {
+      "title": "Seismologist",
+      "slug": "seismologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/seismologist"
+    },
+    {
+      "title": "Senior care worker",
+      "slug": "senior-care-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/senior-care-worker"
+    },
+    {
+      "title": "Set designer",
+      "slug": "set-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/set-designer"
+    },
+    {
+      "title": "Sewing machinist",
+      "slug": "sewing-machinist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sewing-machinist"
+    },
+    {
+      "title": "Shopfitter",
+      "slug": "shopfitter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/shopfitter"
+    },
+    {
+      "title": "Shopkeeper",
+      "slug": "shopkeeper",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/shopkeeper"
+    },
+    {
+      "title": "Sign maker",
+      "slug": "signmaker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/signmaker"
+    },
+    {
+      "title": "Signalling technician",
+      "slug": "signalling-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/signalling-technician"
+    },
+    {
+      "title": "Skills for life teacher",
+      "slug": "skills-for-life-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/skills-for-life-teacher"
+    },
+    {
+      "title": "Smart home installer",
+      "slug": "smart-home-installer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/smart-home-installer"
+    },
+    {
+      "title": "Smart meter installer",
+      "slug": "smart-meter-installer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/smart-meter-installer"
+    },
+    {
+      "title": "Social media influencer",
+      "slug": "vlogger",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/vlogger"
+    },
+    {
+      "title": "Social media manager",
+      "slug": "social-media-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/social-media-manager"
+    },
+    {
+      "title": "Social services manager",
+      "slug": "social-services-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/social-services-manager"
+    },
+    {
+      "title": "Social work assistant",
+      "slug": "social-work-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/social-work-assistant"
+    },
+    {
+      "title": "Social worker",
+      "slug": "social-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/social-worker"
+    },
+    {
+      "title": "Software developer",
+      "slug": "software-developer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/software-developer"
+    },
+    {
+      "title": "Soldier",
+      "slug": "soldier",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/soldier"
+    },
+    {
+      "title": "Solicitor",
+      "slug": "solicitor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/solicitor"
+    },
+    {
+      "title": "Solutions architect",
+      "slug": "solutions-architect",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/solutions-architect"
+    },
+    {
+      "title": "Sonographer",
+      "slug": "sonographer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sonographer"
+    },
+    {
+      "title": "Special educational needs (SEN) teacher",
+      "slug": "special-educational-needs-sen-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/special-educational-needs-sen-teacher"
+    },
+    {
+      "title": "Special educational needs (SEN) teaching assistant",
+      "slug": "special-educational-needs-sen-teaching-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/special-educational-needs-sen-teaching-assistant"
+    },
+    {
+      "title": "Speech and language therapist",
+      "slug": "speech-and-language-therapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/speech-and-language-therapist"
+    },
+    {
+      "title": "Speech and language therapy assistant",
+      "slug": "speech-and-language-therapy-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/speech-and-language-therapy-assistant"
+    },
+    {
+      "title": "Sport and exercise psychologist",
+      "slug": "sport-and-exercise-psychologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sport-and-exercise-psychologist"
+    },
+    {
+      "title": "Sports coach",
+      "slug": "sports-coach",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sports-coach"
+    },
+    {
+      "title": "Sports commentator",
+      "slug": "sports-commentator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sports-commentator"
+    },
+    {
+      "title": "Sports development officer",
+      "slug": "sports-development-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sports-development-officer"
+    },
+    {
+      "title": "Sports professional",
+      "slug": "sports-professional",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/sports-professional"
+    },
+    {
+      "title": "Stage manager",
+      "slug": "stage-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/stage-manager"
+    },
+    {
+      "title": "Stagehand",
+      "slug": "stagehand",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/stagehand"
+    },
+    {
+      "title": "Steel erector",
+      "slug": "steel-erector",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/steel-erector"
+    },
+    {
+      "title": "Steel fixer",
+      "slug": "steel-fixer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/steel-fixer"
+    },
+    {
+      "title": "Steeplejack",
+      "slug": "steeplejack",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/steeplejack"
+    },
+    {
+      "title": "Stock control assistant",
+      "slug": "stock-control-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/stock-control-assistant"
+    },
+    {
+      "title": "Stockbroker",
+      "slug": "stockbroker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/stockbroker"
+    },
+    {
+      "title": "Stonemason",
+      "slug": "stonemason",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/stonemason"
+    },
+    {
+      "title": "Store detective",
+      "slug": "store-detective",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/store-detective"
+    },
+    {
+      "title": "Street food trader",
+      "slug": "street-food-trader",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/street-food-trader"
+    },
+    {
+      "title": "Structural engineer",
+      "slug": "structural-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/structural-engineer"
+    },
+    {
+      "title": "Studio sound engineer",
+      "slug": "studio-sound-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/studio-sound-engineer"
+    },
+    {
+      "title": "Substance misuse outreach worker",
+      "slug": "substance-misuse-outreach-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/substance-misuse-outreach-worker"
+    },
+    {
+      "title": "Supervisor",
+      "slug": "supervisor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/supervisor"
+    },
+    {
+      "title": "Supply chain manager",
+      "slug": "supply-chain-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/supply-chain-manager"
+    },
+    {
+      "title": "Surgeon",
+      "slug": "surgeon",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/surgeon"
+    },
+    {
+      "title": "Surveying technician",
+      "slug": "technical-surveyor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/technical-surveyor"
+    },
+    {
+      "title": "Swimming teacher",
+      "slug": "swimming-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/swimming-teacher"
+    },
+    {
+      "title": "Systems analyst",
+      "slug": "systems-analyst",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/systems-analyst"
+    },
+    {
+      "title": "Tailor",
+      "slug": "tailor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tailor"
+    },
+    {
+      "title": "Tattooist and body piercer",
+      "slug": "tattooist-and-body-piercer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tattooist-and-body-piercer"
+    },
+    {
+      "title": "Tax adviser",
+      "slug": "tax-adviser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tax-adviser"
+    },
+    {
+      "title": "Tax inspector",
+      "slug": "tax-inspector",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tax-inspector"
+    },
+    {
+      "title": "Taxi driver",
+      "slug": "taxi-driver",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/taxi-driver"
+    },
+    {
+      "title": "Teaching assistant",
+      "slug": "teaching-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/teaching-assistant"
+    },
+    {
+      "title": "Technical architect",
+      "slug": "technical-architect",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/technical-architect"
+    },
+    {
+      "title": "Technical author",
+      "slug": "technical-author",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/technical-author"
+    },
+    {
+      "title": "Technical brewer",
+      "slug": "technical-brewer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/technical-brewer"
+    },
+    {
+      "title": "Telecoms engineer",
+      "slug": "telecoms-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/telecoms-engineer"
+    },
+    {
+      "title": "Test lead",
+      "slug": "test-lead",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/test-lead"
+    },
+    {
+      "title": "Textile designer",
+      "slug": "textile-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/textile-designer"
+    },
+    {
+      "title": "Textile operative",
+      "slug": "textile-operative",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/textile-operative"
+    },
+    {
+      "title": "Thatcher",
+      "slug": "thatcher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/thatcher"
+    },
+    {
+      "title": "Thermal insulation engineer",
+      "slug": "thermal-insulation-engineer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/thermal-insulation-engineer"
+    },
+    {
+      "title": "Tiler",
+      "slug": "tiler",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tiler"
+    },
+    {
+      "title": "Toolmaker",
+      "slug": "toolmaker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/toolmaker"
+    },
+    {
+      "title": "Tour manager",
+      "slug": "tour-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tour-manager"
+    },
+    {
+      "title": "Tourist guide",
+      "slug": "tourist-guide",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tourist-guide"
+    },
+    {
+      "title": "Tourist information centre assistant",
+      "slug": "tourist-information-centre-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tourist-information-centre-assistant"
+    },
+    {
+      "title": "Town planner",
+      "slug": "town-planner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/town-planner"
+    },
+    {
+      "title": "Town planning assistant",
+      "slug": "town-planning-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/town-planning-assistant"
+    },
+    {
+      "title": "Trade mark attorney",
+      "slug": "trade-mark-attorney",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/trade-mark-attorney"
+    },
+    {
+      "title": "Trade union official",
+      "slug": "trade-union-official",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/trade-union-official"
+    },
+    {
+      "title": "Trading standards officer",
+      "slug": "trading-standards-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/trading-standards-officer"
+    },
+    {
+      "title": "Train conductor",
+      "slug": "train-conductor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/train-conductor"
+    },
+    {
+      "title": "Train driver",
+      "slug": "train-driver",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/train-driver"
+    },
+    {
+      "title": "Train station worker",
+      "slug": "train-station-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/train-station-worker"
+    },
+    {
+      "title": "Training officer",
+      "slug": "training-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/training-officer"
+    },
+    {
+      "title": "Tram driver",
+      "slug": "tram-driver",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tram-driver"
+    },
+    {
+      "title": "Translator",
+      "slug": "translator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/translator"
+    },
+    {
+      "title": "Transport planner",
+      "slug": "transport-planner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/transport-planner"
+    },
+    {
+      "title": "Travel agent",
+      "slug": "travel-agent",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/travel-agent"
+    },
+    {
+      "title": "Tree surgeon",
+      "slug": "tree-surgeon",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tree-surgeon"
+    },
+    {
+      "title": "TV or film assistant director",
+      "slug": "tv-or-film-assistant-director",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tv-or-film-assistant-director"
+    },
+    {
+      "title": "TV or film assistant production co-ordinator",
+      "slug": "tv-or-film-production-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tv-or-film-production-assistant"
+    },
+    {
+      "title": "TV or film camera operator",
+      "slug": "tv-or-film-camera-operator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tv-or-film-camera-operator"
+    },
+    {
+      "title": "TV or film director",
+      "slug": "tv-or-film-director",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tv-or-film-director"
+    },
+    {
+      "title": "TV or film producer",
+      "slug": "tv-or-film-producer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tv-or-film-producer"
+    },
+    {
+      "title": "TV or film production manager",
+      "slug": "tv-or-film-production-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tv-or-film-production-manager"
+    },
+    {
+      "title": "TV or film production runner",
+      "slug": "tv-or-film-production-runner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tv-or-film-production-runner"
+    },
+    {
+      "title": "TV or film sound technician",
+      "slug": "tv-or-film-sound-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tv-or-film-sound-technician"
+    },
+    {
+      "title": "TV presenter",
+      "slug": "tv-presenter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/tv-presenter"
+    },
+    {
+      "title": "User experience (UX) designer",
+      "slug": "ux-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/ux-designer"
+    },
+    {
+      "title": "User researcher",
+      "slug": "user-researcher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/user-researcher"
+    },
+    {
+      "title": "Vehicle body repairer",
+      "slug": "vehicle-body-repairer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/vehicle-body-repairer"
+    },
+    {
+      "title": "Vet",
+      "slug": "vet",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/vet"
+    },
+    {
+      "title": "Veterinary nurse",
+      "slug": "veterinary-nurse",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/veterinary-nurse"
+    },
+    {
+      "title": "Veterinary physiotherapist",
+      "slug": "veterinary-physiotherapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/veterinary-physiotherapist"
+    },
+    {
+      "title": "Victim care officer",
+      "slug": "victim-care-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/victim-care-officer"
+    },
+    {
+      "title": "Video editor",
+      "slug": "video-editor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/video-editor"
+    },
+    {
+      "title": "Visitor attraction general manager",
+      "slug": "visitor-attraction-general-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/visitor-attraction-general-manager"
+    },
+    {
+      "title": "Visual merchandiser",
+      "slug": "visual-merchandiser",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/visual-merchandiser"
+    },
+    {
+      "title": "Waiter",
+      "slug": "waiter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/waiter"
+    },
+    {
+      "title": "Wardrobe assistant",
+      "slug": "wardrobe-assistant",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/wardrobe-assistant"
+    },
+    {
+      "title": "Warehouse manager",
+      "slug": "warehouse-manager",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/warehouse-manager"
+    },
+    {
+      "title": "Warehouse worker",
+      "slug": "warehouse-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/warehouse-worker"
+    },
+    {
+      "title": "Watch or clock repairer",
+      "slug": "watch-or-clock-repairer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/watch-or-clock-repairer"
+    },
+    {
+      "title": "Water network operative",
+      "slug": "water-network-operative",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/water-network-operative"
+    },
+    {
+      "title": "Water treatment worker",
+      "slug": "water-treatment-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/water-treatment-worker"
+    },
+    {
+      "title": "Web content editor",
+      "slug": "web-content-editor",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/web-content-editor"
+    },
+    {
+      "title": "Web designer",
+      "slug": "web-designer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/web-designer"
+    },
+    {
+      "title": "Web developer",
+      "slug": "web-developer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/web-developer"
+    },
+    {
+      "title": "Wedding planner",
+      "slug": "wedding-planner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/wedding-planner"
+    },
+    {
+      "title": "Welder",
+      "slug": "welder",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/welder"
+    },
+    {
+      "title": "Welfare rights adviser",
+      "slug": "welfare-rights-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/welfare-rights-officer"
+    },
+    {
+      "title": "Wind turbine technician",
+      "slug": "wind-turbine-technician",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/wind-turbine-technician"
+    },
+    {
+      "title": "Window cleaner",
+      "slug": "window-cleaner",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/window-cleaner"
+    },
+    {
+      "title": "Window fabricator",
+      "slug": "window-fabricator",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/window-fabricator"
+    },
+    {
+      "title": "Windscreen fitter",
+      "slug": "windscreen-fitter",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/windscreen-fitter"
+    },
+    {
+      "title": "Wood machinist",
+      "slug": "wood-machinist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/wood-machinist"
+    },
+    {
+      "title": "Writer",
+      "slug": "writer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/writer"
+    },
+    {
+      "title": "Yoga teacher",
+      "slug": "yoga-teacher",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/yoga-teacher"
+    },
+    {
+      "title": "Yoga therapist",
+      "slug": "yoga-therapist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/yoga-therapist"
+    },
+    {
+      "title": "Youth offending team officer",
+      "slug": "youth-offending-team-officer",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/youth-offending-team-officer"
+    },
+    {
+      "title": "Youth worker",
+      "slug": "youth-worker",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/youth-worker"
+    },
+    {
+      "title": "Zookeeper",
+      "slug": "zookeeper",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/zookeeper"
+    },
+    {
+      "title": "Zoologist",
+      "slug": "zoologist",
+      "url": "https://nationalcareers.service.gov.uk/job-profiles/zoologist"
+    }
+  ]
+}

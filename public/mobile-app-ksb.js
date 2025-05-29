@@ -19,7 +19,7 @@ class EnhancedPathwayExplorer {
     this.currentView = 'forward';
     this.searchMode = 'traditional'; // 'traditional' or 'skills'
     this.lastSearchQuery = '';
-    
+    this.ncsJobMappings = null; // ADD THIS LINE
     // DOM elements
     this.elements = {
       // Enhanced search elements
@@ -66,21 +66,118 @@ class EnhancedPathwayExplorer {
   /* ===========================================
      INITIALIZATION
      =========================================== */
-  async init() {
+/* ===========================================
+   INITIALIZATION - FIXED
+   =========================================== */
+/* ===========================================
+   INITIALIZATION - FIXED WITH PROPER FILTER STATE
+   =========================================== */
+async init() {
+  try {
+    this.showLoading(true);
+    await this.loadData();
+    await this.loadKSBData();
+    await this.loadNCSMappings();
+    this.setupEventListeners();
+    this.updateWishlistCount();
+    
+    // Initialize with all courses visible
+    this.filteredCourses = [...this.courses];
+    this.displayCourses();
+    
+    // FIX: Initialize filters in collapsed state
+    this.initializeFilterState();
+    
+    this.showLoading(false);
+  } catch (error) {
+    console.error('Failed to initialize app:', error);
+    this.showError('Failed to load courses. Please try again.');
+  }
+}
+  /* ===========================================
+     LOAD NCS JOB MAPPINGS FROM STATIC FILE
+     =========================================== */
+  async loadNCSMappings() {
     try {
-      this.showLoading(true);
-      await this.loadData();
-      await this.loadKSBData();
-      this.setupEventListeners();
-      this.updateWishlistCount();
-      this.displayCourses();
-      this.showLoading(false);
+      // Load the mappings file from public folder
+      const response = await fetch('/ncs_title_mapping.json');
+      if (response.ok) {
+        this.ncsJobMappings = await response.json();
+        console.log(`✅ Loaded ${Object.keys(this.ncsJobMappings).length} NCS job mappings`);
+      } else {
+        console.warn('⚠️ NCS job mappings not found - career links will be disabled');
+        this.ncsJobMappings = {};
+      }
     } catch (error) {
-      console.error('Failed to initialize app:', error);
-      this.showError('Failed to load courses. Please try again.');
+      console.warn('⚠️ Could not load NCS mappings:', error);
+      this.ncsJobMappings = {};
     }
   }
+  /* ===========================================
+     JOB TITLE MATCHING METHODS
+     =========================================== */
+  findNCSUrl(jobTitle) {
+    if (!this.ncsJobMappings || Object.keys(this.ncsJobMappings).length === 0) {
+      return null;
+    }
+    
+    // Try exact match first
+    const normalized = jobTitle.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+    if (this.ncsJobMappings[normalized]) {
+      return `https://nationalcareers.service.gov.uk/job-profiles/${this.ncsJobMappings[normalized]}`;
+    }
+    
+    // Try fuzzy matching
+    const fuzzyMatch = this.fuzzyFindJob(jobTitle);
+    if (fuzzyMatch) {
+      return `https://nationalcareers.service.gov.uk/job-profiles/${fuzzyMatch}`;
+    }
+    
+    return null;
+  }
+  
+  fuzzyFindJob(jobTitle) {
+    const searchTerm = jobTitle.toLowerCase();
+    
+    // Look for partial matches
+    for (const [title, slug] of Object.entries(this.ncsJobMappings)) {
+      if (title.includes(searchTerm) || searchTerm.includes(title)) {
+        return slug;
+      }
+    }
+    
+    // Try word matching for compound titles
+    const searchWords = searchTerm.split(' ').filter(word => word.length > 2);
+    for (const [title, slug] of Object.entries(this.ncsJobMappings)) {
+      const titleWords = title.split(' ');
+      const matchCount = searchWords.filter(word => 
+        titleWords.some(titleWord => titleWord.includes(word) || word.includes(titleWord))
+      ).length;
+      
+      // If majority of words match, consider it a match
+      if (matchCount >= Math.ceil(searchWords.length / 2)) {
+        return slug;
+      }
+    }
+    
+    return null;
+  }
 
+initializeFilterState() {
+  // Set initial collapsed state
+  this.filtersCollapsed = true;
+  
+  // Apply collapsed styling immediately
+  this.elements.filtersSection.classList.add('collapsed');
+  
+  // Set toggle arrow to collapsed state
+  const filtersArrow = this.elements.filtersSection.querySelector('.filters-arrow');
+  if (filtersArrow) {
+    filtersArrow.textContent = '▼';  // Pointing down when collapsed
+  }
+  
+  console.log('Filters initialized in collapsed state');
+}
   async loadData() {
     try {
       // Load courses (existing)
@@ -105,9 +202,8 @@ class EnhancedPathwayExplorer {
 
   async loadKSBData() {
     try {
-      // Load KSB mappings - you'd need to serve this from your backend
-      // For now, we'll simulate loading from a CSV endpoint
-      const ksbResponse = await fetch('/api/ksb-mappings');
+      // FIXED: Correct endpoint URL
+      const ksbResponse = await fetch('/api/ksb/mappings');
       if (ksbResponse.ok) {
         const ksbMappings = await ksbResponse.json();
         
@@ -140,6 +236,311 @@ class EnhancedPathwayExplorer {
     } catch (e) {
       return [];
     }
+  }
+
+  /* ===========================================
+     WISHLIST FUNCTIONALITY
+     =========================================== */
+  loadWishlist() {
+    try {
+      const saved = localStorage.getItem('emiot-wishlist');
+      return saved ? JSON.parse(saved) : [];
+    } catch (error) {
+      console.warn('Failed to load wishlist:', error);
+      return [];
+    }
+  }
+
+  saveWishlist() {
+    try {
+      localStorage.setItem('emiot-wishlist', JSON.stringify(this.wishlist));
+    } catch (error) {
+      console.warn('Failed to save wishlist:', error);
+    }
+  }
+
+  toggleWishlist(courseId) {
+    if (!courseId) return;
+    
+    const index = this.wishlist.indexOf(courseId);
+    if (index > -1) {
+      this.wishlist.splice(index, 1);
+    } else {
+      this.wishlist.push(courseId);
+    }
+    
+    this.saveWishlist();
+    this.updateWishlistCount();
+    this.updateWishlistButtons();
+    
+    // Refresh display if showing wishlist only
+    if (this.showingWishlistOnly) {
+      this.displayCourses();
+    }
+  }
+
+  updateWishlistCount() {
+    this.elements.wishlistCount.textContent = this.wishlist.length;
+  }
+
+  updateWishlistButtons() {
+    // Update all wishlist buttons
+    document.querySelectorAll('.card-wishlist-btn').forEach(btn => {
+      const card = btn.closest('.course-card');
+      const courseId = parseInt(card.dataset.courseId);
+      this.updateWishlistButton(btn, courseId);
+    });
+    
+    // Update modal wishlist button
+    if (this.selectedCourse) {
+      this.updateWishlistButton(this.elements.modalWishlistBtn, this.selectedCourse.courseId);
+    }
+  }
+
+  updateWishlistButton(button, courseId) {
+    const isInWishlist = this.wishlist.includes(courseId);
+    const heartIcon = button.querySelector('.heart-icon');
+    
+    if (isInWishlist) {
+      button.classList.add('active');
+      heartIcon.textContent = '♥';
+      button.setAttribute('aria-label', 'Remove from wishlist');
+    } else {
+      button.classList.remove('active');
+      heartIcon.textContent = '♡';
+      button.setAttribute('aria-label', 'Add to wishlist');
+    }
+  }
+
+  toggleWishlistView() {
+    this.showingWishlistOnly = !this.showingWishlistOnly;
+    
+    const toggle = this.elements.wishlistToggle;
+    const heartIcon = toggle.querySelector('.heart-icon');
+    
+    if (this.showingWishlistOnly) {
+      toggle.classList.add('active');
+      heartIcon.textContent = '♥';
+      toggle.setAttribute('aria-label', 'Show all courses');
+    } else {
+      toggle.classList.remove('active');
+      heartIcon.textContent = '♡';
+      toggle.setAttribute('aria-label', 'Show wishlist only');
+    }
+    
+    this.applyFilters();
+  }
+
+  /* ===========================================
+     BASIC FUNCTIONALITY
+     =========================================== */
+  populateFilters() {
+    // Get unique providers
+    const providers = [...new Set(this.courses.map(course => course.provider))];
+    
+    // Clear existing options (except first one)
+    this.elements.providerFilter.innerHTML = '<option value="">All Providers</option>';
+    
+    // Add provider options
+    providers.forEach(provider => {
+      const option = document.createElement('option');
+      option.value = provider;
+      option.textContent = this.getProviderShortName(provider);
+      this.elements.providerFilter.appendChild(option);
+    });
+    
+    // Get unique subjects
+    const subjects = [...new Set(this.courses.map(course => course.subjectArea).filter(Boolean))];
+    
+    // Clear existing options (except first one)
+    this.elements.subjectFilter.innerHTML = '<option value="">All Subjects</option>';
+    
+    // Add subject options
+    subjects.forEach(subject => {
+      const option = document.createElement('option');
+      option.value = subject;
+      option.textContent = subject;
+      this.elements.subjectFilter.appendChild(option);
+    });
+  }
+
+  // applyFilters() {
+  //   const searchQuery = this.elements.searchInput.value.toLowerCase().trim();
+  //   const levelFilter = this.elements.levelFilter.value;
+  //   const providerFilter = this.elements.providerFilter.value;
+  //   const subjectFilter = this.elements.subjectFilter.value;
+    
+  //   this.filteredCourses = this.courses.filter(course => {
+  //     // Search filter
+  //     if (searchQuery && !course.courseName.toLowerCase().includes(searchQuery) &&
+  //         !course.subjectArea?.toLowerCase().includes(searchQuery)) {
+  //       return false;
+  //     }
+      
+  //     // Level filter
+  //     if (levelFilter && course.level != levelFilter) {
+  //       return false;
+  //     }
+      
+  //     // Provider filter
+  //     if (providerFilter && course.provider !== providerFilter) {
+  //       return false;
+  //     }
+      
+  //     // Subject filter
+  //     if (subjectFilter && course.subjectArea !== subjectFilter) {
+  //       return false;
+  //     }
+      
+  //     // Wishlist filter
+  //     if (this.showingWishlistOnly && !this.wishlist.includes(course.courseId)) {
+  //       return false;
+  //     }
+      
+  //     return true;
+  //   });
+
+  //   this.displayCourses();
+  // }
+/* ===========================================
+   FILTER LOGIC - FIXED
+   =========================================== */
+applyFilters() {
+  const searchQuery = this.elements.searchInput.value.toLowerCase().trim();
+  const levelFilter = this.elements.levelFilter.value;
+  const providerFilter = this.elements.providerFilter.value;
+  const subjectFilter = this.elements.subjectFilter.value;
+  
+  // Check if any filters are actually active
+  const hasActiveFilters = searchQuery || levelFilter || providerFilter || subjectFilter;
+  
+  if (!hasActiveFilters && !this.showingWishlistOnly) {
+    // No filters active - show all courses
+    this.filteredCourses = [...this.courses];
+  } else {
+    // Apply filtering
+    this.filteredCourses = this.courses.filter(course => {
+      // Search filter
+      if (searchQuery && !course.courseName.toLowerCase().includes(searchQuery) &&
+          !course.subjectArea?.toLowerCase().includes(searchQuery)) {
+        return false;
+      }
+      
+      // Level filter
+      if (levelFilter && course.level != levelFilter) {
+        return false;
+      }
+      
+      // Provider filter
+      if (providerFilter && course.provider !== providerFilter) {
+        return false;
+      }
+      
+      // Subject filter
+      if (subjectFilter && course.subjectArea !== subjectFilter) {
+        return false;
+      }
+      
+      return true;
+    });
+  }
+  
+  this.displayCourses();
+}
+
+/* ===========================================
+   DISPLAY LOGIC - FIXED
+   =========================================== */
+displayCourses() {
+  let coursesToShow;
+  
+  if (this.showingWishlistOnly) {
+    coursesToShow = this.courses.filter(course => this.wishlist.includes(course.courseId));
+  } else {
+    // Use filteredCourses if they exist, otherwise show all courses
+    coursesToShow = this.filteredCourses.length > 0 ? this.filteredCourses : this.courses;
+  }
+  
+  // Clear grid
+  this.elements.coursesGrid.innerHTML = '';
+  
+  // Show empty state if no courses
+  if (coursesToShow.length === 0) {
+    this.elements.emptyState.classList.remove('hidden');
+    return;
+  } else {
+    this.elements.emptyState.classList.add('hidden');
+  }
+  
+  // Create course cards
+  coursesToShow.forEach(course => {
+    const card = this.createCourseCard(course);
+    this.elements.coursesGrid.appendChild(card);
+  });
+}/* ===========================================
+   DISPLAY LOGIC - FIXED
+   =========================================== */
+displayCourses() {
+  let coursesToShow;
+  
+  if (this.showingWishlistOnly) {
+    coursesToShow = this.courses.filter(course => this.wishlist.includes(course.courseId));
+  } else {
+    // Use filteredCourses if they exist, otherwise show all courses
+    coursesToShow = this.filteredCourses.length > 0 ? this.filteredCourses : this.courses;
+  }
+  
+  // Clear grid
+  this.elements.coursesGrid.innerHTML = '';
+  
+  // Show empty state if no courses
+  if (coursesToShow.length === 0) {
+    this.elements.emptyState.classList.remove('hidden');
+    return;
+  } else {
+    this.elements.emptyState.classList.add('hidden');
+  }
+  
+  // Create course cards
+  coursesToShow.forEach(course => {
+    const card = this.createCourseCard(course);
+    this.elements.coursesGrid.appendChild(card);
+  });
+}
+  createCourseCard(course) {
+    const template = this.elements.courseCardTemplate.content.cloneNode(true);
+    const card = template.querySelector('.course-card');
+    
+    // Set data
+    card.dataset.courseId = course.courseId;
+    
+    // Level badge
+    const levelBadge = card.querySelector('.level-badge');
+    const levelNumber = card.querySelector('.level-number');
+    levelBadge.dataset.level = course.level;
+    levelNumber.textContent = course.level;
+    
+    // Wishlist button
+    const wishlistBtn = card.querySelector('.card-wishlist-btn');
+    this.updateWishlistButton(wishlistBtn, course.courseId);
+    wishlistBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.toggleWishlist(course.courseId);
+    });
+    
+    // Course info
+    card.querySelector('.course-title').textContent = course.courseName;
+    
+    const providerBadge = card.querySelector('.provider-badge');
+    providerBadge.textContent = this.getProviderShortName(course.provider);
+    providerBadge.className = `provider-badge ${this.getProviderClass(course.provider)}`;
+    
+    card.querySelector('.subject-area').textContent = course.subjectArea || 'General';
+    
+    // Click handler
+    card.addEventListener('click', () => this.openCourseModal(course));
+    
+    return card;
   }
 
   /* ===========================================
@@ -216,51 +617,98 @@ class EnhancedPathwayExplorer {
     }, 300);
   }
 
-  performSkillsSearch(query) {
-    if (!query) {
-      this.applyFilters();
+  // performSkillsSearch(query) {
+  //   if (!query) {
+  //     this.applyFilters();
+  //     return;
+  //   }
+
+  //   const searchResults = [];
+    
+  //   this.courses.forEach(course => {
+  //     const ksbData = this.ksbData[course.courseId];
+  //     if (!ksbData) {
+  //       // Fallback to traditional search if no KSB data
+  //       if (this.matchesTraditionalSearch(course, query)) {
+  //         searchResults.push({
+  //           course,
+  //           matchScore: 0.5,
+  //           matchReasons: ['Course name or provider match'],
+  //           confidenceScore: 0
+  //         });
+  //       }
+  //       return;
+  //     }
+
+  //     const matches = this.findKSBMatches(ksbData, query);
+  //     if (matches.totalScore > 0) {
+  //       searchResults.push({
+  //         course,
+  //         matchScore: matches.totalScore,
+  //         matchReasons: matches.reasons,
+  //         confidenceScore: ksbData.confidenceScore,
+  //         ksbData
+  //       });
+  //     }
+  //   });
+
+  //   // Sort by match score and confidence
+  //   searchResults.sort((a, b) => {
+  //     if (a.matchScore !== b.matchScore) {
+  //       return b.matchScore - a.matchScore;
+  //     }
+  //     return b.confidenceScore - a.confidenceScore;
+  //   });
+
+  //   this.displaySearchResults(searchResults, query);
+  // }
+performSkillsSearch(query) {
+  if (!query) {
+    // When search is cleared, reset to show all courses
+    this.filteredCourses = [...this.courses];
+    this.displayCourses();
+    return;
+  }
+
+  const searchResults = [];
+  
+  this.courses.forEach(course => {
+    const ksbData = this.ksbData[course.courseId];
+    if (!ksbData) {
+      // Fallback to traditional search if no KSB data
+      if (this.matchesTraditionalSearch(course, query)) {
+        searchResults.push({
+          course,
+          matchScore: 0.5,
+          matchReasons: ['Course name or provider match'],
+          confidenceScore: 0
+        });
+      }
       return;
     }
 
-    const searchResults = [];
-    
-    this.courses.forEach(course => {
-      const ksbData = this.ksbData[course.courseId];
-      if (!ksbData) {
-        // Fallback to traditional search if no KSB data
-        if (this.matchesTraditionalSearch(course, query)) {
-          searchResults.push({
-            course,
-            matchScore: 0.5,
-            matchReasons: ['Course name or provider match'],
-            confidenceScore: 0
-          });
-        }
-        return;
-      }
+    const matches = this.findKSBMatches(ksbData, query);
+    if (matches.totalScore > 0) {
+      searchResults.push({
+        course,
+        matchScore: matches.totalScore,
+        matchReasons: matches.reasons,
+        confidenceScore: ksbData.confidenceScore,
+        ksbData
+      });
+    }
+  });
 
-      const matches = this.findKSBMatches(ksbData, query);
-      if (matches.totalScore > 0) {
-        searchResults.push({
-          course,
-          matchScore: matches.totalScore,
-          matchReasons: matches.reasons,
-          confidenceScore: ksbData.confidenceScore,
-          ksbData
-        });
-      }
-    });
+  // Sort by match score and confidence
+  searchResults.sort((a, b) => {
+    if (a.matchScore !== b.matchScore) {
+      return b.matchScore - a.matchScore;
+    }
+    return b.confidenceScore - a.confidenceScore;
+  });
 
-    // Sort by match score and confidence
-    searchResults.sort((a, b) => {
-      if (a.matchScore !== b.matchScore) {
-        return b.matchScore - a.matchScore;
-      }
-      return b.confidenceScore - a.confidenceScore;
-    });
-
-    this.displaySearchResults(searchResults, query);
-  }
+  this.displaySearchResults(searchResults, query);
+}
 
   findKSBMatches(ksbData, query) {
     const matches = {
@@ -345,30 +793,57 @@ class EnhancedPathwayExplorer {
     return variations.some(variation => text.includes(variation));
   }
 
-  performTraditionalSearch(query) {
-    if (!query) {
-      this.applyFilters();
-      return;
-    }
+  // performTraditionalSearch(query) {
+  //   if (!query) {
+  //     this.applyFilters();
+  //     return;
+  //   }
 
-    const searchResults = [];
+  //   const searchResults = [];
     
-    this.courses.forEach(course => {
-      if (this.matchesTraditionalSearch(course, query)) {
-        const ksbData = this.ksbData[course.courseId];
-        searchResults.push({
-          course,
-          matchScore: 1.0,
-          matchReasons: ['Course name or provider match'],
-          confidenceScore: ksbData ? ksbData.confidenceScore : 0,
-          ksbData
-        });
-      }
-    });
+  //   this.courses.forEach(course => {
+  //     if (this.matchesTraditionalSearch(course, query)) {
+  //       const ksbData = this.ksbData[course.courseId];
+  //       searchResults.push({
+  //         course,
+  //         matchScore: 1.0,
+  //         matchReasons: ['Course name or provider match'],
+  //         confidenceScore: ksbData ? ksbData.confidenceScore : 0,
+  //         ksbData
+  //       });
+  //     }
+  //   });
 
-    this.displaySearchResults(searchResults, query);
+  //   this.displaySearchResults(searchResults, query);
+  // }
+/* ===========================================
+   SEARCH HANDLING - FIXED
+   =========================================== */
+performTraditionalSearch(query) {
+  if (!query) {
+    // When search is cleared, reset to show all courses
+    this.filteredCourses = [...this.courses];
+    this.displayCourses();
+    return;
   }
 
+  const searchResults = [];
+  
+  this.courses.forEach(course => {
+    if (this.matchesTraditionalSearch(course, query)) {
+      const ksbData = this.ksbData[course.courseId];
+      searchResults.push({
+        course,
+        matchScore: 1.0,
+        matchReasons: ['Course name or provider match'],
+        confidenceScore: ksbData ? ksbData.confidenceScore : 0,
+        ksbData
+      });
+    }
+  });
+
+  this.displaySearchResults(searchResults, query);
+}
   matchesTraditionalSearch(course, query) {
     const searchFields = [
       course.courseName,
@@ -399,6 +874,72 @@ class EnhancedPathwayExplorer {
     this.elements.emptyState.classList.add('hidden');
   }
 
+  // createEnhancedCourseCard(result) {
+  //   const { course, matchScore, matchReasons, confidenceScore, ksbData } = result;
+    
+  //   const template = this.elements.courseCardTemplate.content.cloneNode(true);
+  //   const card = template.querySelector('.course-card');
+    
+  //   // Set data
+  //   card.dataset.courseId = course.courseId;
+    
+  //   // Add match indicator if this is a skills search
+  //   if (this.searchMode === 'skills' && matchScore > 0) {
+  //     const matchIndicator = document.createElement('div');
+  //     matchIndicator.className = 'match-indicator';
+  //     matchIndicator.textContent = `${Math.round(matchScore * 100)}% match`;
+  //     card.appendChild(matchIndicator);
+  //   }
+    
+  //   // Level badge
+  //   const levelBadge = card.querySelector('.level-badge');
+  //   const levelNumber = card.querySelector('.level-number');
+  //   levelBadge.dataset.level = course.level;
+  //   levelNumber.textContent = course.level;
+    
+  //   // Wishlist button
+  //   const wishlistBtn = card.querySelector('.card-wishlist-btn');
+  //   this.updateWishlistButton(wishlistBtn, course.courseId);
+  //   wishlistBtn.addEventListener('click', (e) => {
+  //     e.stopPropagation();
+  //     this.toggleWishlist(course.courseId);
+  //   });
+    
+  //   // Course info
+  //   card.querySelector('.course-title').textContent = course.courseName;
+    
+  //   const providerBadge = card.querySelector('.provider-badge');
+  //   providerBadge.textContent = this.getProviderShortName(course.provider);
+  //   providerBadge.className = `provider-badge ${this.getProviderClass(course.provider)}`;
+    
+  //   card.querySelector('.subject-area').textContent = course.subjectArea || 'General';
+    
+  //   // Add match reasons if this is a skills search
+  //   if (this.searchMode === 'skills' && matchReasons.length > 0) {
+  //     const matchInfo = document.createElement('div');
+  //     matchInfo.className = 'match-info';
+  //     matchInfo.innerHTML = matchReasons.slice(0, 2).map(reason => 
+  //       `<div class="match-reason">${reason}</div>`
+  //     ).join('');
+  //     card.appendChild(matchInfo);
+  //   }
+    
+  //   // Add confidence indicator
+  //   if (confidenceScore > 0) {
+  //     const confidenceIndicator = document.createElement('div');
+  //     confidenceIndicator.className = 'confidence-indicator';
+  //     confidenceIndicator.textContent = `Quality: ${confidenceScore}/10`;
+  //     card.appendChild(confidenceIndicator);
+  //   }
+    
+  //   // Click handler
+  //   card.addEventListener('click', () => this.openEnhancedCourseModal(course, result));
+    
+  //   return card;
+  // }
+/* ===========================================
+     ENHANCED COURSE CARD CAREER HINTS
+     =========================================== */
   createEnhancedCourseCard(result) {
     const { course, matchScore, matchReasons, confidenceScore, ksbData } = result;
     
@@ -439,6 +980,19 @@ class EnhancedPathwayExplorer {
     
     card.querySelector('.subject-area').textContent = course.subjectArea || 'General';
     
+    // Add career hint if KSB data available
+    if (ksbData && ksbData.careerPathways.length > 0) {
+      const topCareers = ksbData.careerPathways
+        .sort((a, b) => b.confidence - a.confidence)
+        .slice(0, 2)
+        .map(career => career.role);
+      
+      const careerHint = document.createElement('div');
+      careerHint.className = 'career-hint';
+      careerHint.innerHTML = `<span class="hint-icon">💼</span> ${topCareers.join(', ')}`;
+      card.appendChild(careerHint);
+    }
+    
     // Add match reasons if this is a skills search
     if (this.searchMode === 'skills' && matchReasons.length > 0) {
       const matchInfo = document.createElement('div');
@@ -473,16 +1027,23 @@ class EnhancedPathwayExplorer {
     this.elements.emptyState.classList.remove('hidden');
   }
 
-  clearSearch() {
-    this.elements.searchInput.value = '';
-    this.lastSearchQuery = '';
-    this.applyFilters();
-  }
-
+  // clearSearch() {
+  //   this.elements.searchInput.value = '';
+  //   this.lastSearchQuery = '';
+  //   this.applyFilters();
+  // }
+clearSearch() {
+  this.elements.searchInput.value = '';
+  this.lastSearchQuery = '';
+  
+  // Reset to show all courses
+  this.filteredCourses = [...this.courses];
+  this.displayCourses();
+}
   /* ===========================================
-     ENHANCED MODAL WITH KSB INTELLIGENCE
+     MODAL FUNCTIONALITY
      =========================================== */
-  async openEnhancedCourseModal(course, searchResult = null) {
+  async openCourseModal(course, searchResult = null) {
     this.selectedCourse = course;
     this.elements.modalTitle.textContent = course.courseName;
     
@@ -496,11 +1057,26 @@ class EnhancedPathwayExplorer {
     // Add to browser history
     history.pushState({ modal: 'course', courseId: course.courseId }, '', `#course-${course.courseId}`);
     
-    // Load enhanced course details
-    await this.loadEnhancedCourseDetails(course, searchResult);
+    // Load course details
+    await this.loadCourseDetails(course, searchResult);
   }
 
-  async loadEnhancedCourseDetails(course, searchResult) {
+  async openEnhancedCourseModal(course, searchResult = null) {
+    return this.openCourseModal(course, searchResult);
+  }
+
+  closeModal() {
+    this.elements.modalOverlay.classList.add('hidden');
+    document.body.style.overflow = '';
+    this.selectedCourse = null;
+    
+    // Update browser history
+    if (location.hash.startsWith('#course-')) {
+      history.back();
+    }
+  }
+
+  async loadCourseDetails(course, searchResult = null) {
     try {
       // Show loading
       this.elements.modalContent.innerHTML = '<div class="loading-state"><div class="loading-spinner"></div><p>Loading details...</p></div>';
@@ -517,8 +1093,8 @@ class EnhancedPathwayExplorer {
       const progressionRoutes = progressionResponse.ok ? await progressionResponse.json() : [];
       const precedingRoutes = precedingResponse.ok ? await precedingResponse.json() : [];
       
-      // Render enhanced course details
-      this.renderEnhancedCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult);
+      // Render course details
+      this.renderCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult);
       
     } catch (error) {
       console.error('Failed to load course details:', error);
@@ -526,7 +1102,11 @@ class EnhancedPathwayExplorer {
     }
   }
 
-  renderEnhancedCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult) {
+  async loadEnhancedCourseDetails(course, searchResult) {
+    return this.loadCourseDetails(course, searchResult);
+  }
+
+  renderCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult) {
     const hasKSBData = ksbData && Object.keys(ksbData).length > 0;
     
     this.elements.modalContent.innerHTML = `
@@ -534,7 +1114,6 @@ class EnhancedPathwayExplorer {
         <button class="tab-btn active" data-tab="overview">Overview</button>
         ${hasKSBData ? '<button class="tab-btn" data-tab="skills">Skills & Careers</button>' : ''}
         <button class="tab-btn" data-tab="pathways">Pathways</button>
-        <button class="tab-btn" data-tab="visualization">Visual</button>
       </div>
       
       <div class="tab-content active" data-tab="overview">
@@ -590,51 +1169,40 @@ class EnhancedPathwayExplorer {
         <div class="pathways-section">
           <div class="pathway-group">
             <h4>This course leads to:</h4>
-            <div class="pathway-list">
-              ${progressionRoutes.length > 0 ? 
-                progressionRoutes.map(route => `
-                  <div class="pathway-item" data-course-id="${route.toId}">
-                    <div class="pathway-course">
-                      <strong>${route.course.courseName}</strong>
-                      <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
+                          <div class="pathway-list">
+                ${progressionRoutes.length > 0 ? 
+                  progressionRoutes.map(route => `
+                    <div class="pathway-item" data-course-id="${route.toId}">
+                      <div class="pathway-course">
+                        <strong>${route.course.courseName}</strong>
+                        <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
+                      </div>
+                      ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
                     </div>
-                    ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
-                  </div>
-                `).join('') : 
-                '<div class="no-pathways">No further progressions available within EMIOT</div>'
-              }
+                  `).join('') : 
+                  '<div class="no-pathways">No further progressions available within EMIOT</div>'
+                }
+              </div>
+            </div>
+            
+            <div class="pathway-group">
+              <h4>Courses that lead here:</h4>
+              <div class="pathway-list">
+                ${precedingRoutes.length > 0 ? 
+                  precedingRoutes.map(route => `
+                    <div class="pathway-item" data-course-id="${route.fromId}">
+                      <div class="pathway-course">
+                        <strong>${route.course.courseName}</strong>
+                        <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
+                      </div>
+                      ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
+                    </div>
+                  `).join('') : 
+                  '<div class="no-pathways">No prerequisite courses found</div>'
+                }
+              </div>
             </div>
           </div>
-          
-          <div class="pathway-group">
-            <h4>Courses that lead here:</h4>
-            <div class="pathway-list">
-              ${precedingRoutes.length > 0 ? 
-                precedingRoutes.map(route => `
-                  <div class="pathway-item" data-course-id="${route.fromId}">
-                    <div class="pathway-course">
-                      <strong>${route.course.courseName}</strong>
-                      <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
-                    </div>
-                    ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
-                  </div>
-                `).join('') : 
-                '<div class="no-pathways">No prerequisite courses found</div>'
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="tab-content" data-tab="visualization">
-        <div class="viz-controls">
-          <select id="viewModeSelect" class="view-mode-select">
-            <option value="forward">Where can I go from here?</option>
-            <option value="backward">How do I get to this course?</option>
-          </select>
-        </div>
-        <div class="visualization-container">
-          <div id="visualization"></div>
         </div>
       </div>
     `;
@@ -648,13 +1216,14 @@ class EnhancedPathwayExplorer {
         const courseId = parseInt(item.dataset.courseId);
         const course = this.courses.find(c => c.courseId === courseId);
         if (course) {
-          this.openEnhancedCourseModal(course);
+          this.openCourseModal(course);
         }
       });
     });
-    
-    // Initialize visualization
-    this.initializeVisualization();
+  }
+
+  renderEnhancedCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult) {
+    return this.renderCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult);
   }
 
   renderSkillsSection(ksbData) {
@@ -668,7 +1237,9 @@ class EnhancedPathwayExplorer {
             <ul class="ksb-list">
               ${ksbData.knowledgeAreas.map(knowledge => `
                 <li class="ksb-item">
-                  <strong>${knowledge.id}:</strong> ${knowledge.description}
+                  <div>
+                    <strong>${knowledge.id}:</strong> ${knowledge.description}
+                  </div>
                   <span class="confidence-badge">${knowledge.confidence}/10</span>
                 </li>
               `).join('')}
@@ -682,7 +1253,9 @@ class EnhancedPathwayExplorer {
             <ul class="ksb-list">
               ${ksbData.skillsAreas.map(skill => `
                 <li class="ksb-item">
-                  <strong>${skill.id}:</strong> ${skill.description}
+                  <div>
+                    <strong>${skill.id}:</strong> ${skill.description}
+                  </div>
                   <span class="confidence-badge">${skill.confidence}/10</span>
                 </li>
               `).join('')}
@@ -696,7 +1269,9 @@ class EnhancedPathwayExplorer {
             <ul class="ksb-list">
               ${ksbData.behaviours.map(behaviour => `
                 <li class="ksb-item">
-                  <strong>${behaviour.id}:</strong> ${behaviour.description}
+                  <div>
+                    <strong>${behaviour.id}:</strong> ${behaviour.description}
+                  </div>
                   <span class="confidence-badge">${behaviour.confidence}/10</span>
                 </li>
               `).join('')}
@@ -707,6 +1282,57 @@ class EnhancedPathwayExplorer {
     `;
   }
 
+  // renderCareersSection(ksbData) {
+  //   return `
+  //     <div class="careers-section">
+  //       <h4>Career opportunities:</h4>
+        
+  //       ${ksbData.careerPathways.length > 0 ? `
+  //         <div class="career-pathways">
+  //           <h5>Job Roles:</h5>
+  //           <div class="career-grid">
+  //             ${ksbData.careerPathways.map(career => `
+  //               <div class="career-item">
+  //                 <div>
+  //                   <h6>${career.role}</h6>
+  //                   <span class="career-level">${career.level} Level</span>
+  //                 </div>
+  //                 <span class="confidence-badge">${career.confidence}/10</span>
+  //               </div>
+  //             `).join('')}
+  //           </div>
+  //         </div>
+  //       ` : ''}
+        
+  //       ${ksbData.occupationalStandards.length > 0 ? `
+  //         <div class="occupational-standards">
+  //           <h5>IFATE Occupational Standards:</h5>
+  //           <div class="standards-grid">
+  //             ${ksbData.occupationalStandards.map(standard => `
+  //               <div class="standard-item">
+  //                 <div>
+  //                   <h6>${standard.name}</h6>
+  //                   <span class="standard-level">Level ${standard.level}</span>
+  //                 </div>
+  //                 <span class="confidence-badge">${standard.confidence}/10</span>
+  //               </div>
+  //             `).join('')}
+  //           </div>
+  //         </div>
+  //       ` : ''}
+        
+  //       ${ksbData.analysisNotes ? `
+  //         <div class="analysis-notes">
+  //           <h5>Analysis Notes:</h5>
+  //           <p>${ksbData.analysisNotes}</p>
+  //         </div>
+  //       ` : ''}
+  //     </div>
+  //   `;
+  // }
+ /* ===========================================
+     ENHANCED CAREER RENDERING WITH NCS LINKS
+     =========================================== */
   renderCareersSection(ksbData) {
     return `
       <div class="careers-section">
@@ -716,13 +1342,27 @@ class EnhancedPathwayExplorer {
           <div class="career-pathways">
             <h5>Job Roles:</h5>
             <div class="career-grid">
-              ${ksbData.careerPathways.map(career => `
-                <div class="career-item">
-                  <h6>${career.role}</h6>
-                  <span class="career-level">${career.level} Level</span>
-                  <span class="confidence-badge">${career.confidence}/10</span>
-                </div>
-              `).join('')}
+              ${ksbData.careerPathways.map(career => {
+                const ncsUrl = this.findNCSUrl(career.role);
+                
+                return `
+                  <div class="career-item">
+                    <div class="career-details">
+                      <h6>${career.role}</h6>
+                      <span class="career-level">${career.level} Level</span>
+                      ${ncsUrl ? `
+                        <a href="${ncsUrl}" target="_blank" class="career-link">
+                          <span class="link-icon">🔗</span>
+                          View Career Details
+                        </a>
+                      ` : `
+                        <span class="no-link">Career details not available</span>
+                      `}
+                    </div>
+                    <span class="confidence-badge">${career.confidence}/10</span>
+                  </div>
+                `;
+              }).join('')}
             </div>
           </div>
         ` : ''}
@@ -733,8 +1373,10 @@ class EnhancedPathwayExplorer {
             <div class="standards-grid">
               ${ksbData.occupationalStandards.map(standard => `
                 <div class="standard-item">
-                  <h6>${standard.name}</h6>
-                  <span class="standard-level">Level ${standard.level}</span>
+                  <div class="standard-details">
+                    <h6>${standard.name}</h6>
+                    <span class="standard-level">Level ${standard.level}</span>
+                  </div>
                   <span class="confidence-badge">${standard.confidence}/10</span>
                 </div>
               `).join('')}
@@ -752,19 +1394,160 @@ class EnhancedPathwayExplorer {
     `;
   }
 
-  /* ===========================================
-     EXISTING FUNCTIONALITY (Preserved)
-     =========================================== */
-  
-  // All your existing methods remain the same...
-  // (populateFilters, applyFilters, displayCourses, etc.)
-  
-  populateFilters() {
-    // Existing implementation
+  setupModalTabs() {
+    const tabBtns = this.elements.modalContent.querySelectorAll('.tab-btn');
+    const tabContents = this.elements.modalContent.querySelectorAll('.tab-content');
+    
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.dataset.tab;
+        
+        // Update active states
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        
+        btn.classList.add('active');
+        this.elements.modalContent.querySelector(`[data-tab="${targetTab}"]`).classList.add('active');
+      });
+    });
   }
 
-  // ... (keep all existing methods)
+  /* ===========================================
+     NAVIGATION & UTILITY METHODS
+     =========================================== */
+  switchTab(tab) {
+    if (tab === this.currentTab) return;
+    
+    this.currentTab = tab;
+    
+    // Update active states
+    this.elements.navItems.forEach(item => {
+      if (item.dataset.tab === tab) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+    
+    // Handle tab content
+    switch (tab) {
+      case 'browse':
+        this.showingWishlistOnly = false;
+        this.elements.wishlistToggle.classList.remove('active');
+        this.applyFilters();
+        break;
+      case 'wishlist':
+        this.showingWishlistOnly = true;
+        this.displayCourses();
+        break;
+      case 'info':
+        this.showInfoModal();
+        break;
+    }
+  }
+
+  showInfoModal() {
+    alert('EMIOT Pathway Explorer\n\nExplore educational pathways and course progressions with AI-powered skills discovery.');
+    setTimeout(() => this.switchTab('browse'), 100);
+  }
+
+  handleBackButton() {
+    if (!this.elements.modalOverlay.classList.contains('hidden')) {
+      this.closeModal();
+    }
+  }
+
+  // toggleFilters() {
+  //   this.filtersCollapsed = !this.filtersCollapsed;
+    
+  //   if (this.filtersCollapsed) {
+  //     this.elements.filtersSection.classList.add('collapsed');
+  //   } else {
+  //     this.elements.filtersSection.classList.remove('collapsed');
+  //   }
+  // }
+// Update your toggleFilters method to work without the elements object:
+/* ===========================================
+   FIXED TOGGLE FILTERS METHOD
+   =========================================== */
+toggleFilters() {
+  this.filtersCollapsed = !this.filtersCollapsed;
   
+  const filtersArrow = this.elements.filtersSection.querySelector('.filters-arrow');
+  
+  if (this.filtersCollapsed) {
+    // Collapsed state
+    this.elements.filtersSection.classList.add('collapsed');
+    if (filtersArrow) {
+      filtersArrow.textContent = '▼';  // Arrow pointing down
+    }
+    console.log('Filters collapsed');
+  } else {
+    // Expanded state
+    this.elements.filtersSection.classList.remove('collapsed');
+    if (filtersArrow) {
+      filtersArrow.textContent = '▲';  // Arrow pointing up
+    }
+    console.log('Filters expanded');
+  }
+}
+  // clearFilters() {
+  //   this.elements.levelFilter.value = '';
+  //   this.elements.providerFilter.value = '';
+  //   this.elements.subjectFilter.value = '';
+  //   this.elements.searchInput.value = '';
+  //   this.closeSearch();
+  //   this.applyFilters();
+  // }
+/* ===========================================
+   CLEAR FUNCTIONS - FIXED
+   =========================================== */
+clearFilters() {
+  this.elements.levelFilter.value = '';
+  this.elements.providerFilter.value = '';
+  this.elements.subjectFilter.value = '';
+  this.elements.searchInput.value = '';
+  this.closeSearch();
+  
+  // Reset to show all courses
+  this.filteredCourses = [...this.courses];
+  this.displayCourses();
+}
+  toggleSearch() {
+    const isHidden = this.elements.searchBar.classList.contains('hidden');
+    if (isHidden) {
+      this.elements.searchBar.classList.remove('hidden');
+      this.elements.searchInput.focus();
+    } else {
+      this.closeSearch();
+    }
+  }
+
+  closeSearch() {
+    this.elements.searchBar.classList.add('hidden');
+    this.elements.searchInput.value = '';
+    this.applyFilters();
+  }
+
+  showLoading(show) {
+    if (show) {
+      this.elements.loadingState.classList.remove('hidden');
+      this.elements.coursesGrid.classList.add('hidden');
+    } else {
+      this.elements.loadingState.classList.add('hidden');
+      this.elements.coursesGrid.classList.remove('hidden');
+    }
+  }
+
+  showError(message) {
+    this.elements.emptyState.innerHTML = `
+      <div class="empty-icon">⚠️</div>
+      <h3>Something went wrong</h3>
+      <p>${message}</p>
+    `;
+    this.elements.emptyState.classList.remove('hidden');
+  }
+
   /* ===========================================
      UTILITY FUNCTIONS
      =========================================== */
@@ -783,8 +1566,6 @@ class EnhancedPathwayExplorer {
     if (provider.includes('Loughborough University')) return 'lu';
     return '';
   }
-
-  // ... (all other existing utility methods)
 }
 
 // Initialize the enhanced app when DOM is ready
