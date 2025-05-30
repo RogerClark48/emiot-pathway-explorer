@@ -7,6 +7,7 @@ const { syncDatabase } = require('./models');
 const coursesRoutes = require('./routes/courses');
 const connectionsRoutes = require('./routes/connections');
 const ksbRoutes = require('./routes/ksb');
+const careerMappingRoutes = require('./routes/career-mapping');
 // Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +21,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/courses', coursesRoutes);
 app.use('/api/connections', connectionsRoutes);
 app.use('/api/ksb', ksbRoutes);
+app.use('/api/career-mapping', careerMappingRoutes);
+
 
 // Serve the main HTML file for all other routes
 app.get('*', (req, res) => {

@@ -77,7 +77,7 @@ async init() {
     this.showLoading(true);
     await this.loadData();
     await this.loadKSBData();
-    await this.loadNCSMappings();
+    await this.loadCareerMapping();
     this.setupEventListeners();
     this.updateWishlistCount();
     
@@ -94,75 +94,42 @@ async init() {
     this.showError('Failed to load courses. Please try again.');
   }
 }
-  /* ===========================================
-     LOAD NCS JOB MAPPINGS FROM STATIC FILE
-     =========================================== */
-  async loadNCSMappings() {
-    try {
-      // Load the mappings file from public folder
-      const response = await fetch('/ncs_title_mapping.json');
-      if (response.ok) {
-        this.ncsJobMappings = await response.json();
-        console.log(`✅ Loaded ${Object.keys(this.ncsJobMappings).length} NCS job mappings`);
-      } else {
-        console.warn('⚠️ NCS job mappings not found - career links will be disabled');
-        this.ncsJobMappings = {};
-      }
-    } catch (error) {
-      console.warn('⚠️ Could not load NCS mappings:', error);
-      this.ncsJobMappings = {};
-    }
-  }
-  /* ===========================================
-     JOB TITLE MATCHING METHODS
-     =========================================== */
-  findNCSUrl(jobTitle) {
-    if (!this.ncsJobMappings || Object.keys(this.ncsJobMappings).length === 0) {
-      return null;
-    }
-    
-    // Try exact match first
-    const normalized = jobTitle.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
-    if (this.ncsJobMappings[normalized]) {
-      return `https://nationalcareers.service.gov.uk/job-profiles/${this.ncsJobMappings[normalized]}`;
-    }
-    
-    // Try fuzzy matching
-    const fuzzyMatch = this.fuzzyFindJob(jobTitle);
-    if (fuzzyMatch) {
-      return `https://nationalcareers.service.gov.uk/job-profiles/${fuzzyMatch}`;
-    }
-    
-    return null;
-  }
   
-  fuzzyFindJob(jobTitle) {
-    const searchTerm = jobTitle.toLowerCase();
-    
-    // Look for partial matches
-    for (const [title, slug] of Object.entries(this.ncsJobMappings)) {
-      if (title.includes(searchTerm) || searchTerm.includes(title)) {
-        return slug;
-      }
+async loadCareerMapping() {
+  try {
+    console.log('Loading career mapping...');
+    const response = await fetch('/api/career-mapping');
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
     }
-    
-    // Try word matching for compound titles
-    const searchWords = searchTerm.split(' ').filter(word => word.length > 2);
-    for (const [title, slug] of Object.entries(this.ncsJobMappings)) {
-      const titleWords = title.split(' ');
-      const matchCount = searchWords.filter(word => 
-        titleWords.some(titleWord => titleWord.includes(word) || word.includes(titleWord))
-      ).length;
-      
-      // If majority of words match, consider it a match
-      if (matchCount >= Math.ceil(searchWords.length / 2)) {
-        return slug;
-      }
-    }
-    
-    return null;
+    this.careerMapping = await response.json();
+    console.log(`Loaded ${Object.keys(this.careerMapping).length} career mappings`);
+  } catch (error) {
+    console.warn('Failed to load career mapping:', error);
+    this.careerMapping = {};
   }
+}
 
+
+findNCSUrl(jobTitle) {
+  const slug = this.careerMapping[jobTitle];
+  return slug ? `https://nationalcareers.service.gov.uk/job-profiles/${slug}` : null;
+}
+
+
+setupPathwayHandlers() {
+  // Add click handlers for pathway navigation
+  const pathwayItems = this.elements.modalContent.querySelectorAll('.pathway-item[data-course-id]');
+  pathwayItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const courseId = parseInt(item.dataset.courseId);
+      const course = this.courses.find(c => c.courseId === courseId);
+      if (course) {
+        this.openCourseModal(course);
+      }
+    });
+  });
+}
 initializeFilterState() {
   // Set initial collapsed state
   this.filtersCollapsed = true;
@@ -1106,19 +1073,141 @@ clearSearch() {
     return this.loadCourseDetails(course, searchResult);
   }
 
-  renderCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult) {
-    const hasKSBData = ksbData && Object.keys(ksbData).length > 0;
+  // renderCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult) {
+  //   const hasKSBData = ksbData && Object.keys(ksbData).length > 0;
     
-    this.elements.modalContent.innerHTML = `
-      <div class="course-tabs">
-        <button class="tab-btn active" data-tab="overview">Overview</button>
-        ${hasKSBData ? '<button class="tab-btn" data-tab="skills">Skills & Careers</button>' : ''}
-        <button class="tab-btn" data-tab="pathways">Pathways</button>
-      </div>
+  //   this.elements.modalContent.innerHTML = `
+  //     <div class="course-tabs">
+  //       <button class="tab-btn active" data-tab="overview">Overview</button>
+  //       ${hasKSBData ? '<button class="tab-btn" data-tab="skills">Skills & Careers</button>' : ''}
+  //       <button class="tab-btn" data-tab="pathways">Pathways</button>
+  //     </div>
       
+  //     <div class="tab-content active" data-tab="overview">
+  //       <div class="course-summary">
+  //         ${searchResult && searchResult.matchReasons.length > 0 ? `
+  //           <div class="match-summary">
+  //             <h4>Why this course matches:</h4>
+  //             <ul class="match-reasons-list">
+  //               ${searchResult.matchReasons.map(reason => `<li>${reason}</li>`).join('')}
+  //             </ul>
+  //           </div>
+  //         ` : ''}
+          
+  //         <div class="course-meta-grid">
+  //           <div class="meta-item">
+  //             <label>Provider</label>
+  //             <span>${course.provider}</span>
+  //           </div>
+  //           <div class="meta-item">
+  //             <label>Level</label>
+  //             <span>Level ${course.level}</span>
+  //           </div>
+  //           <div class="meta-item">
+  //             <label>Subject Area</label>
+  //             <span>${course.subjectArea || 'General'}</span>
+  //           </div>
+  //           ${hasKSBData ? `
+  //             <div class="meta-item">
+  //               <label>Analysis Quality</label>
+  //               <span>${ksbData.confidenceScore}/10</span>
+  //             </div>
+  //           ` : ''}
+  //         </div>
+          
+  //         ${course.courseUrl ? `
+  //           <a href="${course.courseUrl}" target="_blank" class="course-link-btn">
+  //             View Course Website →
+  //           </a>
+  //         ` : ''}
+  //       </div>
+  //     </div>
+      
+  //     ${hasKSBData ? `
+  //       <div class="tab-content" data-tab="skills">
+  //         <div class="skills-career-section">
+  //           ${this.renderSkillsSection(ksbData)}
+  //           ${this.renderCareersSection(ksbData)}
+  //         </div>
+  //       </div>
+  //     ` : ''}
+      
+  //     <div class="tab-content" data-tab="pathways">
+  //       <div class="pathways-section">
+  //         <div class="pathway-group">
+  //           <h4>This course leads to:</h4>
+  //                         <div class="pathway-list">
+  //               ${progressionRoutes.length > 0 ? 
+  //                 progressionRoutes.map(route => `
+  //                   <div class="pathway-item" data-course-id="${route.toId}">
+  //                     <div class="pathway-course">
+  //                       <strong>${route.course.courseName}</strong>
+  //                       <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
+  //                     </div>
+  //                     ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
+  //                   </div>
+  //                 `).join('') : 
+  //                 '<div class="no-pathways">No further progressions available within EMIOT</div>'
+  //               }
+  //             </div>
+  //           </div>
+            
+  //           <div class="pathway-group">
+  //             <h4>Courses that lead here:</h4>
+  //             <div class="pathway-list">
+  //               ${precedingRoutes.length > 0 ? 
+  //                 precedingRoutes.map(route => `
+  //                   <div class="pathway-item" data-course-id="${route.fromId}">
+  //                     <div class="pathway-course">
+  //                       <strong>${route.course.courseName}</strong>
+  //                       <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
+  //                     </div>
+  //                     ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
+  //                   </div>
+  //                 `).join('') : 
+  //                 '<div class="no-pathways">No prerequisite courses found</div>'
+  //               }
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   `;
+    
+  //   // Set up tab switching
+  //   this.setupModalTabs();
+    
+  //   // Add click handlers for pathway items
+  //   this.elements.modalContent.querySelectorAll('.pathway-item[data-course-id]').forEach(item => {
+  //     item.addEventListener('click', () => {
+  //       const courseId = parseInt(item.dataset.courseId);
+  //       const course = this.courses.find(c => c.courseId === courseId);
+  //       if (course) {
+  //         this.openCourseModal(course);
+  //       }
+  //     });
+  //   });
+  // }
+
+renderCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult) {
+  const hasKSBData = ksbData && Object.keys(ksbData).length > 0;
+  
+  // Dummy description - you mentioned you'll get proper ones in production
+  const specimenDescription = "The core components provide a broad understanding of the digital industry and the breadth of content will help to ensure you are able to apply the skills in a variety of contexts and for a variety of different purposes. Looking at digital infrastructure, digital support and network cabling, you will learn how to apply procedures and controls to maintain the digital security of an organisation and its data.";
+  
+  this.elements.modalContent.innerHTML = `
+    <div class="course-tabs">
+      <button class="tab-btn active" data-tab="overview">Overview</button>
+      ${hasKSBData ? '<button class="tab-btn" data-tab="skills">Skills & Careers</button>' : ''}
+      <button class="tab-btn" data-tab="pathways">Pathways</button>
+      <button class="tab-btn" data-tab="visual">Visual</button>
+    </div>
+    
+    <div class="tab-content-container">
+      <!-- OVERVIEW TAB - Clean and focused -->
       <div class="tab-content active" data-tab="overview">
         <div class="course-summary">
-          ${searchResult && searchResult.matchReasons.length > 0 ? `
+          ${searchResult && searchResult.matchReasons && searchResult.matchReasons.length > 0 ? `
             <div class="match-summary">
               <h4>Why this course matches:</h4>
               <ul class="match-reasons-list">
@@ -1153,80 +1242,92 @@ clearSearch() {
               View Course Website →
             </a>
           ` : ''}
+          
+          <div class="course-description">
+            <h4>Course Description</h4>
+            <p>${specimenDescription}</p>
+          </div>
         </div>
       </div>
       
+      <!-- SKILLS & CAREERS TAB - Your existing KSB content -->
       ${hasKSBData ? `
         <div class="tab-content" data-tab="skills">
           <div class="skills-career-section">
-            ${this.renderSkillsSection(ksbData)}
             ${this.renderCareersSection(ksbData)}
+            ${this.renderSkillsSection(ksbData)}
           </div>
         </div>
       ` : ''}
       
-      <div class="tab-content" data-tab="pathways">
-        <div class="pathways-section">
-          <div class="pathway-group">
-            <h4>This course leads to:</h4>
-                          <div class="pathway-list">
-                ${progressionRoutes.length > 0 ? 
-                  progressionRoutes.map(route => `
-                    <div class="pathway-item" data-course-id="${route.toId}">
-                      <div class="pathway-course">
-                        <strong>${route.course.courseName}</strong>
-                        <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
-                      </div>
-                      ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
-                    </div>
-                  `).join('') : 
-                  '<div class="no-pathways">No further progressions available within EMIOT</div>'
-                }
+ <!-- PATHWAYS TAB - Working version -->
+<div class="tab-content" data-tab="pathways">
+  <div class="pathways-section">
+    <div class="pathway-group">
+      <h4>This course leads to:</h4>
+      <div class="pathway-list">
+        ${progressionRoutes.length > 0 ? 
+          progressionRoutes.map(route => `
+            <div class="pathway-item" data-course-id="${route.toId}">
+              <div class="pathway-course">
+                <strong>${route.course.courseName}</strong>
+                <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
               </div>
+              ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
             </div>
-            
-            <div class="pathway-group">
-              <h4>Courses that lead here:</h4>
-              <div class="pathway-list">
-                ${precedingRoutes.length > 0 ? 
-                  precedingRoutes.map(route => `
-                    <div class="pathway-item" data-course-id="${route.fromId}">
-                      <div class="pathway-course">
-                        <strong>${route.course.courseName}</strong>
-                        <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
-                      </div>
-                      ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
-                    </div>
-                  `).join('') : 
-                  '<div class="no-pathways">No prerequisite courses found</div>'
-                }
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-    
-    // Set up tab switching
-    this.setupModalTabs();
-    
-    // Add click handlers for pathway items
-    this.elements.modalContent.querySelectorAll('.pathway-item[data-course-id]').forEach(item => {
-      item.addEventListener('click', () => {
-        const courseId = parseInt(item.dataset.courseId);
-        const course = this.courses.find(c => c.courseId === courseId);
-        if (course) {
-          this.openCourseModal(course);
+          `).join('') : 
+          '<div class="no-pathways">No further progressions available within EMIOT</div>'
         }
-      });
-    });
-  }
+      </div>
+    </div>
+    
+    <div class="pathway-group">
+      <h4>Courses that lead here:</h4>
+      <div class="pathway-list">
+        ${precedingRoutes.length > 0 ? 
+          precedingRoutes.map(route => `
+            <div class="pathway-item" data-course-id="${route.fromId}">
+              <div class="pathway-course">
+                <strong>${route.course.courseName}</strong>
+                <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
+              </div>
+              ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
+            </div>
+          `).join('') : 
+          '<div class="no-pathways">No prerequisite courses found</div>'
+        }
+      </div>
+    </div>
+  </div>
+</div>
 
-  renderEnhancedCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult) {
-    return this.renderCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult);
-  }
-
+<!-- VISUAL TAB - Working version -->
+<div class="tab-content" data-tab="visual">
+  <div class="visualization-section">
+    <div class="viz-controls">
+      <select id="viewModeSelect" class="view-mode-select">
+        <option value="forward">Where can I go from here?</option>
+        <option value="backward">How do I get to this course?</option>
+      </select>
+    </div>
+    <div class="visualization-container">
+      <div id="visualization">Loading visualization...</div>
+    </div>
+  </div>
+</div>
+      
+    </div> <!-- Close tab-content-container -->
+  `;
+  
+  // Set up tab switching
+  this.setupModalTabs();
+}
+// returns nothing
   renderSkillsSection(ksbData) {
+    return `` }
+
+    // This deprecated pending discussion
+  renderSkillsSectionDeprecated(ksbData) {
     return `
       <div class="skills-section">
         <h4>What you'll learn:</h4>
@@ -1282,58 +1383,62 @@ clearSearch() {
     `;
   }
 
-  // renderCareersSection(ksbData) {
-  //   return `
-  //     <div class="careers-section">
-  //       <h4>Career opportunities:</h4>
-        
-  //       ${ksbData.careerPathways.length > 0 ? `
-  //         <div class="career-pathways">
-  //           <h5>Job Roles:</h5>
-  //           <div class="career-grid">
-  //             ${ksbData.careerPathways.map(career => `
-  //               <div class="career-item">
-  //                 <div>
-  //                   <h6>${career.role}</h6>
-  //                   <span class="career-level">${career.level} Level</span>
-  //                 </div>
-  //                 <span class="confidence-badge">${career.confidence}/10</span>
-  //               </div>
-  //             `).join('')}
-  //           </div>
-  //         </div>
-  //       ` : ''}
-        
-  //       ${ksbData.occupationalStandards.length > 0 ? `
-  //         <div class="occupational-standards">
-  //           <h5>IFATE Occupational Standards:</h5>
-  //           <div class="standards-grid">
-  //             ${ksbData.occupationalStandards.map(standard => `
-  //               <div class="standard-item">
-  //                 <div>
-  //                   <h6>${standard.name}</h6>
-  //                   <span class="standard-level">Level ${standard.level}</span>
-  //                 </div>
-  //                 <span class="confidence-badge">${standard.confidence}/10</span>
-  //               </div>
-  //             `).join('')}
-  //           </div>
-  //         </div>
-  //       ` : ''}
-        
-  //       ${ksbData.analysisNotes ? `
-  //         <div class="analysis-notes">
-  //           <h5>Analysis Notes:</h5>
-  //           <p>${ksbData.analysisNotes}</p>
-  //         </div>
-  //       ` : ''}
-  //     </div>
-  //   `;
-  // }
+  
  /* ===========================================
      ENHANCED CAREER RENDERING WITH NCS LINKS
      =========================================== */
+       // ===========================================
+// This version does not show the KSB details, just the NCS links
+// ===========================================
   renderCareersSection(ksbData) {
+    return `
+      <div class="careers-section">
+        <h4>Career opportunities:</h4>
+        
+        ${ksbData.careerPathways.length > 0 ? `
+          <div class="career-pathways">
+            <h5>Job Roles:</h5>
+            <div class="career-grid">
+              ${ksbData.careerPathways.map(career => {
+                const ncsUrl = this.findNCSUrl(career.role);
+                
+                return `
+                  <div class="career-item">
+                    <div class="career-details">
+                      <h6>${career.role}</h6>
+                      <span class="career-level">${career.level} Level</span>
+                      ${ncsUrl ? `
+                        <a href="${ncsUrl}" target="_blank" class="career-link">
+                          <span class="link-icon">🔗</span>
+                          View Career Details
+                        </a>
+                      ` : `
+                        <span class="no-link">Career details not available</span>
+                      `}
+                    </div>
+                    <span class="confidence-badge">${career.confidence}/10</span>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        ` : ''}
+        
+
+        
+        ${ksbData.analysisNotes ? `
+          <div class="analysis-notes">
+            <h5>Analysis Notes:</h5>
+            <p>${ksbData.analysisNotes}</p>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
+  // ===========================================
+// This not called. Previous version showing all the KSB details
+// ===========================================
+  renderCareersSectionAllKSB(ksbData) {
     return `
       <div class="careers-section">
         <h4>Career opportunities:</h4>
@@ -1393,25 +1498,124 @@ clearSearch() {
       </div>
     `;
   }
-
-  setupModalTabs() {
-    const tabBtns = this.elements.modalContent.querySelectorAll('.tab-btn');
-    const tabContents = this.elements.modalContent.querySelectorAll('.tab-content');
+  // setupModalTabs() {
+  //   const tabBtns = this.elements.modalContent.querySelectorAll('.tab-btn');
+  //   const tabContents = this.elements.modalContent.querySelectorAll('.tab-content');
     
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetTab = btn.dataset.tab;
+  //   tabBtns.forEach(btn => {
+  //     btn.addEventListener('click', () => {
+  //       const targetTab = btn.dataset.tab;
         
-        // Update active states
-        tabBtns.forEach(b => b.classList.remove('active'));
-        tabContents.forEach(c => c.classList.remove('active'));
+  //       // Update active states
+  //       tabBtns.forEach(b => b.classList.remove('active'));
+  //       tabContents.forEach(c => c.classList.remove('active'));
         
-        btn.classList.add('active');
-        this.elements.modalContent.querySelector(`[data-tab="${targetTab}"]`).classList.add('active');
-      });
-    });
-  }
+  //       btn.classList.add('active');
+  //       this.elements.modalContent.querySelector(`[data-tab="${targetTab}"]`).classList.add('active');
+  //     });
+  //   });
+  // }
+// ===========================================
+// DEBUGGING VERSION - Replace your setupModalTabs() method
+// ===========================================
 
+// setupModalTabs() {
+//   console.log('🔧 Setting up modal tabs...');
+  
+//   const tabBtns = this.elements.modalContent.querySelectorAll('.tab-btn');
+//   const tabContents = this.elements.modalContent.querySelectorAll('.tab-content');
+  
+//   console.log('📋 Found tab buttons:', tabBtns.length);
+//   console.log('📄 Found tab contents:', tabContents.length);
+  
+//   // Log what tabs we found
+//   tabBtns.forEach((btn, index) => {
+//     console.log(`Tab ${index}:`, btn.dataset.tab, btn.textContent);
+//   });
+  
+//   tabContents.forEach((content, index) => {
+//     console.log(`Content ${index}:`, content.dataset.tab, content.classList.contains('active'));
+//   });
+  
+//   tabBtns.forEach(btn => {
+//     btn.addEventListener('click', () => {
+//       const targetTab = btn.dataset.tab;
+//       console.log('🖱️ Clicked tab:', targetTab);
+      
+//       // Update active states
+//       tabBtns.forEach(b => {
+//         b.classList.remove('active');
+//         console.log('Removed active from:', b.dataset.tab);
+//       });
+      
+//       tabContents.forEach(c => {
+//         c.classList.remove('active');
+//         console.log('Removed active from content:', c.dataset.tab);
+//       });
+      
+//       // Add active to clicked tab
+//       btn.classList.add('active');
+//       console.log('Added active to button:', targetTab);
+      
+//       // Add active to corresponding content
+//       const targetContent = this.elements.modalContent.querySelector(`[data-tab="${targetTab}"]`);
+//       if (targetContent) {
+//         targetContent.classList.add('active');
+//         console.log('Added active to content:', targetTab);
+//       } else {
+//         console.error('❌ Could not find content for tab:', targetTab);
+//       }
+//     });
+//   });
+// }
+// Replace your existing setupModalTabs() method with this fixed version
+
+setupModalTabs() {
+  const tabBtns = this.elements.modalContent.querySelectorAll('.tab-btn');
+  
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.dataset.tab;
+      console.log('Tab clicked:', targetTab);
+      
+      // Remove active from all buttons
+      tabBtns.forEach(b => b.classList.remove('active'));
+      
+      // Remove active from all TAB CONTENT (be very specific)
+      const allTabContents = this.elements.modalContent.querySelectorAll('.tab-content');
+      allTabContents.forEach(c => c.classList.remove('active'));
+      
+      // Add active to clicked button
+      btn.classList.add('active');
+      
+      // Find and activate the matching CONTENT (very specific selector)
+      const targetContent = this.elements.modalContent.querySelector(`.tab-content[data-tab="${targetTab}"]`);
+      
+      if (targetContent) {
+        targetContent.classList.add('active');
+        console.log('SUCCESS: Activated content for:', targetTab);
+      } else {
+        console.error('ERROR: Could not find content for tab:', targetTab);
+      }
+    });
+  });
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.dataset.tab;
+      console.log('Tab clicked:', targetTab);
+      
+      // ... your existing click handling code ...
+      
+      // NEW: Initialize visualization when Visual tab is clicked
+      if (targetTab === 'visual') {
+        setTimeout(() => this.initializeVisualization(), 100);
+      }
+    });
+  });
+  
+  // NEW: Add click handlers for pathway items after modal content is rendered
+  this.setupPathwayHandlers();
+}
   /* ===========================================
      NAVIGATION & UTILITY METHODS
      =========================================== */
@@ -1547,7 +1751,187 @@ clearFilters() {
     `;
     this.elements.emptyState.classList.remove('hidden');
   }
+// Add these methods to your EnhancedPathwayExplorer class
 
+initializeVisualization() {
+  if (!window.vis) {
+    console.warn('Vis.js not loaded');
+    return;
+  }
+  
+  const container = this.elements.modalContent.querySelector('#visualization');
+  if (!container) {
+    console.warn('Visualization container not found');
+    return;
+  }
+  
+  console.log('Initializing visualization...');
+  
+  // IMPORTANT: Force container to have proper dimensions
+container.style.width = '100%';
+container.style.height = '450px';  // Changed from 350px
+container.style.minHeight = '450px';  // Changed from 350px
+  
+  // Create empty data sets
+  this.nodes = new vis.DataSet([]);
+  this.edges = new vis.DataSet([]);
+    // Responsive network options
+  const isDesktop = window.innerWidth >= 768;
+  // Network options optimized for mobile
+  const options = {
+    layout: {
+      hierarchical: {
+        direction: 'LR',  // Keep Left to Right
+        sortMethod: 'directed',
+        levelSeparation: isDesktop ? 450 : 150,  // More space on desktop
+        nodeSpacing: isDesktop ? 15 : 10       // More node spacing too
+      }
+    },
+    nodes: {
+      shape: 'box',
+      margin: isDesktop ? 14 : 8,               // Bigger margins on desktop
+      font: { 
+        size: isDesktop ? 14 : 12,              // Larger font on desktop
+        multi: true,                            // Allow text wrapping
+        maxWid: isDesktop ? 200 : 150          // Wider text boxes
+      }
+    },
+    edges: {
+      arrows: { to: { enabled: true, scaleFactor: 0.8 } },
+      smooth: { type: 'cubicBezier', forceDirection: 'horizontal' }  // Changed to horizontal
+    },
+    physics: {
+      hierarchicalRepulsion: { 
+        nodeDistance: isDesktop ? 50: 60     // More space between nodes
+      }
+    },
+    interaction: {
+      hover: true,
+      tooltipDelay: 300
+    },
+    // IMPORTANT: Force canvas size
+    width: '100%',
+    height: '450px'  // Changed from 350px
+  };
+  
+  // Create network
+  const data = { nodes: this.nodes, edges: this.edges };
+  this.network = new vis.Network(container, data, options);
+  
+  // IMPORTANT: Force resize after creation
+  setTimeout(() => {
+    if (this.network) {
+      this.network.redraw();
+      this.network.fit();
+    }
+  }, 200);
+  
+  // Handle node clicks
+  this.network.on('click', (params) => {
+    if (params.nodes.length > 0) {
+      const nodeId = params.nodes[0];
+      const course = this.courses.find(c => c.courseId == nodeId);
+      if (course) {
+        this.openCourseModal(course);
+      }
+    }
+  });
+  
+  // Set up view mode selector
+  const viewModeSelect = this.elements.modalContent.querySelector('#viewModeSelect');
+  if (viewModeSelect) {
+    viewModeSelect.value = this.currentView || 'forward';
+    viewModeSelect.addEventListener('change', (e) => this.switchViewMode(e.target.value));
+  }
+  
+  // Update visualization for current course
+  this.updateVisualization();
+}
+
+switchViewMode(mode) {
+  this.currentView = mode;
+  this.updateVisualization();
+}
+
+updateVisualization() {
+  if (!this.network || !this.selectedCourse) return;
+  
+  // Clear existing nodes and edges
+  this.nodes.clear();
+  this.edges.clear();
+  
+  const course = this.selectedCourse;
+  
+  // Add central node
+  this.nodes.add({
+    id: course.courseId,
+    label: course.courseName,
+    title: `${course.provider} - ${course.courseName} (Level ${course.level})`,
+    color: {
+      background: this.getLevelColor(course.level),
+      border: '#2a6496',
+      highlight: { background: '#FFC107', border: '#FF9800' }
+    },
+    font: { bold: true, size: 12 },
+    borderWidth: 2
+  });
+  
+  if (this.currentView === 'forward') {
+    // Show outgoing connections
+    const outgoing = this.connections.filter(conn => conn.fromCourseId == course.courseId);
+    outgoing.forEach(conn => {
+      const toCourse = this.courses.find(c => c.courseId == conn.toCourseId);
+      if (toCourse) {
+        this.nodes.add({
+          id: toCourse.courseId,
+          label: toCourse.courseName,
+          title: `${toCourse.provider} - ${toCourse.courseName} (Level ${toCourse.level})`,
+          color: { background: this.getLevelColor(toCourse.level) },
+          font: { size: 10 }
+        });
+        this.edges.add({
+          from: course.courseId,
+          to: toCourse.courseId,
+          title: conn.notes || 'Progression route'
+        });
+      }
+    });
+  } else {
+    // Show incoming connections
+    const incoming = this.connections.filter(conn => conn.toCourseId == course.courseId);
+    incoming.forEach(conn => {
+      const fromCourse = this.courses.find(c => c.courseId == conn.fromCourseId);
+      if (fromCourse) {
+        this.nodes.add({
+          id: fromCourse.courseId,
+          label: fromCourse.courseName,
+          title: `${fromCourse.provider} - ${fromCourse.courseName} (Level ${fromCourse.level})`,
+          color: { background: this.getLevelColor(fromCourse.level) },
+          font: { size: 10 }
+        });
+        this.edges.add({
+          from: fromCourse.courseId,
+          to: course.courseId,
+          title: conn.notes || 'Progression route'
+        });
+      }
+    });
+  }
+  
+  // Fit network to view
+  setTimeout(() => this.network.fit(), 100);
+}
+
+getLevelColor(level) {
+  const colors = {
+    3: '#FF9999',
+    4: '#FFCC99', 
+    5: '#FFFF99',
+    6: '#99FF99',
+    7: '#99CCFF'
+  };
+  return colors[level] || '#ccc';
+}
   /* ===========================================
      UTILITY FUNCTIONS
      =========================================== */
