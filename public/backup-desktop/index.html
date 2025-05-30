@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMIOT Pathway Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Vis.js for network visualization -->
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+</head>
+<body>
+<header>
+  <div class="header-content">
+    <div class="logo-container">
+      <img src="33.gif" alt="EMIOT Logo" class="logo">
+    </div>
+    <h1>PATHWAY EXPLORER</h1>
+  </div>
+</header>
+
+<div class="app-container">
+  <!-- Left Column: Filters and Course List -->
+  <div class="left-column">
+
+    <!-- Collapsible Filters Section -->
+    <div class="filters-container" id="filtersContainer">
+      <div class="filters-header" id="filtersHeader">
+        <div class="filters-title">
+          <h2>Filter Courses</h2>
+        </div>
+        <button class="filters-toggle" id="filtersToggle">▲</button>
+      </div>
+      <div class="filters-content">
+        <!-- Level Filter -->
+        <div class="filter-group">
+          <label for="levelFilter">Level</label>
+          <select id="levelFilter">
+            <option value="">All Levels</option>
+            <option value="3">Level 3</option>
+            <option value="4">Level 4</option>
+            <option value="5">Level 5</option>
+            <option value="6">Level 6</option>
+            <option value="7">Level 7</option>
+            <option value="8">Level 8</option>
+          </select>
+        </div>
+        
+        <!-- Provider Filter -->
+        <div class="filter-group">
+          <label for="providerFilter">Provider</label>
+          <select id="providerFilter">
+            <option value="">All Providers</option>
+            <!-- Options will be populated dynamically -->
+          </select>
+        </div>
+        
+        <!-- Subject Area Filter -->
+        <div class="filter-group">
+          <label for="subjectFilter">Subject Area</label>
+          <select id="subjectFilter">
+            <option value="">All Subjects</option>
+            <!-- Options will be populated dynamically -->
+          </select>
+        </div>
+        
+        <!-- Reset Filters Button -->
+        <div class="filter-actions">
+          <button id="resetFilters">Reset Filters</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Courses List -->
+    <div class="courses-container">
+      <div style="display: grid;grid-template-columns: 1fr 1fr;">
+        <h2>Available Courses</h2>
+        <button id="showWishlistBtn" class="wishlist-filter-btn">
+          <span class="wishlist-icon">♡</span>
+          Show Wish List (<span id="wishlistCount">0</span>)
+        </button>
+       </div>
+      <div id="coursesList" class="courses-grid">
+        <!-- Course cards will be added here dynamically -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Right Column: Visualization and Details -->
+  <div class="right-column">
+
+<!--Tab navigation -->
+<div class="view-tabs">
+  <div class="tab-with-dropdown">
+    <button id="visualTab" class="tab-button active">Visualisation</button>
+    <select id="viewModeSelect" class="tab-dropdown">
+      <option value="forward">Where can I go from here?</option>
+      <option value="backward">How do I get to this course?</option>
+    </select>
+  </div>
+  <button id="detailsTab" class="tab-button">Details & Progressions</button>
+</div>
+
+<!-- History navigation - moved outside tab container but inside right column -->
+<div class="history-navigation">
+  <button id="prevCourseBtn" class="history-nav-btn" disabled>
+    <span class="nav-icon">◀</span> Previous
+  </button>
+  
+  <div id="historyIndicator" class="history-indicator">
+    1 of 1
+  </div>
+  
+  <button id="nextCourseBtn" class="history-nav-btn" disabled>
+    Next <span class="nav-icon">▶</span>
+  </button>
+  
+  <!-- Color key toggle button would go here if you have one -->
+   <!-- Add color key toggle button -->
+  <button id="toggleColorKey" class="color-key-toggle">
+    <span class="nav-icon">🎨</span> Colour key
+  </button>
+
+</div>
+
+<!-- Tab content containers -->
+<div id="visualizationContainer" class="active">
+      <!-- Color key popup (initially hidden) -->
+ <div id="colorKeyPopup" class="color-key-popup hidden">
+    <div class="color-key-item">
+      <span class="color-swatch level-3"></span>
+      <span>Level 3</span>
+    </div>
+    <div class="color-key-item">
+      <span class="color-swatch level-4"></span>
+      <span>Level 4</span>
+    </div>
+    <div class="color-key-item">
+      <span class="color-swatch level-5"></span>
+      <span>Level 5</span>
+    </div>
+    <div class="color-key-item">
+      <span class="color-swatch level-6"></span>
+      <span>Level 6</span>
+    </div>
+    <div class="color-key-item">
+      <span class="color-swatch level-7"></span>
+      <span>Level 7</span>
+    </div>
+</div>
+  <!-- <div class="visualization-container"> -->
+    <div id="visualization"></div>
+  <!-- </div> -->
+</div>
+
+    <!-- Visualization container (visible by default) -->
+     
+    <div id="visualizationContainer" class="tab-content">
+      <div class="visualization-container"> 
+        <div id="visualization"></div>
+      </div> 
+     </div>
+    <!-- Details container (hidden initially) -->
+    <div id="detailsContainer" class="tab-content">
+      <div class="details-container">
+        <div id="details" class="hidden">
+          <div class="details-header">
+            <h2 id="courseTitle">Course Details</h2>
+            <!-- <div class="header-controls">
+              <button id="closeDetails" class="close-btn">×</button>
+            </div> -->
+          </div>
+          
+          <div class="details-body">
+            <div class="course-info">
+                <!-- Add wishlist button -->
+              <p><strong>Provider:</strong> <span id="courseProvider"></span></p>
+              <p><strong>Level:</strong> <span id="courseLevel"></span></p>
+              <p><strong>Subject Area:</strong> <span id="courseSubject"></span></p>
+              <p><strong>Qualification:</strong> <span id="courseQualification"></span></p>
+                              <!-- Add wishlist button -->
+  <div class="wishlist-controls">
+    <button id="wishlistBtn" class="wishlist-btn">
+      <span class="wishlist-icon">♡</span>
+      <span class="wishlist-text">Add to Wish List</span>
+    </button>
+  </div>
+              <div id="courseLinkContainer" class="course-link-container">
+                <a id="courseLink" href="#" target="_blank" class="course-link-button">View Course Website</a>
+              </div>
+                <!-- Add wishlist button -->
+              <div class="course-description">
+                <h4>Course Description</h4>
+                <p id="courseDescription">Course description will appear here...</p>
+              </div>
+
+            </div>
+            
+            <div class="progression-container">
+              <div class="progression-section">
+                <h3>This course leads to:</h3>
+                <ul id="leadsTo" class="progression-list"></ul>
+              </div>
+              
+              <div class="progression-section">
+                <h3>Courses leading here:</h3>
+                <ul id="comingFrom" class="progression-list"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Instructions shown when no course is selected -->
+        <div id="noSelection" class="instructions">
+          <h3>Select a course to see progression pathways</h3>
+          <p>Click on any course from the list on the left or in the visualization to view its details and progression options.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Template for course cards -->
+<template id="courseCardTemplate">
+  <div class="course-card">
+    <div class="card-header">
+      <span class="course-level">Level <span class="level-number"></span></span>
+      <span class="provider-badge"></span>
+    </div>
+    <h3 class="course-name"></h3>
+    <p class="subject-area"></p>
+    <button class="view-pathways-btn">View Pathways</button>
+  </div>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>

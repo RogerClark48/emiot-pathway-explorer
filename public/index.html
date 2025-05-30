@@ -3,235 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2a6496">
   <title>EMIOT Pathway Explorer</title>
   <link rel="stylesheet" href="styles.css">
   <!-- Vis.js for network visualization -->
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 </head>
 <body>
-<header>
-  <div class="header-content">
-    <div class="logo-container">
-      <img src="33.gif" alt="EMIOT Logo" class="logo">
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-content">
+      <img src="33.gif" alt="EMIOT" class="logo">
+      <h1>Pathway Explorer</h1>
+      <button class="search-toggle" id="searchToggle" aria-label="Search">
+        <span class="search-icon">🔍</span>
+      </button>
     </div>
-    <h1>PATHWAY EXPLORER</h1>
+  </header>
+
+  <!-- Search Bar (initially hidden) -->
+  <!-- <div class="search-bar hidden" id="searchBar">
+    <input type="text" placeholder="Search courses..." id="searchInput">
+    <button class="search-close" id="searchClose">✕</button>
+  </div> -->
+<!-- Enhanced Search Bar with Mode Toggle -->
+<div class="search-bar hidden" id="searchBar">
+  <div class="search-controls">
+    <button class="search-mode-toggle" id="searchModeToggle">Courses</button>
+    <input type="text" placeholder="Search courses..." id="searchInput">
+    <button class="search-close" id="searchClose">✕</button>
   </div>
-</header>
-
-<div class="app-container">
-  <!-- Left Column: Filters and Course List -->
-  <div class="left-column">
-
-    <!-- Collapsible Filters Section -->
-    <div class="filters-container" id="filtersContainer">
-      <div class="filters-header" id="filtersHeader">
-        <div class="filters-title">
-          <h2>Filter Courses</h2>
-        </div>
-        <button class="filters-toggle" id="filtersToggle">▲</button>
-      </div>
-      <div class="filters-content">
-        <!-- Level Filter -->
-        <div class="filter-group">
-          <label for="levelFilter">Level</label>
-          <select id="levelFilter">
+  <div class="skills-suggestions hidden" id="skillsSuggestions">
+    <!-- Will be populated with skill suggestions -->
+  </div>
+</div>
+  <!-- Main Content -->
+  <main class="app-main">
+    
+    <!-- Filters Section (collapsible) -->
+    <section class="filters-section" id="filtersSection">
+      <button class="filters-toggle" id="filtersToggle">
+        <span class="filters-text">Filters</span>
+        <span class="filters-arrow">▼</span>
+      </button>
+      
+      <div class="filters-content" id="filtersContent">
+        <div class="filters-row">
+          <select id="levelFilter" class="filter-select">
             <option value="">All Levels</option>
             <option value="3">Level 3</option>
             <option value="4">Level 4</option>
             <option value="5">Level 5</option>
             <option value="6">Level 6</option>
             <option value="7">Level 7</option>
-            <option value="8">Level 8</option>
           </select>
-        </div>
-        
-        <!-- Provider Filter -->
-        <div class="filter-group">
-          <label for="providerFilter">Provider</label>
-          <select id="providerFilter">
-            <option value="">All Providers</option>
-            <!-- Options will be populated dynamically -->
-          </select>
-        </div>
-        
-        <!-- Subject Area Filter -->
-        <div class="filter-group">
-          <label for="subjectFilter">Subject Area</label>
-          <select id="subjectFilter">
-            <option value="">All Subjects</option>
-            <!-- Options will be populated dynamically -->
-          </select>
-        </div>
-        
-        <!-- Reset Filters Button -->
-        <div class="filter-actions">
-          <button id="resetFilters">Reset Filters</button>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Courses List -->
-    <div class="courses-container">
-      <div style="display: grid;grid-template-columns: 1fr 1fr;">
-        <h2>Available Courses</h2>
-        <button id="showWishlistBtn" class="wishlist-filter-btn">
-          <span class="wishlist-icon">♡</span>
-          Show Wish List (<span id="wishlistCount">0</span>)
-        </button>
-       </div>
-      <div id="coursesList" class="courses-grid">
-        <!-- Course cards will be added here dynamically -->
-      </div>
-    </div>
-  </div>
-  
-  <!-- Right Column: Visualization and Details -->
-  <div class="right-column">
-
-<!--Tab navigation -->
-<div class="view-tabs">
-  <div class="tab-with-dropdown">
-    <button id="visualTab" class="tab-button active">Visualisation</button>
-    <select id="viewModeSelect" class="tab-dropdown">
-      <option value="forward">Where can I go from here?</option>
-      <option value="backward">How do I get to this course?</option>
-    </select>
-  </div>
-  <button id="detailsTab" class="tab-button">Details & Progressions</button>
-</div>
-
-<!-- History navigation - moved outside tab container but inside right column -->
-<div class="history-navigation">
-  <button id="prevCourseBtn" class="history-nav-btn" disabled>
-    <span class="nav-icon">◀</span> Previous
-  </button>
-  
-  <div id="historyIndicator" class="history-indicator">
-    1 of 1
-  </div>
-  
-  <button id="nextCourseBtn" class="history-nav-btn" disabled>
-    Next <span class="nav-icon">▶</span>
-  </button>
-  
-  <!-- Color key toggle button would go here if you have one -->
-   <!-- Add color key toggle button -->
-  <button id="toggleColorKey" class="color-key-toggle">
-    <span class="nav-icon">🎨</span> Colour key
-  </button>
-
-</div>
-
-<!-- Tab content containers -->
-<div id="visualizationContainer" class="active">
-      <!-- Color key popup (initially hidden) -->
- <div id="colorKeyPopup" class="color-key-popup hidden">
-    <div class="color-key-item">
-      <span class="color-swatch level-3"></span>
-      <span>Level 3</span>
-    </div>
-    <div class="color-key-item">
-      <span class="color-swatch level-4"></span>
-      <span>Level 4</span>
-    </div>
-    <div class="color-key-item">
-      <span class="color-swatch level-5"></span>
-      <span>Level 5</span>
-    </div>
-    <div class="color-key-item">
-      <span class="color-swatch level-6"></span>
-      <span>Level 6</span>
-    </div>
-    <div class="color-key-item">
-      <span class="color-swatch level-7"></span>
-      <span>Level 7</span>
-    </div>
-</div>
-  <!-- <div class="visualization-container"> -->
-    <div id="visualization"></div>
-  <!-- </div> -->
-</div>
-
-    <!-- Visualization container (visible by default) -->
-     
-    <div id="visualizationContainer" class="tab-content">
-      <div class="visualization-container"> 
-        <div id="visualization"></div>
-      </div> 
-     </div>
-    <!-- Details container (hidden initially) -->
-    <div id="detailsContainer" class="tab-content">
-      <div class="details-container">
-        <div id="details" class="hidden">
-          <div class="details-header">
-            <h2 id="courseTitle">Course Details</h2>
-            <!-- <div class="header-controls">
-              <button id="closeDetails" class="close-btn">×</button>
-            </div> -->
-          </div>
           
-          <div class="details-body">
-            <div class="course-info">
-                <!-- Add wishlist button -->
-              <p><strong>Provider:</strong> <span id="courseProvider"></span></p>
-              <p><strong>Level:</strong> <span id="courseLevel"></span></p>
-              <p><strong>Subject Area:</strong> <span id="courseSubject"></span></p>
-              <p><strong>Qualification:</strong> <span id="courseQualification"></span></p>
-                              <!-- Add wishlist button -->
-  <div class="wishlist-controls">
-    <button id="wishlistBtn" class="wishlist-btn">
-      <span class="wishlist-icon">♡</span>
-      <span class="wishlist-text">Add to Wish List</span>
-    </button>
-  </div>
-              <div id="courseLinkContainer" class="course-link-container">
-                <a id="courseLink" href="#" target="_blank" class="course-link-button">View Course Website</a>
-              </div>
-                <!-- Add wishlist button -->
-              <div class="course-description">
-                <h4>Course Description</h4>
-                <p id="courseDescription">Course description will appear here...</p>
-              </div>
+          <select id="providerFilter" class="filter-select">
+            <option value="">All Providers</option>
+            <!-- Populated dynamically -->
+          </select>
+          
+          <select id="subjectFilter" class="filter-select">
+            <option value="">All Subjects</option>
+            <!-- Populated dynamically -->
+          </select>
+          
+          <button class="clear-filters" id="clearFilters">Clear</button>
+        </div>
+      </div>
+    </section>
 
-            </div>
-            
-            <div class="progression-container">
-              <div class="progression-section">
-                <h3>This course leads to:</h3>
-                <ul id="leadsTo" class="progression-list"></ul>
-              </div>
-              
-              <div class="progression-section">
-                <h3>Courses leading here:</h3>
-                <ul id="comingFrom" class="progression-list"></ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Instructions shown when no course is selected -->
-        <div id="noSelection" class="instructions">
-          <h3>Select a course to see progression pathways</h3>
-          <p>Click on any course from the list on the left or in the visualization to view its details and progression options.</p>
-        </div>
+    <!-- Course Cards Grid -->
+    <section class="courses-section">
+      <div class="courses-header">
+        <h2 class="courses-title">Available Courses</h2>
+        <button class="wishlist-toggle" id="wishlistToggle">
+          <span class="heart-icon">♡</span>
+          <span class="wishlist-count" id="wishlistCount">0</span>
+        </button>
+      </div>
+      
+      <div class="courses-grid" id="coursesGrid">
+        <!-- Course cards will be inserted here -->
+      </div>
+      
+      <!-- Loading state -->
+      <div class="loading-state hidden" id="loadingState">
+        <div class="loading-spinner"></div>
+        <p>Loading courses...</p>
+      </div>
+      
+      <!-- Empty state -->
+      <div class="empty-state hidden" id="emptyState">
+        <div class="empty-icon">📚</div>
+        <h3>No courses found</h3>
+        <p>Try adjusting your filters or search terms</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-tab="browse">
+      <span class="nav-icon">📚</span>
+      <span class="nav-label">Browse</span>
+    </button>
+    <button class="nav-item" data-tab="wishlist">
+      <span class="nav-icon">♡</span>
+      <span class="nav-label">Wishlist</span>
+    </button>
+    <button class="nav-item" data-tab="info">
+      <span class="nav-icon">ℹ️</span>
+      <span class="nav-label">Info</span>
+    </button>
+  </nav>
+
+  <!-- Course Detail Modal (initially hidden) -->
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="course-modal" id="courseModal">
+      <div class="modal-header">
+        <button class="back-btn" id="backBtn"> 
+          <span class="list-symbol">⋮☰</span> 
+        </button>
+        <!-- <button class="back-btn" id="backBtn">
+          <span class="back-icon">⋮☰</span>
+        </button> -->
+        <h2 class="modal-title" id="modalTitle">Course Details</h2>
+        <button class="wishlist-btn" id="modalWishlistBtn">
+          <span class="heart-icon">♡</span>
+        </button>
+      </div>
+      <div class="modal-content" id="modalContent">
+        <!-- Course details will be inserted here -->
       </div>
     </div>
   </div>
-</div>
 
-<!-- Template for course cards -->
-<template id="courseCardTemplate">
-  <div class="course-card">
-    <div class="card-header">
-      <span class="course-level">Level <span class="level-number"></span></span>
-      <span class="provider-badge"></span>
+  <!-- Course Card Template -->
+  <template id="courseCardTemplate">
+    <div class="course-card" data-course-id="">
+      <div class="card-header">
+        <span class="level-badge" data-level="">Level <span class="level-number"></span></span>
+        <button class="card-wishlist-btn" aria-label="Add to wishlist">
+          <span class="heart-icon">♡</span>
+        </button>
+      </div>
+      
+      <h3 class="course-title"></h3>
+      
+      <div class="course-meta">
+        <span class="provider-badge"></span>
+        <span class="subject-area"></span>
+      </div>
+      
+      <!-- <button class="view-pathway-btn">
+        <span class="btn-text">View Pathway</span>
+        <span class="btn-icon">→</span>
+      </button> -->
     </div>
-    <h3 class="course-name"></h3>
-    <p class="subject-area"></p>
-    <button class="view-pathways-btn">View Pathways</button>
-  </div>
-</template>
+  </template>
 
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

@@ -1,904 +1,1958 @@
 /* ===========================================
-   GLOBAL VARIABLES AND INITIALIZATION
+   ENHANCED MOBILE PATHWAY EXPLORER WITH SKILLS DISCOVERY
    =========================================== */
-console.log('app.js loaded');
 
-// Network visualization variables
-let network;
-let nodes;
-let edges;
+class EnhancedPathwayExplorer {
+  constructor() {
+    // Data
+    this.courses = [];
+    this.connections = [];
+    this.ksbData = {}; // Will store KSB mappings by courseId
+    this.filteredCourses = [];
+    
+    // State
+    this.currentTab = 'browse';
+    this.wishlist = this.loadWishlist();
+    this.showingWishlistOnly = false;
+    this.filtersCollapsed = true;
+    this.selectedCourse = null;
+    this.currentView = 'forward';
+    this.searchMode = 'traditional'; // 'traditional' or 'skills'
+    this.lastSearchQuery = '';
+    this.ncsJobMappings = null; // ADD THIS LINE
+    // DOM elements
+    this.elements = {
+      // Enhanced search elements
+      searchToggle: document.getElementById('searchToggle'),
+      searchBar: document.getElementById('searchBar'),
+      searchInput: document.getElementById('searchInput'),
+      searchClose: document.getElementById('searchClose'),
+      searchModeToggle: document.getElementById('searchModeToggle'),
+      skillsSuggestions: document.getElementById('skillsSuggestions'),
+      
+      // Existing elements
+      filtersSection: document.getElementById('filtersSection'),
+      filtersToggle: document.getElementById('filtersToggle'),
+      filtersContent: document.getElementById('filtersContent'),
+      levelFilter: document.getElementById('levelFilter'),
+      providerFilter: document.getElementById('providerFilter'),
+      subjectFilter: document.getElementById('subjectFilter'),
+      clearFilters: document.getElementById('clearFilters'),
+      
+      coursesGrid: document.getElementById('coursesGrid'),
+      wishlistToggle: document.getElementById('wishlistToggle'),
+      wishlistCount: document.getElementById('wishlistCount'),
+      loadingState: document.getElementById('loadingState'),
+      emptyState: document.getElementById('emptyState'),
+      
+      // Modal elements
+      modalOverlay: document.getElementById('modalOverlay'),
+      courseModal: document.getElementById('courseModal'),
+      backBtn: document.getElementById('backBtn'),
+      modalTitle: document.getElementById('modalTitle'),
+      modalContent: document.getElementById('modalContent'),
+      modalWishlistBtn: document.getElementById('modalWishlistBtn'),
+      
+      // Navigation
+      bottomNav: document.querySelector('.bottom-nav'),
+      navItems: document.querySelectorAll('.nav-item'),
+      
+      courseCardTemplate: document.getElementById('courseCardTemplate')
+    };
+    
+    this.init();
+  }
 
-// Data variables
-let allCourses = [];
-let allConnections = [];
-
-// State variables
-let selectedCourseId = null;
-let currentView = 'forward'; // 'forward' or 'backward'
-let courseHistory = [];
-let historyPointer = -1;
-let wishList = [];
-let showingWishListOnly = false;
-let filtersCollapsed = false;
-
-// Constants
-const WISHLIST_STORAGE_KEY = 'emiot-wishlist';
-
-// DOM elements - Core
-const visualization = document.getElementById('visualization');
-const coursesList = document.getElementById('coursesList');
-const courseCardTemplate = document.getElementById('courseCardTemplate');
-const detailsPanel = document.getElementById('details');
-const noSelectionPanel = document.getElementById('noSelection');
-
-// DOM elements - Filters
-const levelFilter = document.getElementById('levelFilter');
-const providerFilter = document.getElementById('providerFilter');
-const subjectFilter = document.getElementById('subjectFilter');
-const resetFiltersBtn = document.getElementById('resetFilters');
-const filtersContainer = document.getElementById('filtersContainer');
-const filtersHeader = document.getElementById('filtersHeader');
-const filtersToggle = document.getElementById('filtersToggle');
-
-// DOM elements - Layout
-const detailsContainer = document.querySelector('.details-container');
-const detailsResize = document.getElementById('detailsResize');
-const visualizationContainer = document.querySelector('.visualization-container');
-const rightColumn = document.querySelector('.right-column');
-
+  /* ===========================================
+     INITIALIZATION
+     =========================================== */
 /* ===========================================
-   DATA LOADING AND INITIALIZATION
+   INITIALIZATION - FIXED
    =========================================== */
-async function loadData() {
+/* ===========================================
+   INITIALIZATION - FIXED WITH PROPER FILTER STATE
+   =========================================== */
+async init() {
   try {
-    // Fetch all courses
-    const coursesResponse = await fetch('/api/courses');
-    allCourses = await coursesResponse.json();
-    console.log('Loaded courses sample:', Array.isArray(allCourses) ? allCourses.slice(0, 3) : allCourses);
+    this.showLoading(true);
+    await this.loadData();
+    await this.loadKSBData();
+    await this.loadCareerMapping();
+    this.setupEventListeners();
+    this.updateWishlistCount();
     
-    // Fetch all connections
-    const connectionsResponse = await fetch('/api/connections');
-    allConnections = await connectionsResponse.json();
+    // Initialize with all courses visible
+    this.filteredCourses = [...this.courses];
+    this.displayCourses();
     
-    // Initialize UI
-    populateFilterOptions();
-    displayCourseCards();
-    createNetworkVisualization();
+    // FIX: Initialize filters in collapsed state
+    this.initializeFilterState();
     
-    // Hide visualization initially
-    document.querySelector('.visualization-container').style.display = 'none';
-    
-    // Load saved states
-    loadFiltersState();
+    this.showLoading(false);
   } catch (error) {
-    console.error('Error loading data:', error);
+    console.error('Failed to initialize app:', error);
+    this.showError('Failed to load courses. Please try again.');
+  }
+}
+  
+async loadCareerMapping() {
+  try {
+    console.log('Loading career mapping...');
+    const response = await fetch('/api/career-mapping');
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    this.careerMapping = await response.json();
+    console.log(`Loaded ${Object.keys(this.careerMapping).length} career mappings`);
+  } catch (error) {
+    console.warn('Failed to load career mapping:', error);
+    this.careerMapping = {};
   }
 }
 
-function populateFilterOptions() {
-  // Get unique providers
-  const providers = [...new Set(allCourses.map(course => course.provider))];
-  providers.forEach(provider => {
-    const option = document.createElement('option');
-    option.value = provider;
-    option.textContent = provider;
-    providerFilter.appendChild(option);
+
+findNCSUrl(jobTitle) {
+  const slug = this.careerMapping[jobTitle];
+  return slug ? `https://nationalcareers.service.gov.uk/job-profiles/${slug}` : null;
+}
+
+
+setupPathwayHandlers() {
+  // Add click handlers for pathway navigation
+  const pathwayItems = this.elements.modalContent.querySelectorAll('.pathway-item[data-course-id]');
+  pathwayItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const courseId = parseInt(item.dataset.courseId);
+      const course = this.courses.find(c => c.courseId === courseId);
+      if (course) {
+        this.openCourseModal(course);
+      }
+    });
   });
+}
+initializeFilterState() {
+  // Set initial collapsed state
+  this.filtersCollapsed = true;
   
-  // Get unique subject areas
-  const subjects = [...new Set(allCourses.map(course => course.subjectArea).filter(Boolean))];
-  subjects.forEach(subject => {
-    const option = document.createElement('option');
-    option.value = subject;
-    option.textContent = subject;
-    subjectFilter.appendChild(option);
-  });
+  // Apply collapsed styling immediately
+  this.elements.filtersSection.classList.add('collapsed');
+  
+  // Set toggle arrow to collapsed state
+  const filtersArrow = this.elements.filtersSection.querySelector('.filters-arrow');
+  if (filtersArrow) {
+    filtersArrow.textContent = '▼';  // Pointing down when collapsed
+  }
+  
+  console.log('Filters initialized in collapsed state');
+}
+  async loadData() {
+    try {
+      // Load courses (existing)
+      const coursesResponse = await fetch('/api/courses');
+      if (!coursesResponse.ok) throw new Error('Failed to fetch courses');
+      this.courses = await coursesResponse.json();
+      
+      // Load connections (existing)
+      const connectionsResponse = await fetch('/api/connections');
+      if (!connectionsResponse.ok) throw new Error('Failed to fetch connections');
+      this.connections = await connectionsResponse.json();
+      
+      // Populate filter options (existing)
+      this.populateFilters();
+      
+      console.log(`Loaded ${this.courses.length} courses and ${this.connections.length} connections`);
+    } catch (error) {
+      console.error('Error loading data:', error);
+      throw error;
+    }
+  }
+
+  async loadKSBData() {
+    try {
+      // FIXED: Correct endpoint URL
+      const ksbResponse = await fetch('/api/ksb/mappings');
+      if (ksbResponse.ok) {
+        const ksbMappings = await ksbResponse.json();
+        
+        // Index KSB data by courseId for quick lookup
+        this.ksbData = {};
+        ksbMappings.forEach(mapping => {
+          this.ksbData[mapping.CourseId] = {
+            knowledgeAreas: this.parseJSONField(mapping.KnowledgeAreas),
+            skillsAreas: this.parseJSONField(mapping.SkillsAreas),
+            behaviours: this.parseJSONField(mapping.Behaviours),
+            occupationalStandards: this.parseJSONField(mapping.OccupationalStandards),
+            careerPathways: this.parseJSONField(mapping.CareerPathways),
+            confidenceScore: parseInt(mapping.OverallConfidenceScore) || 0,
+            analysisNotes: mapping.AnalysisNotes || ''
+          };
+        });
+        
+        console.log(`Loaded KSB data for ${Object.keys(this.ksbData).length} courses`);
+      } else {
+        console.warn('KSB data not available - falling back to traditional search');
+      }
+    } catch (error) {
+      console.warn('Could not load KSB data:', error);
+    }
+  }
+
+  parseJSONField(jsonString) {
+    try {
+      return JSON.parse(jsonString || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+
+  /* ===========================================
+     WISHLIST FUNCTIONALITY
+     =========================================== */
+  loadWishlist() {
+    try {
+      const saved = localStorage.getItem('emiot-wishlist');
+      return saved ? JSON.parse(saved) : [];
+    } catch (error) {
+      console.warn('Failed to load wishlist:', error);
+      return [];
+    }
+  }
+
+  saveWishlist() {
+    try {
+      localStorage.setItem('emiot-wishlist', JSON.stringify(this.wishlist));
+    } catch (error) {
+      console.warn('Failed to save wishlist:', error);
+    }
+  }
+
+  toggleWishlist(courseId) {
+    if (!courseId) return;
+    
+    const index = this.wishlist.indexOf(courseId);
+    if (index > -1) {
+      this.wishlist.splice(index, 1);
+    } else {
+      this.wishlist.push(courseId);
+    }
+    
+    this.saveWishlist();
+    this.updateWishlistCount();
+    this.updateWishlistButtons();
+    
+    // Refresh display if showing wishlist only
+    if (this.showingWishlistOnly) {
+      this.displayCourses();
+    }
+  }
+
+  updateWishlistCount() {
+    this.elements.wishlistCount.textContent = this.wishlist.length;
+  }
+
+  updateWishlistButtons() {
+    // Update all wishlist buttons
+    document.querySelectorAll('.card-wishlist-btn').forEach(btn => {
+      const card = btn.closest('.course-card');
+      const courseId = parseInt(card.dataset.courseId);
+      this.updateWishlistButton(btn, courseId);
+    });
+    
+    // Update modal wishlist button
+    if (this.selectedCourse) {
+      this.updateWishlistButton(this.elements.modalWishlistBtn, this.selectedCourse.courseId);
+    }
+  }
+
+  updateWishlistButton(button, courseId) {
+    const isInWishlist = this.wishlist.includes(courseId);
+    const heartIcon = button.querySelector('.heart-icon');
+    
+    if (isInWishlist) {
+      button.classList.add('active');
+      heartIcon.textContent = '♥';
+      button.setAttribute('aria-label', 'Remove from wishlist');
+    } else {
+      button.classList.remove('active');
+      heartIcon.textContent = '♡';
+      button.setAttribute('aria-label', 'Add to wishlist');
+    }
+  }
+
+  toggleWishlistView() {
+    this.showingWishlistOnly = !this.showingWishlistOnly;
+    
+    const toggle = this.elements.wishlistToggle;
+    const heartIcon = toggle.querySelector('.heart-icon');
+    
+    if (this.showingWishlistOnly) {
+      toggle.classList.add('active');
+      heartIcon.textContent = '♥';
+      toggle.setAttribute('aria-label', 'Show all courses');
+    } else {
+      toggle.classList.remove('active');
+      heartIcon.textContent = '♡';
+      toggle.setAttribute('aria-label', 'Show wishlist only');
+    }
+    
+    this.applyFilters();
+  }
+
+  /* ===========================================
+     BASIC FUNCTIONALITY
+     =========================================== */
+  populateFilters() {
+    // Get unique providers
+    const providers = [...new Set(this.courses.map(course => course.provider))];
+    
+    // Clear existing options (except first one)
+    this.elements.providerFilter.innerHTML = '<option value="">All Providers</option>';
+    
+    // Add provider options
+    providers.forEach(provider => {
+      const option = document.createElement('option');
+      option.value = provider;
+      option.textContent = this.getProviderShortName(provider);
+      this.elements.providerFilter.appendChild(option);
+    });
+    
+    // Get unique subjects
+    const subjects = [...new Set(this.courses.map(course => course.subjectArea).filter(Boolean))];
+    
+    // Clear existing options (except first one)
+    this.elements.subjectFilter.innerHTML = '<option value="">All Subjects</option>';
+    
+    // Add subject options
+    subjects.forEach(subject => {
+      const option = document.createElement('option');
+      option.value = subject;
+      option.textContent = subject;
+      this.elements.subjectFilter.appendChild(option);
+    });
+  }
+
+  // applyFilters() {
+  //   const searchQuery = this.elements.searchInput.value.toLowerCase().trim();
+  //   const levelFilter = this.elements.levelFilter.value;
+  //   const providerFilter = this.elements.providerFilter.value;
+  //   const subjectFilter = this.elements.subjectFilter.value;
+    
+  //   this.filteredCourses = this.courses.filter(course => {
+  //     // Search filter
+  //     if (searchQuery && !course.courseName.toLowerCase().includes(searchQuery) &&
+  //         !course.subjectArea?.toLowerCase().includes(searchQuery)) {
+  //       return false;
+  //     }
+      
+  //     // Level filter
+  //     if (levelFilter && course.level != levelFilter) {
+  //       return false;
+  //     }
+      
+  //     // Provider filter
+  //     if (providerFilter && course.provider !== providerFilter) {
+  //       return false;
+  //     }
+      
+  //     // Subject filter
+  //     if (subjectFilter && course.subjectArea !== subjectFilter) {
+  //       return false;
+  //     }
+      
+  //     // Wishlist filter
+  //     if (this.showingWishlistOnly && !this.wishlist.includes(course.courseId)) {
+  //       return false;
+  //     }
+      
+  //     return true;
+  //   });
+
+  //   this.displayCourses();
+  // }
+/* ===========================================
+   FILTER LOGIC - FIXED
+   =========================================== */
+applyFilters() {
+  const searchQuery = this.elements.searchInput.value.toLowerCase().trim();
+  const levelFilter = this.elements.levelFilter.value;
+  const providerFilter = this.elements.providerFilter.value;
+  const subjectFilter = this.elements.subjectFilter.value;
+  
+  // Check if any filters are actually active
+  const hasActiveFilters = searchQuery || levelFilter || providerFilter || subjectFilter;
+  
+  if (!hasActiveFilters && !this.showingWishlistOnly) {
+    // No filters active - show all courses
+    this.filteredCourses = [...this.courses];
+  } else {
+    // Apply filtering
+    this.filteredCourses = this.courses.filter(course => {
+      // Search filter
+      if (searchQuery && !course.courseName.toLowerCase().includes(searchQuery) &&
+          !course.subjectArea?.toLowerCase().includes(searchQuery)) {
+        return false;
+      }
+      
+      // Level filter
+      if (levelFilter && course.level != levelFilter) {
+        return false;
+      }
+      
+      // Provider filter
+      if (providerFilter && course.provider !== providerFilter) {
+        return false;
+      }
+      
+      // Subject filter
+      if (subjectFilter && course.subjectArea !== subjectFilter) {
+        return false;
+      }
+      
+      return true;
+    });
+  }
+  
+  this.displayCourses();
 }
 
 /* ===========================================
-   WISHLIST FUNCTIONALITY
+   DISPLAY LOGIC - FIXED
    =========================================== */
-function loadWishList() {
-  const saved = localStorage.getItem(WISHLIST_STORAGE_KEY);
-  wishList = saved ? JSON.parse(saved) : [];
-}
-
-function saveWishList() {
-  localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(wishList));
-}
-
-function isInWishList(courseId) {
-  return wishList.includes(courseId);
-}
-
-function toggleWishList(courseId) {
-  const course = allCourses.find(c => c.courseId == courseId);
-  if (!course) return;
+displayCourses() {
+  let coursesToShow;
   
-  if (isInWishList(courseId)) {
-    wishList = wishList.filter(id => id !== courseId);
+  if (this.showingWishlistOnly) {
+    coursesToShow = this.courses.filter(course => this.wishlist.includes(course.courseId));
   } else {
-    wishList.push(courseId);
+    // Use filteredCourses if they exist, otherwise show all courses
+    coursesToShow = this.filteredCourses.length > 0 ? this.filteredCourses : this.courses;
   }
   
-  saveWishList();
-  updateWishListUI();
-  updateWishListCount();
-}
-
-function updateWishListUI() {
-  const wishlistBtn = document.getElementById('wishlistBtn');
-  const wishlistIcon = wishlistBtn?.querySelector('.wishlist-icon');
-  const wishlistText = wishlistBtn?.querySelector('.wishlist-text');
+  // Clear grid
+  this.elements.coursesGrid.innerHTML = '';
   
-  if (selectedCourseId && wishlistBtn) {
-    const inWishlist = isInWishList(selectedCourseId);
+  // Show empty state if no courses
+  if (coursesToShow.length === 0) {
+    this.elements.emptyState.classList.remove('hidden');
+    return;
+  } else {
+    this.elements.emptyState.classList.add('hidden');
+  }
+  
+  // Create course cards
+  coursesToShow.forEach(course => {
+    const card = this.createCourseCard(course);
+    this.elements.coursesGrid.appendChild(card);
+  });
+}/* ===========================================
+   DISPLAY LOGIC - FIXED
+   =========================================== */
+displayCourses() {
+  let coursesToShow;
+  
+  if (this.showingWishlistOnly) {
+    coursesToShow = this.courses.filter(course => this.wishlist.includes(course.courseId));
+  } else {
+    // Use filteredCourses if they exist, otherwise show all courses
+    coursesToShow = this.filteredCourses.length > 0 ? this.filteredCourses : this.courses;
+  }
+  
+  // Clear grid
+  this.elements.coursesGrid.innerHTML = '';
+  
+  // Show empty state if no courses
+  if (coursesToShow.length === 0) {
+    this.elements.emptyState.classList.remove('hidden');
+    return;
+  } else {
+    this.elements.emptyState.classList.add('hidden');
+  }
+  
+  // Create course cards
+  coursesToShow.forEach(course => {
+    const card = this.createCourseCard(course);
+    this.elements.coursesGrid.appendChild(card);
+  });
+}
+  createCourseCard(course) {
+    const template = this.elements.courseCardTemplate.content.cloneNode(true);
+    const card = template.querySelector('.course-card');
     
-    if (inWishlist) {
-      wishlistBtn.classList.add('in-wishlist');
-      wishlistIcon.textContent = '♥';
-      wishlistText.textContent = 'Remove from Wish List';
-    } else {
-      wishlistBtn.classList.remove('in-wishlist');
-      wishlistIcon.textContent = '♡';
-      wishlistText.textContent = 'Add to Wish List';
+    // Set data
+    card.dataset.courseId = course.courseId;
+    
+    // Level badge
+    const levelBadge = card.querySelector('.level-badge');
+    const levelNumber = card.querySelector('.level-number');
+    levelBadge.dataset.level = course.level;
+    levelNumber.textContent = course.level;
+    
+    // Wishlist button
+    const wishlistBtn = card.querySelector('.card-wishlist-btn');
+    this.updateWishlistButton(wishlistBtn, course.courseId);
+    wishlistBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.toggleWishlist(course.courseId);
+    });
+    
+    // Course info
+    card.querySelector('.course-title').textContent = course.courseName;
+    
+    const providerBadge = card.querySelector('.provider-badge');
+    providerBadge.textContent = this.getProviderShortName(course.provider);
+    providerBadge.className = `provider-badge ${this.getProviderClass(course.provider)}`;
+    
+    card.querySelector('.subject-area').textContent = course.subjectArea || 'General';
+    
+    // Click handler
+    card.addEventListener('click', () => this.openCourseModal(course));
+    
+    return card;
+  }
+
+  /* ===========================================
+     ENHANCED SEARCH FUNCTIONALITY
+     =========================================== */
+  setupEventListeners() {
+    // Enhanced search listeners
+    this.elements.searchToggle.addEventListener('click', () => this.toggleSearch());
+    this.elements.searchClose.addEventListener('click', () => this.closeSearch());
+    this.elements.searchInput.addEventListener('input', (e) => this.handleEnhancedSearch(e.target.value));
+    
+    // Search mode toggle
+    if (this.elements.searchModeToggle) {
+      this.elements.searchModeToggle.addEventListener('click', () => this.toggleSearchMode());
     }
+    
+    // Filters (existing)
+    this.elements.filtersToggle.addEventListener('click', () => this.toggleFilters());
+    this.elements.levelFilter.addEventListener('change', () => this.applyFilters());
+    this.elements.providerFilter.addEventListener('change', () => this.applyFilters());
+    this.elements.subjectFilter.addEventListener('change', () => this.applyFilters());
+    this.elements.clearFilters.addEventListener('click', () => this.clearFilters());
+    
+    // Wishlist (existing)
+    this.elements.wishlistToggle.addEventListener('click', () => this.toggleWishlistView());
+    
+    // Navigation (existing)
+    this.elements.navItems.forEach(item => {
+      item.addEventListener('click', (e) => this.switchTab(e.target.closest('.nav-item').dataset.tab));
+    });
+    
+    // Modal (existing)
+    this.elements.backBtn.addEventListener('click', () => this.closeModal());
+    this.elements.modalOverlay.addEventListener('click', (e) => {
+      if (e.target === this.elements.modalOverlay) this.closeModal();
+    });
+    this.elements.modalWishlistBtn.addEventListener('click', () => this.toggleWishlist(this.selectedCourse?.courseId));
+    
+    // Handle back button (browser)
+    window.addEventListener('popstate', () => this.handleBackButton());
   }
-}
 
-function updateWishListCount() {
-  const countElement = document.getElementById('wishlistCount');
-  if (countElement) {
-    countElement.textContent = wishList.length;
-  }
-}
-
-function toggleWishListFilter() {
-  console.log('toggleWishListFilter called');
-  console.log('Current wishList:', wishList);
-  console.log('showingWishListOnly before toggle:', showingWishListOnly);
-  
-  showingWishListOnly = !showingWishListOnly;
-  console.log('showingWishListOnly after toggle:', showingWishListOnly);
-  
-  const btn = document.getElementById('showWishlistBtn');
-  if (btn) {
-    if (showingWishListOnly) {
-      btn.classList.add('active');
-      btn.innerHTML = '<span class="wishlist-icon">♥</span> Show All Courses';
-      console.log('Button set to "Show All Courses"');
+  toggleSearchMode() {
+    this.searchMode = this.searchMode === 'traditional' ? 'skills' : 'traditional';
+    
+    const toggle = this.elements.searchModeToggle;
+    const input = this.elements.searchInput;
+    
+    if (this.searchMode === 'skills') {
+      toggle.classList.add('skills-mode');
+      toggle.textContent = 'Skills';
+      input.placeholder = 'Search by skills or career goals...';
+      input.value = '';
     } else {
-      btn.classList.remove('active');
-      btn.innerHTML = '<span class="wishlist-icon">♡</span> Show Wish List (<span id="wishlistCount">' + wishList.length + '</span>)';
-      console.log('Button set to "Show Wish List"');
+      toggle.classList.remove('skills-mode');
+      toggle.textContent = 'Courses';
+      input.placeholder = 'Search courses...';
+      input.value = '';
     }
+    
+    this.clearSearch();
   }
+
+  handleEnhancedSearch(query) {
+    clearTimeout(this.searchTimeout);
+    this.lastSearchQuery = query.toLowerCase().trim();
+    
+    this.searchTimeout = setTimeout(() => {
+      if (this.searchMode === 'skills') {
+        this.performSkillsSearch(this.lastSearchQuery);
+      } else {
+        this.performTraditionalSearch(this.lastSearchQuery);
+      }
+    }, 300);
+  }
+
+  // performSkillsSearch(query) {
+  //   if (!query) {
+  //     this.applyFilters();
+  //     return;
+  //   }
+
+  //   const searchResults = [];
+    
+  //   this.courses.forEach(course => {
+  //     const ksbData = this.ksbData[course.courseId];
+  //     if (!ksbData) {
+  //       // Fallback to traditional search if no KSB data
+  //       if (this.matchesTraditionalSearch(course, query)) {
+  //         searchResults.push({
+  //           course,
+  //           matchScore: 0.5,
+  //           matchReasons: ['Course name or provider match'],
+  //           confidenceScore: 0
+  //         });
+  //       }
+  //       return;
+  //     }
+
+  //     const matches = this.findKSBMatches(ksbData, query);
+  //     if (matches.totalScore > 0) {
+  //       searchResults.push({
+  //         course,
+  //         matchScore: matches.totalScore,
+  //         matchReasons: matches.reasons,
+  //         confidenceScore: ksbData.confidenceScore,
+  //         ksbData
+  //       });
+  //     }
+  //   });
+
+  //   // Sort by match score and confidence
+  //   searchResults.sort((a, b) => {
+  //     if (a.matchScore !== b.matchScore) {
+  //       return b.matchScore - a.matchScore;
+  //     }
+  //     return b.confidenceScore - a.confidenceScore;
+  //   });
+
+  //   this.displaySearchResults(searchResults, query);
+  // }
+performSkillsSearch(query) {
+  if (!query) {
+    // When search is cleared, reset to show all courses
+    this.filteredCourses = [...this.courses];
+    this.displayCourses();
+    return;
+  }
+
+  const searchResults = [];
   
-  console.log('About to call displayCourseCards');
-  displayCourseCards();
+  this.courses.forEach(course => {
+    const ksbData = this.ksbData[course.courseId];
+    if (!ksbData) {
+      // Fallback to traditional search if no KSB data
+      if (this.matchesTraditionalSearch(course, query)) {
+        searchResults.push({
+          course,
+          matchScore: 0.5,
+          matchReasons: ['Course name or provider match'],
+          confidenceScore: 0
+        });
+      }
+      return;
+    }
+
+    const matches = this.findKSBMatches(ksbData, query);
+    if (matches.totalScore > 0) {
+      searchResults.push({
+        course,
+        matchScore: matches.totalScore,
+        matchReasons: matches.reasons,
+        confidenceScore: ksbData.confidenceScore,
+        ksbData
+      });
+    }
+  });
+
+  // Sort by match score and confidence
+  searchResults.sort((a, b) => {
+    if (a.matchScore !== b.matchScore) {
+      return b.matchScore - a.matchScore;
+    }
+    return b.confidenceScore - a.confidenceScore;
+  });
+
+  this.displaySearchResults(searchResults, query);
 }
 
+  findKSBMatches(ksbData, query) {
+    const matches = {
+      totalScore: 0,
+      reasons: []
+    };
+
+    const queryWords = query.split(' ').filter(word => word.length > 2);
+    
+    // Search in knowledge areas
+    ksbData.knowledgeAreas.forEach(knowledge => {
+      const score = this.calculateTextMatch(knowledge.description, queryWords);
+      if (score > 0) {
+        matches.totalScore += score * 0.8; // Knowledge weighted at 80%
+        matches.reasons.push(`Knowledge: ${knowledge.description}`);
+      }
+    });
+
+    // Search in skills areas
+    ksbData.skillsAreas.forEach(skill => {
+      const score = this.calculateTextMatch(skill.description, queryWords);
+      if (score > 0) {
+        matches.totalScore += score * 1.0; // Skills weighted at 100%
+        matches.reasons.push(`Skill: ${skill.description}`);
+      }
+    });
+
+    // Search in career pathways
+    ksbData.careerPathways.forEach(career => {
+      const score = this.calculateTextMatch(career.role, queryWords);
+      if (score > 0) {
+        matches.totalScore += score * 0.9; // Career paths weighted at 90%
+        matches.reasons.push(`Career path: ${career.role}`);
+      }
+    });
+
+    // Search in occupational standards
+    ksbData.occupationalStandards.forEach(standard => {
+      const score = this.calculateTextMatch(standard.name, queryWords);
+      if (score > 0) {
+        matches.totalScore += score * 0.7; // Standards weighted at 70%
+        matches.reasons.push(`Occupational standard: ${standard.name}`);
+      }
+    });
+
+    // Limit reasons to top 3
+    matches.reasons = matches.reasons.slice(0, 3);
+    
+    return matches;
+  }
+
+  calculateTextMatch(text, queryWords) {
+    if (!text) return 0;
+    
+    const textLower = text.toLowerCase();
+    let score = 0;
+    
+    queryWords.forEach(word => {
+      if (textLower.includes(word)) {
+        // Exact word match
+        score += 1;
+      } else if (this.fuzzyMatch(textLower, word)) {
+        // Fuzzy match (for typos or similar words)
+        score += 0.5;
+      }
+    });
+    
+    return score / queryWords.length; // Normalize by query length
+  }
+
+  fuzzyMatch(text, word) {
+    // Simple fuzzy matching - could be enhanced
+    if (word.length < 4) return false;
+    
+    const variations = [
+      word.slice(0, -1), // Remove last character
+      word + 'ing',      // Add common suffix
+      word + 's',        // Add plural
+      word.replace('ing', ''), // Remove -ing
+    ];
+    
+    return variations.some(variation => text.includes(variation));
+  }
+
+  // performTraditionalSearch(query) {
+  //   if (!query) {
+  //     this.applyFilters();
+  //     return;
+  //   }
+
+  //   const searchResults = [];
+    
+  //   this.courses.forEach(course => {
+  //     if (this.matchesTraditionalSearch(course, query)) {
+  //       const ksbData = this.ksbData[course.courseId];
+  //       searchResults.push({
+  //         course,
+  //         matchScore: 1.0,
+  //         matchReasons: ['Course name or provider match'],
+  //         confidenceScore: ksbData ? ksbData.confidenceScore : 0,
+  //         ksbData
+  //       });
+  //     }
+  //   });
+
+  //   this.displaySearchResults(searchResults, query);
+  // }
 /* ===========================================
-   COURSE DISPLAY FUNCTIONALITY
+   SEARCH HANDLING - FIXED
    =========================================== */
-function displayCourseCards() {
-  console.log('displayCourseCards called');
-  console.log('showingWishListOnly:', showingWishListOnly);
-  console.log('wishList:', wishList);
+performTraditionalSearch(query) {
+  if (!query) {
+    // When search is cleared, reset to show all courses
+    this.filteredCourses = [...this.courses];
+    this.displayCourses();
+    return;
+  }
+
+  const searchResults = [];
   
-  // Clear existing cards
-  coursesList.innerHTML = '';
-  
-  let filteredCourses;
-  
-  if (showingWishListOnly) {
-    // When showing wishlist, ignore other filters and show all wishlist courses
-    console.log('Showing wishlist only - ignoring other filters');
-    filteredCourses = allCourses.filter(course => isInWishList(course.courseId));
-  } else {
-    // Normal filtering when not showing wishlist
-    const levelValue = levelFilter.value;
-    const providerValue = providerFilter.value;
-    const subjectValue = subjectFilter.value;
+  this.courses.forEach(course => {
+    if (this.matchesTraditionalSearch(course, query)) {
+      const ksbData = this.ksbData[course.courseId];
+      searchResults.push({
+        course,
+        matchScore: 1.0,
+        matchReasons: ['Course name or provider match'],
+        confidenceScore: ksbData ? ksbData.confidenceScore : 0,
+        ksbData
+      });
+    }
+  });
+
+  this.displaySearchResults(searchResults, query);
+}
+  matchesTraditionalSearch(course, query) {
+    const searchFields = [
+      course.courseName,
+      course.provider,
+      course.subjectArea
+    ].filter(Boolean);
     
-    filteredCourses = allCourses.filter(course => 
-      (levelValue === '' || course.level == levelValue) &&
-      (providerValue === '' || course.provider === providerValue) &&
-      (subjectValue === '' || course.subjectArea === subjectValue)
+    return searchFields.some(field => 
+      field.toLowerCase().includes(query)
     );
   }
- 
-  // Create a card for each filtered course
-  filteredCourses.forEach(course => {
-    const card = createCourseCard(course);
-    coursesList.appendChild(card);
+
+  displaySearchResults(results, query) {
+    // Clear grid
+    this.elements.coursesGrid.innerHTML = '';
+    
+    if (results.length === 0) {
+      this.showSearchEmptyState(query);
+      return;
+    }
+
+    // Create enhanced course cards
+    results.forEach(result => {
+      const card = this.createEnhancedCourseCard(result);
+      this.elements.coursesGrid.appendChild(card);
+    });
+
+    this.elements.emptyState.classList.add('hidden');
+  }
+
+  // createEnhancedCourseCard(result) {
+  //   const { course, matchScore, matchReasons, confidenceScore, ksbData } = result;
+    
+  //   const template = this.elements.courseCardTemplate.content.cloneNode(true);
+  //   const card = template.querySelector('.course-card');
+    
+  //   // Set data
+  //   card.dataset.courseId = course.courseId;
+    
+  //   // Add match indicator if this is a skills search
+  //   if (this.searchMode === 'skills' && matchScore > 0) {
+  //     const matchIndicator = document.createElement('div');
+  //     matchIndicator.className = 'match-indicator';
+  //     matchIndicator.textContent = `${Math.round(matchScore * 100)}% match`;
+  //     card.appendChild(matchIndicator);
+  //   }
+    
+  //   // Level badge
+  //   const levelBadge = card.querySelector('.level-badge');
+  //   const levelNumber = card.querySelector('.level-number');
+  //   levelBadge.dataset.level = course.level;
+  //   levelNumber.textContent = course.level;
+    
+  //   // Wishlist button
+  //   const wishlistBtn = card.querySelector('.card-wishlist-btn');
+  //   this.updateWishlistButton(wishlistBtn, course.courseId);
+  //   wishlistBtn.addEventListener('click', (e) => {
+  //     e.stopPropagation();
+  //     this.toggleWishlist(course.courseId);
+  //   });
+    
+  //   // Course info
+  //   card.querySelector('.course-title').textContent = course.courseName;
+    
+  //   const providerBadge = card.querySelector('.provider-badge');
+  //   providerBadge.textContent = this.getProviderShortName(course.provider);
+  //   providerBadge.className = `provider-badge ${this.getProviderClass(course.provider)}`;
+    
+  //   card.querySelector('.subject-area').textContent = course.subjectArea || 'General';
+    
+  //   // Add match reasons if this is a skills search
+  //   if (this.searchMode === 'skills' && matchReasons.length > 0) {
+  //     const matchInfo = document.createElement('div');
+  //     matchInfo.className = 'match-info';
+  //     matchInfo.innerHTML = matchReasons.slice(0, 2).map(reason => 
+  //       `<div class="match-reason">${reason}</div>`
+  //     ).join('');
+  //     card.appendChild(matchInfo);
+  //   }
+    
+  //   // Add confidence indicator
+  //   if (confidenceScore > 0) {
+  //     const confidenceIndicator = document.createElement('div');
+  //     confidenceIndicator.className = 'confidence-indicator';
+  //     confidenceIndicator.textContent = `Quality: ${confidenceScore}/10`;
+  //     card.appendChild(confidenceIndicator);
+  //   }
+    
+  //   // Click handler
+  //   card.addEventListener('click', () => this.openEnhancedCourseModal(course, result));
+    
+  //   return card;
+  // }
+/* ===========================================
+     ENHANCED COURSE CARD CAREER HINTS
+     =========================================== */
+  createEnhancedCourseCard(result) {
+    const { course, matchScore, matchReasons, confidenceScore, ksbData } = result;
+    
+    const template = this.elements.courseCardTemplate.content.cloneNode(true);
+    const card = template.querySelector('.course-card');
+    
+    // Set data
+    card.dataset.courseId = course.courseId;
+    
+    // Add match indicator if this is a skills search
+    if (this.searchMode === 'skills' && matchScore > 0) {
+      const matchIndicator = document.createElement('div');
+      matchIndicator.className = 'match-indicator';
+      matchIndicator.textContent = `${Math.round(matchScore * 100)}% match`;
+      card.appendChild(matchIndicator);
+    }
+    
+    // Level badge
+    const levelBadge = card.querySelector('.level-badge');
+    const levelNumber = card.querySelector('.level-number');
+    levelBadge.dataset.level = course.level;
+    levelNumber.textContent = course.level;
+    
+    // Wishlist button
+    const wishlistBtn = card.querySelector('.card-wishlist-btn');
+    this.updateWishlistButton(wishlistBtn, course.courseId);
+    wishlistBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.toggleWishlist(course.courseId);
+    });
+    
+    // Course info
+    card.querySelector('.course-title').textContent = course.courseName;
+    
+    const providerBadge = card.querySelector('.provider-badge');
+    providerBadge.textContent = this.getProviderShortName(course.provider);
+    providerBadge.className = `provider-badge ${this.getProviderClass(course.provider)}`;
+    
+    card.querySelector('.subject-area').textContent = course.subjectArea || 'General';
+    
+    // Add career hint if KSB data available
+    if (ksbData && ksbData.careerPathways.length > 0) {
+      const topCareers = ksbData.careerPathways
+        .sort((a, b) => b.confidence - a.confidence)
+        .slice(0, 2)
+        .map(career => career.role);
+      
+      const careerHint = document.createElement('div');
+      careerHint.className = 'career-hint';
+      careerHint.innerHTML = `<span class="hint-icon">💼</span> ${topCareers.join(', ')}`;
+      card.appendChild(careerHint);
+    }
+    
+    // Add match reasons if this is a skills search
+    if (this.searchMode === 'skills' && matchReasons.length > 0) {
+      const matchInfo = document.createElement('div');
+      matchInfo.className = 'match-info';
+      matchInfo.innerHTML = matchReasons.slice(0, 2).map(reason => 
+        `<div class="match-reason">${reason}</div>`
+      ).join('');
+      card.appendChild(matchInfo);
+    }
+    
+    // Add confidence indicator
+    if (confidenceScore > 0) {
+      const confidenceIndicator = document.createElement('div');
+      confidenceIndicator.className = 'confidence-indicator';
+      confidenceIndicator.textContent = `Quality: ${confidenceScore}/10`;
+      card.appendChild(confidenceIndicator);
+    }
+    
+    // Click handler
+    card.addEventListener('click', () => this.openEnhancedCourseModal(course, result));
+    
+    return card;
+  }
+
+  showSearchEmptyState(query) {
+    this.elements.emptyState.innerHTML = `
+      <div class="empty-icon">🔍</div>
+      <h3>No courses found</h3>
+      <p>No courses match "${query}"</p>
+      <p>Try different keywords or switch search modes</p>
+    `;
+    this.elements.emptyState.classList.remove('hidden');
+  }
+
+  // clearSearch() {
+  //   this.elements.searchInput.value = '';
+  //   this.lastSearchQuery = '';
+  //   this.applyFilters();
+  // }
+clearSearch() {
+  this.elements.searchInput.value = '';
+  this.lastSearchQuery = '';
+  
+  // Reset to show all courses
+  this.filteredCourses = [...this.courses];
+  this.displayCourses();
+}
+  /* ===========================================
+     MODAL FUNCTIONALITY
+     =========================================== */
+  async openCourseModal(course, searchResult = null) {
+    this.selectedCourse = course;
+    this.elements.modalTitle.textContent = course.courseName;
+    
+    // Update wishlist button
+    this.updateWishlistButton(this.elements.modalWishlistBtn, course.courseId);
+    
+    // Show modal
+    this.elements.modalOverlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    
+    // Add to browser history
+    history.pushState({ modal: 'course', courseId: course.courseId }, '', `#course-${course.courseId}`);
+    
+    // Load course details
+    await this.loadCourseDetails(course, searchResult);
+  }
+
+  async openEnhancedCourseModal(course, searchResult = null) {
+    return this.openCourseModal(course, searchResult);
+  }
+
+  closeModal() {
+    this.elements.modalOverlay.classList.add('hidden');
+    document.body.style.overflow = '';
+    this.selectedCourse = null;
+    
+    // Update browser history
+    if (location.hash.startsWith('#course-')) {
+      history.back();
+    }
+  }
+
+  async loadCourseDetails(course, searchResult = null) {
+    try {
+      // Show loading
+      this.elements.modalContent.innerHTML = '<div class="loading-state"><div class="loading-spinner"></div><p>Loading details...</p></div>';
+      
+      // Get KSB data for this course
+      const ksbData = this.ksbData[course.courseId];
+      
+      // Fetch progression data (existing)
+      const [progressionResponse, precedingResponse] = await Promise.all([
+        fetch(`/api/courses/${course.courseId}/progression`),
+        fetch(`/api/courses/${course.courseId}/preceding`)
+      ]);
+      
+      const progressionRoutes = progressionResponse.ok ? await progressionResponse.json() : [];
+      const precedingRoutes = precedingResponse.ok ? await precedingResponse.json() : [];
+      
+      // Render course details
+      this.renderCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult);
+      
+    } catch (error) {
+      console.error('Failed to load course details:', error);
+      this.elements.modalContent.innerHTML = '<div class="empty-state"><p>Failed to load course details. Please try again.</p></div>';
+    }
+  }
+
+  async loadEnhancedCourseDetails(course, searchResult) {
+    return this.loadCourseDetails(course, searchResult);
+  }
+
+  // renderCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult) {
+  //   const hasKSBData = ksbData && Object.keys(ksbData).length > 0;
+    
+  //   this.elements.modalContent.innerHTML = `
+  //     <div class="course-tabs">
+  //       <button class="tab-btn active" data-tab="overview">Overview</button>
+  //       ${hasKSBData ? '<button class="tab-btn" data-tab="skills">Skills & Careers</button>' : ''}
+  //       <button class="tab-btn" data-tab="pathways">Pathways</button>
+  //     </div>
+      
+  //     <div class="tab-content active" data-tab="overview">
+  //       <div class="course-summary">
+  //         ${searchResult && searchResult.matchReasons.length > 0 ? `
+  //           <div class="match-summary">
+  //             <h4>Why this course matches:</h4>
+  //             <ul class="match-reasons-list">
+  //               ${searchResult.matchReasons.map(reason => `<li>${reason}</li>`).join('')}
+  //             </ul>
+  //           </div>
+  //         ` : ''}
+          
+  //         <div class="course-meta-grid">
+  //           <div class="meta-item">
+  //             <label>Provider</label>
+  //             <span>${course.provider}</span>
+  //           </div>
+  //           <div class="meta-item">
+  //             <label>Level</label>
+  //             <span>Level ${course.level}</span>
+  //           </div>
+  //           <div class="meta-item">
+  //             <label>Subject Area</label>
+  //             <span>${course.subjectArea || 'General'}</span>
+  //           </div>
+  //           ${hasKSBData ? `
+  //             <div class="meta-item">
+  //               <label>Analysis Quality</label>
+  //               <span>${ksbData.confidenceScore}/10</span>
+  //             </div>
+  //           ` : ''}
+  //         </div>
+          
+  //         ${course.courseUrl ? `
+  //           <a href="${course.courseUrl}" target="_blank" class="course-link-btn">
+  //             View Course Website →
+  //           </a>
+  //         ` : ''}
+  //       </div>
+  //     </div>
+      
+  //     ${hasKSBData ? `
+  //       <div class="tab-content" data-tab="skills">
+  //         <div class="skills-career-section">
+  //           ${this.renderSkillsSection(ksbData)}
+  //           ${this.renderCareersSection(ksbData)}
+  //         </div>
+  //       </div>
+  //     ` : ''}
+      
+  //     <div class="tab-content" data-tab="pathways">
+  //       <div class="pathways-section">
+  //         <div class="pathway-group">
+  //           <h4>This course leads to:</h4>
+  //                         <div class="pathway-list">
+  //               ${progressionRoutes.length > 0 ? 
+  //                 progressionRoutes.map(route => `
+  //                   <div class="pathway-item" data-course-id="${route.toId}">
+  //                     <div class="pathway-course">
+  //                       <strong>${route.course.courseName}</strong>
+  //                       <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
+  //                     </div>
+  //                     ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
+  //                   </div>
+  //                 `).join('') : 
+  //                 '<div class="no-pathways">No further progressions available within EMIOT</div>'
+  //               }
+  //             </div>
+  //           </div>
+            
+  //           <div class="pathway-group">
+  //             <h4>Courses that lead here:</h4>
+  //             <div class="pathway-list">
+  //               ${precedingRoutes.length > 0 ? 
+  //                 precedingRoutes.map(route => `
+  //                   <div class="pathway-item" data-course-id="${route.fromId}">
+  //                     <div class="pathway-course">
+  //                       <strong>${route.course.courseName}</strong>
+  //                       <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
+  //                     </div>
+  //                     ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
+  //                   </div>
+  //                 `).join('') : 
+  //                 '<div class="no-pathways">No prerequisite courses found</div>'
+  //               }
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   `;
+    
+  //   // Set up tab switching
+  //   this.setupModalTabs();
+    
+  //   // Add click handlers for pathway items
+  //   this.elements.modalContent.querySelectorAll('.pathway-item[data-course-id]').forEach(item => {
+  //     item.addEventListener('click', () => {
+  //       const courseId = parseInt(item.dataset.courseId);
+  //       const course = this.courses.find(c => c.courseId === courseId);
+  //       if (course) {
+  //         this.openCourseModal(course);
+  //       }
+  //     });
+  //   });
+  // }
+
+renderCourseDetails(course, progressionRoutes, precedingRoutes, ksbData, searchResult) {
+  const hasKSBData = ksbData && Object.keys(ksbData).length > 0;
+  
+  // Dummy description - you mentioned you'll get proper ones in production
+  const specimenDescription = "The core components provide a broad understanding of the digital industry and the breadth of content will help to ensure you are able to apply the skills in a variety of contexts and for a variety of different purposes. Looking at digital infrastructure, digital support and network cabling, you will learn how to apply procedures and controls to maintain the digital security of an organisation and its data.";
+  
+  this.elements.modalContent.innerHTML = `
+    <div class="course-tabs">
+      <button class="tab-btn active" data-tab="overview">Overview</button>
+      ${hasKSBData ? '<button class="tab-btn" data-tab="skills">Skills & Careers</button>' : ''}
+      <button class="tab-btn" data-tab="pathways">Pathways</button>
+      <button class="tab-btn" data-tab="visual">Visual</button>
+    </div>
+    
+    <div class="tab-content-container">
+      <!-- OVERVIEW TAB - Clean and focused -->
+      <div class="tab-content active" data-tab="overview">
+        <div class="course-summary">
+          ${searchResult && searchResult.matchReasons && searchResult.matchReasons.length > 0 ? `
+            <div class="match-summary">
+              <h4>Why this course matches:</h4>
+              <ul class="match-reasons-list">
+                ${searchResult.matchReasons.map(reason => `<li>${reason}</li>`).join('')}
+              </ul>
+            </div>
+          ` : ''}
+          
+          <div class="course-meta-grid">
+            <div class="meta-item">
+              <label>Provider</label>
+              <span>${course.provider}</span>
+            </div>
+            <div class="meta-item">
+              <label>Level</label>
+              <span>Level ${course.level}</span>
+            </div>
+            <div class="meta-item">
+              <label>Subject Area</label>
+              <span>${course.subjectArea || 'General'}</span>
+            </div>
+            ${hasKSBData ? `
+              <div class="meta-item">
+                <label>Analysis Quality</label>
+                <span>${ksbData.confidenceScore}/10</span>
+              </div>
+            ` : ''}
+          </div>
+          
+          ${course.courseUrl ? `
+            <a href="${course.courseUrl}" target="_blank" class="course-link-btn">
+              View Course Website →
+            </a>
+          ` : ''}
+          
+          <div class="course-description">
+            <h4>Course Description</h4>
+            <p>${specimenDescription}</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SKILLS & CAREERS TAB - Your existing KSB content -->
+      ${hasKSBData ? `
+        <div class="tab-content" data-tab="skills">
+          <div class="skills-career-section">
+            ${this.renderCareersSection(ksbData)}
+            ${this.renderSkillsSection(ksbData)}
+          </div>
+        </div>
+      ` : ''}
+      
+ <!-- PATHWAYS TAB - Working version -->
+<div class="tab-content" data-tab="pathways">
+  <div class="pathways-section">
+    <div class="pathway-group">
+      <h4>This course leads to:</h4>
+      <div class="pathway-list">
+        ${progressionRoutes.length > 0 ? 
+          progressionRoutes.map(route => `
+            <div class="pathway-item" data-course-id="${route.toId}">
+              <div class="pathway-course">
+                <strong>${route.course.courseName}</strong>
+                <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
+              </div>
+              ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
+            </div>
+          `).join('') : 
+          '<div class="no-pathways">No further progressions available within EMIOT</div>'
+        }
+      </div>
+    </div>
+    
+    <div class="pathway-group">
+      <h4>Courses that lead here:</h4>
+      <div class="pathway-list">
+        ${precedingRoutes.length > 0 ? 
+          precedingRoutes.map(route => `
+            <div class="pathway-item" data-course-id="${route.fromId}">
+              <div class="pathway-course">
+                <strong>${route.course.courseName}</strong>
+                <span class="pathway-meta">Level ${route.course.level} • ${this.getProviderShortName(route.course.provider)}</span>
+              </div>
+              ${route.notes ? `<div class="pathway-notes">${route.notes}</div>` : ''}
+            </div>
+          `).join('') : 
+          '<div class="no-pathways">No prerequisite courses found</div>'
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VISUAL TAB - Working version -->
+<div class="tab-content" data-tab="visual">
+  <div class="visualization-section">
+    <div class="viz-controls">
+      <select id="viewModeSelect" class="view-mode-select">
+        <option value="forward">Where can I go from here?</option>
+        <option value="backward">How do I get to this course?</option>
+      </select>
+    </div>
+    <div class="visualization-container">
+      <div id="visualization">Loading visualization...</div>
+    </div>
+  </div>
+</div>
+      
+    </div> <!-- Close tab-content-container -->
+  `;
+  
+  // Set up tab switching
+  this.setupModalTabs();
+}
+// returns nothing
+  renderSkillsSection(ksbData) {
+    return `` }
+
+    // This deprecated pending discussion
+  renderSkillsSectionDeprecated(ksbData) {
+    return `
+      <div class="skills-section">
+        <h4>What you'll learn:</h4>
+        
+        ${ksbData.knowledgeAreas.length > 0 ? `
+          <div class="ksb-group">
+            <h5>Knowledge Areas:</h5>
+            <ul class="ksb-list">
+              ${ksbData.knowledgeAreas.map(knowledge => `
+                <li class="ksb-item">
+                  <div>
+                    <strong>${knowledge.id}:</strong> ${knowledge.description}
+                  </div>
+                  <span class="confidence-badge">${knowledge.confidence}/10</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        ` : ''}
+        
+        ${ksbData.skillsAreas.length > 0 ? `
+          <div class="ksb-group">
+            <h5>Practical Skills:</h5>
+            <ul class="ksb-list">
+              ${ksbData.skillsAreas.map(skill => `
+                <li class="ksb-item">
+                  <div>
+                    <strong>${skill.id}:</strong> ${skill.description}
+                  </div>
+                  <span class="confidence-badge">${skill.confidence}/10</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        ` : ''}
+        
+        ${ksbData.behaviours.length > 0 ? `
+          <div class="ksb-group">
+            <h5>Professional Behaviours:</h5>
+            <ul class="ksb-list">
+              ${ksbData.behaviours.map(behaviour => `
+                <li class="ksb-item">
+                  <div>
+                    <strong>${behaviour.id}:</strong> ${behaviour.description}
+                  </div>
+                  <span class="confidence-badge">${behaviour.confidence}/10</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
+
+  
+ /* ===========================================
+     ENHANCED CAREER RENDERING WITH NCS LINKS
+     =========================================== */
+       // ===========================================
+// This version does not show the KSB details, just the NCS links
+// ===========================================
+  renderCareersSection(ksbData) {
+    return `
+      <div class="careers-section">
+        <h4>Career opportunities:</h4>
+        
+        ${ksbData.careerPathways.length > 0 ? `
+          <div class="career-pathways">
+            <h5>Job Roles:</h5>
+            <div class="career-grid">
+              ${ksbData.careerPathways.map(career => {
+                const ncsUrl = this.findNCSUrl(career.role);
+                
+                return `
+                  <div class="career-item">
+                    <div class="career-details">
+                      <h6>${career.role}</h6>
+                      <span class="career-level">${career.level} Level</span>
+                      ${ncsUrl ? `
+                        <a href="${ncsUrl}" target="_blank" class="career-link">
+                          <span class="link-icon">🔗</span>
+                          View Career Details
+                        </a>
+                      ` : `
+                        <span class="no-link">Career details not available</span>
+                      `}
+                    </div>
+                    <span class="confidence-badge">${career.confidence}/10</span>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        ` : ''}
+        
+
+        
+        ${ksbData.analysisNotes ? `
+          <div class="analysis-notes">
+            <h5>Analysis Notes:</h5>
+            <p>${ksbData.analysisNotes}</p>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
+  // ===========================================
+// This not called. Previous version showing all the KSB details
+// ===========================================
+  renderCareersSectionAllKSB(ksbData) {
+    return `
+      <div class="careers-section">
+        <h4>Career opportunities:</h4>
+        
+        ${ksbData.careerPathways.length > 0 ? `
+          <div class="career-pathways">
+            <h5>Job Roles:</h5>
+            <div class="career-grid">
+              ${ksbData.careerPathways.map(career => {
+                const ncsUrl = this.findNCSUrl(career.role);
+                
+                return `
+                  <div class="career-item">
+                    <div class="career-details">
+                      <h6>${career.role}</h6>
+                      <span class="career-level">${career.level} Level</span>
+                      ${ncsUrl ? `
+                        <a href="${ncsUrl}" target="_blank" class="career-link">
+                          <span class="link-icon">🔗</span>
+                          View Career Details
+                        </a>
+                      ` : `
+                        <span class="no-link">Career details not available</span>
+                      `}
+                    </div>
+                    <span class="confidence-badge">${career.confidence}/10</span>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        ` : ''}
+        
+        ${ksbData.occupationalStandards.length > 0 ? `
+          <div class="occupational-standards">
+            <h5>IFATE Occupational Standards:</h5>
+            <div class="standards-grid">
+              ${ksbData.occupationalStandards.map(standard => `
+                <div class="standard-item">
+                  <div class="standard-details">
+                    <h6>${standard.name}</h6>
+                    <span class="standard-level">Level ${standard.level}</span>
+                  </div>
+                  <span class="confidence-badge">${standard.confidence}/10</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+        
+        ${ksbData.analysisNotes ? `
+          <div class="analysis-notes">
+            <h5>Analysis Notes:</h5>
+            <p>${ksbData.analysisNotes}</p>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
+  // setupModalTabs() {
+  //   const tabBtns = this.elements.modalContent.querySelectorAll('.tab-btn');
+  //   const tabContents = this.elements.modalContent.querySelectorAll('.tab-content');
+    
+  //   tabBtns.forEach(btn => {
+  //     btn.addEventListener('click', () => {
+  //       const targetTab = btn.dataset.tab;
+        
+  //       // Update active states
+  //       tabBtns.forEach(b => b.classList.remove('active'));
+  //       tabContents.forEach(c => c.classList.remove('active'));
+        
+  //       btn.classList.add('active');
+  //       this.elements.modalContent.querySelector(`[data-tab="${targetTab}"]`).classList.add('active');
+  //     });
+  //   });
+  // }
+// ===========================================
+// DEBUGGING VERSION - Replace your setupModalTabs() method
+// ===========================================
+
+// setupModalTabs() {
+//   console.log('🔧 Setting up modal tabs...');
+  
+//   const tabBtns = this.elements.modalContent.querySelectorAll('.tab-btn');
+//   const tabContents = this.elements.modalContent.querySelectorAll('.tab-content');
+  
+//   console.log('📋 Found tab buttons:', tabBtns.length);
+//   console.log('📄 Found tab contents:', tabContents.length);
+  
+//   // Log what tabs we found
+//   tabBtns.forEach((btn, index) => {
+//     console.log(`Tab ${index}:`, btn.dataset.tab, btn.textContent);
+//   });
+  
+//   tabContents.forEach((content, index) => {
+//     console.log(`Content ${index}:`, content.dataset.tab, content.classList.contains('active'));
+//   });
+  
+//   tabBtns.forEach(btn => {
+//     btn.addEventListener('click', () => {
+//       const targetTab = btn.dataset.tab;
+//       console.log('🖱️ Clicked tab:', targetTab);
+      
+//       // Update active states
+//       tabBtns.forEach(b => {
+//         b.classList.remove('active');
+//         console.log('Removed active from:', b.dataset.tab);
+//       });
+      
+//       tabContents.forEach(c => {
+//         c.classList.remove('active');
+//         console.log('Removed active from content:', c.dataset.tab);
+//       });
+      
+//       // Add active to clicked tab
+//       btn.classList.add('active');
+//       console.log('Added active to button:', targetTab);
+      
+//       // Add active to corresponding content
+//       const targetContent = this.elements.modalContent.querySelector(`[data-tab="${targetTab}"]`);
+//       if (targetContent) {
+//         targetContent.classList.add('active');
+//         console.log('Added active to content:', targetTab);
+//       } else {
+//         console.error('❌ Could not find content for tab:', targetTab);
+//       }
+//     });
+//   });
+// }
+// Replace your existing setupModalTabs() method with this fixed version
+
+setupModalTabs() {
+  const tabBtns = this.elements.modalContent.querySelectorAll('.tab-btn');
+  
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.dataset.tab;
+      console.log('Tab clicked:', targetTab);
+      
+      // Remove active from all buttons
+      tabBtns.forEach(b => b.classList.remove('active'));
+      
+      // Remove active from all TAB CONTENT (be very specific)
+      const allTabContents = this.elements.modalContent.querySelectorAll('.tab-content');
+      allTabContents.forEach(c => c.classList.remove('active'));
+      
+      // Add active to clicked button
+      btn.classList.add('active');
+      
+      // Find and activate the matching CONTENT (very specific selector)
+      const targetContent = this.elements.modalContent.querySelector(`.tab-content[data-tab="${targetTab}"]`);
+      
+      if (targetContent) {
+        targetContent.classList.add('active');
+        console.log('SUCCESS: Activated content for:', targetTab);
+      } else {
+        console.error('ERROR: Could not find content for tab:', targetTab);
+      }
+    });
+  });
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.dataset.tab;
+      console.log('Tab clicked:', targetTab);
+      
+      // ... your existing click handling code ...
+      
+      // NEW: Initialize visualization when Visual tab is clicked
+      if (targetTab === 'visual') {
+        setTimeout(() => this.initializeVisualization(), 100);
+      }
+    });
   });
   
-  // Message if no courses match filters
-  if (filteredCourses.length === 0) {
-    const message = document.createElement('p');
-    message.textContent = 'No courses match these filters.';
-    message.style.gridColumn = '1 / -1';
-    message.style.textAlign = 'center';
-    message.style.padding = '20px';
-    coursesList.appendChild(message);
+  // NEW: Add click handlers for pathway items after modal content is rendered
+  this.setupPathwayHandlers();
+}
+  /* ===========================================
+     NAVIGATION & UTILITY METHODS
+     =========================================== */
+  switchTab(tab) {
+    if (tab === this.currentTab) return;
+    
+    this.currentTab = tab;
+    
+    // Update active states
+    this.elements.navItems.forEach(item => {
+      if (item.dataset.tab === tab) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+    
+    // Handle tab content
+    switch (tab) {
+      case 'browse':
+        this.showingWishlistOnly = false;
+        this.elements.wishlistToggle.classList.remove('active');
+        this.applyFilters();
+        break;
+      case 'wishlist':
+        this.showingWishlistOnly = true;
+        this.displayCourses();
+        break;
+      case 'info':
+        this.showInfoModal();
+        break;
+    }
+  }
+
+  showInfoModal() {
+    alert('EMIOT Pathway Explorer\n\nExplore educational pathways and course progressions with AI-powered skills discovery.');
+    setTimeout(() => this.switchTab('browse'), 100);
+  }
+
+  handleBackButton() {
+    if (!this.elements.modalOverlay.classList.contains('hidden')) {
+      this.closeModal();
+    }
+  }
+
+  // toggleFilters() {
+  //   this.filtersCollapsed = !this.filtersCollapsed;
+    
+  //   if (this.filtersCollapsed) {
+  //     this.elements.filtersSection.classList.add('collapsed');
+  //   } else {
+  //     this.elements.filtersSection.classList.remove('collapsed');
+  //   }
+  // }
+// Update your toggleFilters method to work without the elements object:
+/* ===========================================
+   FIXED TOGGLE FILTERS METHOD
+   =========================================== */
+toggleFilters() {
+  this.filtersCollapsed = !this.filtersCollapsed;
+  
+  const filtersArrow = this.elements.filtersSection.querySelector('.filters-arrow');
+  
+  if (this.filtersCollapsed) {
+    // Collapsed state
+    this.elements.filtersSection.classList.add('collapsed');
+    if (filtersArrow) {
+      filtersArrow.textContent = '▼';  // Arrow pointing down
+    }
+    console.log('Filters collapsed');
+  } else {
+    // Expanded state
+    this.elements.filtersSection.classList.remove('collapsed');
+    if (filtersArrow) {
+      filtersArrow.textContent = '▲';  // Arrow pointing up
+    }
+    console.log('Filters expanded');
   }
 }
-
-function createCourseCard(course) {
-  // Clone the template
-  const cardTemplate = courseCardTemplate.content.cloneNode(true);
-  const card = cardTemplate.querySelector('.course-card');
-  
-  // Set card data attributes
-  card.dataset.courseId = course.courseId;
-  
-  // Set Level
-  card.querySelector('.level-number').textContent = course.level;
-  
-  // Set Provider badge
-  const providerBadge = card.querySelector('.provider-badge');
-  providerBadge.textContent = getProviderShortName(course.provider);
-  providerBadge.classList.add(getProviderClass(course.provider));
-  
-  // Set Course Name
-  card.querySelector('.course-name').textContent = course.courseName;
-  
-  // Set Subject Area
-  card.querySelector('.subject-area').textContent = course.subjectArea || '';
-  
-  // Add card background color based on level
-  card.style.borderLeft = `4px solid ${getLevelColor(course.level)}`;
-  
-  // Add click event to View Pathways button
-  const viewBtn = card.querySelector('.view-pathways-btn');
-  viewBtn.addEventListener('click', () => {
-    selectCourse(course.courseId);
-  });
-  
-  return card;
-}
-
-function applyFilters() {
-  displayCourseCards();
-}
-
-function resetFilters() {
-  levelFilter.value = '';
-  providerFilter.value = '';
-  subjectFilter.value = '';
-  displayCourseCards();
-}
-
+  // clearFilters() {
+  //   this.elements.levelFilter.value = '';
+  //   this.elements.providerFilter.value = '';
+  //   this.elements.subjectFilter.value = '';
+  //   this.elements.searchInput.value = '';
+  //   this.closeSearch();
+  //   this.applyFilters();
+  // }
 /* ===========================================
-   UTILITY FUNCTIONS
+   CLEAR FUNCTIONS - FIXED
    =========================================== */
-function getProviderShortName(provider) {
-  if (provider.includes('Derby College')) return 'DCG';
-  if (provider.includes('Loughborough College')) return 'LC';
-  if (provider.includes('University of Derby')) return 'UoD';
-  if (provider.includes('Loughborough University')) return 'LU';
-  return provider;
+clearFilters() {
+  this.elements.levelFilter.value = '';
+  this.elements.providerFilter.value = '';
+  this.elements.subjectFilter.value = '';
+  this.elements.searchInput.value = '';
+  this.closeSearch();
+  
+  // Reset to show all courses
+  this.filteredCourses = [...this.courses];
+  this.displayCourses();
 }
+  toggleSearch() {
+    const isHidden = this.elements.searchBar.classList.contains('hidden');
+    if (isHidden) {
+      this.elements.searchBar.classList.remove('hidden');
+      this.elements.searchInput.focus();
+    } else {
+      this.closeSearch();
+    }
+  }
 
-function getProviderClass(provider) {
-  if (provider.includes('Derby College')) return 'provider-derby-college';
-  if (provider.includes('Loughborough College')) return 'provider-loughborough-college';
-  if (provider.includes('University of Derby')) return 'provider-university-derby';
-  if (provider.includes('Loughborough University')) return 'provider-loughborough-university';
-  return '';
-}
+  closeSearch() {
+    this.elements.searchBar.classList.add('hidden');
+    this.elements.searchInput.value = '';
+    this.applyFilters();
+  }
 
-function getLevelColor(level) {
-  const colors = {
-    3: '#FF9999',
-    4: '#FFCC99',
-    5: '#FFFF99',
-    6: '#99FF99',
-    7: '#99CCFF'
-  };
-  return colors[level] || '#ccc';
-}
+  showLoading(show) {
+    if (show) {
+      this.elements.loadingState.classList.remove('hidden');
+      this.elements.coursesGrid.classList.add('hidden');
+    } else {
+      this.elements.loadingState.classList.add('hidden');
+      this.elements.coursesGrid.classList.remove('hidden');
+    }
+  }
 
-/* ===========================================
-   NETWORK VISUALIZATION
-   =========================================== */
-function createNetworkVisualization() {
-  // Options for the network
+  showError(message) {
+    this.elements.emptyState.innerHTML = `
+      <div class="empty-icon">⚠️</div>
+      <h3>Something went wrong</h3>
+      <p>${message}</p>
+    `;
+    this.elements.emptyState.classList.remove('hidden');
+  }
+// Add these methods to your EnhancedPathwayExplorer class
+
+initializeVisualization() {
+  if (!window.vis) {
+    console.warn('Vis.js not loaded');
+    return;
+  }
+  
+  const container = this.elements.modalContent.querySelector('#visualization');
+  if (!container) {
+    console.warn('Visualization container not found');
+    return;
+  }
+  
+  console.log('Initializing visualization...');
+  
+  // IMPORTANT: Force container to have proper dimensions
+container.style.width = '100%';
+container.style.height = '450px';  // Changed from 350px
+container.style.minHeight = '450px';  // Changed from 350px
+  
+  // Create empty data sets
+  this.nodes = new vis.DataSet([]);
+  this.edges = new vis.DataSet([]);
+    // Responsive network options
+  const isDesktop = window.innerWidth >= 768;
+  // Network options optimized for mobile
   const options = {
     layout: {
       hierarchical: {
-        direction: 'UD',
+        direction: 'LR',  // Keep Left to Right
         sortMethod: 'directed',
-        levelSeparation: 150,
-        nodeSpacing: 300
+        levelSeparation: isDesktop ? 450 : 150,  // More space on desktop
+        nodeSpacing: isDesktop ? 15 : 10       // More node spacing too
       }
     },
     nodes: {
       shape: 'box',
-      margin: 10,
-      size: 20,
-      font: {
-        size: 14
+      margin: isDesktop ? 14 : 8,               // Bigger margins on desktop
+      font: { 
+        size: isDesktop ? 14 : 12,              // Larger font on desktop
+        multi: true,                            // Allow text wrapping
+        maxWid: isDesktop ? 200 : 150          // Wider text boxes
       }
     },
     edges: {
-      arrows: {
-        to: { enabled: true, scaleFactor: 1 }
-      },
-      smooth: {
-        type: 'cubicBezier',
-        forceDirection: 'vertical'
-      }
+      arrows: { to: { enabled: true, scaleFactor: 0.8 } },
+      smooth: { type: 'cubicBezier', forceDirection: 'horizontal' }  // Changed to horizontal
     },
     physics: {
-      hierarchicalRepulsion: {
-        nodeDistance: 150
+      hierarchicalRepulsion: { 
+        nodeDistance: isDesktop ? 50: 60     // More space between nodes
       }
     },
     interaction: {
       hover: true,
-      tooltipDelay: 200
-    }
+      tooltipDelay: 300
+    },
+    // IMPORTANT: Force canvas size
+    width: '100%',
+    height: '450px'  // Changed from 350px
   };
   
-  // Create empty data sets
-  nodes = new vis.DataSet([]);
-  edges = new vis.DataSet([]);
+  // Create network
+  const data = { nodes: this.nodes, edges: this.edges };
+  this.network = new vis.Network(container, data, options);
   
-  // Create the network
-  const data = { nodes, edges };
-  network = new vis.Network(visualization, data, options);
+  // IMPORTANT: Force resize after creation
+  setTimeout(() => {
+    if (this.network) {
+      this.network.redraw();
+      this.network.fit();
+    }
+  }, 200);
   
-  // Event listener for node click
-  network.on('click', function(params) {
+  // Handle node clicks
+  this.network.on('click', (params) => {
     if (params.nodes.length > 0) {
       const nodeId = params.nodes[0];
-      selectCourse(nodeId);
+      const course = this.courses.find(c => c.courseId == nodeId);
+      if (course) {
+        this.openCourseModal(course);
+      }
     }
   });
+  
+  // Set up view mode selector
+  const viewModeSelect = this.elements.modalContent.querySelector('#viewModeSelect');
+  if (viewModeSelect) {
+    viewModeSelect.value = this.currentView || 'forward';
+    viewModeSelect.addEventListener('change', (e) => this.switchViewMode(e.target.value));
+  }
+  
+  // Update visualization for current course
+  this.updateVisualization();
 }
 
-function updateVisualization() {
+switchViewMode(mode) {
+  this.currentView = mode;
+  this.updateVisualization();
+}
+
+updateVisualization() {
+  if (!this.network || !this.selectedCourse) return;
+  
   // Clear existing nodes and edges
-  nodes.clear();
-  edges.clear();
+  this.nodes.clear();
+  this.edges.clear();
   
-  if (!selectedCourseId) return;
+  const course = this.selectedCourse;
   
-  const course = allCourses.find(c => c.courseId == selectedCourseId);
-  if (!course) return;
-  
-  // Create central node for selected course
-  nodes.add({
+  // Add central node
+  this.nodes.add({
     id: course.courseId,
     label: course.courseName,
     title: `${course.provider} - ${course.courseName} (Level ${course.level})`,
-    level: course.level,
-    shape: 'box',
     color: {
-      background: getLevelColor(course.level),
-      border: 'rgb(34, 73, 163)',
-      highlight: {
-        background: '#FFC107',
-        border: '#FF9800'
-      }
+      background: this.getLevelColor(course.level),
+      border: '#2a6496',
+      highlight: { background: '#FFC107', border: '#FF9800' }
     },
-    font: {
-      bold: true,
-      size: 24,
-      color: '#000000'
-    },
-    borderWidth: 3,
+    font: { bold: true, size: 12 },
+    borderWidth: 2
   });
   
-  // Add relevant connections based on view mode
-  if (currentView === 'forward') {
-    // Forward view: show where this course leads to
-    const outgoingConnections = allConnections.filter(conn => conn.fromCourseId == selectedCourseId);
-    
-    outgoingConnections.forEach(conn => {
-      const toCourse = allCourses.find(c => c.courseId == conn.toCourseId);
+  if (this.currentView === 'forward') {
+    // Show outgoing connections
+    const outgoing = this.connections.filter(conn => conn.fromCourseId == course.courseId);
+    outgoing.forEach(conn => {
+      const toCourse = this.courses.find(c => c.courseId == conn.toCourseId);
       if (toCourse) {
-        nodes.add({
+        this.nodes.add({
           id: toCourse.courseId,
           label: toCourse.courseName,
           title: `${toCourse.provider} - ${toCourse.courseName} (Level ${toCourse.level})`,
-          level: toCourse.level,
-          size: 20,
-          color: {
-            background: getLevelColor(toCourse.level)
-          }
+          color: { background: this.getLevelColor(toCourse.level) },
+          font: { size: 10 }
         });
-        
-        edges.add({
-          from: selectedCourseId,
+        this.edges.add({
+          from: course.courseId,
           to: toCourse.courseId,
           title: conn.notes || 'Progression route'
         });
       }
     });
   } else {
-    // Backward view: show what leads to this course
-    const incomingConnections = allConnections.filter(conn => conn.toCourseId == selectedCourseId);
-    
-    incomingConnections.forEach(conn => {
-      const fromCourse = allCourses.find(c => c.courseId == conn.fromCourseId);
+    // Show incoming connections
+    const incoming = this.connections.filter(conn => conn.toCourseId == course.courseId);
+    incoming.forEach(conn => {
+      const fromCourse = this.courses.find(c => c.courseId == conn.fromCourseId);
       if (fromCourse) {
-        nodes.add({
+        this.nodes.add({
           id: fromCourse.courseId,
           label: fromCourse.courseName,
           title: `${fromCourse.provider} - ${fromCourse.courseName} (Level ${fromCourse.level})`,
-          level: fromCourse.level,
-          color: {
-            background: getLevelColor(fromCourse.level)
-          }
+          color: { background: this.getLevelColor(fromCourse.level) },
+          font: { size: 10 }
         });
-        
-        edges.add({
+        this.edges.add({
           from: fromCourse.courseId,
-          to: selectedCourseId,
+          to: course.courseId,
           title: conn.notes || 'Progression route'
         });
       }
     });
   }
   
-  // Fit the network to view all nodes
-  network.fit();
+  // Fit network to view
+  setTimeout(() => this.network.fit(), 100);
 }
 
-function switchViewMode(mode) {
-  currentView = mode;
-  
-  // Update selected option in dropdown
-  const viewModeSelect = document.getElementById('viewModeSelect');
-  if (viewModeSelect) {
-    viewModeSelect.value = mode;
-  }
-  
-  // Update visualization if a course is selected
-  if (selectedCourseId) {
-    updateVisualization();
-  }
+getLevelColor(level) {
+  const colors = {
+    3: '#FF9999',
+    4: '#FFCC99', 
+    5: '#FFFF99',
+    6: '#99FF99',
+    7: '#99CCFF'
+  };
+  return colors[level] || '#ccc';
 }
-
-/* ===========================================
-   COURSE SELECTION AND HISTORY
-   =========================================== */
-async function selectCourse(courseId, addToHistory = true) {
-  const appContainer = document.querySelector('.app-container');
-  const inCompactView = appContainer.classList.contains('compact-view');
-  
-  // If in compact view, switch back to normal view
-  if (inCompactView) {
-    appContainer.classList.remove('compact-view');
-    document.getElementById('toggleCompactView').textContent = 'Expanded View ▶';
-    document.getElementById('toggleCompactView').classList.remove('expanded');
+  /* ===========================================
+     UTILITY FUNCTIONS
+     =========================================== */
+  getProviderShortName(provider) {
+    if (provider.includes('Derby College')) return 'DCG';
+    if (provider.includes('Loughborough College')) return 'LC';
+    if (provider.includes('University of Derby')) return 'UoD';
+    if (provider.includes('Loughborough University')) return 'LU';
+    return provider;
   }
   
-  // Find the course
-  const course = allCourses.find(c => c.courseId == courseId);
-  if (!course) return;
-  
-  const dummyText = "Specimen text: The core components provide a broad understanding of the digital industry and the breadth of content will help to ensure you are able to apply the skills in a variety of contexts and for a variety of different purposes.Looking at digital infrastructure, digital support and network cabling, you will learn how to apply procedures and controls to maintain the digital security of an organisation and its data. You will also learn how to explain, install, configure, test and manage both physical and virtual infrastructure while discovering, evaluating and applying reliable sources of knowledge.";
-  
-  console.log('Selected course:', course);
-  console.log('Course URL:', course.courseUrl);
-  
-  // Update selected course
-  selectedCourseId = courseId;
-  
-  // Handle history
-  if (addToHistory) {
-    console.log("Before adding to history:", {
-      courseHistory: [...courseHistory],
-      historyPointer,
-      newCourseId: courseId
-    });
-    
-    // If we're not at the end of the history, truncate the forward history
-    if (historyPointer < courseHistory.length - 1) {
-      courseHistory = courseHistory.slice(0, historyPointer + 1);
-    }
-    
-    // Add this course to history if it's different from the current one
-    if (historyPointer < 0 || courseHistory[historyPointer] !== courseId) {
-      courseHistory.push(courseId);
-      historyPointer = courseHistory.length - 1;
-    }
-    
-    console.log("After adding to history:", {
-      courseHistory: [...courseHistory],
-      historyPointer
-    });
-    
-    updateHistoryButtons();
-  }
-
-  // Show visualization container
-  document.querySelector('.visualization-container').style.display = 'block';
-  
-  // Show details and hide no selection message
-  detailsPanel.classList.remove('hidden');
-  noSelectionPanel.classList.add('hidden');
- 
-  // Make sure resize control is visible
-  if (detailsResize) {
-    detailsResize.style.display = 'block';
-  }
-
-  // Update course details
-  document.getElementById('courseTitle').textContent = course.courseName;
-  document.getElementById('courseProvider').textContent = course.provider;
-  document.getElementById('courseLevel').textContent = course.level;
-  document.getElementById('courseSubject').textContent = course.subjectArea || 'N/A';
-  document.getElementById('courseQualification').textContent = course.qualificationType || 'N/A';
-  document.getElementById('courseDescription').textContent = dummyText;
-  
-  // Update course link
-  const courseLinkContainer = document.getElementById('courseLinkContainer');
-  const courseLinkElement = document.getElementById('courseLink');
-
-  if (course.courseUrl && course.courseUrl.trim() !== '') {
-    courseLinkElement.href = course.courseUrl;
-    courseLinkContainer.style.display = 'block';
-  } else {
-    courseLinkContainer.style.display = 'none';
-  }
-  
-  // Update visualization based on current view
-  updateVisualization();
-  
-  // Fetch and display progression routes
-  await fetchProgressionRoutes(courseId);
-  
-  // Update wishlist UI
-  updateWishListUI();
-}
-
-async function fetchProgressionRoutes(courseId) {
-  try {
-    // Fetch outgoing progression routes
-    const progressionResponse = await fetch(`/api/courses/${courseId}/progression`);
-    const progressionRoutes = await progressionResponse.json();
-    
-    // Fetch incoming progression routes
-    const precedingResponse = await fetch(`/api/courses/${courseId}/preceding`);
-    const precedingRoutes = await precedingResponse.json();
-    
-    // Update the "leads to" list
-    const leadsToList = document.getElementById('leadsTo');
-    leadsToList.innerHTML = '';
-    if (progressionRoutes.length === 0) {
-      leadsToList.innerHTML = '<li class="no-routes">No further progression within EMIOT</li>';
-    } else {
-      progressionRoutes.forEach(route => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${route.course.courseName}</strong> (Level ${route.course.level}) - ${route.course.provider}`;
-        if (route.notes) {
-          li.innerHTML += `<br><span class="route-notes">${route.notes}</span>`;
-        }
-        li.dataset.courseId = route.toId;
-        li.addEventListener('click', () => selectCourse(route.toId));
-        leadsToList.appendChild(li);
-      });
-    }
-    
-    // Update the "coming from" list
-    const comingFromList = document.getElementById('comingFrom');
-    comingFromList.innerHTML = '';
-    if (precedingRoutes.length === 0) {
-      comingFromList.innerHTML = '<li class="no-routes">No courses lead here</li>';
-    } else {
-      precedingRoutes.forEach(route => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${route.course.courseName}</strong> (Level ${route.course.level}) - ${route.course.provider}`;
-        if (route.notes) {
-          li.innerHTML += `<br><span class="route-notes">${route.notes}</span>`;
-        }
-        li.dataset.courseId = route.fromId;
-        li.addEventListener('click', () => selectCourse(route.fromId));
-        comingFromList.appendChild(li);
-      });
-    }
-  } catch (error) {
-    console.error('Error fetching progression routes:', error);
+  getProviderClass(provider) {
+    if (provider.includes('Derby College')) return 'dcg';
+    if (provider.includes('Loughborough College')) return 'lc';
+    if (provider.includes('University of Derby')) return 'uod';
+    if (provider.includes('Loughborough University')) return 'lu';
+    return '';
   }
 }
 
-function closeDetails() {
-  detailsPanel.classList.add('hidden');
-  noSelectionPanel.classList.remove('hidden');
-  selectedCourseId = null;
-  document.querySelector('.visualization-container').style.display = 'none';
-  
-  // Clear visualization
-  nodes.clear();
-  edges.clear();
-}
-
-/* ===========================================
-   HISTORY NAVIGATION
-   =========================================== */
-function goToPreviousCourse() {
-  if (historyPointer > 0) {
-    historyPointer--;
-    selectCourse(courseHistory[historyPointer], false);
-    updateHistoryButtons();
-  }
-}
-
-function goToNextCourse() {
-  if (historyPointer < courseHistory.length - 1) {
-    historyPointer++;
-    selectCourse(courseHistory[historyPointer], false);
-    updateHistoryButtons();
-  }
-}
-
-function updateHistoryButtons() {
-  // Get the buttons and indicator
-  const prevBtn = document.getElementById('prevCourseBtn');
-  const nextBtn = document.getElementById('nextCourseBtn');
-  const indicator = document.getElementById('historyIndicator');
-  
-  // Update disabled state for buttons
-  if (prevBtn) {
-    prevBtn.disabled = historyPointer <= 0;
-  }
-  
-  if (nextBtn) {
-    nextBtn.disabled = historyPointer >= courseHistory.length - 1;
-  }
-  
-  // Update the history indicator
-  if (indicator && courseHistory.length > 0) {
-    const current = historyPointer + 1;
-    const total = courseHistory.length;
-    indicator.textContent = `${current} of ${total}`;
-    
-    // Hide the indicator if there's only one item
-    indicator.style.display = total > 1 ? 'flex' : 'none';
-  }
-}
-
-/* ===========================================
-   FILTERS FUNCTIONALITY
-   =========================================== */
-function toggleFilters() {
-  filtersCollapsed = !filtersCollapsed;
-  
-  if (filtersCollapsed) {
-    // Collapsed state
-    filtersContainer.classList.add('collapsed');
-    filtersToggle.textContent = '▼';
-    localStorage.setItem('emiotFiltersCollapsed', 'true');
-  } else {
-    // Expanded state
-    filtersContainer.classList.remove('collapsed');
-    filtersToggle.textContent = '▲';
-    localStorage.setItem('emiotFiltersCollapsed', 'false');
-  }
-}
-
-function loadFiltersState() {
-  const savedState = localStorage.getItem('emiotFiltersCollapsed');
-  
-  if (savedState === 'true') {
-    // Initialize as collapsed if that was the previous state
-    filtersCollapsed = false; // Set to false so toggle will flip it to true
-    toggleFilters();
-  }
-}
-
-/* ===========================================
-   UI SETUP FUNCTIONS
-   =========================================== */
-function setupTabSwitching() {
-  const visualTab = document.getElementById('visualTab');
-  const detailsTab = document.getElementById('detailsTab');
-  const visualContainer = document.getElementById('visualizationContainer');
-  const detailsContainer = document.getElementById('detailsContainer');
-  const viewModeSelect = document.getElementById('viewModeSelect');
-  
-  if (!visualTab || !detailsTab) {
-    console.log('Tab elements not found');
-    return;
-  }
-  
-  visualTab.addEventListener('click', function() {
-    visualTab.classList.add('active');
-    detailsTab.classList.remove('active');
-    visualContainer.classList.add('active');
-    detailsContainer.classList.remove('active');
-    
-    // Make sure dropdown is visible when visualization tab is active
-    if (viewModeSelect) {
-      viewModeSelect.style.display = 'block';
-    }
-    
-    // Resize network if visible
-    if (network && visualContainer.classList.contains('active')) {
-      setTimeout(() => network.fit(), 100);
-    }
-  });
-  
-  detailsTab.addEventListener('click', function() {
-    detailsTab.classList.add('active');
-    visualTab.classList.remove('active');
-    detailsContainer.classList.add('active');
-    visualContainer.classList.remove('active');
-    
-    // Hide dropdown when details tab is active
-    if (viewModeSelect) {
-      viewModeSelect.style.display = 'none';
-    }
-  });
-  
-  // Set up view mode dropdown
-  if (viewModeSelect) {
-    viewModeSelect.addEventListener('change', function() {
-      switchViewMode(this.value);
-    });
-    
-    // Initially hide dropdown if details tab is active
-    if (!visualTab.classList.contains('active')) {
-      viewModeSelect.style.display = 'none';
-    }
-  }
-  
-  // Debug - check initial state
-  console.log('Initial tab state:');
-  console.log('- Visual tab active:', visualTab.classList.contains('active'));
-  console.log('- Details tab active:', detailsTab.classList.contains('active'));
-  console.log('- Details container active:', detailsContainer.classList.contains('active'));
-}
-
-function setupCompactViewToggle() {
-  // Create the toggle button
-  const toggleContainer = document.createElement('div');
-  toggleContainer.className = 'view-options';
-  
-  const toggleButton = document.createElement('button');
-  toggleButton.id = 'toggleCompactView';
-  toggleButton.className = 'compact-toggle';
-  toggleButton.textContent = 'Expanded View ▶';
-  
-  toggleContainer.appendChild(toggleButton);
-  
-  // Insert before the courses list
-  const coursesContainer = document.querySelector('.courses-container');
-  if (coursesContainer) {
-    // Make sure we don't add it twice
-    const existingToggle = document.getElementById('toggleCompactView');
-    if (existingToggle) {
-      existingToggle.parentNode.removeChild(existingToggle);
-    }
-    
-    coursesContainer.insertBefore(toggleContainer, document.getElementById('coursesList'));
-    
-    // Add click handler
-    toggleButton.addEventListener('click', function() {
-      const appContainer = document.querySelector('.app-container');
-      const isCurrentlyExpanded = appContainer.classList.contains('compact-view');
-      
-      if (isCurrentlyExpanded) {
-        // Currently expanded full screen, return to split view
-        appContainer.classList.remove('compact-view');
-        this.textContent = 'Expanded View ▶';
-        this.classList.remove('expanded');
-        
-        // If a course is selected, make sure network is properly displayed
-        if (selectedCourseId) {
-          setTimeout(() => {
-            if (network) network.fit();
-          }, 300);
-        }
-      } else {
-        // Currently in normal state, expand to full screen
-        appContainer.classList.add('compact-view');
-        this.textContent = '◀ Split View';
-        this.classList.add('expanded');
-      }
-    });
-  }
-}
-
-/* ===========================================
-   EVENT LISTENERS AND INITIALIZATION
-   =========================================== */
-document.addEventListener('DOMContentLoaded', function() {
-  // Load wishlist on page load
-  loadWishList();
-  updateWishListCount();
-  
-  // Add wishlist event listeners
-  const wishlistBtn = document.getElementById('wishlistBtn');
-  const showWishlistBtn = document.getElementById('showWishlistBtn');
-  
-  if (wishlistBtn) {
-    wishlistBtn.addEventListener('click', () => {
-      if (selectedCourseId) {
-        toggleWishList(selectedCourseId);
-      }
-    });
-  }
-  
-  if (showWishlistBtn) {
-    showWishlistBtn.addEventListener('click', toggleWishListFilter);
-  }
-  
-  // Filter event listeners
-  levelFilter.addEventListener('change', applyFilters);
-  providerFilter.addEventListener('change', applyFilters);
-  subjectFilter.addEventListener('change', applyFilters);
-  resetFiltersBtn.addEventListener('click', resetFilters);
-  
-  // Filter toggle event listener
-  if (filtersHeader) {
-    filtersHeader.addEventListener('click', toggleFilters);
-  }
-  
-  // History navigation listeners
-  const prevCourseBtn = document.getElementById('prevCourseBtn');
-  const nextCourseBtn = document.getElementById('nextCourseBtn');
-  
-  if (prevCourseBtn) {
-    prevCourseBtn.addEventListener('click', () => {
-      if (historyPointer > 0) {
-        historyPointer--;
-        const courseId = courseHistory[historyPointer];
-        selectCourse(courseId, false);
-        updateHistoryButtons();
-      }
-    });
-  }
-
-  if (nextCourseBtn) {
-    nextCourseBtn.addEventListener('click', () => {
-      if (historyPointer < courseHistory.length - 1) {
-        historyPointer++;
-        const courseId = courseHistory[historyPointer];
-        selectCourse(courseId, false);
-        updateHistoryButtons();
-      }
-    });
-  }
-
-  // View mode dropdown handler
-  const viewModeSelect = document.getElementById('viewModeSelect');
-  if (viewModeSelect) {
-    viewModeSelect.addEventListener('change', function() {
-      switchViewMode(this.value);
-    });
-  }
-  
-  if (selectedCourseId) {
-    updateVisualization();
-  }
-  
-  // Set up color key toggle
-  const toggleColorKey = document.getElementById('toggleColorKey');
-  const colorKeyPopup = document.getElementById('colorKeyPopup');
-  
-  if (toggleColorKey && colorKeyPopup) {
-    toggleColorKey.addEventListener('click', () => {
-      colorKeyPopup.classList.toggle('hidden');
-    });
-    
-    // Close popup when clicking outside
-    document.addEventListener('click', (event) => {
-      if (!toggleColorKey.contains(event.target) && !colorKeyPopup.contains(event.target)) {
-        colorKeyPopup.classList.add('hidden');
-      }
-    });
-  }
-  
-  // Initialize the application
-  loadData();
-  
-  // Call setup functions
-  setupTabSwitching();
-  setupCompactViewToggle();
+// Initialize the enhanced app when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  new EnhancedPathwayExplorer();
 });
